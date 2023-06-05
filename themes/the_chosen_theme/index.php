@@ -16,7 +16,7 @@ get_header();
 ?>
 
 	<main id="primary" class="site-main">
-
+		<h1> <?php esc_html_e( 'Hello World!', 'the_chosen' ); ?></h1>
 		<?php
 		if ( have_posts() ) :
 
