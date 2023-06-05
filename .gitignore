@@ -10,6 +10,8 @@
 #---------------------------
 # Ignore all plugins
 /plugins/*
+!/plugins/wp-graphql-acf/
+!/plugins/wp-graphql-polylang/
 
 #---------------------------
 # MU plugins: these are
