@@ -16,7 +16,6 @@ add_action( 'acf/include_fields', function() {
 	if ( ! function_exists( 'acf_add_local_field_group' ) ) {
 		return;
 	}
-
 	acf_add_local_field_group( array(
 		'key' => 'group_64809b459da9e',
 		'title' => 'Translation fields',
