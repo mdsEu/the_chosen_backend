@@ -1,4 +1,5 @@
 <?php
+/** test theme **/
 /**
  * the_chosen functions and definitions
  *
