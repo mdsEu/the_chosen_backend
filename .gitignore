@@ -12,6 +12,7 @@
 /plugins/*
 !/plugins/wp-graphql-acf/
 !/plugins/wp-graphql-polylang/
+!/plugins/advanced-custom-fields-pro/
 
 #---------------------------
 # MU plugins: these are
