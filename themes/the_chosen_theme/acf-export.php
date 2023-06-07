@@ -23,8 +23,8 @@ add_action( 'acf/include_fields', function() {
 		'fields' => array(
 			array(
 				'key' => 'field_64809b97b9ee7',
-				'label' => 'Keyvalue',
-				'name' => 'keyvalue',
+				'label' => 'Translation rows',
+				'name' => 'translation_rows',
 				'aria-label' => '',
 				'type' => 'repeater',
 				'instructions' => '',
