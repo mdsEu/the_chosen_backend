@@ -177,3 +177,7 @@ if ( defined( 'JETPACK__VERSION' ) ) {
 	require get_template_directory() . '/inc/jetpack.php';
 }
 
+/**
+ * ACF elements
+ */
+include_once('acf-export.php');
