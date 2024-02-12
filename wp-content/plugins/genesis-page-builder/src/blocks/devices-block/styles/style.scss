@@ -1,0 +1,73 @@
+/**
+ * Device styles
+ * Loads on front end and back end
+ */
+
+.gpb-device-mockup {
+	position: relative;
+}
+
+.gpb-device-phone,
+.gpb-device-tablet {
+	display: block;
+	background-color: #000;
+	background-size: auto 200%, cover;
+	background-repeat: no-repeat, no-repeat;
+	border: solid #111;
+	position: relative;
+	box-shadow: 0 0.5em 2em 0.2em rgba(0, 0, 0, 0.33), 0 0 0 0.5px #000 inset;
+	transition: all 0.1s linear, line-height 0s linear;
+	background-position: 50% 100%, center;
+	margin-bottom: 1.2em;
+	overflow: hidden;
+}
+
+.gpb-device-phone {
+	width: 100%;
+	height: 0;
+	padding-bottom: 204%;
+	border-width: 0.7em;
+	border-radius: 25px;
+}
+
+.gpb-device-phone.gpb-device-horizontal {
+	padding-bottom: 44.5%;
+}
+
+.gpb-device-tablet {
+	width: 100%;
+	height: 0;
+	padding-bottom: 127%;
+	border-width: 0.7em;
+	border-radius: 25px;
+}
+
+.gpb-device-tablet.gpb-device-horizontal {
+	padding-bottom: 71%;
+}
+
+.gpb-device-white {
+	border-color: #fff;
+	box-shadow: 0 0.5em 2em 0.2em rgba(0, 0, 0, 0.33), 0 0 0 0.5px #c7c7c7 inset;
+}
+
+.gpb-device-no-shadow {
+	box-shadow: none;
+}
+
+.gpb-device-align-center {
+	margin-left: auto;
+	margin-right: auto;
+}
+
+.gpb-device-align-left {
+	margin-right: auto;
+}
+
+.gpb-device-align-right {
+	margin-left: auto;
+}
+
+.gpb-number-sequence {
+	font-size: 50px;
+}
