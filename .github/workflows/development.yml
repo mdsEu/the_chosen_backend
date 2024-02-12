@@ -1,0 +1,20 @@
+name: Deploy to development
+on:
+  push:
+    branches:
+     - development
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v3
+    - name: Deploy WordPress to WP Engine
+      uses: wpengine/github-action-wpe-site-deploy@v3.1.1
+      with:
+      # Deploy vars
+        WPE_SSHG_KEY_PRIVATE: ${{ secrets.WPE_SSHG_KEY_PRIVATE }}
+        WPE_ENV: thechosen1dev
+        # Deploy Options
+        REMOTE_PATH: "wp-content/"
+        PHP_LINT: TRUE
+        CACHE_CLEAR: TRUE
