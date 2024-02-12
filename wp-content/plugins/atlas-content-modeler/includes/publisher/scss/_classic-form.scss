@@ -1,0 +1,411 @@
+$color-gray-mid: #405e6a;
+$form-purple: #7e5cef;
+$form-default-border-gray: #9db7d1;
+$error-red: #d21b46;
+$button-primary: #002838;
+
+/**
+	WP Overrides
+ */
+.post-php,
+.post-new-php {
+	.page-title-action,
+	h1.wp-heading-inline {
+		display: none;
+	}
+}
+/* reposition publish sidebar due to removing previous title */
+#side-sortables {
+	margin-top: 20px;
+}
+
+/**
+	Classic Form Styling overrides
+ */
+.classic-form {
+	background: #fff;
+	padding: 40px;
+
+	.media-item {
+		margin: 15px 0 0;
+
+		img {
+			cursor: pointer;
+			max-width: 500px;
+			max-height: 400px;
+		}
+
+		a {
+			font-size: 14px;
+		}
+	}
+
+	.media-btns {
+		margin-bottom: 10px;
+	}
+
+	.page-title-action {
+		display: block !important;
+		margin-top: 16px;
+	}
+
+	h3 {
+		&.main-title {
+			font-size: 28px;
+			line-height: 52px;
+			margin: 0;
+			padding: 0;
+		}
+	}
+
+	.action-buttons {
+		margin-top: 40px;
+	}
+
+	a {
+		&.btn-delete {
+			color: $error-red;
+			display: inline-block;
+			margin-top: 15px;
+			padding: 16px;
+		}
+		&.btn-delete:focus,
+		&.btn-delete:hover {
+			color: darken($error-red, 10);
+		}
+	}
+
+	button {
+		&.action-button {
+			&:focus,
+			&:hover {
+				border-color: $form-purple;
+				background-color: $form-purple;
+			}
+
+			font-size: 14px;
+			background-color: $form-purple;
+			padding: 10px 40px !important;
+		}
+	}
+
+	.field {
+		margin-top: 30px;
+
+		input[type="text"],
+		input[type="password"],
+		input[type="color"],
+		input[type="date"],
+		input[type="datetime"],
+		input[type="datetime-local"],
+		input[type="email"],
+		input[type="month"],
+		input[type="number"],
+		input[type="search"],
+		input[type="tel"],
+		input[type="time"],
+		input[type="url"],
+		input[type="week"],
+		select,
+		textarea {
+			height: 52px;
+			padding: 16px;
+			font-size: 14px;
+			border-radius: 4px;
+			border: 1px solid $form-default-border-gray;
+			margin: 15px 0 0;
+			width: 100%;
+		}
+
+		textarea {
+			height: 100px;
+		}
+
+		&.richtext label {
+			margin-bottom: 15px;
+		}
+
+		input.button,
+		button.link-button {
+			background: $button-primary;
+			font-size: 16px;
+			font-weight: 600;
+			line-height: 16px;
+			margin-top: 15px;
+			padding: 16px 24px;
+
+			&:focus,
+			&:hover {
+				background: lighten($button-primary, 5);
+			}
+		}
+
+		label,
+		legend {
+			font-family: "Open Sans", sans-serif;
+			color: #002838;
+			font-weight: bold;
+			font-size: 14px;
+		}
+
+		/* checkboxes */
+		.check-container {
+			display: block;
+			position: relative;
+			padding-left: 35px;
+			line-height: 24px;
+			margin-bottom: 12px;
+			cursor: pointer;
+			font-size: 14px;
+			-webkit-user-select: none;
+			-moz-user-select: none;
+			-ms-user-select: none;
+			user-select: none;
+		}
+
+		.multi-check-container {
+			margin-top: 14px;
+		}
+
+		/* Hide the browser's default checkbox */
+		.check-container input {
+			position: absolute;
+			opacity: 0;
+			cursor: pointer;
+			height: 0;
+			width: 0;
+		}
+
+		/* Create a custom checkbox */
+		.checkmark {
+			position: absolute;
+			top: 0;
+			left: 0;
+			height: 20px;
+			width: 20px;
+			background-color: #ffffff;
+			border: 2px solid $form-default-border-gray;
+			border-radius: 2px;
+		}
+
+		/* On mouse-over, focus add a purple border color */
+		.check-container:hover input ~ .checkmark {
+			border-color: $form-purple !important;
+		}
+
+		.check-container input:focus ~ .checkmark {
+			border-color: $form-purple !important;
+		}
+
+		/* When the checkbox is checked, add a black background */
+		.check-container input:checked ~ .checkmark {
+			background-color: #000;
+			border-color: #000;
+		}
+
+		/* Create the checkmark/indicator (hidden when not checked) */
+		.checkmark:after {
+			content: "";
+			position: absolute;
+			display: none;
+		}
+
+		/* Show the checkmark when checked */
+		.check-container input:checked ~ .checkmark:after {
+			display: block;
+		}
+
+		/* Style the checkmark/indicator */
+		.check-container .checkmark:after {
+			left: 6px;
+			top: 2px;
+			width: 5px;
+			height: 10px;
+			border: solid white;
+			border-width: 0 3px 3px 0;
+			-webkit-transform: rotate(45deg);
+			-ms-transform: rotate(45deg);
+			transform: rotate(45deg);
+		}
+
+		/* Radio Selects */
+		.radio-container {
+			display: block;
+			position: relative;
+			padding-left: 35px;
+			margin-top: 9px;
+			line-height: 26px;
+			cursor: pointer;
+			font-size: 14px;
+			-webkit-user-select: none;
+			-moz-user-select: none;
+			-ms-user-select: none;
+			user-select: none;
+		}
+		.multi-select-outer-container {
+			margin-top: 14px;
+		}
+
+		/* Hide the browser's default radio */
+		.radio-container input {
+			position: absolute;
+			opacity: 0;
+			cursor: pointer;
+			height: 0;
+			width: 0;
+		}
+
+		/* Create a custom radio */
+		.radio-select {
+			position: absolute;
+			top: 0;
+			left: 0;
+			height: 20px;
+			width: 20px;
+			background-color: #ffffff;
+			border: 2px solid $form-default-border-gray;
+			border-radius: 15px;
+		}
+
+		/* On mouse-over, focus add a purple border color */
+		.radio-container:hover input ~ .radio-select {
+			border-color: $form-purple !important;
+		}
+
+		.radio-container input:focus ~ .radio-select {
+			border-color: $form-purple !important;
+		}
+
+		/* When the checkbox is checked, add a black background */
+		.radio-container input:checked ~ .radio-select {
+			background-color: #000;
+			border-color: #000;
+		}
+
+		/* Create the checkmark/indicator (hidden when not checked) */
+		.radio-select:after {
+			content: "";
+			position: absolute;
+			display: none;
+		}
+
+		/* Show the checkmark when checked */
+		.radio-container input:checked ~ .radio-select:after {
+			display: block;
+		}
+
+		/* Style the checkmark/indicator */
+		.radio-container .radio-select:after {
+			left: 2px;
+			top: 2px;
+			width: 10px;
+			height: 10px;
+			background-color: #000;
+			border: solid white;
+			border-width: 3px;
+			border-radius: 10px;
+		}
+
+		/* HTML5 validation styling */
+		input {
+			&:focus {
+				border-color: $form-purple !important;
+				border-width: 2px;
+			}
+
+			font-size: 1rem;
+			margin: 0;
+			min-width: 125px;
+			padding: 0.5rem;
+			transition: border-color 0.5s ease-out;
+		}
+
+		input:optional {
+			border-color: $form-default-border-gray;
+		}
+
+		span.error {
+			display: none;
+		}
+
+		.error svg {
+			margin-right: 8px;
+		}
+
+		.help {
+			color: $color-gray-mid;
+		}
+
+		.required {
+			color: $color-gray-mid;
+			font-size: 12px;
+			margin-bottom: 0;
+		}
+	}
+}
+
+.post-php .classic-form,
+.post-new-php .submitted .classic-form {
+	input:invalid {
+		border-color: $error-red;
+	}
+
+	input:invalid + span.error,
+	textarea:invalid + span.error {
+		color: $error-red;
+		font-weight: normal;
+		display: flex;
+		margin: 8px 0 0;
+	}
+
+	.field.boolean .error {
+		margin-top: 12px;
+		margin-left: -34px;
+	}
+}
+
+#feedbackBanner {
+	@media (min-width: 770px) {
+		margin-top: 30px;
+	}
+
+	&.notice {
+		border-left-width: 1px;
+		border-left-color: #c3c4c7;
+	}
+}
+
+@media (min-width: 1350px) {
+	.classic-form {
+		.field {
+			input[type="text"],
+			input[type="password"],
+			input[type="color"],
+			input[type="date"],
+			input[type="datetime"],
+			input[type="datetime-local"],
+			input[type="email"],
+			input[type="month"],
+			input[type="number"],
+			input[type="search"],
+			input[type="tel"],
+			input[type="time"],
+			input[type="url"],
+			input[type="week"],
+			select,
+			textarea {
+				width: 60%;
+			}
+
+			.mce-tinymce {
+				width: 60% !important;
+			}
+		}
+		.repeater-input {
+			textarea {
+				width: 100%;
+				margin: 0px;
+			}
+		}
+	}
+}

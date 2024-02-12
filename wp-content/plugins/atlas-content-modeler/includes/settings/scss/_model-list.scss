@@ -1,0 +1,131 @@
+@import "../../../includes/shared-assets/scss/_variables";
+.model-list li {
+	display: flex;
+	justify-content: space-between;
+	margin-bottom: 32px;
+}
+
+.model-list li:focus,
+.model-list li:hover {
+	box-shadow: 0 0 5px 1px rgba(14, 202, 212, 0.75);
+}
+
+.model-list li > a:first-of-type {
+	color: $color-text;
+	display: flex;
+	justify-content: space-between;
+	min-width: 85%;
+	padding: 10px 16px;
+	text-decoration: none;
+}
+
+.model-list li a > span {
+	flex-basis: 9%;
+}
+
+.model-list li span.wide {
+	flex-basis: 15%;
+}
+
+.model-list li span.widest {
+	flex-basis: 30%;
+}
+
+.model-list .label {
+	color: $color-gray-mid;
+	font-size: 13px;
+	font-weight: 400;
+	margin: 0 0 2px;
+}
+
+.model-list .value {
+	margin: 0;
+}
+
+.model-list .add-item {
+	border: none;
+	box-shadow: none;
+	justify-content: center;
+	margin-bottom: 0;
+	margin-top: -46px;
+}
+
+.model-list .add-item button {
+	background-color: transparent;
+	border: none;
+	height: 64px;
+	padding: 0;
+}
+
+.ReactModal__Content:focus {
+	box-shadow: none;
+}
+
+.atlas-content-modeler-delete-model-modal-container,
+.atlas-content-modeler-delete-field-modal-container,
+.atlas-content-modeler-unsaved-changes-modal-container,
+.atlas-content-modeler-field-settings-modal-container {
+	h2 {
+		font-size: 24px;
+		margin-top: 0;
+	}
+
+	.ReactModal__Content--after-open p:last-of-type {
+		margin-bottom: 40px;
+	}
+}
+
+.atlas-content-modeler-delete-model-modal-container {
+	ul {
+		list-style-type: disc;
+		padding-left: 2rem;
+
+		li.warning {
+			color: $color-warning;
+			font-weight: 700;
+		}
+	}
+}
+
+.atlas-content-modeler-edit-model-modal-container {
+	overflow: hidden;
+
+	.ReactModal__Overlay--after-open {
+		width: 100%;
+		height: 100%;
+		overflow: scroll;
+		padding-bottom: 17px;
+		padding-right: 17px;
+		box-sizing: content-box;
+		z-index: 99999; /* renders modal above WP Admin bar */
+	}
+
+	.ReactModal__Content--after-open {
+		width: 100%;
+		max-width: 600px;
+		max-height: 100%;
+
+		input,
+		textarea,
+		.field-messages {
+			width: 100%;
+			max-width: 500px;
+		}
+
+		input[type="radio"],
+		input[type="checkbox"] {
+			width: 1rem;
+		}
+	}
+
+	form div.field {
+		margin-top: 0;
+	}
+	.help {
+		margin-top: 5px;
+		margin-bottom: 5px;
+	}
+	input {
+		margin: 0;
+	}
+}

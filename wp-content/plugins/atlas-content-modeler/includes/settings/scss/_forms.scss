@@ -1,0 +1,247 @@
+@import "../../../includes/shared-assets/scss/_variables";
+.atlas-content-modeler-admin-page input,
+.atlas-content-modeler-admin-page textarea {
+	border-radius: $radius;
+	border: 1px solid $color-gray-light;
+	line-height: 20px;
+	max-width: 360px;
+	padding: 16px;
+}
+
+.atlas-content-modeler-admin-page {
+	input[type="color"],
+	input[type="datetime-local"],
+	input[type="email"],
+	input[type="month"],
+	input[type="number"],
+	input[type="url"],
+	input[type="tel"],
+	input[type="search"],
+	input[type="week"],
+	input[type="text"],
+	textarea,
+	select {
+		width: 100% !important;
+	}
+}
+
+@media screen and (min-width: 782px) {
+	.atlas-content-modeler-admin-page {
+		input[type="color"],
+		input[type="datetime-local"],
+		input[type="email"],
+		input[type="month"],
+		input[type="number"],
+		input[type="url"],
+		input[type="tel"],
+		input[type="search"],
+		input[type="week"],
+		input[type="text"],
+		textarea,
+		select {
+			width: 260px !important;
+		}
+
+		textarea.two-columns {
+			max-width: none;
+			width: 570px !important;
+		}
+	}
+}
+
+.atlas-content-modeler-admin-page .has-error input,
+.atlas-content-modeler-admin-page .has-error textarea {
+	border-color: $color-warning;
+}
+
+.atlas-content-modeler-admin-page input[type="radio"] {
+	border-radius: 50%;
+	min-width: auto;
+	margin-right: 5px;
+}
+
+.atlas-content-modeler-admin-page input:disabled,
+.atlas-content-modeler-admin-page .read-only input {
+	background: #f4f7fa;
+	border: 1px solid #cfdde9;
+	color: #59767f;
+}
+
+.atlas-content-modeler-admin-page input[type="checkbox"] {
+	margin-right: 12px;
+	min-width: auto;
+}
+
+.atlas-content-modeler-admin-page label.checkbox {
+	font-weight: normal;
+}
+
+.atlas-content-modeler-admin-page .default-checkbox {
+	align-self: center;
+}
+
+.atlas-content-modeler-admin-page textarea {
+	min-height: 120px;
+}
+
+.atlas-content-modeler-admin-page label,
+.atlas-content-modeler-admin-page legend {
+	font-weight: 700;
+}
+
+.atlas-content-modeler-admin-page label span,
+.atlas-content-modeler-admin-page legend span {
+	font-weight: 400;
+}
+
+.atlas-content-modeler-admin-page .has-error label,
+.atlas-content-modeler-admin-page .has-error legend {
+	color: $color-warning;
+}
+
+.ReactModal__Content label:not(.form-check-label) {
+	display: block;
+	margin-top: 21px;
+}
+
+.ReactModal__Content label[for="description"] {
+	margin-top: 14px;
+}
+
+.atlas-content-modeler-admin-page .field-form legend {
+	margin-bottom: 19px;
+	padding: 0;
+}
+
+.atlas-content-modeler-admin-page label.radio {
+	font-weight: 300;
+	line-height: 25px;
+}
+
+.field-description {
+	margin-bottom: 21px;
+}
+
+.checklist {
+	margin-bottom: 14px;
+	&:last-of-type {
+		margin-bottom: 0;
+	}
+}
+
+.atlas-content-modeler-admin-page .field-messages {
+	display: flex;
+	font-size: 12px;
+	justify-content: space-between;
+	margin: 8px 0 0;
+	max-width: 360px;
+	text-align: right;
+}
+
+@media screen and (min-width: 782px) {
+	.atlas-content-modeler-admin-page .field-messages.two-columns {
+		max-width: 570px;
+	}
+}
+
+.atlas-content-modeler-admin-page .field-messages .error {
+	align-items: center;
+	display: flex;
+}
+
+.atlas-content-modeler-admin-page .field-messages .error svg {
+	margin-right: 8px;
+}
+
+.atlas-content-modeler-admin-page .buttons {
+	margin: 28px 0;
+}
+
+.atlas-content-modeler-admin-page form div.field {
+	margin-top: 28px;
+}
+
+.atlas-content-modeler-admin-page label.radio {
+}
+
+.atlas-content-modeler-admin-page form span.error {
+	line-height: 40px;
+	margin-top: 5px;
+}
+.atlas-content-modeler-admin-page form .error span[role="alert"] {
+	vertical-align: middle;
+}
+
+.atlas-content-modeler-admin-page form .error svg {
+	margin-right: 5px;
+	vertical-align: middle;
+}
+
+.atlas-content-modeler-admin-page svg.add.add-small.add-small-button {
+	color: #7e5cef;
+}
+
+span[role="alert"] {
+	color: $color-warning;
+}
+
+input[aria-invalid="true"] {
+	border-color: $color-warning;
+}
+
+input[type="radio"]:checked::before {
+	background-color: $color-text;
+}
+
+input[type="checkbox"],
+input[type="radio"] {
+	margin: 0;
+}
+
+.atlas-content-modeler-admin-page .help {
+	color: $color-gray-mid;
+}
+
+.atlas-content-modeler-admin-page .featured-image.help {
+	margin: 5px 0 0 27px;
+}
+
+.atlas-content-modeler-admin-page .radio-row {
+	display: flex;
+	align-items: flex-start;
+	margin-bottom: 10px;
+}
+.atlas-content-modeler-admin-page .field a {
+	font-weight: bold;
+	color: $color-primary;
+	line-height: 23px;
+}
+
+.atlas-content-modeler-admin-page .field .multiple-option-container {
+	margin-top: 0px;
+}
+
+.atlas-content-modeler-admin-page .field .multiple-option-container ul {
+	margin-top: 0px;
+}
+
+.atlas-content-modeler-admin-page .field .multiple-option-container .error {
+	margin-top: 0px;
+	vertical-align: top;
+	line-height: 50px;
+}
+
+.atlas-content-modeler-admin-page .field a span {
+	vertical-align: top;
+	margin-top: 10px;
+}
+
+.atlas-content-modeler-admin-page .radio-row input[type="radio"] {
+	margin: 5px 8px 0 0;
+}
+
+.atlas-content-modeler-admin-page .radio-row label span {
+	color: $color-gray-mid;
+	display: block;
+	font-size: 13px;
+}

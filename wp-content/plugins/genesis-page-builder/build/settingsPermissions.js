@@ -1,0 +1,1 @@
+!function(){"use strict";wp.hooks.addFilter("gb_should_render_block_setting","gpb",(function(e,o,s,i){var n=genesis_page_builder_globals.blockSettingsPermissions;return void 0===n[o]||void 0===n[o][s]?e:i.roles.some((function(e){return!0===n[o][s][e]}))}))}();
