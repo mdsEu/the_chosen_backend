@@ -1,0 +1,36 @@
+/* import bootstrap dependencies for grid and utilities only */
+
+.atlas-content-modeler {
+	@import "bootstrap/scss/_functions";
+	@import "bootstrap/scss/_variables";
+	@import "bootstrap/scss/_mixins";
+	@import "bootstrap/scss/vendor/_rfs";
+	@import "bootstrap/scss/_containers";
+	@import "bootstrap/scss/_grid";
+	@import "bootstrap/scss/_helpers";
+	@import "bootstrap/scss/_tables";
+	@import "bootstrap/scss/_utilities";
+	@import "bootstrap/scss/utilities/_api";
+	@import "bootstrap/scss/_buttons";
+	@import "./relationship-modal";
+	@import "./text-field";
+	@import "./number-field";
+	@import "./media-field";
+	@import "./email-field";
+	@import "./table";
+	@import "./tooltip";
+	@import "./app-card-publisher";
+	@import "./loader";
+
+	.field.relationship,
+	.ReactModal__Content {
+		@import "../../settings/scss/_buttons";
+		@import "./buttons";
+	}
+}
+
+@import "../../../includes/shared-assets/scss/_variables";
+@import "./classic-form";
+@import "../../../includes/shared-assets/scss/_modals";
+@import "../../settings/scss/_flex";
+@import "../../settings/scss/_bootstrap-overrides";

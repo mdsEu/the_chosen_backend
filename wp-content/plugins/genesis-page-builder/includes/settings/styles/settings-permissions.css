@@ -1,0 +1,91 @@
+.gpb-control-settings {
+	margin: 0 0 2em;
+}
+
+.gpb-control-settings-head {
+	background-color: #cfdde9;
+	border-bottom: 1px solid var(--gb-color-gray);
+	font-weight: 600;
+	display: -ms-grid;
+	display: grid;
+	grid-template-rows: 1fr;
+	grid-template-columns: 1fr 1fr;
+}
+
+.gpb-control-settings-head > div {
+	padding: 16px 32px;
+}
+
+.gpb-control-settings-head h2 {
+	font-size: 20px;
+	font-size: clamp(16px, 2vw, 20px);
+	margin-bottom: 0;
+}
+
+.gpb-control-settings-head div:last-child {
+	text-align: right;
+}
+
+.gpb-control-settings-head .gb-admin-button-link,
+.gpb-control-settings-head .gb-admin-button-link:active,
+.gpb-control-settings-head .gb-admin-button-link:focus,
+.gpb-control-settings-head .gb-admin-button-link:hover {
+	background-image: none !important;
+	background-color: transparent;
+	color: var(--gb-color-body);
+	float: right;
+}
+
+.gb-admin-button-link.gpb-control-settings-expand-all:focus,
+.gb-admin-button-link.gpb-control-settings-expand-all:hover,
+.gb-admin-button-link.gpb-control-settings-collapse-all:focus,
+.gb-admin-button-link.gpb-control-settings-collapse-all:hover {
+	color: var(--gb-color-body);
+	cursor: pointer;
+	text-decoration: underline;
+}
+
+.gpb-control-settings-expand-all {
+	display: block;
+}
+
+.gpb-control-settings-expand-all.gpb-hidden {
+	display: none;
+}
+
+.gpb-control-settings-collapse-all {
+	display: none;
+	visibility: hidden;
+}
+
+.gpb-control-settings-collapse-all.gpb-visible {
+	display: block;
+	visibility: visible;
+}
+
+.gpb-control-settings-control-settings {
+	background-color: #e1e9f1;
+}
+
+.gpb-control-settings-control-settings-entry:last-of-type {
+	border-width: 0;
+}
+
+.gpb-control-settings-block-permission label {
+	padding: 8px 0;
+	display: inline-block;
+	line-height: 1;
+	width: 100%;
+}
+
+#tab-panel-0-genesis_blocks_settings_block_permissions_section-view p {
+	margin: 0 0 2em;
+}
+
+@media (max-width: 782px) {
+
+	.gpb-control-settings-head > div {
+		padding: 16px;
+	}
+
+}

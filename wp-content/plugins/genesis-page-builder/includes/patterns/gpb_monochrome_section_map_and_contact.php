@@ -1,0 +1,34 @@
+<?php
+/**
+ * Genesis Blocks Map and Contact section for Monochrome Collection.
+ *
+ * @package genesis-page-builder
+ */
+
+return [
+	'type'       => 'section',
+	'key'        => 'gpb_monochrome_section_map_and_contact',
+	'collection' => [
+		'slug'                   => 'monochrome',
+		'label'                  => esc_html__( 'Monochrome', 'genesis-page-builder' ),
+		'allowThemeColorPalette' => false,
+	],
+	'content'    => "<!-- wp:genesis-blocks/gb-columns {\"backgroundImgURL\":\"https://demo.studiopress.com/page-builder/monochrome/gpb_monochrome_hero_header.jpg\",\"backgroundDimRatio\":20,\"columns\":1,\"layout\":\"one-column\",\"align\":\"full\",\"marginUnit\":\"em\",\"paddingTop\":5,\"paddingRight\":1,\"paddingBottom\":5,\"paddingLeft\":1,\"paddingUnit\":\"em\",\"customTextColor\":\"#ffffff\",\"customBackgroundColor\":\"#000000\",\"columnMaxWidth\":1200,\"className\":\"gpb-monochrome-section-map-and-contact\"} --> <div class=\"wp-block-genesis-blocks-gb-columns gpb-monochrome-section-map-and-contact gb-layout-columns-1 one-column gb-has-background-dim gb-has-background-dim-20 gb-background-cover gb-background-no-repeat gb-has-custom-background-color gb-has-custom-text-color gb-columns-center alignfull\" style=\"padding-top:5em;padding-right:1em;padding-bottom:5em;padding-left:1em;background-color:#000000;color:#ffffff;background-image:url(https://demo.studiopress.com/page-builder/monochrome/gpb_monochrome_hero_header.jpg)\"><div class=\"gb-layout-column-wrap gb-block-layout-column-gap-2 gb-is-responsive-column\" style=\"max-width:1200px\"><!-- wp:genesis-blocks/gb-column --> <div class=\"wp-block-genesis-blocks-gb-column gb-block-layout-column\"><div class=\"gb-block-layout-column-inner\"><!-- wp:genesis-blocks/gb-container {\"containerMarginBottom\":5,\"containerMaxWidth\":1600} --> <div style=\"margin-bottom:5%\" class=\"wp-block-genesis-blocks-gb-container gb-block-container\"><div class=\"gb-container-inside\"><div class=\"gb-container-content\" style=\"max-width:1600px\"><!-- wp:heading {\"align\":\"left\",\"style\":{\"typography\":{\"fontSize\":48},\"color\":{\"text\":\"#ffffff\"}}} --> <h2 class=\"has-text-align-left has-text-color\" style=\"font-size:48px;color:#ffffff\">Contact us to get started.</h2> <!-- /wp:heading --> <!-- wp:paragraph {\"align\":\"left\",\"style\":{\"typography\":{\"fontSize\":18}}} --> <p class=\"has-text-align-left\" style=\"font-size:18px\">We’d love to get started on your next project.</p> <!-- /wp:paragraph --> <!-- wp:separator {\"customColor\":\"#ffffff\",\"className\":\"is-style-wide\"} --> <hr class=\"wp-block-separator has-text-color has-background is-style-wide\" style=\"background-color:#ffffff;color:#ffffff\"/> <!-- /wp:separator --> <!-- wp:html --> <iframe src=\"https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3470.5670865756474!2d-95.09152774886842!3d29.558099181973784!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x86409da671292593%3A0xf684f098a7237a30!2sNASA+Mission+Control+Center!5e0!3m2!1sen!2sus!4v1560875318343!5m2!1sen!2sus\" width=\"100%\" height=\"560\" frameborder=\"0\" style=\"border:0\" allowfullscreen=\"\"></iframe> <!-- /wp:html --></div></div></div> <!-- /wp:genesis-blocks/gb-container --> <!-- wp:genesis-blocks/gb-columns {\"columns\":4,\"layout\":\"gb-4-col-equal\",\"marginBottom\":3,\"marginUnit\":\"%\"} --> <div class=\"wp-block-genesis-blocks-gb-columns gb-layout-columns-4 gb-4-col-equal\" style=\"margin-bottom:3%\"><div class=\"gb-layout-column-wrap gb-block-layout-column-gap-2 gb-is-responsive-column\"><!-- wp:genesis-blocks/gb-column --> <div class=\"wp-block-genesis-blocks-gb-column gb-block-layout-column\"><div class=\"gb-block-layout-column-inner\"><!-- wp:heading {\"level\":3,\"style\":{\"typography\":{\"fontSize\":22},\"color\":{\"text\":\"#ffffff\"}}} --> <h3 class=\"has-text-color\" style=\"font-size:22px;color:#ffffff\">Office</h3> <!-- /wp:heading --> <!-- wp:paragraph {\"style\":{\"typography\":{\"fontSize\":18}}} --> <p style=\"font-size:18px\">Startup Square<br>123 Block Ave<br>Austin, Texas 36521</p> <!-- /wp:paragraph --></div></div> <!-- /wp:genesis-blocks/gb-column --> <!-- wp:genesis-blocks/gb-column --> <div class=\"wp-block-genesis-blocks-gb-column gb-block-layout-column\"><div class=\"gb-block-layout-column-inner\"><!-- wp:heading {\"level\":3,\"style\":{\"typography\":{\"fontSize\":22},\"color\":{\"text\":\"#ffffff\"}}} --> <h3 class=\"has-text-color\" style=\"font-size:22px;color:#ffffff\">Office Hours</h3> <!-- /wp:heading --> <!-- wp:paragraph {\"style\":{\"typography\":{\"fontSize\":18}}} --> <p style=\"font-size:18px\">Mon-Fri: 8am - 5pm<br>Sat: 8am 9pm<br>Sun: 8am - 2pm</p> <!-- /wp:paragraph --></div></div> <!-- /wp:genesis-blocks/gb-column --> <!-- wp:genesis-blocks/gb-column --> <div class=\"wp-block-genesis-blocks-gb-column gb-block-layout-column\"><div class=\"gb-block-layout-column-inner\"><!-- wp:heading {\"level\":3,\"style\":{\"typography\":{\"fontSize\":22},\"color\":{\"text\":\"#ffffff\"}}} --> <h3 class=\"has-text-color\" style=\"font-size:22px;color:#ffffff\">Email</h3> <!-- /wp:heading --> <!-- wp:paragraph {\"style\":{\"typography\":{\"fontSize\":18}}} --> <p style=\"font-size:18px\">hello@example.com sales@example.com support@example.com</p> <!-- /wp:paragraph --></div></div> <!-- /wp:genesis-blocks/gb-column --> <!-- wp:genesis-blocks/gb-column --> <div class=\"wp-block-genesis-blocks-gb-column gb-block-layout-column\"><div class=\"gb-block-layout-column-inner\"><!-- wp:heading {\"level\":3,\"style\":{\"typography\":{\"fontSize\":22},\"color\":{\"text\":\"#ffffff\"}}} --> <h3 class=\"has-text-color\" style=\"font-size:22px;color:#ffffff\">Telephone</h3> <!-- /wp:heading --> <!-- wp:paragraph {\"style\":{\"typography\":{\"fontSize\":18}}} --> <p style=\"font-size:18px\">Tel: 514-281-3821<br>Fax: 514-281-5210</p> <!-- /wp:paragraph --></div></div> <!-- /wp:genesis-blocks/gb-column --></div></div> <!-- /wp:genesis-blocks/gb-columns --></div></div> <!-- /wp:genesis-blocks/gb-column --></div></div> <!-- /wp:genesis-blocks/gb-columns -->",
+	'name'       => esc_html__( 'Monochrome Map and Contact', 'genesis-page-builder' ),
+	'category'   => [
+		esc_html__( 'contact', 'genesis-page-builder' ),
+		esc_html__( 'business', 'genesis-page-builder' ),
+		esc_html__( 'landing', 'genesis-page-builder' ),
+	],
+	'keywords'   => [
+		esc_html__( 'contact', 'genesis-page-builder' ),
+		esc_html__( 'business', 'genesis-page-builder' ),
+		esc_html__( 'landing', 'genesis-page-builder' ),
+		esc_html__( 'map', 'genesis-page-builder' ),
+		esc_html__( 'directions', 'genesis-page-builder' ),
+		esc_html__( 'hours', 'genesis-page-builder' ),
+		esc_html__( 'monochrome', 'genesis-page-builder' ),
+		esc_html__( 'monochrome map and contact', 'genesis-page-builder' ),
+	],
+	'image'      => 'https://demo.studiopress.com/page-builder/monochrome/gpb_monochrome_section_map_and_contact.jpg',
+];

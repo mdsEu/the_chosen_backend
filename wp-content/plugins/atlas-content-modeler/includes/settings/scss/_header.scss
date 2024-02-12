@@ -1,0 +1,34 @@
+@import "../../../includes/shared-assets/scss/_variables";
+.atlas-content-modeler-admin-page header {
+	background: linear-gradient(260.31deg, #0ecad4 8.72%, #7e5cef 105.71%);
+}
+
+.atlas-content-modeler-admin-page header .wrap {
+	margin-top: 0;
+}
+
+.atlas-content-modeler-admin-page header a {
+	text-decoration: none;
+}
+
+.atlas-content-modeler-admin-page header a:focus h1,
+.atlas-content-modeler-admin-page header a:focus svg,
+.atlas-content-modeler-admin-page header a:hover h1,
+.atlas-content-modeler-admin-page header a:hover svg {
+	opacity: 0.85;
+}
+
+.wrap header h1 {
+	color: $color-white;
+	height: 110px;
+	letter-spacing: 0.02em;
+	line-height: 110px;
+	padding: 0;
+}
+
+svg.wpengine {
+	float: left;
+	margin-left: 30px;
+	margin-top: 40px;
+	padding-right: 12px;
+}
