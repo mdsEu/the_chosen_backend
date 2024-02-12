@@ -1,0 +1,51 @@
+{
+  "name": "valu/wp-graphql-polylang",
+  "description": "Polylang bindings for wp-graphql",
+  "type": "wordpress-plugin",
+  "license": "GPL-2.0-or-later",
+  "authors": [
+    {
+      "name": "Esa-Matti Suuronen",
+      "email": "esa-matti.suuronen@valu.fi",
+      "role": "developer"
+    }
+  ],
+  "repositories": [
+    {
+      "type": "vcs",
+      "url": "https://github.com/bordoni/phpass"
+    }
+  ],
+  "require-dev": {
+    "bordoni/phpass": "*",
+    "lucatume/wp-browser": "~2.2",
+    "valu/wp-testing-tools": "^0.4.0",
+    "codeception/module-asserts": "^1.0",
+    "codeception/module-phpbrowser": "^1.0",
+    "codeception/module-webdriver": "^1.0",
+    "codeception/module-db": "^1.0",
+    "codeception/module-filesystem": "^1.0",
+    "codeception/module-rest": "^1.0",
+    "codeception/module-cli": "^1.0",
+    "codeception/util-universalframework": "^1.0"
+  },
+  "config": {
+    "optimize-autoloader": true
+  },
+  "autoload": {
+    "psr-4": {
+      "WPGraphQL\\Extensions\\Polylang\\": "src/"
+    }
+  },
+  "require": {},
+  "scripts": {
+    "wp-install": "wp-install --full --post-install tools/post-install",
+    "test": "codecept run wpunit && codecept run functional",
+    "functional": "codecept run functional",
+    "wpunit": "codecept run wpunit"
+  },
+  "support": {
+    "issues": "https://github.com/valu-digital/wp-graphql-polylang/issues",
+    "source": "https://github.com/valu-digital/wp-graphql-polylang"
+  }
+}

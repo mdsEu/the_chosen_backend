@@ -1,0 +1,11 @@
+#!/bin/sh
+
+set -eu
+
+echo "############################"
+echo "wp-install post install hook"
+echo "############################"
+
+wp eval-file \
+    --require=wp-content/plugins/wp-graphql-polylang/tests/pre-seed.php \
+    wp-content/plugins/wp-graphql-polylang/tests/seed.php
