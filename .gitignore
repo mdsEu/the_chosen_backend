@@ -82,3 +82,5 @@ autoupdater_maintenance_mode_enabled.tmp
 *.asf
 *.wmv
 *.avi
+
+.env

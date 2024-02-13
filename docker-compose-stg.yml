@@ -1,0 +1,28 @@
+version: '3'
+
+services:
+  tchos_cms:
+    container_name: tchos_cms
+    environment:
+      APACHE_DOCUMENT_ROOT: /var/www/html
+      WORDPRESS_DB_NAME: $DB_NAME
+      WORDPRESS_DB_HOST: $DB_HOST:$DB_PORT
+      WORDPRESS_TABLE_PREFIX: wp_
+      WORDPRESS_DB_USER: $DB_USER
+      WORDPRESS_DB_PASSWORD: $DB_PASSWORD
+      WORDPRESS_SITE_URL: $SITE_URL
+      WORDPRESS_DEBUG: $DEBUG
+    expose:
+      - '80'
+    ports:
+      - "80:80"
+    volumes:
+      - .:/var/www/html
+      - ./wp-content/languages:/var/www/html/wp-content/languages
+      - ./wp-content/plugins:/var/www/html/wp-content/plugins
+      - ./wp-content/uploads/:/var/www/html/wp-content/uploads
+    build:
+      context: .
+    restart: always
+volumes:
+  dbdata:

@@ -198,3 +198,8 @@ function wpse22764_gettext( $translation, $original )
     }
     return $translation;
 }
+
+/**
+* GraphQL filters with Custom Fields
+*/
+include_once('graphql-custom-fields.php');
