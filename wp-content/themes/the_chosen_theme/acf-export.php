@@ -1,15 +1,15 @@
 <?php
-/*
+/* 
  * FOR POST TYPES:
  * Add this 3 arguments inside array props on register_post_type() function .ex:
- *
+ * 
  * register_post_type( 'translation', array(
  * 	...
  * 	'show_in_graphql' => true,
  * 	'graphql_single_name' => 'Translation',
  * 	'graphql_plural_name' => 'Translations'
  * ) );
- *
+ * 
 */
 
 add_action( 'acf/include_fields', function() {
@@ -185,53 +185,9 @@ add_action( 'init', function() {
 			0 => 'title',
 		),
 		'delete_with_user' => false,
-		//
+		// 
 		'show_in_graphql' => true,
 		'graphql_single_name' => 'Translation',
 		'graphql_plural_name' => 'Translations'
-	) );
-
-  register_post_type( 'vanity-url', array(
-		'labels' => array(
-			'name' => 'Vanity URLs',
-			'singular_name' => 'Vanity URL',
-			'menu_name' => 'Vanity URLs',
-			'all_items' => 'All Vanity URLs',
-			'edit_item' => 'Edit Vanity URL',
-			'view_item' => 'View Vanity URL',
-			'view_items' => 'View Vanity URLs',
-			'add_new_item' => 'Add New Vanity URL',
-			'new_item' => 'New Vanity URL',
-			'parent_item_colon' => 'Parent Vanity URL:',
-			'search_items' => 'Search Vanity URLs',
-			'not_found' => 'No vanity urls found',
-			'not_found_in_trash' => 'No vanity urls found in Trash',
-			'archives' => 'Vanity URL Archives',
-			'attributes' => 'Vanity URL Attributes',
-			'insert_into_item' => 'Insert into vanity url',
-			'uploaded_to_this_item' => 'Uploaded to this vanity url',
-			'filter_items_list' => 'Filter vanity urls list',
-			'filter_by_date' => 'Filter vanity urls by date',
-			'items_list_navigation' => 'Vanity URLs list navigation',
-			'items_list' => 'Vanity URLs list',
-			'item_published' => 'Vanity URL published.',
-			'item_published_privately' => 'Vanity URL published privately.',
-			'item_reverted_to_draft' => 'Vanity URL reverted to draft.',
-			'item_scheduled' => 'Vanity URL scheduled.',
-			'item_updated' => 'Vanity URL updated.',
-			'item_link' => 'Vanity URL Link',
-			'item_link_description' => 'A link to a vanity url.',
-		),
-		'public' => true,
-		'show_in_rest' => true,
-		'menu_icon' => 'dashicons-admin-links',
-		'supports' => array(
-			0 => 'title',
-		),
-		'delete_with_user' => false,
-    //
-		'show_in_graphql' => true,
-		'graphql_single_name' => 'VanityURL',
-		'graphql_plural_name' => 'VanityURLs'
 	) );
 } );
