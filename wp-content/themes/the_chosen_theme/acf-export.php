@@ -234,9 +234,7 @@ add_action( 'init', function() {
 		'graphql_single_name' => 'VanityURL',
 		'graphql_plural_name' => 'VanityURLs'
 	) );
-} );
 
-add_action( 'init', function() {
 	register_post_type( 'press-release', array(
 		'labels' => array(
 			'name' => 'Press Releases',
@@ -282,5 +280,3 @@ add_action( 'init', function() {
 		 'graphql_plural_name' => 'PressReleases'
 	) );
 } );
-
-
