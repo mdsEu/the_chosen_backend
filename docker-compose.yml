@@ -1,9 +1,8 @@
 version: '3'
 
 services:
-  tchos_cms_prod:
-    container_name: tchos_cms_prod
-    image: 188547014787.dkr.ecr.us-east-1.amazonaws.com/thechosen-wordpress:prod-latest
+  tchos_cms:
+    container_name: tchos_cms
     environment:
       APACHE_DOCUMENT_ROOT: /var/www/html
       WORDPRESS_DB_NAME: $DB_NAME
@@ -14,25 +13,16 @@ services:
       WORDPRESS_SITE_URL: $SITE_URL
       WORDPRESS_DEBUG: $DEBUG
     expose:
-      - 80:80
+      - '80'
     ports:
-      - 80:80
-    deploy:
-      resources:
-        limits:
-          cpus: '4'
-          memory: 8GB
-        reservations:
-          cpus: '2'
-          memory: 4GB
-      x-aws-min_percent: 30
-      x-aws-autoscaling:
-        desired: 1
-        min: 1
-        max: 3 # Required
-        cpu: 50
-    #build:
-    #  context: .
+      - "80:80"
+    volumes:
+      - .:/var/www/html
+      - ./wp-content/languages:/var/www/html/wp-content/languages
+      - ./wp-content/plugins:/var/www/html/wp-content/plugins
+      - ./wp-content/uploads/:/var/www/html/wp-content/uploads
+    build:
+      context: .
     restart: always
 volumes:
   dbdata:
