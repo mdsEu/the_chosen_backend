@@ -26,17 +26,11 @@ services:
     deploy:
       resources:
         limits:
-          cpus: '4'
-          memory: 8GB
-        reservations:
           cpus: '2'
-          memory: 4GB
-      x-aws-min_percent: 30
-      x-aws-autoscaling:
-        desired: 1
-        min: 1
-        max: 3 # Required
-        cpu: 50
+          memory: 3GB
+        reservations:
+          cpus: '1'
+          memory: 1.5GB
     restart: always
 volumes:
   dbdata:
