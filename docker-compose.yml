@@ -15,7 +15,7 @@ services:
     expose:
       - '8080'
     ports:
-      - "8080:8080"
+      - "80:8080"
     volumes:
       - .:/var/www/html
       - ./wp-content/languages:/var/www/html/wp-content/languages
