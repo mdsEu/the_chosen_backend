@@ -40,6 +40,6 @@ WORKDIR /var/www/html
 # VOLUME /var/www/html/wp-content/plugins
 # VOLUME /var/www/html/wp-content/uploads
 
-EXPOSE 80
+EXPOSE 8080
 
 CMD /bin/sh -c "exec /usr/sbin/apache2ctl -D FOREGROUND;";
