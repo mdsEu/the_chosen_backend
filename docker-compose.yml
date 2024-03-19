@@ -13,9 +13,9 @@ services:
       WORDPRESS_SITE_URL: $SITE_URL
       WORDPRESS_DEBUG: $DEBUG
     expose:
-      - '8080'
+      - '80'
     ports:
-      - "80:8080"
+      - "80:80"
     volumes:
       - .:/var/www/html
       - ./wp-content/languages:/var/www/html/wp-content/languages
