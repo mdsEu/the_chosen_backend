@@ -75,7 +75,7 @@ abstract class WPML_Element_Translation_Job extends WPML_Translation_Job {
 	 *                       of the target element to complete
 	 */
 	public function save_to_element( $complete = false ) {
-		global $wpdb, $wpml_post_translations, $wpml_term_translations;
+		global $wpdb, $wpml_term_translations, $wpml_post_translations;
 
 		$wpml_tm_records  = new WPML_TM_Records( $wpdb, $wpml_post_translations, $wpml_term_translations );
 		$save_data_action = new WPML_Save_Translation_Data_Action(

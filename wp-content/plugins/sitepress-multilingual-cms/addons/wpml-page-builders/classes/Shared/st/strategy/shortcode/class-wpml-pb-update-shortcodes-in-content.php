@@ -96,7 +96,7 @@ class WPML_PB_Update_Shortcodes_In_Content {
 
 		if ( $translation ) {
 
-			if ( $this->is_string_too_long_for_regex( $original ) ) {
+			if ( $this->is_string_too_long_for_regex( $original ) || $this->is_string_too_long_for_regex( $block ) ) {
 				$block             = WPML_PB_Shortcode_Content_Wrapper::unwrap( $block );
 				$new_block         = str_replace( $original, $translation, $block );
 				$this->new_content = str_replace( $block, $new_block, $this->new_content );

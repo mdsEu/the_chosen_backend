@@ -27,14 +27,13 @@ class Dismissed {
 		$repositoryRecommendations = Obj::propOr([], 'repo', apply_filters( 'otgs_installer_admin_notices', [] ) );
 
 		$isPluginRecommendation = function( $plugin_attrs ) use ( $plugin_slug ) {
-			return str_contains($plugin_slug, $plugin_attrs['glue_plugin_slug']);
+			return '' == $plugin_slug || strpos( $plugin_slug, $plugin_attrs['glue_plugin_slug'] ) !== false;
 		};
 		foreach( $repositoryRecommendations as $repository => $notices ) {
 			if ( ! isset( $notices['plugin-activated'] ) ) {
 				continue;
 			}
-			$pluginRecommendationsToDisable = wpml_collect( $notices['plugin-activated'] )
-				->filter( $isPluginRecommendation );
+			$pluginRecommendationsToDisable = array_filter( $notices['plugin-activated'], $isPluginRecommendation );
 
 			foreach ( $pluginRecommendationsToDisable as $plugin => $recommendation ) {
 				self::dismissNoticeByTypeAndRepository( $repository, 'plugin-activated', $plugin );

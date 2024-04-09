@@ -254,10 +254,11 @@ class WPML_Term_Translation extends WPML_Element_Translation {
 	 */
 	protected function get_element_join() {
 
-		return "FROM {$this->wpdb->prefix}icl_translations wpml_translations
+		return "
 				JOIN {$this->wpdb->term_taxonomy} tax
 					ON wpml_translations.element_id = tax.term_taxonomy_id
-						AND wpml_translations.element_type = CONCAT('tax_', tax.taxonomy)";
+						AND wpml_translations.element_type = CONCAT('tax_', tax.taxonomy)
+		";
 	}
 
 	/**
@@ -267,7 +268,7 @@ class WPML_Term_Translation extends WPML_Element_Translation {
 	 */
 	protected function get_query_sql( $cols = 'wpml_translations.element_id, tax.term_id, tax.taxonomy' ) {
 		$sql  = '';
-		$sql .= "SELECT {$cols} " . $this->get_element_join();
+		$sql .= "SELECT {$cols} FROM {$this->wpdb->prefix}icl_translations wpml_translations" . $this->get_element_join();
 		$sql .= " JOIN {$this->wpdb->terms} terms";
 		$sql .= ' ON terms.term_id = tax.term_id';
 		$sql .= ' WHERE tax.term_id != tax.term_taxonomy_id';

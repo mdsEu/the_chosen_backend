@@ -43,7 +43,7 @@ class Packages extends Elements {
 					(string) $language
 				);
 
-				if ( $job && ( self::isProgressJob( $job ) || self::isCompletedJob( $job ) && $howToHandleExisting === \WPML_TM_Translation_Batch::HANDLE_EXISTING_LEAVE ) ) {
+				if ( $job && ( self::isProgressJob( $job ) || self::shouldJobBeIgnoredBecauseIsCompleted( $job, $howToHandleExisting, $translateAutomatically) ) ) {
 					continue;
 				}
 

@@ -21,6 +21,7 @@ class Strings {
 		'after',
 		'fallback',
 		'video_url',
+		'shortcode',
 	];
 
 	/**

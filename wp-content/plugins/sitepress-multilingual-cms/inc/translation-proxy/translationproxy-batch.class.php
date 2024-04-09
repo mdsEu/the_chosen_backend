@@ -45,6 +45,9 @@ class TranslationProxy_Batch {
 	 * @return string
 	 */
 	public static function get_generic_batch_name( $isAuto = false ) {
+		if ( ! $isAuto && defined( 'WPML_DEBUG_TRANSLATION_PROXY' )  )
+			\WPML\Utilities\DebugLog::storeBackTrace();
+
 		return ( $isAuto ? 'Automatic Translations from ' : 'Manual Translations from ' ) . date( 'F \t\h\e jS\, Y' );
 	}
 

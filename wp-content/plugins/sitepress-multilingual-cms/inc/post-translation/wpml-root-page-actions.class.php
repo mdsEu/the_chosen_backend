@@ -256,6 +256,10 @@ class WPML_Root_Page_Actions {
 			$query_args = array();
 			wp_parse_str( wpml_parse_url( $_SERVER['REQUEST_URI'], PHP_URL_QUERY ), $query_args );
 
+			foreach ( $query_args as $key => $value ) {
+				$query_args[ $key ] = \WPML\API\Sanitize::string( $value);
+			}
+
 			if ( is_numeric( $potential_pagination_parameter ) ) {
 				$query_args['page'] = $potential_pagination_parameter;
 			}

@@ -155,7 +155,13 @@ class LanguageMappings {
 			return Obj::pathOr( null, [ 'mapping', 'targetCode' ], $language ) === $defaultLanguageMappingTargetCode;
 		} );
 
-		return call_user_func_array( $fn, func_get_args() );
+		try {
+			$hasMapping = call_user_func_array( $fn, func_get_args() );
+		} catch ( \InvalidArgumentException $e ) {
+			$hasMapping = false;
+		}
+
+		return $hasMapping;
 	}
 
 	/**

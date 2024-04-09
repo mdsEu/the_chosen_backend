@@ -355,6 +355,13 @@ class WPML_TM_Xliff_Writer {
 	) {
 		global $sitepress;
 
+		if ( $field_data === null ) {
+			$field_data = '';
+		}
+		if ( $field_data_translated === null ) {
+			$field_data_translated = '';
+		}
+
 		$field_data = $this->remove_invalid_chars( $field_data );
 
 		$translation_unit = array();
