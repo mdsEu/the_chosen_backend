@@ -1,9 +1,9 @@
 <?php return array(
     'root' => array(
         'name' => 'wpml/elasticpress',
-        'pretty_version' => '2.0.1',
-        'version' => '2.0.1.0',
-        'reference' => 'c1758f3e713d9824379bd2dc455eb5545f1581c0',
+        'pretty_version' => '2.0.3',
+        'version' => '2.0.3.0',
+        'reference' => '591bfd76856df4ffd477f4952085a5f383fee889',
         'type' => 'wordpress-plugin',
         'install_path' => __DIR__ . '/../../',
         'aliases' => array(),
@@ -11,9 +11,9 @@
     ),
     'versions' => array(
         'wpml/elasticpress' => array(
-            'pretty_version' => '2.0.1',
-            'version' => '2.0.1.0',
-            'reference' => 'c1758f3e713d9824379bd2dc455eb5545f1581c0',
+            'pretty_version' => '2.0.3',
+            'version' => '2.0.3.0',
+            'reference' => '591bfd76856df4ffd477f4952085a5f383fee889',
             'type' => 'wordpress-plugin',
             'install_path' => __DIR__ . '/../../',
             'aliases' => array(),

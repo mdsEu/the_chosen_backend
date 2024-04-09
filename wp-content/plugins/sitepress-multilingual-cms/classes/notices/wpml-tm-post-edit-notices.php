@@ -279,32 +279,55 @@ class WPML_TM_Post_Edit_Notices {
 		$translations_in_progress  = [];
 
 		foreach ( $translations as $translation ) {
-			if ( ! $translation->original ) {
-				$job = Jobs::getTridJob( $post_element->get_trid(), $translation->language_code );
+			if ( $translation->original ) {
+				continue;
+			}
 
-				// ATE status needs to be checked directly because it can be not updated in DB yet.
-				if (
-					$job
-					&& $this->tm_ate->is_translation_method_ate_enabled()
-					&& 'ate' === $job->editor
-					&& $this->tm_ate->is_translation_ready_for_post(
+			$job = Jobs::getTridJob(
+				$post_element->get_trid(),
+				$translation->language_code
+			);
+
+			if (
+				$job
+				&& ! $this->is_waiting_for_a_translation( $job->status )
+			) {
+				// Translation is completed - no need for further checks.
+				continue;
+			}
+
+			// For the case that the user opened ATE from post edit screen
+			// and comes back to the post edit screen, WPML needs to fetch
+			// the ATE status directly from ATE API as it's not in the DB yet.
+			//
+			// The check for HTTP_REFERER is quite fragile (can be manipulated)
+			// but totally fine for this case as it's only about showing
+			// a warning or not. In addition the ATE UI "Complete" and "Back"
+			// links are baked in JS so it's not possible to open them in a
+			// new tab/window by usual browser controls.
+			if (
+				$job
+				&& 'ate' === $job->editor
+				&& array_key_exists( 'referer', $_GET )
+				&& 'ate' === $_GET['referer']
+				&& $this->tm_ate->is_translation_method_ate_enabled()
+				&& $this->tm_ate->is_translation_ready_for_post(
+					$post_element->get_trid(),
+					$translation->language_code
+				)
+			) {
+				continue;
+			}
+
+			if (
+				$this->is_waiting_for_a_translation(
+					$wpml_element_translations->get_translation_status(
 						$post_element->get_trid(),
 						$translation->language_code
 					)
-				) {
-					continue;
-				}
-
-				if (
-					$this->is_waiting_for_a_translation(
-						$wpml_element_translations->get_translation_status(
-							$post_element->get_trid(),
-							$translation->language_code
-						)
-					)
-				) {
-					$translations_in_progress[] = $job;
-				}
+				)
+			) {
+				$translations_in_progress[] = $job;
 			}
 		}
 

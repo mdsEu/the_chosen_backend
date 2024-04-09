@@ -2,10 +2,10 @@
 /**
  * Plugin Name: WPML Multilingual CMS
  * Plugin URI: https://wpml.org/
- * Description: WPML Multilingual CMS | <a href="https://wpml.org">Documentation</a> | <a href="https://wpml.org/version/wpml-4-6-5/">WPML 4.6.5 release notes</a>
+ * Description: WPML Multilingual CMS | <a href="https://wpml.org">Documentation</a> | <a href="https://wpml.org/version/wpml-4-6-10/">WPML 4.6.10 release notes</a>
  * Author: OnTheGoSystems
  * Author URI: http://www.onthegosystems.com/
- * Version: 4.6.5
+ * Version: 4.6.10
  * Plugin Slug: sitepress-multilingual-cms
  *
  * @package WPML\Core
@@ -29,7 +29,7 @@ if ( ! \WPML\Requirements\WordPress::checkMinimumRequiredVersion() ) {
 	return;
 }
 
-define( 'ICL_SITEPRESS_VERSION', '4.6.5' );
+define( 'ICL_SITEPRESS_VERSION', '4.6.10' );
 
 // Do not uncomment the following line!
 // If you need to use this constant, use it in the wp-config.php file
@@ -198,7 +198,6 @@ if ( $sitepress->is_setup_complete() ) {
 		'WPML_Post_Edit_Terms_Hooks_Factory',
 		'WPML_Attachments_Urls_With_Identical_Slugs_Factory',
 		'WPML_API_Hooks_Factory',
-		'WPML_Cache_Terms_Per_Lang_Factory',
 		'WPML_Display_As_Translated_Message_For_New_Post_Factory',
 		'WPML_Custom_Fields_Post_Meta_Info_Factory',
 		'WPML_Display_As_Translated_Default_Lang_Messages_Factory',
@@ -236,6 +235,8 @@ if ( $sitepress->is_setup_complete() ) {
 		\WPML\TM\ATE\Hooks\LanguageMappingCache::class,
 		\WPML\BackgroundTask\BackgroundTaskLoader::class,
 		\WPML\Core\PostTranslation\SyncTranslationDocumentStatus::class,
+		\WPML\Utilities\DebugLog::class,
+		\WPML\Notices\ExportImport\Notice::class,
 	];
 	$action_filter_loader->load( $actions );
 
@@ -261,6 +262,14 @@ if ( $sitepress->is_setup_complete() ) {
 	];
 
 	$action_filter_loader->load( $rest_factories );
+
+	// On posts listing page.
+	add_action(
+		'load-edit.php',
+		function() {
+			new WPML_Posts_Listing_Page();
+		}
+	);
 } else {
 	$action_filter_loader->load( [
 		\WPML\Setup\DisableNotices::class,
@@ -459,4 +468,5 @@ if ( defined( 'WCML_VERSION') ) {
 add_action( 'plugins_loaded', function() {
 	require_once WPML_PLUGIN_PATH . '/addons/wpml-page-builders/loader.php';
 }, PHP_INT_MAX );
+
 

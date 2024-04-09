@@ -26,6 +26,7 @@ class SaveManager extends SaveUser {
 		           ->map( $setRole )
 		           ->map( [ self::class, 'sendInstructions' ] )
 		           ->map( function( $user ) {
+					   do_action( 'wpml_update_translator' );
 					   do_action( 'wpml_tm_ate_synchronize_managers' );
 					   return true;
 				   } );

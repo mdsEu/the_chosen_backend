@@ -248,7 +248,7 @@ abstract class WPML_Post_Translation extends WPML_Element_Translation {
 				: $this->wpdb->prepare ( " AND wpml_translations.language_code = %s ", $source_lang_code );
 			$res            = $this->wpdb->get_var (
 				$this->wpdb->prepare (
-					"SELECT {$attribute}
+					"SELECT {$attribute} FROM {$this->wpdb->prefix}icl_translations wpml_translations
 					 " . $this->get_element_join() . "
 					 WHERE wpml_translations.trid=%d
 					{$source_snippet}
@@ -299,10 +299,11 @@ abstract class WPML_Post_Translation extends WPML_Element_Translation {
 
 	protected function get_element_join() {
 
-		return "FROM {$this->wpdb->prefix}icl_translations wpml_translations
+		return "
 				JOIN {$this->wpdb->posts} p
 					ON wpml_translations.element_id = p.ID
-						AND wpml_translations.element_type = CONCAT('post_', p.post_type)";
+						AND wpml_translations.element_type = CONCAT('post_', p.post_type)
+		";
 	}
 
 	protected function get_type_prefix() {

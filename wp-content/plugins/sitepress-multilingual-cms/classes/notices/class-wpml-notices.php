@@ -30,7 +30,15 @@ class WPML_Notices {
 	 * @param WPML_Notice_Render $notice_render
 	 */
 	public function __construct( WPML_Notice_Render $notice_render ) {
-		$this->notice_render        = $notice_render;
+		$this->notice_render = $notice_render;
+	}
+
+	public function init_notices() {
+		if ( null !== $this->notices ) {
+			// Already initialized.
+			return;
+		}
+
 		$this->notices              = $this->filter_invalid_notices( $this->get_all_notices() );
 		$this->dismissed            = $this->get_all_dismissed();
 		$this->original_notices_md5 = md5( maybe_serialize( $this->notices ) );
@@ -40,6 +48,8 @@ class WPML_Notices {
 	 * @return int
 	 */
 	public function count() {
+		$this->init_notices();
+
 		$all_notices = $this->get_all_notices();
 		$count       = 0;
 		foreach ( $all_notices as $group => $group_notices ) {
@@ -88,6 +98,8 @@ class WPML_Notices {
 	 * @return null|WPML_Notice
 	 */
 	public function get_notice( $id, $group = 'default' ) {
+		$this->init_notices();
+
 		$notice = null;
 
 		if ( isset( $this->notices[ $group ][ $id ] ) ) {
@@ -109,6 +121,8 @@ class WPML_Notices {
 	}
 
 	public function add_notice( WPML_Notice $notice, $force_update = false ) {
+		$this->init_notices();
+
 		$existing_notice = $this->notice_exists( $notice ) ? $this->notices[ $notice->get_group() ][ $notice->get_id() ] : null;
 
 		$new_notice_is_different = null === $existing_notice || $notice->is_different( $existing_notice );
@@ -175,6 +189,11 @@ class WPML_Notices {
 	}
 
 	public function save_to_option() {
+		if ( null === $this->notices ) {
+			// Nothing to save.
+			return;
+		}
+
 		if ( $this->original_notices_md5 !== md5( maybe_serialize( $this->notices ) ) ) {
 			update_option( self::NOTICES_OPTION_KEY, $this->notices, false );
 		}
@@ -182,11 +201,14 @@ class WPML_Notices {
 
 	private function save_dismissed() {
 		update_user_meta( get_current_user_id(), self::USER_DISMISSED_KEY, $this->user_dismissed );
-		update_option( self::DISMISSED_OPTION_KEY, $this->dismissed, false );
+		if ( is_array( $this->dismissed ) ) {
+			update_option( self::DISMISSED_OPTION_KEY, $this->dismissed, false );
+		}
 	}
 
 	public function remove_notices() {
 		if ( $this->notices_to_remove ) {
+			$this->init_notices();
 			foreach ( $this->notices_to_remove as $group => &$group_notices ) {
 				foreach ( $group_notices as $id ) {
 					if ( array_key_exists( $group, $this->notices ) && array_key_exists( $id, $this->notices[ $group ] ) ) {
@@ -253,6 +275,7 @@ class WPML_Notices {
 	}
 
 	public function admin_notices() {
+		$this->init_notices();
 		if ( $this->notices && $this->must_display_notices() ) {
 			foreach ( $this->notices as $group => $notices ) {
 				foreach ( $notices as $notice ) {
@@ -268,6 +291,8 @@ class WPML_Notices {
 	}
 
 	public function wp_ajax_hide_notice() {
+		$this->init_notices();
+
 		list( $notice_group, $notice_id ) = $this->parse_group_and_id();
 
 		if ( ! $notice_group ) {
@@ -283,6 +308,8 @@ class WPML_Notices {
 	}
 
 	public function wp_ajax_dismiss_notice() {
+		$this->init_notices();
+
 		list( $notice_group, $notice_id ) = $this->parse_group_and_id();
 
 		if ( $this->has_valid_nonce() && $this->dismiss_notice_by_id( $notice_id, $notice_group ) ) {
@@ -318,6 +345,8 @@ class WPML_Notices {
 	}
 
 	public function wp_ajax_dismiss_group() {
+		$this->init_notices();
+
 		list( $notice_group ) = $this->parse_group_and_id();
 
 		if ( $notice_group && $this->has_valid_nonce() && $this->dismiss_notice_group( $notice_group ) ) {
@@ -399,6 +428,8 @@ class WPML_Notices {
 	 * @param string $notice_group
 	 */
 	public function remove_notice_group( $notice_group ) {
+		$this->init_notices();
+
 		$notices     = $this->get_notices_for_group( $notice_group );
 		$notices_ids = array_keys( $notices );
 		foreach ( $notices_ids as $notices_id ) {
@@ -415,6 +446,7 @@ class WPML_Notices {
 			$this->init_all_user_dismissed();
 			$this->user_dismissed[ $notice->get_group() ][ $notice->get_id() ] = md5( $notice->get_text() );
 		} else {
+			$this->init_notices();
 			$this->dismissed[ $notice->get_group() ][ $notice->get_id() ] = md5( $notice->get_text() );
 		}
 
@@ -432,6 +464,7 @@ class WPML_Notices {
 			$this->init_all_user_dismissed();
 			unset( $this->user_dismissed[ $notice->get_group() ][ $notice->get_id() ] );
 		} else {
+			$this->init_notices();
 			unset( $this->dismissed[ $notice->get_group() ][ $notice->get_id() ] );
 		}
 
@@ -446,6 +479,8 @@ class WPML_Notices {
 	 * @return bool
 	 */
 	public function is_notice_dismissed( WPML_Notice $notice ) {
+		$this->init_notices();
+
 		$group = $notice->get_group();
 		$id    = $notice->get_id();
 

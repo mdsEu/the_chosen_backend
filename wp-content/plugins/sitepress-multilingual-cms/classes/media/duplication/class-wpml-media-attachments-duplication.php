@@ -405,7 +405,7 @@ class WPML_Media_Attachments_Duplication {
 			$translated_parent_id = $this->attachments_model->fetch_translated_parent_id( $duplicated_attachment, $parent_id, $target_language );
 
 			if ( null !== $duplicated_attachment ) {
-				if ( $duplicated_attachment->post_parent !== $translated_parent_id ) {
+				if ( (int) $duplicated_attachment->post_parent !== (int) $translated_parent_id ) {
 					$this->attachments_model->update_parent_id_in_existing_attachment( $translated_parent_id, $duplicated_attachment );
 				}
 			} else {
@@ -649,6 +649,8 @@ class WPML_Media_Attachments_Duplication {
 	}
 
 	function duplicate_post_attachments( $pidd, $icl_trid, $source_lang = null, $lang = null ) {
+		$wpdb                           = $this->wpdb;
+		$pidd                           = ( is_numeric( $pidd ) ) ? (int) $pidd : null;
 		$request_post_icl_ajx_action    = filter_input( INPUT_POST, 'icl_ajx_action', FILTER_SANITIZE_FULL_SPECIAL_CHARS, FILTER_NULL_ON_FAILURE );
 		$request_post_icl_post_language = filter_input( INPUT_POST, 'icl_post_language', FILTER_SANITIZE_FULL_SPECIAL_CHARS, FILTER_NULL_ON_FAILURE );
 		$request_post_post_id           = filter_input( INPUT_POST, 'post_id', FILTER_SANITIZE_NUMBER_INT, FILTER_NULL_ON_FAILURE );
@@ -678,28 +680,64 @@ class WPML_Media_Attachments_Duplication {
 			// This is the original see if we should copy to translations
 
 			if ( Option::shouldDuplicateMedia( $pidd ) || Option::shouldDuplicateFeatured( $pidd ) ) {
-				$translations_prepared = $this->wpdb->prepare( "SELECT element_id FROM {$this->wpdb->prefix}icl_translations WHERE trid = %d", array( $icl_trid ) );
-				$translations          = $this->wpdb->get_col( $translations_prepared );
+				$translations       = $wpdb->get_col(
+					$wpdb->prepare(
+						'SELECT element_id FROM ' . $wpdb->prefix . 'icl_translations WHERE trid = %d',
+						array( $icl_trid )
+					)
+				);
+				$translations       = array_map( 'intval', $translations );
+				$source_attachments = $wpdb->get_col(
+					$wpdb->prepare(
+						'SELECT ID FROM ' . $wpdb->posts . ' WHERE post_parent = %d AND post_type = %s',
+						array( $pidd, 'attachment' )
+					)
+				);
+				$source_attachments = array_map( 'intval', $source_attachments );
+
+				$all_element_ids           = [];
+				$attachments_by_element_id = [];
+				foreach ( $translations as $element_id ) {
+					if ( $element_id && $element_id !== $pidd ) {
+						$all_element_ids[]                        = $element_id;
+						$attachments_by_element_id[ $element_id ] = [];
+					}
+				}
+				$all_attachments = [];
+				if ( count( $all_element_ids ) > 0 ) {
+					$all_attachments = $wpdb->get_results(
+						$wpdb->prepare(
+							// phpcs:disable WordPress.DB.PreparedSQL.NotPrepared
+							'SELECT ID, post_parent AS element_id FROM ' . $wpdb->posts . ' WHERE post_parent IN (' . wpml_prepare_in( $all_element_ids ) . ') AND post_type = %s',
+							array( 'attachment' )
+						),
+						ARRAY_A
+					);
+				}
+				foreach ( $all_attachments as $attachment ) {
+					$attachments_by_element_id[ (int) $attachment['element_id'] ][] = (int) $attachment['ID'];
+				}
 
 				foreach ( $translations as $element_id ) {
-					if ( $element_id && $element_id != $pidd ) {
-
+					if ( $element_id && $element_id !== $pidd ) {
 						$lang_prepared = $this->wpdb->prepare( "SELECT language_code FROM {$this->wpdb->prefix}icl_translations WHERE element_id = %d AND trid = %d", array( $element_id, $icl_trid ) );
 						$lang          = $this->wpdb->get_var( $lang_prepared );
 
 						if ( Option::shouldDuplicateFeatured( $element_id ) ) {
-							$source_attachments_prepared = $this->wpdb->prepare( "SELECT ID FROM {$this->wpdb->posts} WHERE post_parent = %d AND post_type = %s", array( $pidd, 'attachment' ) );
-							$source_attachments          = $this->wpdb->get_col( $source_attachments_prepared );
-							$attachments_prepared        = $this->wpdb->prepare( "SELECT ID FROM {$this->wpdb->posts} WHERE post_parent = %d AND post_type = %s", array( $element_id, 'attachment' ) );
-							$attachments                 = $this->wpdb->get_col( $attachments_prepared );
+							$attachments                           = $attachments_by_element_id[ $element_id ];
+							$has_missing_translation_attachment_id = false;
 
-							foreach ( $source_attachments as $source_attachment_id ) {
-								foreach ( $attachments as $attachment_id ) {
-									$translation_attachment_id = icl_object_id( $attachment_id, 'attachment', false, $lang );
-									if ( ! $translation_attachment_id ) {
-										$this->create_duplicate_attachment_not_static( $source_attachment_id, $element_id, $lang );
-									}
+							foreach ( $attachments as $attachment_id ) {
+								if ( ! icl_object_id( $attachment_id, 'attachment', false, $lang ) ) {
+									$has_missing_translation_attachment_id = true;
+									break;
 								}
+							}
+
+							$source_attachment_ids = $has_missing_translation_attachment_id ? $source_attachments : [];
+
+							foreach ( $source_attachment_ids as $source_attachment_id ) {
+								$this->create_duplicate_attachment_not_static( $source_attachment_id, $element_id, $lang );
 							}
 						}
 
