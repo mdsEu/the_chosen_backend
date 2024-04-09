@@ -115,6 +115,21 @@ class Render {
 			}
 		}
 
+		if ( isset( $sourceBlock->attributes['layoutOpenOnClick'] ) ) {
+			$dropdownFirstItemQuery = $languageSwitcherTemplate->getDOMXPath()->query( $XPathPrefix . "/ancestor::li" );
+			if ( $dropdownFirstItemQuery->length > 0 ) {
+				$dpFirstItem = $dropdownFirstItemQuery->item( $dropdownFirstItemQuery->length - 1 );
+
+				if ( $dpFirstItem ) {
+					$dpFirstItem->setAttribute(
+						'onclick',
+						"(()=>{const ariaExpanded = this.children[0].getAttribute('aria-expanded');
+					this.children[0].setAttribute('aria-expanded', ariaExpanded === 'true' ? 'false' : 'true');})(this);"
+					);
+				}
+			}
+		}
+
 		// Apply some classNames and Styles according to values in context if the current block is Navigation Language Switcher
 		// We use values from context to inherit them from the parent Navigation Block
 		if ( $sourceBlock->name === LanguageSwitcher::BLOCK_NAVIGATION_LANGUAGE_SWITCHER ) {
@@ -128,7 +143,6 @@ class Render {
 				$this->maybeApplyColorsForLanguageItems( $languageSwitcherTemplate, $XPathPrefix, $context, false );
 			}
 		}
-
 
 		return $newLanguageItem;
 	}

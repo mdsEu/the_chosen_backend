@@ -55,6 +55,9 @@ function wpml_tm_load( $sitepress = null ) {
 	\WPML\Container\share( \WPML\TM\Container\Config::getSharedClasses() );
 	\WPML\Container\delegate( \WPML\TM\Container\Config::getDelegated() );
 
+	// Always init WPML_Translator_Records as it handles the tranlators cache.
+	\WPML\Container\make( \WPML_Translator_Records::class );
+
 	if ( ! $sitepress || ! $sitepress instanceof SitePress || ! $sitepress->is_setup_complete() ) {
 		return;
 	}
@@ -189,10 +192,12 @@ function wpml_tm_load( $sitepress = null ) {
 			\WPML\TM\ATE\Loader::class,
 			\WPML\TM\Jobs\Loader::class,
 			\WPML\TM\ATE\Review\ApplyJob::class,
+			\WPML\TM\ATE\Review\PackageJob::class,
 			\WPML\TM\ATE\Review\StatusIcons::class,
 			\WPML\TM\ATE\StatusIcons::class,
 			\WPML\TM\Editor\ManualJobCreationErrorNotice::class,
 			\WPML\ICLToATEMigration\Loader::class,
+			\WPML\Support\ATE\Hooks::class,
 		];
 		$action_filter_loader->load( $ams_ate_actions );
 

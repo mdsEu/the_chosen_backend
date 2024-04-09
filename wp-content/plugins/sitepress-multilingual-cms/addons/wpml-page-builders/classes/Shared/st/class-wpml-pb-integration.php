@@ -1,9 +1,13 @@
 <?php
 
-use \WPML\FP\Fns;
+use WPML\FP\Fns;
 use WPML\FP\Obj;
+use WPML\FP\Logic;
+use WPML\FP\Type;
+use WPML\FP\Str;
 use WPML\PB\Shortcode\StringCleanUp;
 use function WPML\FP\invoke;
+use function WPML\FP\partialRight;
 use function WPML\Container\make;
 
 /**
@@ -13,12 +17,22 @@ class WPML_PB_Integration {
 
 	const MIGRATION_DONE_POST_META = '_wpml_location_migration_done';
 
+	/** @var SitePress */
 	private $sitepress;
+
+	/** @var WPML_PB_Factory */
 	private $factory;
+
+	/** @var bool */
 	private $new_translations_recieved = false;
+
+	/** @var array */
 	private $save_post_queue = array();
+
+	/** @var bool */
 	private $is_registering_string = false;
 
+	/** @var array */
 	private $strategies = array();
 
 	/** @var StringCleanUp[]  */
@@ -29,13 +43,13 @@ class WPML_PB_Integration {
 	 */
 	private $rescan;
 
-	/** @var IWPML_PB_Media_Update[]|null $media_updaters */
-	private $media_updaters;
+	/** @var array $media_updaters */
+	private $media_updaters = [];
 
 	/**
 	 * WPML_PB_Integration constructor.
 	 *
-	 * @param SitePress $sitepress
+	 * @param SitePress       $sitepress
 	 * @param WPML_PB_Factory $factory
 	 */
 	public function __construct( SitePress $sitepress, WPML_PB_Factory $factory ) {
@@ -157,11 +171,28 @@ class WPML_PB_Integration {
 				return false;
 			}
 
-			$postTypeSlugs = wpml_collect( get_post_types( [], 'objects' ) )
+			$hasValidBase = Logic::complement(
+				Logic::anyPass(
+					[
+						Type::isNull(),
+						Str::includes( '?P' ),
+						Str::includes( '[' ),
+						Str::includes( '(' )
+					]
+				)
+			);
+
+			$quoteComposedBase = Fns::unary( partialRight( 'preg_quote', '/' ) );
+
+			$postTypeSlugs = wpml_collect( get_post_types( [
+					'show_in_rest' => true,
+				], 'objects' ) )
 				->map( function( $postType ) {
 					return Obj::prop( 'rest_base', $postType ) ?: Obj::prop( 'name', $postType );
 				} )
-				->filter()
+				// Filter out variable bases, see https://onthegosystems.myjetbrains.com/youtrack/issue/wpmlpb-450
+				->filter( $hasValidBase )
+				->map ( $quoteComposedBase )
 				->implode( '|' );
 
 			preg_match( '/' . preg_quote( rest_get_url_prefix(), '/' ) . '\/wp\/v2\/(?:' . $postTypeSlugs . ')\/(\d+)/', $_SERVER['REQUEST_URI'], $matches );
@@ -436,19 +467,28 @@ class WPML_PB_Integration {
 	 */
 	public function translate_media( $post ) {
 		if ( $this->is_post_status_ok( $post ) && ! $this->is_original_post( $post ) ) {
-
-			foreach ( $this->get_media_updaters() as $updater ) {
+			foreach ( $this->get_media_updaters( $post ) as $updater ) {
 				$updater->translate( $post );
 			}
 		}
 	}
 
-	/** @return IWPML_PB_Media_Update[] $media_updaters */
-	private function get_media_updaters() {
-		if ( ! $this->media_updaters ) {
-			$this->media_updaters = apply_filters( 'wpml_pb_get_media_updaters', array() );
+	/**
+	 * @param \WP_Post $post
+	 *
+	 * @return IWPML_PB_Media_Update[]
+	 */
+	private function get_media_updaters( $post ) {
+		if ( ! isset( $this->media_updaters[ $post->ID ] ) ) {
+			/**
+			 * Gets all media updaters.
+			 *
+			 * @param IWPML_PB_Media_Update[] $media_updaters
+			 * @param \WP_Post                $post
+			 */
+			$this->media_updaters[ $post->ID ] = apply_filters( 'wpml_pb_get_media_updaters', [], $post );
 		}
 
-		return $this->media_updaters;
+		return $this->media_updaters[ $post->ID ];
 	}
 }

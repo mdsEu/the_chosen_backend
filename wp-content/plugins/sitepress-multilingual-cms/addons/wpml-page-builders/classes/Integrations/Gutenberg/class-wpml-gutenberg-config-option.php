@@ -191,9 +191,14 @@ class WPML_Gutenberg_Config_Option {
 		foreach ( $keys_config as $key_config ) {
 
 			$partial_config = [];
+			$type           = Obj::pathOr( '', [ 'attr', 'type' ], $key_config );
 
-			if ( self::is_string_type( Obj::pathOr( '', [ 'attr', 'type' ], $key_config ) ) ) {
+			if ( self::is_string_type( $type ) ) {
 				$partial_config['to_include'] = true;
+
+				if ( $type ) {
+					$partial_config['type'] = $type;
+				}
 			}
 
 			if ( isset( $key_config['attr']['search-method'] ) ) {

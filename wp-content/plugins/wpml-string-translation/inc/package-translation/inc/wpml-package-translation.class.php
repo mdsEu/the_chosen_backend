@@ -38,7 +38,7 @@ class WPML_Package_Translation extends WPML_Package_Helper {
 	}
 
 	private function add_admin_hooks() {
-		if ( is_admin() || $this->is_doing_xmlrpc() || wpml_is_rest_request() ) {
+		if ( is_admin() || $this->is_doing_xmlrpc() || wpml_is_rest_request() || ( defined( 'DOING_CRON' ) && DOING_CRON ) ) {
 			add_action( 'wp_ajax_wpml_delete_packages', array( $this, 'delete_packages_ajax' ) );
 			add_action( 'wp_ajax_wpml_change_package_lang', array( $this, 'change_package_lang_ajax' ) );
 
@@ -788,7 +788,8 @@ class WPML_Package_Translation extends WPML_Package_Helper {
 
 	public function save_package_translations( $element_type_prefix, $job, $decoder ) {
 		if ( $element_type_prefix === 'package' ) {
-			$element_type_prefix = $this->get_package_type_prefix( $element_type_prefix, $job->original_doc_id );
+			$element_type_prefix             = $this->get_package_type_prefix( $element_type_prefix, $job->original_doc_id );
+			$needs_process_translation_files = false;
 
 			foreach ( $job->elements as $field ) {
 				if ( $field->field_translate ) {
@@ -798,9 +799,14 @@ class WPML_Package_Translation extends WPML_Package_Helper {
 						$string_id = icl_st_is_registered_string( $element_type_prefix, $field->field_type );
 					}
 					if ( $string_id ) {
+						$needs_process_translation_files = true;
 						icl_add_string_translation( $string_id, $job->language_code, $decoder( $field->field_data_translated, $field->field_format ), ICL_TM_COMPLETE );
 					}
 				}
+			}
+
+			if ( $needs_process_translation_files ) {
+				do_action( 'wpml_st_translation_files_process_queue' );
 			}
 		}
 	}
