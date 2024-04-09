@@ -100,10 +100,7 @@ function icl_st_init() {
 	add_filter( 'widget_title', 'icl_sw_filters_widget_title', 0 );  // highest priority
 	add_filter( 'widget_text', 'icl_sw_filters_widget_text', 0 ); // highest priority
 
-	$widget_groups = $wpdb->get_results( "SELECT option_name, option_value FROM {$wpdb->options} WHERE option_name LIKE 'widget\\_%'" );
-	foreach ( $widget_groups as $w ) {
-		add_action( 'update_option_' . $w->option_name, 'icl_st_update_widget_title_actions', 5, 2 );
-	}
+	add_action( 'update_option', 'icl_st_update_widget_title_actions', 5, 3 );
 
 	add_action( 'update_option_widget_text', 'icl_st_update_text_widgets_actions', 5, 2 );
 	add_action( 'update_option_sidebars_widgets', 'wpml_st_init_register_widget_titles' );
@@ -869,36 +866,67 @@ function icl_st_update_string_actions( $context, $name, $old_value, $new_value, 
 }
 
 /**
- * @param array<string,mixed> $old_options
- * @param array<string,mixed> $new_options
+ * @param string $name
+ * @param array<string,mixed> $old
+ * @param array<string,mixed> $new
  *
  * @throws \WPML\Auryn\InjectionException
  */
-function icl_st_update_widget_title_actions( $old_options, $new_options ) {
-
-	if ( isset( $new_options['title'] ) ) { // case of 1 instance only widgets
-		$buf = $new_options;
-		unset( $new_options );
-		$new_options[0] = $buf;
-		unset( $buf );
-		$buf = $old_options;
-		unset( $old_options );
-		$old_options[0] = $buf;
-		unset( $buf );
+function icl_st_update_widget_title_actions( $name, $old, $new ) {
+	if ( strpos( $name, 'widget_' ) !== 0 ) {
+		// No widget.
+		return;
 	}
 
-	$defaultLang = Languages::getDefaultCode();
+	// Normalise the widget arrays.
+	$new = ! is_array( $new ) || array_key_exists( 'title' , $new )
+		? [ $new ]
+		: $new;
+	$old = ! is_array( $old ) || array_key_exists( 'title' , $old )
+		? [ $old ]
+		: $old;
 
-	foreach ( $new_options as $k => $o ) {
-		if ( isset( $o['title'] ) ) {
-			if ( isset( $old_options[ $k ]['title'] ) && $old_options[ $k ]['title'] ) {
-				icl_st_update_string_actions( WPML_ST_WIDGET_STRING_DOMAIN, 'widget title - ' . md5( $old_options[ $k ]['title'] ), $old_options[ $k ]['title'], $o['title'] );
-			} else {
-				if ( $new_options[ $k ]['title'] ) {
-					icl_register_string( WPML_ST_WIDGET_STRING_DOMAIN, 'widget title - ' . md5( $new_options[ $k ]['title'] ), $new_options[ $k ]['title'], false, $defaultLang );
-				}
-			}
+	$name_prefix = 'widget title - ';
+
+	foreach ( $new as $index => $widget ) {
+		if (
+			! is_array( $widget ) || // There can be other data than arrays.
+			! array_key_exists( 'title', $widget )
+		) {
+			// No title at all. Nothing to translate.
+			continue;
 		}
+
+		if (
+			array_key_exists( $index, $old )
+			&& is_array( $old[ $index ] )
+			&& array_key_exists( 'title', $old[ $index ] )
+			&& $old[ $index ]['title']
+		) {
+			// EXISTING WIDGET - Update existing string.
+			icl_st_update_string_actions(
+				WPML_ST_WIDGET_STRING_DOMAIN,
+				$name_prefix . md5( $old[ $index ]['title'] ),
+				$old[ $index ]['title'],
+				$widget['title']
+			);
+			continue;
+		}
+
+		// NEW WIDGET.
+		// 1. Get default language once.
+		$defaultLang = isset( $defaultLang )
+			? $defaultLang
+			: Languages::getDefaultCode();
+
+		// 2. Register new widget title as translatable string.
+		icl_register_string(
+			WPML_ST_WIDGET_STRING_DOMAIN,
+			$name_prefix . md5( $new[ $index ]['title'] ),
+			$new[ $index ]['title'],
+			false,
+			$defaultLang
+		);
 	}
 }
 

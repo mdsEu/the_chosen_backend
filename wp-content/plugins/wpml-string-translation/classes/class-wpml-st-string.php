@@ -261,7 +261,7 @@ class WPML_ST_String {
 		}
 
 		if ( $ICL_Pro_Translation ) {
-			$ICL_Pro_Translation->fix_links_to_translated_content( $st_id, $language, 'string' );
+			$ICL_Pro_Translation->fix_links_to_translated_content( $st_id, $language, 'string', [ 'value' => $value, 'string_id' => $this->string_id ] );
 		}
 
 		icl_update_string_status( $this->string_id );
