@@ -33,7 +33,8 @@ define( 'WP_DEBUG', getenv('WORDPRESS_DEBUG') === "TRUE" );
 define( 'WP_CACHE', FALSE );
 
 # WP Engine ID
-define('WP_MEMORY_LIMIT', '128M');
+define('WP_MEMORY_LIMIT', '256M');
+define('WP_MAX_MEMORY_LIMIT', '512M');
 
 # WP Engine Settings
 
