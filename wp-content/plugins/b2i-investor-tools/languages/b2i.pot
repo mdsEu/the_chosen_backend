@@ -1,0 +1,1855 @@
+# Copyright (C) 2016 b2itech
+# This file is distributed under the GPLv2.
+msgid ""
+msgstr ""
+"Project-Id-Version: b2i Investor Tools 0.5.2\n"
+"Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/b2i\n"
+"POT-Creation-Date: 2016-09-12 22:12:25+00:00\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"PO-Revision-Date: 2016-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"X-Generator: grunt-wp-i18n 0.5.4\n"
+
+#: includes/class-options.php:68 release/0.1.0/includes/class-options.php:66
+#: release/0.2.0/includes/class-options.php:66
+#: release/0.3.0/includes/class-options.php:66
+#: release/0.4.0/includes/class-options.php:66
+#: release/0.5.0/includes/class-options.php:66
+#: release/0.5.1/includes/class-options.php:66
+#: release/0.5.2/includes/class-options.php:68
+#: release/svn/includes/class-options.php:68
+msgid "b2i Options"
+msgstr ""
+
+#: includes/class-options.php:207 release/0.1.0/includes/class-options.php:147
+#: release/0.2.0/includes/class-options.php:205
+#: release/0.3.0/includes/class-options.php:205
+#: release/0.4.0/includes/class-options.php:205
+#: release/0.5.0/includes/class-options.php:205
+#: release/0.5.1/includes/class-options.php:205
+#: release/0.5.2/includes/class-options.php:207
+#: release/svn/includes/class-options.php:207
+msgid "Business ID"
+msgstr ""
+
+#: includes/class-options.php:213 release/0.1.0/includes/class-options.php:153
+#: release/0.2.0/includes/class-options.php:211
+#: release/0.3.0/includes/class-options.php:211
+#: release/0.4.0/includes/class-options.php:211
+#: release/0.5.0/includes/class-options.php:211
+#: release/0.5.1/includes/class-options.php:211
+#: release/0.5.2/includes/class-options.php:213
+#: release/svn/includes/class-options.php:213
+msgid "Key"
+msgstr ""
+
+#: release/0.1.0/vendor/cmb2/example-functions.php:117
+#: release/0.2.0/vendor/cmb2/example-functions.php:117
+#: release/0.3.0/vendor/cmb2/example-functions.php:117
+#: release/0.4.0/vendor/cmb2/example-functions.php:117
+#: release/0.5.0/vendor/cmb2/example-functions.php:117
+#: release/0.5.1/vendor/cmb2/example-functions.php:117
+#: release/0.5.2/vendor/cmb2/example-functions.php:117
+#: release/svn/vendor/cmb2/example-functions.php:117
+#: vendor/cmb2/example-functions.php:117
+msgid "Test Metabox"
+msgstr ""
+
+#: release/0.1.0/vendor/cmb2/example-functions.php:130
+#: release/0.1.0/vendor/cmb2/example-functions.php:436
+#: release/0.2.0/vendor/cmb2/example-functions.php:130
+#: release/0.2.0/vendor/cmb2/example-functions.php:436
+#: release/0.3.0/vendor/cmb2/example-functions.php:130
+#: release/0.3.0/vendor/cmb2/example-functions.php:436
+#: release/0.4.0/vendor/cmb2/example-functions.php:130
+#: release/0.4.0/vendor/cmb2/example-functions.php:436
+#: release/0.5.0/vendor/cmb2/example-functions.php:130
+#: release/0.5.0/vendor/cmb2/example-functions.php:436
+#: release/0.5.1/vendor/cmb2/example-functions.php:130
+#: release/0.5.1/vendor/cmb2/example-functions.php:436
+#: release/0.5.2/vendor/cmb2/example-functions.php:130
+#: release/0.5.2/vendor/cmb2/example-functions.php:436
+#: release/svn/vendor/cmb2/example-functions.php:130
+#: release/svn/vendor/cmb2/example-functions.php:436
+#: vendor/cmb2/example-functions.php:130 vendor/cmb2/example-functions.php:436
+msgid "Test Text"
+msgstr ""
+
+#: release/0.1.0/vendor/cmb2/example-functions.php:131
+#: release/0.1.0/vendor/cmb2/example-functions.php:144
+#: release/0.1.0/vendor/cmb2/example-functions.php:157
+#: release/0.1.0/vendor/cmb2/example-functions.php:165
+#: release/0.1.0/vendor/cmb2/example-functions.php:173
+#: release/0.1.0/vendor/cmb2/example-functions.php:182
+#: release/0.1.0/vendor/cmb2/example-functions.php:190
+#: release/0.1.0/vendor/cmb2/example-functions.php:205
+#: release/0.1.0/vendor/cmb2/example-functions.php:213
+#: release/0.1.0/vendor/cmb2/example-functions.php:221
+#: release/0.1.0/vendor/cmb2/example-functions.php:238
+#: release/0.1.0/vendor/cmb2/example-functions.php:247
+#: release/0.1.0/vendor/cmb2/example-functions.php:260
+#: release/0.1.0/vendor/cmb2/example-functions.php:267
+#: release/0.1.0/vendor/cmb2/example-functions.php:274
+#: release/0.1.0/vendor/cmb2/example-functions.php:288
+#: release/0.1.0/vendor/cmb2/example-functions.php:301
+#: release/0.1.0/vendor/cmb2/example-functions.php:314
+#: release/0.1.0/vendor/cmb2/example-functions.php:326
+#: release/0.1.0/vendor/cmb2/example-functions.php:335
+#: release/0.1.0/vendor/cmb2/example-functions.php:343
+#: release/0.1.0/vendor/cmb2/example-functions.php:352
+#: release/0.1.0/vendor/cmb2/example-functions.php:359
+#: release/0.1.0/vendor/cmb2/example-functions.php:373
+#: release/0.1.0/vendor/cmb2/example-functions.php:437
+#: release/0.1.0/vendor/cmb2/example-functions.php:528
+#: release/0.1.0/vendor/cmb2/example-functions.php:536
+#: release/0.1.0/vendor/cmb2/example-functions.php:543
+#: release/0.1.0/vendor/cmb2/example-functions.php:550
+#: release/0.1.0/vendor/cmb2/example-functions.php:557
+#: release/0.1.0/vendor/cmb2/example-functions.php:564
+#: release/0.1.0/vendor/cmb2/example-functions.php:571
+#: release/0.1.0/vendor/cmb2/example-functions.php:598
+#: release/0.1.0/vendor/cmb2/example-functions.php:606
+#: release/0.1.0/vendor/cmb2/example-functions.php:613
+#: release/0.1.0/vendor/cmb2/example-functions.php:650
+#: release/0.2.0/vendor/cmb2/example-functions.php:131
+#: release/0.2.0/vendor/cmb2/example-functions.php:144
+#: release/0.2.0/vendor/cmb2/example-functions.php:157
+#: release/0.2.0/vendor/cmb2/example-functions.php:165
+#: release/0.2.0/vendor/cmb2/example-functions.php:173
+#: release/0.2.0/vendor/cmb2/example-functions.php:182
+#: release/0.2.0/vendor/cmb2/example-functions.php:190
+#: release/0.2.0/vendor/cmb2/example-functions.php:205
+#: release/0.2.0/vendor/cmb2/example-functions.php:213
+#: release/0.2.0/vendor/cmb2/example-functions.php:221
+#: release/0.2.0/vendor/cmb2/example-functions.php:238
+#: release/0.2.0/vendor/cmb2/example-functions.php:247
+#: release/0.2.0/vendor/cmb2/example-functions.php:260
+#: release/0.2.0/vendor/cmb2/example-functions.php:267
+#: release/0.2.0/vendor/cmb2/example-functions.php:274
+#: release/0.2.0/vendor/cmb2/example-functions.php:288
+#: release/0.2.0/vendor/cmb2/example-functions.php:301
+#: release/0.2.0/vendor/cmb2/example-functions.php:314
+#: release/0.2.0/vendor/cmb2/example-functions.php:326
+#: release/0.2.0/vendor/cmb2/example-functions.php:335
+#: release/0.2.0/vendor/cmb2/example-functions.php:343
+#: release/0.2.0/vendor/cmb2/example-functions.php:352
+#: release/0.2.0/vendor/cmb2/example-functions.php:359
+#: release/0.2.0/vendor/cmb2/example-functions.php:373
+#: release/0.2.0/vendor/cmb2/example-functions.php:437
+#: release/0.2.0/vendor/cmb2/example-functions.php:528
+#: release/0.2.0/vendor/cmb2/example-functions.php:536
+#: release/0.2.0/vendor/cmb2/example-functions.php:543
+#: release/0.2.0/vendor/cmb2/example-functions.php:550
+#: release/0.2.0/vendor/cmb2/example-functions.php:557
+#: release/0.2.0/vendor/cmb2/example-functions.php:564
+#: release/0.2.0/vendor/cmb2/example-functions.php:571
+#: release/0.2.0/vendor/cmb2/example-functions.php:598
+#: release/0.2.0/vendor/cmb2/example-functions.php:606
+#: release/0.2.0/vendor/cmb2/example-functions.php:613
+#: release/0.2.0/vendor/cmb2/example-functions.php:650
+#: release/0.3.0/vendor/cmb2/example-functions.php:131
+#: release/0.3.0/vendor/cmb2/example-functions.php:144
+#: release/0.3.0/vendor/cmb2/example-functions.php:157
+#: release/0.3.0/vendor/cmb2/example-functions.php:165
+#: release/0.3.0/vendor/cmb2/example-functions.php:173
+#: release/0.3.0/vendor/cmb2/example-functions.php:182
+#: release/0.3.0/vendor/cmb2/example-functions.php:190
+#: release/0.3.0/vendor/cmb2/example-functions.php:205
+#: release/0.3.0/vendor/cmb2/example-functions.php:213
+#: release/0.3.0/vendor/cmb2/example-functions.php:221
+#: release/0.3.0/vendor/cmb2/example-functions.php:238
+#: release/0.3.0/vendor/cmb2/example-functions.php:247
+#: release/0.3.0/vendor/cmb2/example-functions.php:260
+#: release/0.3.0/vendor/cmb2/example-functions.php:267
+#: release/0.3.0/vendor/cmb2/example-functions.php:274
+#: release/0.3.0/vendor/cmb2/example-functions.php:288
+#: release/0.3.0/vendor/cmb2/example-functions.php:301
+#: release/0.3.0/vendor/cmb2/example-functions.php:314
+#: release/0.3.0/vendor/cmb2/example-functions.php:326
+#: release/0.3.0/vendor/cmb2/example-functions.php:335
+#: release/0.3.0/vendor/cmb2/example-functions.php:343
+#: release/0.3.0/vendor/cmb2/example-functions.php:352
+#: release/0.3.0/vendor/cmb2/example-functions.php:359
+#: release/0.3.0/vendor/cmb2/example-functions.php:373
+#: release/0.3.0/vendor/cmb2/example-functions.php:437
+#: release/0.3.0/vendor/cmb2/example-functions.php:528
+#: release/0.3.0/vendor/cmb2/example-functions.php:536
+#: release/0.3.0/vendor/cmb2/example-functions.php:543
+#: release/0.3.0/vendor/cmb2/example-functions.php:550
+#: release/0.3.0/vendor/cmb2/example-functions.php:557
+#: release/0.3.0/vendor/cmb2/example-functions.php:564
+#: release/0.3.0/vendor/cmb2/example-functions.php:571
+#: release/0.3.0/vendor/cmb2/example-functions.php:598
+#: release/0.3.0/vendor/cmb2/example-functions.php:606
+#: release/0.3.0/vendor/cmb2/example-functions.php:613
+#: release/0.3.0/vendor/cmb2/example-functions.php:650
+#: release/0.4.0/vendor/cmb2/example-functions.php:131
+#: release/0.4.0/vendor/cmb2/example-functions.php:144
+#: release/0.4.0/vendor/cmb2/example-functions.php:157
+#: release/0.4.0/vendor/cmb2/example-functions.php:165
+#: release/0.4.0/vendor/cmb2/example-functions.php:173
+#: release/0.4.0/vendor/cmb2/example-functions.php:182
+#: release/0.4.0/vendor/cmb2/example-functions.php:190
+#: release/0.4.0/vendor/cmb2/example-functions.php:205
+#: release/0.4.0/vendor/cmb2/example-functions.php:213
+#: release/0.4.0/vendor/cmb2/example-functions.php:221
+#: release/0.4.0/vendor/cmb2/example-functions.php:238
+#: release/0.4.0/vendor/cmb2/example-functions.php:247
+#: release/0.4.0/vendor/cmb2/example-functions.php:260
+#: release/0.4.0/vendor/cmb2/example-functions.php:267
+#: release/0.4.0/vendor/cmb2/example-functions.php:274
+#: release/0.4.0/vendor/cmb2/example-functions.php:288
+#: release/0.4.0/vendor/cmb2/example-functions.php:301
+#: release/0.4.0/vendor/cmb2/example-functions.php:314
+#: release/0.4.0/vendor/cmb2/example-functions.php:326
+#: release/0.4.0/vendor/cmb2/example-functions.php:335
+#: release/0.4.0/vendor/cmb2/example-functions.php:343
+#: release/0.4.0/vendor/cmb2/example-functions.php:352
+#: release/0.4.0/vendor/cmb2/example-functions.php:359
+#: release/0.4.0/vendor/cmb2/example-functions.php:373
+#: release/0.4.0/vendor/cmb2/example-functions.php:437
+#: release/0.4.0/vendor/cmb2/example-functions.php:528
+#: release/0.4.0/vendor/cmb2/example-functions.php:536
+#: release/0.4.0/vendor/cmb2/example-functions.php:543
+#: release/0.4.0/vendor/cmb2/example-functions.php:550
+#: release/0.4.0/vendor/cmb2/example-functions.php:557
+#: release/0.4.0/vendor/cmb2/example-functions.php:564
+#: release/0.4.0/vendor/cmb2/example-functions.php:571
+#: release/0.4.0/vendor/cmb2/example-functions.php:598
+#: release/0.4.0/vendor/cmb2/example-functions.php:606
+#: release/0.4.0/vendor/cmb2/example-functions.php:613
+#: release/0.4.0/vendor/cmb2/example-functions.php:650
+#: release/0.5.0/vendor/cmb2/example-functions.php:131
+#: release/0.5.0/vendor/cmb2/example-functions.php:144
+#: release/0.5.0/vendor/cmb2/example-functions.php:157
+#: release/0.5.0/vendor/cmb2/example-functions.php:165
+#: release/0.5.0/vendor/cmb2/example-functions.php:173
+#: release/0.5.0/vendor/cmb2/example-functions.php:182
+#: release/0.5.0/vendor/cmb2/example-functions.php:190
+#: release/0.5.0/vendor/cmb2/example-functions.php:205
+#: release/0.5.0/vendor/cmb2/example-functions.php:213
+#: release/0.5.0/vendor/cmb2/example-functions.php:221
+#: release/0.5.0/vendor/cmb2/example-functions.php:238
+#: release/0.5.0/vendor/cmb2/example-functions.php:247
+#: release/0.5.0/vendor/cmb2/example-functions.php:260
+#: release/0.5.0/vendor/cmb2/example-functions.php:267
+#: release/0.5.0/vendor/cmb2/example-functions.php:274
+#: release/0.5.0/vendor/cmb2/example-functions.php:288
+#: release/0.5.0/vendor/cmb2/example-functions.php:301
+#: release/0.5.0/vendor/cmb2/example-functions.php:314
+#: release/0.5.0/vendor/cmb2/example-functions.php:326
+#: release/0.5.0/vendor/cmb2/example-functions.php:335
+#: release/0.5.0/vendor/cmb2/example-functions.php:343
+#: release/0.5.0/vendor/cmb2/example-functions.php:352
+#: release/0.5.0/vendor/cmb2/example-functions.php:359
+#: release/0.5.0/vendor/cmb2/example-functions.php:373
+#: release/0.5.0/vendor/cmb2/example-functions.php:437
+#: release/0.5.0/vendor/cmb2/example-functions.php:528
+#: release/0.5.0/vendor/cmb2/example-functions.php:536
+#: release/0.5.0/vendor/cmb2/example-functions.php:543
+#: release/0.5.0/vendor/cmb2/example-functions.php:550
+#: release/0.5.0/vendor/cmb2/example-functions.php:557
+#: release/0.5.0/vendor/cmb2/example-functions.php:564
+#: release/0.5.0/vendor/cmb2/example-functions.php:571
+#: release/0.5.0/vendor/cmb2/example-functions.php:598
+#: release/0.5.0/vendor/cmb2/example-functions.php:606
+#: release/0.5.0/vendor/cmb2/example-functions.php:613
+#: release/0.5.0/vendor/cmb2/example-functions.php:650
+#: release/0.5.1/vendor/cmb2/example-functions.php:131
+#: release/0.5.1/vendor/cmb2/example-functions.php:144
+#: release/0.5.1/vendor/cmb2/example-functions.php:157
+#: release/0.5.1/vendor/cmb2/example-functions.php:165
+#: release/0.5.1/vendor/cmb2/example-functions.php:173
+#: release/0.5.1/vendor/cmb2/example-functions.php:182
+#: release/0.5.1/vendor/cmb2/example-functions.php:190
+#: release/0.5.1/vendor/cmb2/example-functions.php:205
+#: release/0.5.1/vendor/cmb2/example-functions.php:213
+#: release/0.5.1/vendor/cmb2/example-functions.php:221
+#: release/0.5.1/vendor/cmb2/example-functions.php:238
+#: release/0.5.1/vendor/cmb2/example-functions.php:247
+#: release/0.5.1/vendor/cmb2/example-functions.php:260
+#: release/0.5.1/vendor/cmb2/example-functions.php:267
+#: release/0.5.1/vendor/cmb2/example-functions.php:274
+#: release/0.5.1/vendor/cmb2/example-functions.php:288
+#: release/0.5.1/vendor/cmb2/example-functions.php:301
+#: release/0.5.1/vendor/cmb2/example-functions.php:314
+#: release/0.5.1/vendor/cmb2/example-functions.php:326
+#: release/0.5.1/vendor/cmb2/example-functions.php:335
+#: release/0.5.1/vendor/cmb2/example-functions.php:343
+#: release/0.5.1/vendor/cmb2/example-functions.php:352
+#: release/0.5.1/vendor/cmb2/example-functions.php:359
+#: release/0.5.1/vendor/cmb2/example-functions.php:373
+#: release/0.5.1/vendor/cmb2/example-functions.php:437
+#: release/0.5.1/vendor/cmb2/example-functions.php:528
+#: release/0.5.1/vendor/cmb2/example-functions.php:536
+#: release/0.5.1/vendor/cmb2/example-functions.php:543
+#: release/0.5.1/vendor/cmb2/example-functions.php:550
+#: release/0.5.1/vendor/cmb2/example-functions.php:557
+#: release/0.5.1/vendor/cmb2/example-functions.php:564
+#: release/0.5.1/vendor/cmb2/example-functions.php:571
+#: release/0.5.1/vendor/cmb2/example-functions.php:598
+#: release/0.5.1/vendor/cmb2/example-functions.php:606
+#: release/0.5.1/vendor/cmb2/example-functions.php:613
+#: release/0.5.1/vendor/cmb2/example-functions.php:650
+#: release/0.5.2/vendor/cmb2/example-functions.php:131
+#: release/0.5.2/vendor/cmb2/example-functions.php:144
+#: release/0.5.2/vendor/cmb2/example-functions.php:157
+#: release/0.5.2/vendor/cmb2/example-functions.php:165
+#: release/0.5.2/vendor/cmb2/example-functions.php:173
+#: release/0.5.2/vendor/cmb2/example-functions.php:182
+#: release/0.5.2/vendor/cmb2/example-functions.php:190
+#: release/0.5.2/vendor/cmb2/example-functions.php:205
+#: release/0.5.2/vendor/cmb2/example-functions.php:213
+#: release/0.5.2/vendor/cmb2/example-functions.php:221
+#: release/0.5.2/vendor/cmb2/example-functions.php:238
+#: release/0.5.2/vendor/cmb2/example-functions.php:247
+#: release/0.5.2/vendor/cmb2/example-functions.php:260
+#: release/0.5.2/vendor/cmb2/example-functions.php:267
+#: release/0.5.2/vendor/cmb2/example-functions.php:274
+#: release/0.5.2/vendor/cmb2/example-functions.php:288
+#: release/0.5.2/vendor/cmb2/example-functions.php:301
+#: release/0.5.2/vendor/cmb2/example-functions.php:314
+#: release/0.5.2/vendor/cmb2/example-functions.php:326
+#: release/0.5.2/vendor/cmb2/example-functions.php:335
+#: release/0.5.2/vendor/cmb2/example-functions.php:343
+#: release/0.5.2/vendor/cmb2/example-functions.php:352
+#: release/0.5.2/vendor/cmb2/example-functions.php:359
+#: release/0.5.2/vendor/cmb2/example-functions.php:373
+#: release/0.5.2/vendor/cmb2/example-functions.php:437
+#: release/0.5.2/vendor/cmb2/example-functions.php:528
+#: release/0.5.2/vendor/cmb2/example-functions.php:536
+#: release/0.5.2/vendor/cmb2/example-functions.php:543
+#: release/0.5.2/vendor/cmb2/example-functions.php:550
+#: release/0.5.2/vendor/cmb2/example-functions.php:557
+#: release/0.5.2/vendor/cmb2/example-functions.php:564
+#: release/0.5.2/vendor/cmb2/example-functions.php:571
+#: release/0.5.2/vendor/cmb2/example-functions.php:598
+#: release/0.5.2/vendor/cmb2/example-functions.php:606
+#: release/0.5.2/vendor/cmb2/example-functions.php:613
+#: release/0.5.2/vendor/cmb2/example-functions.php:650
+#: release/svn/vendor/cmb2/example-functions.php:131
+#: release/svn/vendor/cmb2/example-functions.php:144
+#: release/svn/vendor/cmb2/example-functions.php:157
+#: release/svn/vendor/cmb2/example-functions.php:165
+#: release/svn/vendor/cmb2/example-functions.php:173
+#: release/svn/vendor/cmb2/example-functions.php:182
+#: release/svn/vendor/cmb2/example-functions.php:190
+#: release/svn/vendor/cmb2/example-functions.php:205
+#: release/svn/vendor/cmb2/example-functions.php:213
+#: release/svn/vendor/cmb2/example-functions.php:221
+#: release/svn/vendor/cmb2/example-functions.php:238
+#: release/svn/vendor/cmb2/example-functions.php:247
+#: release/svn/vendor/cmb2/example-functions.php:260
+#: release/svn/vendor/cmb2/example-functions.php:267
+#: release/svn/vendor/cmb2/example-functions.php:274
+#: release/svn/vendor/cmb2/example-functions.php:288
+#: release/svn/vendor/cmb2/example-functions.php:301
+#: release/svn/vendor/cmb2/example-functions.php:314
+#: release/svn/vendor/cmb2/example-functions.php:326
+#: release/svn/vendor/cmb2/example-functions.php:335
+#: release/svn/vendor/cmb2/example-functions.php:343
+#: release/svn/vendor/cmb2/example-functions.php:352
+#: release/svn/vendor/cmb2/example-functions.php:359
+#: release/svn/vendor/cmb2/example-functions.php:373
+#: release/svn/vendor/cmb2/example-functions.php:437
+#: release/svn/vendor/cmb2/example-functions.php:528
+#: release/svn/vendor/cmb2/example-functions.php:536
+#: release/svn/vendor/cmb2/example-functions.php:543
+#: release/svn/vendor/cmb2/example-functions.php:550
+#: release/svn/vendor/cmb2/example-functions.php:557
+#: release/svn/vendor/cmb2/example-functions.php:564
+#: release/svn/vendor/cmb2/example-functions.php:571
+#: release/svn/vendor/cmb2/example-functions.php:598
+#: release/svn/vendor/cmb2/example-functions.php:606
+#: release/svn/vendor/cmb2/example-functions.php:613
+#: release/svn/vendor/cmb2/example-functions.php:650
+#: vendor/cmb2/example-functions.php:131 vendor/cmb2/example-functions.php:144
+#: vendor/cmb2/example-functions.php:157 vendor/cmb2/example-functions.php:165
+#: vendor/cmb2/example-functions.php:173 vendor/cmb2/example-functions.php:182
+#: vendor/cmb2/example-functions.php:190 vendor/cmb2/example-functions.php:205
+#: vendor/cmb2/example-functions.php:213 vendor/cmb2/example-functions.php:221
+#: vendor/cmb2/example-functions.php:238 vendor/cmb2/example-functions.php:247
+#: vendor/cmb2/example-functions.php:260 vendor/cmb2/example-functions.php:267
+#: vendor/cmb2/example-functions.php:274 vendor/cmb2/example-functions.php:288
+#: vendor/cmb2/example-functions.php:301 vendor/cmb2/example-functions.php:314
+#: vendor/cmb2/example-functions.php:326 vendor/cmb2/example-functions.php:335
+#: vendor/cmb2/example-functions.php:343 vendor/cmb2/example-functions.php:352
+#: vendor/cmb2/example-functions.php:359 vendor/cmb2/example-functions.php:373
+#: vendor/cmb2/example-functions.php:437 vendor/cmb2/example-functions.php:528
+#: vendor/cmb2/example-functions.php:536 vendor/cmb2/example-functions.php:543
+#: vendor/cmb2/example-functions.php:550 vendor/cmb2/example-functions.php:557
+#: vendor/cmb2/example-functions.php:564 vendor/cmb2/example-functions.php:571
+#: vendor/cmb2/example-functions.php:598 vendor/cmb2/example-functions.php:606
+#: vendor/cmb2/example-functions.php:613 vendor/cmb2/example-functions.php:650
+msgid "field description (optional)"
+msgstr ""
+
+#: release/0.1.0/vendor/cmb2/example-functions.php:143
+#: release/0.2.0/vendor/cmb2/example-functions.php:143
+#: release/0.3.0/vendor/cmb2/example-functions.php:143
+#: release/0.4.0/vendor/cmb2/example-functions.php:143
+#: release/0.5.0/vendor/cmb2/example-functions.php:143
+#: release/0.5.1/vendor/cmb2/example-functions.php:143
+#: release/0.5.2/vendor/cmb2/example-functions.php:143
+#: release/svn/vendor/cmb2/example-functions.php:143
+#: vendor/cmb2/example-functions.php:143
+msgid "Test Text Small"
+msgstr ""
+
+#: release/0.1.0/vendor/cmb2/example-functions.php:156
+#: release/0.2.0/vendor/cmb2/example-functions.php:156
+#: release/0.3.0/vendor/cmb2/example-functions.php:156
+#: release/0.4.0/vendor/cmb2/example-functions.php:156
+#: release/0.5.0/vendor/cmb2/example-functions.php:156
+#: release/0.5.1/vendor/cmb2/example-functions.php:156
+#: release/0.5.2/vendor/cmb2/example-functions.php:156
+#: release/svn/vendor/cmb2/example-functions.php:156
+#: vendor/cmb2/example-functions.php:156
+msgid "Test Text Medium"
+msgstr ""
+
+#: release/0.1.0/vendor/cmb2/example-functions.php:164
+#: release/0.2.0/vendor/cmb2/example-functions.php:164
+#: release/0.3.0/vendor/cmb2/example-functions.php:164
+#: release/0.4.0/vendor/cmb2/example-functions.php:164
+#: release/0.5.0/vendor/cmb2/example-functions.php:164
+#: release/0.5.1/vendor/cmb2/example-functions.php:164
+#: release/0.5.2/vendor/cmb2/example-functions.php:164
+#: release/svn/vendor/cmb2/example-functions.php:164
+#: vendor/cmb2/example-functions.php:164
+msgid "Custom Rendered Field"
+msgstr ""
+
+#: release/0.1.0/vendor/cmb2/example-functions.php:172
+#: release/0.2.0/vendor/cmb2/example-functions.php:172
+#: release/0.3.0/vendor/cmb2/example-functions.php:172
+#: release/0.4.0/vendor/cmb2/example-functions.php:172
+#: release/0.5.0/vendor/cmb2/example-functions.php:172
+#: release/0.5.1/vendor/cmb2/example-functions.php:172
+#: release/0.5.2/vendor/cmb2/example-functions.php:172
+#: release/svn/vendor/cmb2/example-functions.php:172
+#: vendor/cmb2/example-functions.php:172
+msgid "Website URL"
+msgstr ""
+
+#: release/0.1.0/vendor/cmb2/example-functions.php:181
+#: release/0.2.0/vendor/cmb2/example-functions.php:181
+#: release/0.3.0/vendor/cmb2/example-functions.php:181
+#: release/0.4.0/vendor/cmb2/example-functions.php:181
+#: release/0.5.0/vendor/cmb2/example-functions.php:181
+#: release/0.5.1/vendor/cmb2/example-functions.php:181
+#: release/0.5.2/vendor/cmb2/example-functions.php:181
+#: release/svn/vendor/cmb2/example-functions.php:181
+#: vendor/cmb2/example-functions.php:181
+msgid "Test Text Email"
+msgstr ""
+
+#: release/0.1.0/vendor/cmb2/example-functions.php:189
+#: release/0.2.0/vendor/cmb2/example-functions.php:189
+#: release/0.3.0/vendor/cmb2/example-functions.php:189
+#: release/0.4.0/vendor/cmb2/example-functions.php:189
+#: release/0.5.0/vendor/cmb2/example-functions.php:189
+#: release/0.5.1/vendor/cmb2/example-functions.php:189
+#: release/0.5.2/vendor/cmb2/example-functions.php:189
+#: release/svn/vendor/cmb2/example-functions.php:189
+#: vendor/cmb2/example-functions.php:189
+msgid "Test Time"
+msgstr ""
+
+#: release/0.1.0/vendor/cmb2/example-functions.php:197
+#: release/0.1.0/vendor/cmb2/example-functions.php:198
+#: release/0.2.0/vendor/cmb2/example-functions.php:197
+#: release/0.2.0/vendor/cmb2/example-functions.php:198
+#: release/0.3.0/vendor/cmb2/example-functions.php:197
+#: release/0.3.0/vendor/cmb2/example-functions.php:198
+#: release/0.4.0/vendor/cmb2/example-functions.php:197
+#: release/0.4.0/vendor/cmb2/example-functions.php:198
+#: release/0.5.0/vendor/cmb2/example-functions.php:197
+#: release/0.5.0/vendor/cmb2/example-functions.php:198
+#: release/0.5.1/vendor/cmb2/example-functions.php:197
+#: release/0.5.1/vendor/cmb2/example-functions.php:198
+#: release/0.5.2/vendor/cmb2/example-functions.php:197
+#: release/0.5.2/vendor/cmb2/example-functions.php:198
+#: release/svn/vendor/cmb2/example-functions.php:197
+#: release/svn/vendor/cmb2/example-functions.php:198
+#: vendor/cmb2/example-functions.php:197 vendor/cmb2/example-functions.php:198
+msgid "Time zone"
+msgstr ""
+
+#: release/0.1.0/vendor/cmb2/example-functions.php:204
+#: release/0.2.0/vendor/cmb2/example-functions.php:204
+#: release/0.3.0/vendor/cmb2/example-functions.php:204
+#: release/0.4.0/vendor/cmb2/example-functions.php:204
+#: release/0.5.0/vendor/cmb2/example-functions.php:204
+#: release/0.5.1/vendor/cmb2/example-functions.php:204
+#: release/0.5.2/vendor/cmb2/example-functions.php:204
+#: release/svn/vendor/cmb2/example-functions.php:204
+#: vendor/cmb2/example-functions.php:204
+msgid "Test Date Picker"
+msgstr ""
+
+#: release/0.1.0/vendor/cmb2/example-functions.php:212
+#: release/0.2.0/vendor/cmb2/example-functions.php:212
+#: release/0.3.0/vendor/cmb2/example-functions.php:212
+#: release/0.4.0/vendor/cmb2/example-functions.php:212
+#: release/0.5.0/vendor/cmb2/example-functions.php:212
+#: release/0.5.1/vendor/cmb2/example-functions.php:212
+#: release/0.5.2/vendor/cmb2/example-functions.php:212
+#: release/svn/vendor/cmb2/example-functions.php:212
+#: vendor/cmb2/example-functions.php:212
+msgid "Test Date Picker (UNIX timestamp)"
+msgstr ""
+
+#: release/0.1.0/vendor/cmb2/example-functions.php:220
+#: release/0.2.0/vendor/cmb2/example-functions.php:220
+#: release/0.3.0/vendor/cmb2/example-functions.php:220
+#: release/0.4.0/vendor/cmb2/example-functions.php:220
+#: release/0.5.0/vendor/cmb2/example-functions.php:220
+#: release/0.5.1/vendor/cmb2/example-functions.php:220
+#: release/0.5.2/vendor/cmb2/example-functions.php:220
+#: release/svn/vendor/cmb2/example-functions.php:220
+#: vendor/cmb2/example-functions.php:220
+msgid "Test Date/Time Picker Combo (UNIX timestamp)"
+msgstr ""
+
+#: release/0.1.0/vendor/cmb2/example-functions.php:237
+#: release/0.2.0/vendor/cmb2/example-functions.php:237
+#: release/0.3.0/vendor/cmb2/example-functions.php:237
+#: release/0.4.0/vendor/cmb2/example-functions.php:237
+#: release/0.5.0/vendor/cmb2/example-functions.php:237
+#: release/0.5.1/vendor/cmb2/example-functions.php:237
+#: release/0.5.2/vendor/cmb2/example-functions.php:237
+#: release/svn/vendor/cmb2/example-functions.php:237
+#: vendor/cmb2/example-functions.php:237
+msgid "Test Money"
+msgstr ""
+
+#: release/0.1.0/vendor/cmb2/example-functions.php:246
+#: release/0.2.0/vendor/cmb2/example-functions.php:246
+#: release/0.3.0/vendor/cmb2/example-functions.php:246
+#: release/0.4.0/vendor/cmb2/example-functions.php:246
+#: release/0.5.0/vendor/cmb2/example-functions.php:246
+#: release/0.5.1/vendor/cmb2/example-functions.php:246
+#: release/0.5.2/vendor/cmb2/example-functions.php:246
+#: release/svn/vendor/cmb2/example-functions.php:246
+#: vendor/cmb2/example-functions.php:246
+msgid "Test Color Picker"
+msgstr ""
+
+#: release/0.1.0/vendor/cmb2/example-functions.php:259
+#: release/0.2.0/vendor/cmb2/example-functions.php:259
+#: release/0.3.0/vendor/cmb2/example-functions.php:259
+#: release/0.4.0/vendor/cmb2/example-functions.php:259
+#: release/0.5.0/vendor/cmb2/example-functions.php:259
+#: release/0.5.1/vendor/cmb2/example-functions.php:259
+#: release/0.5.2/vendor/cmb2/example-functions.php:259
+#: release/svn/vendor/cmb2/example-functions.php:259
+#: vendor/cmb2/example-functions.php:259
+msgid "Test Text Area"
+msgstr ""
+
+#: release/0.1.0/vendor/cmb2/example-functions.php:266
+#: release/0.2.0/vendor/cmb2/example-functions.php:266
+#: release/0.3.0/vendor/cmb2/example-functions.php:266
+#: release/0.4.0/vendor/cmb2/example-functions.php:266
+#: release/0.5.0/vendor/cmb2/example-functions.php:266
+#: release/0.5.1/vendor/cmb2/example-functions.php:266
+#: release/0.5.2/vendor/cmb2/example-functions.php:266
+#: release/svn/vendor/cmb2/example-functions.php:266
+#: vendor/cmb2/example-functions.php:266
+msgid "Test Text Area Small"
+msgstr ""
+
+#: release/0.1.0/vendor/cmb2/example-functions.php:273
+#: release/0.2.0/vendor/cmb2/example-functions.php:273
+#: release/0.3.0/vendor/cmb2/example-functions.php:273
+#: release/0.4.0/vendor/cmb2/example-functions.php:273
+#: release/0.5.0/vendor/cmb2/example-functions.php:273
+#: release/0.5.1/vendor/cmb2/example-functions.php:273
+#: release/0.5.2/vendor/cmb2/example-functions.php:273
+#: release/svn/vendor/cmb2/example-functions.php:273
+#: vendor/cmb2/example-functions.php:273
+msgid "Test Text Area for Code"
+msgstr ""
+
+#: release/0.1.0/vendor/cmb2/example-functions.php:280
+#: release/0.2.0/vendor/cmb2/example-functions.php:280
+#: release/0.3.0/vendor/cmb2/example-functions.php:280
+#: release/0.4.0/vendor/cmb2/example-functions.php:280
+#: release/0.5.0/vendor/cmb2/example-functions.php:280
+#: release/0.5.1/vendor/cmb2/example-functions.php:280
+#: release/0.5.2/vendor/cmb2/example-functions.php:280
+#: release/svn/vendor/cmb2/example-functions.php:280
+#: vendor/cmb2/example-functions.php:280
+msgid "Test Title Weeeee"
+msgstr ""
+
+#: release/0.1.0/vendor/cmb2/example-functions.php:281
+#: release/0.2.0/vendor/cmb2/example-functions.php:281
+#: release/0.3.0/vendor/cmb2/example-functions.php:281
+#: release/0.4.0/vendor/cmb2/example-functions.php:281
+#: release/0.5.0/vendor/cmb2/example-functions.php:281
+#: release/0.5.1/vendor/cmb2/example-functions.php:281
+#: release/0.5.2/vendor/cmb2/example-functions.php:281
+#: release/svn/vendor/cmb2/example-functions.php:281
+#: vendor/cmb2/example-functions.php:281
+msgid "This is a title description"
+msgstr ""
+
+#: release/0.1.0/vendor/cmb2/example-functions.php:287
+#: release/0.2.0/vendor/cmb2/example-functions.php:287
+#: release/0.3.0/vendor/cmb2/example-functions.php:287
+#: release/0.4.0/vendor/cmb2/example-functions.php:287
+#: release/0.5.0/vendor/cmb2/example-functions.php:287
+#: release/0.5.1/vendor/cmb2/example-functions.php:287
+#: release/0.5.2/vendor/cmb2/example-functions.php:287
+#: release/svn/vendor/cmb2/example-functions.php:287
+#: vendor/cmb2/example-functions.php:287
+msgid "Test Select"
+msgstr ""
+
+#: release/0.1.0/vendor/cmb2/example-functions.php:293
+#: release/0.1.0/vendor/cmb2/example-functions.php:306
+#: release/0.1.0/vendor/cmb2/example-functions.php:318
+#: release/0.2.0/vendor/cmb2/example-functions.php:293
+#: release/0.2.0/vendor/cmb2/example-functions.php:306
+#: release/0.2.0/vendor/cmb2/example-functions.php:318
+#: release/0.3.0/vendor/cmb2/example-functions.php:293
+#: release/0.3.0/vendor/cmb2/example-functions.php:306
+#: release/0.3.0/vendor/cmb2/example-functions.php:318
+#: release/0.4.0/vendor/cmb2/example-functions.php:293
+#: release/0.4.0/vendor/cmb2/example-functions.php:306
+#: release/0.4.0/vendor/cmb2/example-functions.php:318
+#: release/0.5.0/vendor/cmb2/example-functions.php:293
+#: release/0.5.0/vendor/cmb2/example-functions.php:306
+#: release/0.5.0/vendor/cmb2/example-functions.php:318
+#: release/0.5.1/vendor/cmb2/example-functions.php:293
+#: release/0.5.1/vendor/cmb2/example-functions.php:306
+#: release/0.5.1/vendor/cmb2/example-functions.php:318
+#: release/0.5.2/vendor/cmb2/example-functions.php:293
+#: release/0.5.2/vendor/cmb2/example-functions.php:306
+#: release/0.5.2/vendor/cmb2/example-functions.php:318
+#: release/svn/vendor/cmb2/example-functions.php:293
+#: release/svn/vendor/cmb2/example-functions.php:306
+#: release/svn/vendor/cmb2/example-functions.php:318
+#: vendor/cmb2/example-functions.php:293 vendor/cmb2/example-functions.php:306
+#: vendor/cmb2/example-functions.php:318
+msgid "Option One"
+msgstr ""
+
+#: release/0.1.0/vendor/cmb2/example-functions.php:294
+#: release/0.1.0/vendor/cmb2/example-functions.php:307
+#: release/0.1.0/vendor/cmb2/example-functions.php:319
+#: release/0.2.0/vendor/cmb2/example-functions.php:294
+#: release/0.2.0/vendor/cmb2/example-functions.php:307
+#: release/0.2.0/vendor/cmb2/example-functions.php:319
+#: release/0.3.0/vendor/cmb2/example-functions.php:294
+#: release/0.3.0/vendor/cmb2/example-functions.php:307
+#: release/0.3.0/vendor/cmb2/example-functions.php:319
+#: release/0.4.0/vendor/cmb2/example-functions.php:294
+#: release/0.4.0/vendor/cmb2/example-functions.php:307
+#: release/0.4.0/vendor/cmb2/example-functions.php:319
+#: release/0.5.0/vendor/cmb2/example-functions.php:294
+#: release/0.5.0/vendor/cmb2/example-functions.php:307
+#: release/0.5.0/vendor/cmb2/example-functions.php:319
+#: release/0.5.1/vendor/cmb2/example-functions.php:294
+#: release/0.5.1/vendor/cmb2/example-functions.php:307
+#: release/0.5.1/vendor/cmb2/example-functions.php:319
+#: release/0.5.2/vendor/cmb2/example-functions.php:294
+#: release/0.5.2/vendor/cmb2/example-functions.php:307
+#: release/0.5.2/vendor/cmb2/example-functions.php:319
+#: release/svn/vendor/cmb2/example-functions.php:294
+#: release/svn/vendor/cmb2/example-functions.php:307
+#: release/svn/vendor/cmb2/example-functions.php:319
+#: vendor/cmb2/example-functions.php:294 vendor/cmb2/example-functions.php:307
+#: vendor/cmb2/example-functions.php:319
+msgid "Option Two"
+msgstr ""
+
+#: release/0.1.0/vendor/cmb2/example-functions.php:295
+#: release/0.1.0/vendor/cmb2/example-functions.php:308
+#: release/0.1.0/vendor/cmb2/example-functions.php:320
+#: release/0.2.0/vendor/cmb2/example-functions.php:295
+#: release/0.2.0/vendor/cmb2/example-functions.php:308
+#: release/0.2.0/vendor/cmb2/example-functions.php:320
+#: release/0.3.0/vendor/cmb2/example-functions.php:295
+#: release/0.3.0/vendor/cmb2/example-functions.php:308
+#: release/0.3.0/vendor/cmb2/example-functions.php:320
+#: release/0.4.0/vendor/cmb2/example-functions.php:295
+#: release/0.4.0/vendor/cmb2/example-functions.php:308
+#: release/0.4.0/vendor/cmb2/example-functions.php:320
+#: release/0.5.0/vendor/cmb2/example-functions.php:295
+#: release/0.5.0/vendor/cmb2/example-functions.php:308
+#: release/0.5.0/vendor/cmb2/example-functions.php:320
+#: release/0.5.1/vendor/cmb2/example-functions.php:295
+#: release/0.5.1/vendor/cmb2/example-functions.php:308
+#: release/0.5.1/vendor/cmb2/example-functions.php:320
+#: release/0.5.2/vendor/cmb2/example-functions.php:295
+#: release/0.5.2/vendor/cmb2/example-functions.php:308
+#: release/0.5.2/vendor/cmb2/example-functions.php:320
+#: release/svn/vendor/cmb2/example-functions.php:295
+#: release/svn/vendor/cmb2/example-functions.php:308
+#: release/svn/vendor/cmb2/example-functions.php:320
+#: vendor/cmb2/example-functions.php:295 vendor/cmb2/example-functions.php:308
+#: vendor/cmb2/example-functions.php:320
+msgid "Option Three"
+msgstr ""
+
+#: release/0.1.0/vendor/cmb2/example-functions.php:300
+#: release/0.2.0/vendor/cmb2/example-functions.php:300
+#: release/0.3.0/vendor/cmb2/example-functions.php:300
+#: release/0.4.0/vendor/cmb2/example-functions.php:300
+#: release/0.5.0/vendor/cmb2/example-functions.php:300
+#: release/0.5.1/vendor/cmb2/example-functions.php:300
+#: release/0.5.2/vendor/cmb2/example-functions.php:300
+#: release/svn/vendor/cmb2/example-functions.php:300
+#: vendor/cmb2/example-functions.php:300
+msgid "Test Radio inline"
+msgstr ""
+
+#: release/0.1.0/vendor/cmb2/example-functions.php:313
+#: release/0.2.0/vendor/cmb2/example-functions.php:313
+#: release/0.3.0/vendor/cmb2/example-functions.php:313
+#: release/0.4.0/vendor/cmb2/example-functions.php:313
+#: release/0.5.0/vendor/cmb2/example-functions.php:313
+#: release/0.5.1/vendor/cmb2/example-functions.php:313
+#: release/0.5.2/vendor/cmb2/example-functions.php:313
+#: release/svn/vendor/cmb2/example-functions.php:313
+#: vendor/cmb2/example-functions.php:313
+msgid "Test Radio"
+msgstr ""
+
+#: release/0.1.0/vendor/cmb2/example-functions.php:325
+#: release/0.2.0/vendor/cmb2/example-functions.php:325
+#: release/0.3.0/vendor/cmb2/example-functions.php:325
+#: release/0.4.0/vendor/cmb2/example-functions.php:325
+#: release/0.5.0/vendor/cmb2/example-functions.php:325
+#: release/0.5.1/vendor/cmb2/example-functions.php:325
+#: release/0.5.2/vendor/cmb2/example-functions.php:325
+#: release/svn/vendor/cmb2/example-functions.php:325
+#: vendor/cmb2/example-functions.php:325
+msgid "Test Taxonomy Radio"
+msgstr ""
+
+#: release/0.1.0/vendor/cmb2/example-functions.php:334
+#: release/0.2.0/vendor/cmb2/example-functions.php:334
+#: release/0.3.0/vendor/cmb2/example-functions.php:334
+#: release/0.4.0/vendor/cmb2/example-functions.php:334
+#: release/0.5.0/vendor/cmb2/example-functions.php:334
+#: release/0.5.1/vendor/cmb2/example-functions.php:334
+#: release/0.5.2/vendor/cmb2/example-functions.php:334
+#: release/svn/vendor/cmb2/example-functions.php:334
+#: vendor/cmb2/example-functions.php:334
+msgid "Test Taxonomy Select"
+msgstr ""
+
+#: release/0.1.0/vendor/cmb2/example-functions.php:342
+#: release/0.2.0/vendor/cmb2/example-functions.php:342
+#: release/0.3.0/vendor/cmb2/example-functions.php:342
+#: release/0.4.0/vendor/cmb2/example-functions.php:342
+#: release/0.5.0/vendor/cmb2/example-functions.php:342
+#: release/0.5.1/vendor/cmb2/example-functions.php:342
+#: release/0.5.2/vendor/cmb2/example-functions.php:342
+#: release/svn/vendor/cmb2/example-functions.php:342
+#: vendor/cmb2/example-functions.php:342
+msgid "Test Taxonomy Multi Checkbox"
+msgstr ""
+
+#: release/0.1.0/vendor/cmb2/example-functions.php:351
+#: release/0.2.0/vendor/cmb2/example-functions.php:351
+#: release/0.3.0/vendor/cmb2/example-functions.php:351
+#: release/0.4.0/vendor/cmb2/example-functions.php:351
+#: release/0.5.0/vendor/cmb2/example-functions.php:351
+#: release/0.5.1/vendor/cmb2/example-functions.php:351
+#: release/0.5.2/vendor/cmb2/example-functions.php:351
+#: release/svn/vendor/cmb2/example-functions.php:351
+#: vendor/cmb2/example-functions.php:351
+msgid "Test Checkbox"
+msgstr ""
+
+#: release/0.1.0/vendor/cmb2/example-functions.php:358
+#: release/0.2.0/vendor/cmb2/example-functions.php:358
+#: release/0.3.0/vendor/cmb2/example-functions.php:358
+#: release/0.4.0/vendor/cmb2/example-functions.php:358
+#: release/0.5.0/vendor/cmb2/example-functions.php:358
+#: release/0.5.1/vendor/cmb2/example-functions.php:358
+#: release/0.5.2/vendor/cmb2/example-functions.php:358
+#: release/svn/vendor/cmb2/example-functions.php:358
+#: vendor/cmb2/example-functions.php:358
+msgid "Test Multi Checkbox"
+msgstr ""
+
+#: release/0.1.0/vendor/cmb2/example-functions.php:364
+#: release/0.2.0/vendor/cmb2/example-functions.php:364
+#: release/0.3.0/vendor/cmb2/example-functions.php:364
+#: release/0.4.0/vendor/cmb2/example-functions.php:364
+#: release/0.5.0/vendor/cmb2/example-functions.php:364
+#: release/0.5.1/vendor/cmb2/example-functions.php:364
+#: release/0.5.2/vendor/cmb2/example-functions.php:364
+#: release/svn/vendor/cmb2/example-functions.php:364
+#: vendor/cmb2/example-functions.php:364
+msgid "Check One"
+msgstr ""
+
+#: release/0.1.0/vendor/cmb2/example-functions.php:365
+#: release/0.2.0/vendor/cmb2/example-functions.php:365
+#: release/0.3.0/vendor/cmb2/example-functions.php:365
+#: release/0.4.0/vendor/cmb2/example-functions.php:365
+#: release/0.5.0/vendor/cmb2/example-functions.php:365
+#: release/0.5.1/vendor/cmb2/example-functions.php:365
+#: release/0.5.2/vendor/cmb2/example-functions.php:365
+#: release/svn/vendor/cmb2/example-functions.php:365
+#: vendor/cmb2/example-functions.php:365
+msgid "Check Two"
+msgstr ""
+
+#: release/0.1.0/vendor/cmb2/example-functions.php:366
+#: release/0.2.0/vendor/cmb2/example-functions.php:366
+#: release/0.3.0/vendor/cmb2/example-functions.php:366
+#: release/0.4.0/vendor/cmb2/example-functions.php:366
+#: release/0.5.0/vendor/cmb2/example-functions.php:366
+#: release/0.5.1/vendor/cmb2/example-functions.php:366
+#: release/0.5.2/vendor/cmb2/example-functions.php:366
+#: release/svn/vendor/cmb2/example-functions.php:366
+#: vendor/cmb2/example-functions.php:366
+msgid "Check Three"
+msgstr ""
+
+#: release/0.1.0/vendor/cmb2/example-functions.php:372
+#: release/0.2.0/vendor/cmb2/example-functions.php:372
+#: release/0.3.0/vendor/cmb2/example-functions.php:372
+#: release/0.4.0/vendor/cmb2/example-functions.php:372
+#: release/0.5.0/vendor/cmb2/example-functions.php:372
+#: release/0.5.1/vendor/cmb2/example-functions.php:372
+#: release/0.5.2/vendor/cmb2/example-functions.php:372
+#: release/svn/vendor/cmb2/example-functions.php:372
+#: vendor/cmb2/example-functions.php:372
+msgid "Test wysiwyg"
+msgstr ""
+
+#: release/0.1.0/vendor/cmb2/example-functions.php:380
+#: release/0.2.0/vendor/cmb2/example-functions.php:380
+#: release/0.3.0/vendor/cmb2/example-functions.php:380
+#: release/0.4.0/vendor/cmb2/example-functions.php:380
+#: release/0.5.0/vendor/cmb2/example-functions.php:380
+#: release/0.5.1/vendor/cmb2/example-functions.php:380
+#: release/0.5.2/vendor/cmb2/example-functions.php:380
+#: release/svn/vendor/cmb2/example-functions.php:380
+#: vendor/cmb2/example-functions.php:380
+msgid "Test Image"
+msgstr ""
+
+#: release/0.1.0/vendor/cmb2/example-functions.php:381
+#: release/0.2.0/vendor/cmb2/example-functions.php:381
+#: release/0.3.0/vendor/cmb2/example-functions.php:381
+#: release/0.4.0/vendor/cmb2/example-functions.php:381
+#: release/0.5.0/vendor/cmb2/example-functions.php:381
+#: release/0.5.1/vendor/cmb2/example-functions.php:381
+#: release/0.5.2/vendor/cmb2/example-functions.php:381
+#: release/svn/vendor/cmb2/example-functions.php:381
+#: vendor/cmb2/example-functions.php:381
+msgid "Upload an image or enter a URL."
+msgstr ""
+
+#: release/0.1.0/vendor/cmb2/example-functions.php:387
+#: release/0.2.0/vendor/cmb2/example-functions.php:387
+#: release/0.3.0/vendor/cmb2/example-functions.php:387
+#: release/0.4.0/vendor/cmb2/example-functions.php:387
+#: release/0.5.0/vendor/cmb2/example-functions.php:387
+#: release/0.5.1/vendor/cmb2/example-functions.php:387
+#: release/0.5.2/vendor/cmb2/example-functions.php:387
+#: release/svn/vendor/cmb2/example-functions.php:387
+#: vendor/cmb2/example-functions.php:387
+msgid "Multiple Files"
+msgstr ""
+
+#: release/0.1.0/vendor/cmb2/example-functions.php:388
+#: release/0.2.0/vendor/cmb2/example-functions.php:388
+#: release/0.3.0/vendor/cmb2/example-functions.php:388
+#: release/0.4.0/vendor/cmb2/example-functions.php:388
+#: release/0.5.0/vendor/cmb2/example-functions.php:388
+#: release/0.5.1/vendor/cmb2/example-functions.php:388
+#: release/0.5.2/vendor/cmb2/example-functions.php:388
+#: release/svn/vendor/cmb2/example-functions.php:388
+#: vendor/cmb2/example-functions.php:388
+msgid "Upload or add multiple images/attachments."
+msgstr ""
+
+#: release/0.1.0/vendor/cmb2/example-functions.php:395
+#: release/0.2.0/vendor/cmb2/example-functions.php:395
+#: release/0.3.0/vendor/cmb2/example-functions.php:395
+#: release/0.4.0/vendor/cmb2/example-functions.php:395
+#: release/0.5.0/vendor/cmb2/example-functions.php:395
+#: release/0.5.1/vendor/cmb2/example-functions.php:395
+#: release/0.5.2/vendor/cmb2/example-functions.php:395
+#: release/svn/vendor/cmb2/example-functions.php:395
+#: vendor/cmb2/example-functions.php:395
+msgid "oEmbed"
+msgstr ""
+
+#: release/0.1.0/vendor/cmb2/example-functions.php:396
+#: release/0.2.0/vendor/cmb2/example-functions.php:396
+#: release/0.3.0/vendor/cmb2/example-functions.php:396
+#: release/0.4.0/vendor/cmb2/example-functions.php:396
+#: release/0.5.0/vendor/cmb2/example-functions.php:396
+#: release/0.5.1/vendor/cmb2/example-functions.php:396
+#: release/0.5.2/vendor/cmb2/example-functions.php:396
+#: release/svn/vendor/cmb2/example-functions.php:396
+#: vendor/cmb2/example-functions.php:396
+msgid ""
+"Enter a youtube, twitter, or instagram URL. Supports services listed at <a "
+"href=\"http://codex.wordpress.org/Embeds\">http://codex.wordpress.org/"
+"Embeds</a>."
+msgstr ""
+
+#: release/0.1.0/vendor/cmb2/example-functions.php:427
+#: release/0.2.0/vendor/cmb2/example-functions.php:427
+#: release/0.3.0/vendor/cmb2/example-functions.php:427
+#: release/0.4.0/vendor/cmb2/example-functions.php:427
+#: release/0.5.0/vendor/cmb2/example-functions.php:427
+#: release/0.5.1/vendor/cmb2/example-functions.php:427
+#: release/0.5.2/vendor/cmb2/example-functions.php:427
+#: release/svn/vendor/cmb2/example-functions.php:427
+#: vendor/cmb2/example-functions.php:427
+msgid "About Page Metabox"
+msgstr ""
+
+#: release/0.1.0/vendor/cmb2/example-functions.php:456
+#: release/0.2.0/vendor/cmb2/example-functions.php:456
+#: release/0.3.0/vendor/cmb2/example-functions.php:456
+#: release/0.4.0/vendor/cmb2/example-functions.php:456
+#: release/0.5.0/vendor/cmb2/example-functions.php:456
+#: release/0.5.1/vendor/cmb2/example-functions.php:456
+#: release/0.5.2/vendor/cmb2/example-functions.php:456
+#: release/svn/vendor/cmb2/example-functions.php:456
+#: vendor/cmb2/example-functions.php:456
+msgid "Repeating Field Group"
+msgstr ""
+
+#: release/0.1.0/vendor/cmb2/example-functions.php:464
+#: release/0.2.0/vendor/cmb2/example-functions.php:464
+#: release/0.3.0/vendor/cmb2/example-functions.php:464
+#: release/0.4.0/vendor/cmb2/example-functions.php:464
+#: release/0.5.0/vendor/cmb2/example-functions.php:464
+#: release/0.5.1/vendor/cmb2/example-functions.php:464
+#: release/0.5.2/vendor/cmb2/example-functions.php:464
+#: release/svn/vendor/cmb2/example-functions.php:464
+#: vendor/cmb2/example-functions.php:464
+msgid "Generates reusable form entries"
+msgstr ""
+
+#: release/0.1.0/vendor/cmb2/example-functions.php:466
+#: release/0.2.0/vendor/cmb2/example-functions.php:466
+#: release/0.3.0/vendor/cmb2/example-functions.php:466
+#: release/0.4.0/vendor/cmb2/example-functions.php:466
+#: release/0.5.0/vendor/cmb2/example-functions.php:466
+#: release/0.5.1/vendor/cmb2/example-functions.php:466
+#: release/0.5.2/vendor/cmb2/example-functions.php:466
+#: release/svn/vendor/cmb2/example-functions.php:466
+#: vendor/cmb2/example-functions.php:466
+msgid "Entry {#}"
+msgstr ""
+
+#: release/0.1.0/vendor/cmb2/example-functions.php:467
+#: release/0.2.0/vendor/cmb2/example-functions.php:467
+#: release/0.3.0/vendor/cmb2/example-functions.php:467
+#: release/0.4.0/vendor/cmb2/example-functions.php:467
+#: release/0.5.0/vendor/cmb2/example-functions.php:467
+#: release/0.5.1/vendor/cmb2/example-functions.php:467
+#: release/0.5.2/vendor/cmb2/example-functions.php:467
+#: release/svn/vendor/cmb2/example-functions.php:467
+#: vendor/cmb2/example-functions.php:467
+msgid "Add Another Entry"
+msgstr ""
+
+#: release/0.1.0/vendor/cmb2/example-functions.php:468
+#: release/0.2.0/vendor/cmb2/example-functions.php:468
+#: release/0.3.0/vendor/cmb2/example-functions.php:468
+#: release/0.4.0/vendor/cmb2/example-functions.php:468
+#: release/0.5.0/vendor/cmb2/example-functions.php:468
+#: release/0.5.1/vendor/cmb2/example-functions.php:468
+#: release/0.5.2/vendor/cmb2/example-functions.php:468
+#: release/svn/vendor/cmb2/example-functions.php:468
+#: vendor/cmb2/example-functions.php:468
+msgid "Remove Entry"
+msgstr ""
+
+#: release/0.1.0/vendor/cmb2/example-functions.php:481
+#: release/0.2.0/vendor/cmb2/example-functions.php:481
+#: release/0.3.0/vendor/cmb2/example-functions.php:481
+#: release/0.4.0/vendor/cmb2/example-functions.php:481
+#: release/0.5.0/vendor/cmb2/example-functions.php:481
+#: release/0.5.1/vendor/cmb2/example-functions.php:481
+#: release/0.5.2/vendor/cmb2/example-functions.php:481
+#: release/svn/vendor/cmb2/example-functions.php:481
+#: vendor/cmb2/example-functions.php:481
+msgid "Entry Title"
+msgstr ""
+
+#: release/0.1.0/vendor/cmb2/example-functions.php:488
+#: release/0.2.0/vendor/cmb2/example-functions.php:488
+#: release/0.3.0/vendor/cmb2/example-functions.php:488
+#: release/0.4.0/vendor/cmb2/example-functions.php:488
+#: release/0.5.0/vendor/cmb2/example-functions.php:488
+#: release/0.5.1/vendor/cmb2/example-functions.php:488
+#: release/0.5.2/vendor/cmb2/example-functions.php:488
+#: release/svn/vendor/cmb2/example-functions.php:488
+#: vendor/cmb2/example-functions.php:488
+msgid "Description"
+msgstr ""
+
+#: release/0.1.0/vendor/cmb2/example-functions.php:489
+#: release/0.2.0/vendor/cmb2/example-functions.php:489
+#: release/0.3.0/vendor/cmb2/example-functions.php:489
+#: release/0.4.0/vendor/cmb2/example-functions.php:489
+#: release/0.5.0/vendor/cmb2/example-functions.php:489
+#: release/0.5.1/vendor/cmb2/example-functions.php:489
+#: release/0.5.2/vendor/cmb2/example-functions.php:489
+#: release/svn/vendor/cmb2/example-functions.php:489
+#: vendor/cmb2/example-functions.php:489
+msgid "Write a short description for this entry"
+msgstr ""
+
+#: release/0.1.0/vendor/cmb2/example-functions.php:495
+#: release/0.2.0/vendor/cmb2/example-functions.php:495
+#: release/0.3.0/vendor/cmb2/example-functions.php:495
+#: release/0.4.0/vendor/cmb2/example-functions.php:495
+#: release/0.5.0/vendor/cmb2/example-functions.php:495
+#: release/0.5.1/vendor/cmb2/example-functions.php:495
+#: release/0.5.2/vendor/cmb2/example-functions.php:495
+#: release/svn/vendor/cmb2/example-functions.php:495
+#: vendor/cmb2/example-functions.php:495
+msgid "Entry Image"
+msgstr ""
+
+#: release/0.1.0/vendor/cmb2/example-functions.php:501
+#: release/0.2.0/vendor/cmb2/example-functions.php:501
+#: release/0.3.0/vendor/cmb2/example-functions.php:501
+#: release/0.4.0/vendor/cmb2/example-functions.php:501
+#: release/0.5.0/vendor/cmb2/example-functions.php:501
+#: release/0.5.1/vendor/cmb2/example-functions.php:501
+#: release/0.5.2/vendor/cmb2/example-functions.php:501
+#: release/svn/vendor/cmb2/example-functions.php:501
+#: vendor/cmb2/example-functions.php:501
+msgid "Image Caption"
+msgstr ""
+
+#: release/0.1.0/vendor/cmb2/example-functions.php:520
+#: release/0.2.0/vendor/cmb2/example-functions.php:520
+#: release/0.3.0/vendor/cmb2/example-functions.php:520
+#: release/0.4.0/vendor/cmb2/example-functions.php:520
+#: release/0.5.0/vendor/cmb2/example-functions.php:520
+#: release/0.5.1/vendor/cmb2/example-functions.php:520
+#: release/0.5.2/vendor/cmb2/example-functions.php:520
+#: release/svn/vendor/cmb2/example-functions.php:520
+#: vendor/cmb2/example-functions.php:520
+msgid "User Profile Metabox"
+msgstr ""
+
+#: release/0.1.0/vendor/cmb2/example-functions.php:527
+#: release/0.1.0/vendor/cmb2/example-functions.php:597
+#: release/0.2.0/vendor/cmb2/example-functions.php:527
+#: release/0.2.0/vendor/cmb2/example-functions.php:597
+#: release/0.3.0/vendor/cmb2/example-functions.php:527
+#: release/0.3.0/vendor/cmb2/example-functions.php:597
+#: release/0.4.0/vendor/cmb2/example-functions.php:527
+#: release/0.4.0/vendor/cmb2/example-functions.php:597
+#: release/0.5.0/vendor/cmb2/example-functions.php:527
+#: release/0.5.0/vendor/cmb2/example-functions.php:597
+#: release/0.5.1/vendor/cmb2/example-functions.php:527
+#: release/0.5.1/vendor/cmb2/example-functions.php:597
+#: release/0.5.2/vendor/cmb2/example-functions.php:527
+#: release/0.5.2/vendor/cmb2/example-functions.php:597
+#: release/svn/vendor/cmb2/example-functions.php:527
+#: release/svn/vendor/cmb2/example-functions.php:597
+#: vendor/cmb2/example-functions.php:527 vendor/cmb2/example-functions.php:597
+msgid "Extra Info"
+msgstr ""
+
+#: release/0.1.0/vendor/cmb2/example-functions.php:535
+#: release/0.2.0/vendor/cmb2/example-functions.php:535
+#: release/0.3.0/vendor/cmb2/example-functions.php:535
+#: release/0.4.0/vendor/cmb2/example-functions.php:535
+#: release/0.5.0/vendor/cmb2/example-functions.php:535
+#: release/0.5.1/vendor/cmb2/example-functions.php:535
+#: release/0.5.2/vendor/cmb2/example-functions.php:535
+#: release/svn/vendor/cmb2/example-functions.php:535
+#: vendor/cmb2/example-functions.php:535
+msgid "Avatar"
+msgstr ""
+
+#: release/0.1.0/vendor/cmb2/example-functions.php:542
+#: release/0.2.0/vendor/cmb2/example-functions.php:542
+#: release/0.3.0/vendor/cmb2/example-functions.php:542
+#: release/0.4.0/vendor/cmb2/example-functions.php:542
+#: release/0.5.0/vendor/cmb2/example-functions.php:542
+#: release/0.5.1/vendor/cmb2/example-functions.php:542
+#: release/0.5.2/vendor/cmb2/example-functions.php:542
+#: release/svn/vendor/cmb2/example-functions.php:542
+#: vendor/cmb2/example-functions.php:542
+msgid "Facebook URL"
+msgstr ""
+
+#: release/0.1.0/vendor/cmb2/example-functions.php:549
+#: release/0.2.0/vendor/cmb2/example-functions.php:549
+#: release/0.3.0/vendor/cmb2/example-functions.php:549
+#: release/0.4.0/vendor/cmb2/example-functions.php:549
+#: release/0.5.0/vendor/cmb2/example-functions.php:549
+#: release/0.5.1/vendor/cmb2/example-functions.php:549
+#: release/0.5.2/vendor/cmb2/example-functions.php:549
+#: release/svn/vendor/cmb2/example-functions.php:549
+#: vendor/cmb2/example-functions.php:549
+msgid "Twitter URL"
+msgstr ""
+
+#: release/0.1.0/vendor/cmb2/example-functions.php:556
+#: release/0.2.0/vendor/cmb2/example-functions.php:556
+#: release/0.3.0/vendor/cmb2/example-functions.php:556
+#: release/0.4.0/vendor/cmb2/example-functions.php:556
+#: release/0.5.0/vendor/cmb2/example-functions.php:556
+#: release/0.5.1/vendor/cmb2/example-functions.php:556
+#: release/0.5.2/vendor/cmb2/example-functions.php:556
+#: release/svn/vendor/cmb2/example-functions.php:556
+#: vendor/cmb2/example-functions.php:556
+msgid "Google+ URL"
+msgstr ""
+
+#: release/0.1.0/vendor/cmb2/example-functions.php:563
+#: release/0.2.0/vendor/cmb2/example-functions.php:563
+#: release/0.3.0/vendor/cmb2/example-functions.php:563
+#: release/0.4.0/vendor/cmb2/example-functions.php:563
+#: release/0.5.0/vendor/cmb2/example-functions.php:563
+#: release/0.5.1/vendor/cmb2/example-functions.php:563
+#: release/0.5.2/vendor/cmb2/example-functions.php:563
+#: release/svn/vendor/cmb2/example-functions.php:563
+#: vendor/cmb2/example-functions.php:563
+msgid "Linkedin URL"
+msgstr ""
+
+#: release/0.1.0/vendor/cmb2/example-functions.php:570
+#: release/0.2.0/vendor/cmb2/example-functions.php:570
+#: release/0.3.0/vendor/cmb2/example-functions.php:570
+#: release/0.4.0/vendor/cmb2/example-functions.php:570
+#: release/0.5.0/vendor/cmb2/example-functions.php:570
+#: release/0.5.1/vendor/cmb2/example-functions.php:570
+#: release/0.5.2/vendor/cmb2/example-functions.php:570
+#: release/svn/vendor/cmb2/example-functions.php:570
+#: vendor/cmb2/example-functions.php:570
+msgid "User Field"
+msgstr ""
+
+#: release/0.1.0/vendor/cmb2/example-functions.php:590
+#: release/0.2.0/vendor/cmb2/example-functions.php:590
+#: release/0.3.0/vendor/cmb2/example-functions.php:590
+#: release/0.4.0/vendor/cmb2/example-functions.php:590
+#: release/0.5.0/vendor/cmb2/example-functions.php:590
+#: release/0.5.1/vendor/cmb2/example-functions.php:590
+#: release/0.5.2/vendor/cmb2/example-functions.php:590
+#: release/svn/vendor/cmb2/example-functions.php:590
+#: vendor/cmb2/example-functions.php:590
+msgid "Category Metabox"
+msgstr ""
+
+#: release/0.1.0/vendor/cmb2/example-functions.php:605
+#: release/0.2.0/vendor/cmb2/example-functions.php:605
+#: release/0.3.0/vendor/cmb2/example-functions.php:605
+#: release/0.4.0/vendor/cmb2/example-functions.php:605
+#: release/0.5.0/vendor/cmb2/example-functions.php:605
+#: release/0.5.1/vendor/cmb2/example-functions.php:605
+#: release/0.5.2/vendor/cmb2/example-functions.php:605
+#: release/svn/vendor/cmb2/example-functions.php:605
+#: vendor/cmb2/example-functions.php:605
+msgid "Term Image"
+msgstr ""
+
+#: release/0.1.0/vendor/cmb2/example-functions.php:612
+#: release/0.2.0/vendor/cmb2/example-functions.php:612
+#: release/0.3.0/vendor/cmb2/example-functions.php:612
+#: release/0.4.0/vendor/cmb2/example-functions.php:612
+#: release/0.5.0/vendor/cmb2/example-functions.php:612
+#: release/0.5.1/vendor/cmb2/example-functions.php:612
+#: release/0.5.2/vendor/cmb2/example-functions.php:612
+#: release/svn/vendor/cmb2/example-functions.php:612
+#: vendor/cmb2/example-functions.php:612
+msgid "Arbitrary Term Field"
+msgstr ""
+
+#: release/0.1.0/vendor/cmb2/example-functions.php:634
+#: release/0.2.0/vendor/cmb2/example-functions.php:634
+#: release/0.3.0/vendor/cmb2/example-functions.php:634
+#: release/0.4.0/vendor/cmb2/example-functions.php:634
+#: release/0.5.0/vendor/cmb2/example-functions.php:634
+#: release/0.5.1/vendor/cmb2/example-functions.php:634
+#: release/0.5.2/vendor/cmb2/example-functions.php:634
+#: release/svn/vendor/cmb2/example-functions.php:634
+#: vendor/cmb2/example-functions.php:634
+msgid "Theme Options Metabox"
+msgstr ""
+
+#: release/0.1.0/vendor/cmb2/example-functions.php:649
+#: release/0.2.0/vendor/cmb2/example-functions.php:649
+#: release/0.3.0/vendor/cmb2/example-functions.php:649
+#: release/0.4.0/vendor/cmb2/example-functions.php:649
+#: release/0.5.0/vendor/cmb2/example-functions.php:649
+#: release/0.5.1/vendor/cmb2/example-functions.php:649
+#: release/0.5.2/vendor/cmb2/example-functions.php:649
+#: release/svn/vendor/cmb2/example-functions.php:649
+#: vendor/cmb2/example-functions.php:649
+msgid "Site Background Color"
+msgstr ""
+
+#: release/0.1.0/vendor/cmb2/includes/CMB2.php:129
+#: release/0.2.0/vendor/cmb2/includes/CMB2.php:129
+#: release/0.3.0/vendor/cmb2/includes/CMB2.php:129
+#: release/0.4.0/vendor/cmb2/includes/CMB2.php:129
+#: release/0.5.0/vendor/cmb2/includes/CMB2.php:129
+#: release/0.5.1/vendor/cmb2/includes/CMB2.php:129
+#: release/0.5.2/vendor/cmb2/includes/CMB2.php:129
+#: release/svn/vendor/cmb2/includes/CMB2.php:129
+#: vendor/cmb2/includes/CMB2.php:129
+msgid "Metabox configuration is required to have an ID parameter"
+msgstr ""
+
+#: release/0.1.0/vendor/cmb2/includes/CMB2.php:418
+#: release/0.2.0/vendor/cmb2/includes/CMB2.php:418
+#: release/0.3.0/vendor/cmb2/includes/CMB2.php:418
+#: release/0.4.0/vendor/cmb2/includes/CMB2.php:418
+#: release/0.5.0/vendor/cmb2/includes/CMB2.php:418
+#: release/0.5.1/vendor/cmb2/includes/CMB2.php:418
+#: release/0.5.2/vendor/cmb2/includes/CMB2.php:418
+#: release/svn/vendor/cmb2/includes/CMB2.php:418
+#: vendor/cmb2/includes/CMB2.php:418
+msgid "Click to toggle"
+msgstr ""
+
+#: release/0.1.0/vendor/cmb2/includes/CMB2_Ajax.php:71
+#: release/0.2.0/vendor/cmb2/includes/CMB2_Ajax.php:71
+#: release/0.3.0/vendor/cmb2/includes/CMB2_Ajax.php:71
+#: release/0.4.0/vendor/cmb2/includes/CMB2_Ajax.php:71
+#: release/0.5.0/vendor/cmb2/includes/CMB2_Ajax.php:71
+#: release/0.5.1/vendor/cmb2/includes/CMB2_Ajax.php:71
+#: release/0.5.2/vendor/cmb2/includes/CMB2_Ajax.php:71
+#: release/svn/vendor/cmb2/includes/CMB2_Ajax.php:71
+#: vendor/cmb2/includes/CMB2_Ajax.php:71
+msgid "Please Try Again"
+msgstr ""
+
+#: release/0.1.0/vendor/cmb2/includes/CMB2_Ajax.php:173
+#: release/0.2.0/vendor/cmb2/includes/CMB2_Ajax.php:173
+#: release/0.3.0/vendor/cmb2/includes/CMB2_Ajax.php:173
+#: release/0.4.0/vendor/cmb2/includes/CMB2_Ajax.php:173
+#: release/0.5.0/vendor/cmb2/includes/CMB2_Ajax.php:173
+#: release/0.5.1/vendor/cmb2/includes/CMB2_Ajax.php:173
+#: release/0.5.2/vendor/cmb2/includes/CMB2_Ajax.php:173
+#: release/svn/vendor/cmb2/includes/CMB2_Ajax.php:173
+#: vendor/cmb2/includes/CMB2_Ajax.php:173
+msgid "Remove Embed"
+msgstr ""
+
+#: release/0.1.0/vendor/cmb2/includes/CMB2_Ajax.php:177
+#: release/0.2.0/vendor/cmb2/includes/CMB2_Ajax.php:177
+#: release/0.3.0/vendor/cmb2/includes/CMB2_Ajax.php:177
+#: release/0.4.0/vendor/cmb2/includes/CMB2_Ajax.php:177
+#: release/0.5.0/vendor/cmb2/includes/CMB2_Ajax.php:177
+#: release/0.5.1/vendor/cmb2/includes/CMB2_Ajax.php:177
+#: release/0.5.2/vendor/cmb2/includes/CMB2_Ajax.php:177
+#: release/svn/vendor/cmb2/includes/CMB2_Ajax.php:177
+#: vendor/cmb2/includes/CMB2_Ajax.php:177
+msgid "No oEmbed Results Found for %s. View more info at"
+msgstr ""
+
+#: release/0.1.0/vendor/cmb2/includes/CMB2_Field.php:1186
+#: release/0.2.0/vendor/cmb2/includes/CMB2_Field.php:1186
+#: release/0.3.0/vendor/cmb2/includes/CMB2_Field.php:1186
+#: release/0.4.0/vendor/cmb2/includes/CMB2_Field.php:1186
+#: release/0.5.0/vendor/cmb2/includes/CMB2_Field.php:1186
+#: release/0.5.1/vendor/cmb2/includes/CMB2_Field.php:1186
+#: release/0.5.2/vendor/cmb2/includes/CMB2_Field.php:1186
+#: release/svn/vendor/cmb2/includes/CMB2_Field.php:1186
+#: vendor/cmb2/includes/CMB2_Field.php:1186
+msgid "Add Group"
+msgstr ""
+
+#: release/0.1.0/vendor/cmb2/includes/CMB2_Field.php:1187
+#: release/0.2.0/vendor/cmb2/includes/CMB2_Field.php:1187
+#: release/0.3.0/vendor/cmb2/includes/CMB2_Field.php:1187
+#: release/0.4.0/vendor/cmb2/includes/CMB2_Field.php:1187
+#: release/0.5.0/vendor/cmb2/includes/CMB2_Field.php:1187
+#: release/0.5.1/vendor/cmb2/includes/CMB2_Field.php:1187
+#: release/0.5.2/vendor/cmb2/includes/CMB2_Field.php:1187
+#: release/svn/vendor/cmb2/includes/CMB2_Field.php:1187
+#: vendor/cmb2/includes/CMB2_Field.php:1187
+msgid "Remove Group"
+msgstr ""
+
+#: release/0.1.0/vendor/cmb2/includes/CMB2_Field.php:1209
+#: release/0.1.0/vendor/cmb2/includes/CMB2_Field.php:1213
+#: release/0.2.0/vendor/cmb2/includes/CMB2_Field.php:1209
+#: release/0.2.0/vendor/cmb2/includes/CMB2_Field.php:1213
+#: release/0.3.0/vendor/cmb2/includes/CMB2_Field.php:1209
+#: release/0.3.0/vendor/cmb2/includes/CMB2_Field.php:1213
+#: release/0.4.0/vendor/cmb2/includes/CMB2_Field.php:1209
+#: release/0.4.0/vendor/cmb2/includes/CMB2_Field.php:1213
+#: release/0.5.0/vendor/cmb2/includes/CMB2_Field.php:1209
+#: release/0.5.0/vendor/cmb2/includes/CMB2_Field.php:1213
+#: release/0.5.1/vendor/cmb2/includes/CMB2_Field.php:1209
+#: release/0.5.1/vendor/cmb2/includes/CMB2_Field.php:1213
+#: release/0.5.2/vendor/cmb2/includes/CMB2_Field.php:1209
+#: release/0.5.2/vendor/cmb2/includes/CMB2_Field.php:1213
+#: release/svn/vendor/cmb2/includes/CMB2_Field.php:1209
+#: release/svn/vendor/cmb2/includes/CMB2_Field.php:1213
+#: vendor/cmb2/includes/CMB2_Field.php:1209
+#: vendor/cmb2/includes/CMB2_Field.php:1213
+msgid "None"
+msgstr ""
+
+#: release/0.1.0/vendor/cmb2/includes/CMB2_Field.php:1269
+#: release/0.2.0/vendor/cmb2/includes/CMB2_Field.php:1269
+#: release/0.3.0/vendor/cmb2/includes/CMB2_Field.php:1269
+#: release/0.4.0/vendor/cmb2/includes/CMB2_Field.php:1269
+#: release/0.5.0/vendor/cmb2/includes/CMB2_Field.php:1269
+#: release/0.5.1/vendor/cmb2/includes/CMB2_Field.php:1269
+#: release/0.5.2/vendor/cmb2/includes/CMB2_Field.php:1269
+#: release/svn/vendor/cmb2/includes/CMB2_Field.php:1269
+#: vendor/cmb2/includes/CMB2_Field.php:1269
+msgid "Sorry, this field does not have a cmb_id specified."
+msgstr ""
+
+#: release/0.1.0/vendor/cmb2/includes/CMB2_Field_Display.php:408
+#: release/0.1.0/vendor/cmb2/includes/CMB2_JS.php:139
+#: release/0.1.0/vendor/cmb2/includes/types/CMB2_Type_File_Base.php:75
+#: release/0.2.0/vendor/cmb2/includes/CMB2_Field_Display.php:408
+#: release/0.2.0/vendor/cmb2/includes/CMB2_JS.php:139
+#: release/0.2.0/vendor/cmb2/includes/types/CMB2_Type_File_Base.php:75
+#: release/0.3.0/vendor/cmb2/includes/CMB2_Field_Display.php:408
+#: release/0.3.0/vendor/cmb2/includes/CMB2_JS.php:139
+#: release/0.3.0/vendor/cmb2/includes/types/CMB2_Type_File_Base.php:75
+#: release/0.4.0/vendor/cmb2/includes/CMB2_Field_Display.php:408
+#: release/0.4.0/vendor/cmb2/includes/CMB2_JS.php:139
+#: release/0.4.0/vendor/cmb2/includes/types/CMB2_Type_File_Base.php:75
+#: release/0.5.0/vendor/cmb2/includes/CMB2_Field_Display.php:408
+#: release/0.5.0/vendor/cmb2/includes/CMB2_JS.php:139
+#: release/0.5.0/vendor/cmb2/includes/types/CMB2_Type_File_Base.php:75
+#: release/0.5.1/vendor/cmb2/includes/CMB2_Field_Display.php:408
+#: release/0.5.1/vendor/cmb2/includes/CMB2_JS.php:139
+#: release/0.5.1/vendor/cmb2/includes/types/CMB2_Type_File_Base.php:75
+#: release/0.5.2/vendor/cmb2/includes/CMB2_Field_Display.php:408
+#: release/0.5.2/vendor/cmb2/includes/CMB2_JS.php:139
+#: release/0.5.2/vendor/cmb2/includes/types/CMB2_Type_File_Base.php:75
+#: release/svn/vendor/cmb2/includes/CMB2_Field_Display.php:408
+#: release/svn/vendor/cmb2/includes/CMB2_JS.php:139
+#: release/svn/vendor/cmb2/includes/types/CMB2_Type_File_Base.php:75
+#: vendor/cmb2/includes/CMB2_Field_Display.php:408
+#: vendor/cmb2/includes/CMB2_JS.php:139
+#: vendor/cmb2/includes/types/CMB2_Type_File_Base.php:75
+msgid "File:"
+msgstr ""
+
+#: release/0.1.0/vendor/cmb2/includes/CMB2_JS.php:86
+#: release/0.1.0/vendor/cmb2/includes/CMB2_JS.php:119
+#: release/0.2.0/vendor/cmb2/includes/CMB2_JS.php:86
+#: release/0.2.0/vendor/cmb2/includes/CMB2_JS.php:119
+#: release/0.3.0/vendor/cmb2/includes/CMB2_JS.php:86
+#: release/0.3.0/vendor/cmb2/includes/CMB2_JS.php:119
+#: release/0.4.0/vendor/cmb2/includes/CMB2_JS.php:86
+#: release/0.4.0/vendor/cmb2/includes/CMB2_JS.php:119
+#: release/0.5.0/vendor/cmb2/includes/CMB2_JS.php:86
+#: release/0.5.0/vendor/cmb2/includes/CMB2_JS.php:119
+#: release/0.5.1/vendor/cmb2/includes/CMB2_JS.php:86
+#: release/0.5.1/vendor/cmb2/includes/CMB2_JS.php:119
+#: release/0.5.2/vendor/cmb2/includes/CMB2_JS.php:86
+#: release/0.5.2/vendor/cmb2/includes/CMB2_JS.php:119
+#: release/svn/vendor/cmb2/includes/CMB2_JS.php:86
+#: release/svn/vendor/cmb2/includes/CMB2_JS.php:119
+#: vendor/cmb2/includes/CMB2_JS.php:86 vendor/cmb2/includes/CMB2_JS.php:119
+msgid "Clear"
+msgstr ""
+
+#: release/0.1.0/vendor/cmb2/includes/CMB2_JS.php:87
+#: release/0.2.0/vendor/cmb2/includes/CMB2_JS.php:87
+#: release/0.3.0/vendor/cmb2/includes/CMB2_JS.php:87
+#: release/0.4.0/vendor/cmb2/includes/CMB2_JS.php:87
+#: release/0.5.0/vendor/cmb2/includes/CMB2_JS.php:87
+#: release/0.5.1/vendor/cmb2/includes/CMB2_JS.php:87
+#: release/0.5.2/vendor/cmb2/includes/CMB2_JS.php:87
+#: release/svn/vendor/cmb2/includes/CMB2_JS.php:87
+#: vendor/cmb2/includes/CMB2_JS.php:87
+msgid "Default"
+msgstr ""
+
+#: release/0.1.0/vendor/cmb2/includes/CMB2_JS.php:88
+#: release/0.2.0/vendor/cmb2/includes/CMB2_JS.php:88
+#: release/0.3.0/vendor/cmb2/includes/CMB2_JS.php:88
+#: release/0.4.0/vendor/cmb2/includes/CMB2_JS.php:88
+#: release/0.5.0/vendor/cmb2/includes/CMB2_JS.php:88
+#: release/0.5.1/vendor/cmb2/includes/CMB2_JS.php:88
+#: release/0.5.2/vendor/cmb2/includes/CMB2_JS.php:88
+#: release/svn/vendor/cmb2/includes/CMB2_JS.php:88
+#: vendor/cmb2/includes/CMB2_JS.php:88
+msgid "Select Color"
+msgstr ""
+
+#: release/0.1.0/vendor/cmb2/includes/CMB2_JS.php:89
+#: release/0.2.0/vendor/cmb2/includes/CMB2_JS.php:89
+#: release/0.3.0/vendor/cmb2/includes/CMB2_JS.php:89
+#: release/0.4.0/vendor/cmb2/includes/CMB2_JS.php:89
+#: release/0.5.0/vendor/cmb2/includes/CMB2_JS.php:89
+#: release/0.5.1/vendor/cmb2/includes/CMB2_JS.php:89
+#: release/0.5.2/vendor/cmb2/includes/CMB2_JS.php:89
+#: release/svn/vendor/cmb2/includes/CMB2_JS.php:89
+#: vendor/cmb2/includes/CMB2_JS.php:89
+msgid "Current Color"
+msgstr ""
+
+#: release/0.1.0/vendor/cmb2/includes/CMB2_JS.php:110
+#: release/0.2.0/vendor/cmb2/includes/CMB2_JS.php:110
+#: release/0.3.0/vendor/cmb2/includes/CMB2_JS.php:110
+#: release/0.4.0/vendor/cmb2/includes/CMB2_JS.php:110
+#: release/0.5.0/vendor/cmb2/includes/CMB2_JS.php:110
+#: release/0.5.1/vendor/cmb2/includes/CMB2_JS.php:110
+#: release/0.5.2/vendor/cmb2/includes/CMB2_JS.php:110
+#: release/svn/vendor/cmb2/includes/CMB2_JS.php:110
+#: vendor/cmb2/includes/CMB2_JS.php:110
+msgid "Sunday, Monday, Tuesday, Wednesday, Thursday, Friday, Saturday"
+msgstr ""
+
+#: release/0.1.0/vendor/cmb2/includes/CMB2_JS.php:111
+#: release/0.2.0/vendor/cmb2/includes/CMB2_JS.php:111
+#: release/0.3.0/vendor/cmb2/includes/CMB2_JS.php:111
+#: release/0.4.0/vendor/cmb2/includes/CMB2_JS.php:111
+#: release/0.5.0/vendor/cmb2/includes/CMB2_JS.php:111
+#: release/0.5.1/vendor/cmb2/includes/CMB2_JS.php:111
+#: release/0.5.2/vendor/cmb2/includes/CMB2_JS.php:111
+#: release/svn/vendor/cmb2/includes/CMB2_JS.php:111
+#: vendor/cmb2/includes/CMB2_JS.php:111
+msgid "Su, Mo, Tu, We, Th, Fr, Sa"
+msgstr ""
+
+#: release/0.1.0/vendor/cmb2/includes/CMB2_JS.php:112
+#: release/0.2.0/vendor/cmb2/includes/CMB2_JS.php:112
+#: release/0.3.0/vendor/cmb2/includes/CMB2_JS.php:112
+#: release/0.4.0/vendor/cmb2/includes/CMB2_JS.php:112
+#: release/0.5.0/vendor/cmb2/includes/CMB2_JS.php:112
+#: release/0.5.1/vendor/cmb2/includes/CMB2_JS.php:112
+#: release/0.5.2/vendor/cmb2/includes/CMB2_JS.php:112
+#: release/svn/vendor/cmb2/includes/CMB2_JS.php:112
+#: vendor/cmb2/includes/CMB2_JS.php:112
+msgid "Sun, Mon, Tue, Wed, Thu, Fri, Sat"
+msgstr ""
+
+#: release/0.1.0/vendor/cmb2/includes/CMB2_JS.php:113
+#: release/0.2.0/vendor/cmb2/includes/CMB2_JS.php:113
+#: release/0.3.0/vendor/cmb2/includes/CMB2_JS.php:113
+#: release/0.4.0/vendor/cmb2/includes/CMB2_JS.php:113
+#: release/0.5.0/vendor/cmb2/includes/CMB2_JS.php:113
+#: release/0.5.1/vendor/cmb2/includes/CMB2_JS.php:113
+#: release/0.5.2/vendor/cmb2/includes/CMB2_JS.php:113
+#: release/svn/vendor/cmb2/includes/CMB2_JS.php:113
+#: vendor/cmb2/includes/CMB2_JS.php:113
+msgid ""
+"January, February, March, April, May, June, July, August, September, "
+"October, November, December"
+msgstr ""
+
+#: release/0.1.0/vendor/cmb2/includes/CMB2_JS.php:114
+#: release/0.2.0/vendor/cmb2/includes/CMB2_JS.php:114
+#: release/0.3.0/vendor/cmb2/includes/CMB2_JS.php:114
+#: release/0.4.0/vendor/cmb2/includes/CMB2_JS.php:114
+#: release/0.5.0/vendor/cmb2/includes/CMB2_JS.php:114
+#: release/0.5.1/vendor/cmb2/includes/CMB2_JS.php:114
+#: release/0.5.2/vendor/cmb2/includes/CMB2_JS.php:114
+#: release/svn/vendor/cmb2/includes/CMB2_JS.php:114
+#: vendor/cmb2/includes/CMB2_JS.php:114
+msgid "Jan, Feb, Mar, Apr, May, Jun, Jul, Aug, Sep, Oct, Nov, Dec"
+msgstr ""
+
+#: release/0.1.0/vendor/cmb2/includes/CMB2_JS.php:115
+#: release/0.2.0/vendor/cmb2/includes/CMB2_JS.php:115
+#: release/0.3.0/vendor/cmb2/includes/CMB2_JS.php:115
+#: release/0.4.0/vendor/cmb2/includes/CMB2_JS.php:115
+#: release/0.5.0/vendor/cmb2/includes/CMB2_JS.php:115
+#: release/0.5.1/vendor/cmb2/includes/CMB2_JS.php:115
+#: release/0.5.2/vendor/cmb2/includes/CMB2_JS.php:115
+#: release/svn/vendor/cmb2/includes/CMB2_JS.php:115
+#: vendor/cmb2/includes/CMB2_JS.php:115
+msgid "Next"
+msgstr ""
+
+#: release/0.1.0/vendor/cmb2/includes/CMB2_JS.php:116
+#: release/0.2.0/vendor/cmb2/includes/CMB2_JS.php:116
+#: release/0.3.0/vendor/cmb2/includes/CMB2_JS.php:116
+#: release/0.4.0/vendor/cmb2/includes/CMB2_JS.php:116
+#: release/0.5.0/vendor/cmb2/includes/CMB2_JS.php:116
+#: release/0.5.1/vendor/cmb2/includes/CMB2_JS.php:116
+#: release/0.5.2/vendor/cmb2/includes/CMB2_JS.php:116
+#: release/svn/vendor/cmb2/includes/CMB2_JS.php:116
+#: vendor/cmb2/includes/CMB2_JS.php:116
+msgid "Prev"
+msgstr ""
+
+#: release/0.1.0/vendor/cmb2/includes/CMB2_JS.php:117
+#: release/0.2.0/vendor/cmb2/includes/CMB2_JS.php:117
+#: release/0.3.0/vendor/cmb2/includes/CMB2_JS.php:117
+#: release/0.4.0/vendor/cmb2/includes/CMB2_JS.php:117
+#: release/0.5.0/vendor/cmb2/includes/CMB2_JS.php:117
+#: release/0.5.1/vendor/cmb2/includes/CMB2_JS.php:117
+#: release/0.5.2/vendor/cmb2/includes/CMB2_JS.php:117
+#: release/svn/vendor/cmb2/includes/CMB2_JS.php:117
+#: vendor/cmb2/includes/CMB2_JS.php:117
+msgid "Today"
+msgstr ""
+
+#: release/0.1.0/vendor/cmb2/includes/CMB2_JS.php:118
+#: release/0.1.0/vendor/cmb2/includes/CMB2_JS.php:128
+#: release/0.2.0/vendor/cmb2/includes/CMB2_JS.php:118
+#: release/0.2.0/vendor/cmb2/includes/CMB2_JS.php:128
+#: release/0.3.0/vendor/cmb2/includes/CMB2_JS.php:118
+#: release/0.3.0/vendor/cmb2/includes/CMB2_JS.php:128
+#: release/0.4.0/vendor/cmb2/includes/CMB2_JS.php:118
+#: release/0.4.0/vendor/cmb2/includes/CMB2_JS.php:128
+#: release/0.5.0/vendor/cmb2/includes/CMB2_JS.php:118
+#: release/0.5.0/vendor/cmb2/includes/CMB2_JS.php:128
+#: release/0.5.1/vendor/cmb2/includes/CMB2_JS.php:118
+#: release/0.5.1/vendor/cmb2/includes/CMB2_JS.php:128
+#: release/0.5.2/vendor/cmb2/includes/CMB2_JS.php:118
+#: release/0.5.2/vendor/cmb2/includes/CMB2_JS.php:128
+#: release/svn/vendor/cmb2/includes/CMB2_JS.php:118
+#: release/svn/vendor/cmb2/includes/CMB2_JS.php:128
+#: vendor/cmb2/includes/CMB2_JS.php:118 vendor/cmb2/includes/CMB2_JS.php:128
+msgid "Done"
+msgstr ""
+
+#: release/0.1.0/vendor/cmb2/includes/CMB2_JS.php:122
+#: release/0.2.0/vendor/cmb2/includes/CMB2_JS.php:122
+#: release/0.3.0/vendor/cmb2/includes/CMB2_JS.php:122
+#: release/0.4.0/vendor/cmb2/includes/CMB2_JS.php:122
+#: release/0.5.0/vendor/cmb2/includes/CMB2_JS.php:122
+#: release/0.5.1/vendor/cmb2/includes/CMB2_JS.php:122
+#: release/0.5.2/vendor/cmb2/includes/CMB2_JS.php:122
+#: release/svn/vendor/cmb2/includes/CMB2_JS.php:122
+#: vendor/cmb2/includes/CMB2_JS.php:122
+msgid "Choose Time"
+msgstr ""
+
+#: release/0.1.0/vendor/cmb2/includes/CMB2_JS.php:123
+#: release/0.2.0/vendor/cmb2/includes/CMB2_JS.php:123
+#: release/0.3.0/vendor/cmb2/includes/CMB2_JS.php:123
+#: release/0.4.0/vendor/cmb2/includes/CMB2_JS.php:123
+#: release/0.5.0/vendor/cmb2/includes/CMB2_JS.php:123
+#: release/0.5.1/vendor/cmb2/includes/CMB2_JS.php:123
+#: release/0.5.2/vendor/cmb2/includes/CMB2_JS.php:123
+#: release/svn/vendor/cmb2/includes/CMB2_JS.php:123
+#: vendor/cmb2/includes/CMB2_JS.php:123
+msgid "Time"
+msgstr ""
+
+#: release/0.1.0/vendor/cmb2/includes/CMB2_JS.php:124
+#: release/0.2.0/vendor/cmb2/includes/CMB2_JS.php:124
+#: release/0.3.0/vendor/cmb2/includes/CMB2_JS.php:124
+#: release/0.4.0/vendor/cmb2/includes/CMB2_JS.php:124
+#: release/0.5.0/vendor/cmb2/includes/CMB2_JS.php:124
+#: release/0.5.1/vendor/cmb2/includes/CMB2_JS.php:124
+#: release/0.5.2/vendor/cmb2/includes/CMB2_JS.php:124
+#: release/svn/vendor/cmb2/includes/CMB2_JS.php:124
+#: vendor/cmb2/includes/CMB2_JS.php:124
+msgid "Hour"
+msgstr ""
+
+#: release/0.1.0/vendor/cmb2/includes/CMB2_JS.php:125
+#: release/0.2.0/vendor/cmb2/includes/CMB2_JS.php:125
+#: release/0.3.0/vendor/cmb2/includes/CMB2_JS.php:125
+#: release/0.4.0/vendor/cmb2/includes/CMB2_JS.php:125
+#: release/0.5.0/vendor/cmb2/includes/CMB2_JS.php:125
+#: release/0.5.1/vendor/cmb2/includes/CMB2_JS.php:125
+#: release/0.5.2/vendor/cmb2/includes/CMB2_JS.php:125
+#: release/svn/vendor/cmb2/includes/CMB2_JS.php:125
+#: vendor/cmb2/includes/CMB2_JS.php:125
+msgid "Minute"
+msgstr ""
+
+#: release/0.1.0/vendor/cmb2/includes/CMB2_JS.php:126
+#: release/0.2.0/vendor/cmb2/includes/CMB2_JS.php:126
+#: release/0.3.0/vendor/cmb2/includes/CMB2_JS.php:126
+#: release/0.4.0/vendor/cmb2/includes/CMB2_JS.php:126
+#: release/0.5.0/vendor/cmb2/includes/CMB2_JS.php:126
+#: release/0.5.1/vendor/cmb2/includes/CMB2_JS.php:126
+#: release/0.5.2/vendor/cmb2/includes/CMB2_JS.php:126
+#: release/svn/vendor/cmb2/includes/CMB2_JS.php:126
+#: vendor/cmb2/includes/CMB2_JS.php:126
+msgid "Second"
+msgstr ""
+
+#: release/0.1.0/vendor/cmb2/includes/CMB2_JS.php:127
+#: release/0.2.0/vendor/cmb2/includes/CMB2_JS.php:127
+#: release/0.3.0/vendor/cmb2/includes/CMB2_JS.php:127
+#: release/0.4.0/vendor/cmb2/includes/CMB2_JS.php:127
+#: release/0.5.0/vendor/cmb2/includes/CMB2_JS.php:127
+#: release/0.5.1/vendor/cmb2/includes/CMB2_JS.php:127
+#: release/0.5.2/vendor/cmb2/includes/CMB2_JS.php:127
+#: release/svn/vendor/cmb2/includes/CMB2_JS.php:127
+#: vendor/cmb2/includes/CMB2_JS.php:127
+msgid "Now"
+msgstr ""
+
+#: release/0.1.0/vendor/cmb2/includes/CMB2_JS.php:135
+#: release/0.2.0/vendor/cmb2/includes/CMB2_JS.php:135
+#: release/0.3.0/vendor/cmb2/includes/CMB2_JS.php:135
+#: release/0.4.0/vendor/cmb2/includes/CMB2_JS.php:135
+#: release/0.5.0/vendor/cmb2/includes/CMB2_JS.php:135
+#: release/0.5.1/vendor/cmb2/includes/CMB2_JS.php:135
+#: release/0.5.2/vendor/cmb2/includes/CMB2_JS.php:135
+#: release/svn/vendor/cmb2/includes/CMB2_JS.php:135
+#: vendor/cmb2/includes/CMB2_JS.php:135
+msgid "Use this file"
+msgstr ""
+
+#: release/0.1.0/vendor/cmb2/includes/CMB2_JS.php:136
+#: release/0.2.0/vendor/cmb2/includes/CMB2_JS.php:136
+#: release/0.3.0/vendor/cmb2/includes/CMB2_JS.php:136
+#: release/0.4.0/vendor/cmb2/includes/CMB2_JS.php:136
+#: release/0.5.0/vendor/cmb2/includes/CMB2_JS.php:136
+#: release/0.5.1/vendor/cmb2/includes/CMB2_JS.php:136
+#: release/0.5.2/vendor/cmb2/includes/CMB2_JS.php:136
+#: release/svn/vendor/cmb2/includes/CMB2_JS.php:136
+#: vendor/cmb2/includes/CMB2_JS.php:136
+msgid "Use these files"
+msgstr ""
+
+#: release/0.1.0/vendor/cmb2/includes/CMB2_JS.php:137
+#: release/0.1.0/vendor/cmb2/includes/types/CMB2_Type_File_Base.php:61
+#: release/0.2.0/vendor/cmb2/includes/CMB2_JS.php:137
+#: release/0.2.0/vendor/cmb2/includes/types/CMB2_Type_File_Base.php:61
+#: release/0.3.0/vendor/cmb2/includes/CMB2_JS.php:137
+#: release/0.3.0/vendor/cmb2/includes/types/CMB2_Type_File_Base.php:61
+#: release/0.4.0/vendor/cmb2/includes/CMB2_JS.php:137
+#: release/0.4.0/vendor/cmb2/includes/types/CMB2_Type_File_Base.php:61
+#: release/0.5.0/vendor/cmb2/includes/CMB2_JS.php:137
+#: release/0.5.0/vendor/cmb2/includes/types/CMB2_Type_File_Base.php:61
+#: release/0.5.1/vendor/cmb2/includes/CMB2_JS.php:137
+#: release/0.5.1/vendor/cmb2/includes/types/CMB2_Type_File_Base.php:61
+#: release/0.5.2/vendor/cmb2/includes/CMB2_JS.php:137
+#: release/0.5.2/vendor/cmb2/includes/types/CMB2_Type_File_Base.php:61
+#: release/svn/vendor/cmb2/includes/CMB2_JS.php:137
+#: release/svn/vendor/cmb2/includes/types/CMB2_Type_File_Base.php:61
+#: vendor/cmb2/includes/CMB2_JS.php:137
+#: vendor/cmb2/includes/types/CMB2_Type_File_Base.php:61
+msgid "Remove Image"
+msgstr ""
+
+#: release/0.1.0/vendor/cmb2/includes/CMB2_JS.php:138
+#: release/0.1.0/vendor/cmb2/includes/CMB2_Types.php:257
+#: release/0.1.0/vendor/cmb2/includes/types/CMB2_Type_File_Base.php:80
+#: release/0.2.0/vendor/cmb2/includes/CMB2_JS.php:138
+#: release/0.2.0/vendor/cmb2/includes/CMB2_Types.php:257
+#: release/0.2.0/vendor/cmb2/includes/types/CMB2_Type_File_Base.php:80
+#: release/0.3.0/vendor/cmb2/includes/CMB2_JS.php:138
+#: release/0.3.0/vendor/cmb2/includes/CMB2_Types.php:257
+#: release/0.3.0/vendor/cmb2/includes/types/CMB2_Type_File_Base.php:80
+#: release/0.4.0/vendor/cmb2/includes/CMB2_JS.php:138
+#: release/0.4.0/vendor/cmb2/includes/CMB2_Types.php:257
+#: release/0.4.0/vendor/cmb2/includes/types/CMB2_Type_File_Base.php:80
+#: release/0.5.0/vendor/cmb2/includes/CMB2_JS.php:138
+#: release/0.5.0/vendor/cmb2/includes/CMB2_Types.php:257
+#: release/0.5.0/vendor/cmb2/includes/types/CMB2_Type_File_Base.php:80
+#: release/0.5.1/vendor/cmb2/includes/CMB2_JS.php:138
+#: release/0.5.1/vendor/cmb2/includes/CMB2_Types.php:257
+#: release/0.5.1/vendor/cmb2/includes/types/CMB2_Type_File_Base.php:80
+#: release/0.5.2/vendor/cmb2/includes/CMB2_JS.php:138
+#: release/0.5.2/vendor/cmb2/includes/CMB2_Types.php:257
+#: release/0.5.2/vendor/cmb2/includes/types/CMB2_Type_File_Base.php:80
+#: release/svn/vendor/cmb2/includes/CMB2_JS.php:138
+#: release/svn/vendor/cmb2/includes/CMB2_Types.php:257
+#: release/svn/vendor/cmb2/includes/types/CMB2_Type_File_Base.php:80
+#: vendor/cmb2/includes/CMB2_JS.php:138 vendor/cmb2/includes/CMB2_Types.php:257
+#: vendor/cmb2/includes/types/CMB2_Type_File_Base.php:80
+msgid "Remove"
+msgstr ""
+
+#: release/0.1.0/vendor/cmb2/includes/CMB2_JS.php:140
+#: release/0.1.0/vendor/cmb2/includes/types/CMB2_Type_File_Base.php:78
+#: release/0.2.0/vendor/cmb2/includes/CMB2_JS.php:140
+#: release/0.2.0/vendor/cmb2/includes/types/CMB2_Type_File_Base.php:78
+#: release/0.3.0/vendor/cmb2/includes/CMB2_JS.php:140
+#: release/0.3.0/vendor/cmb2/includes/types/CMB2_Type_File_Base.php:78
+#: release/0.4.0/vendor/cmb2/includes/CMB2_JS.php:140
+#: release/0.4.0/vendor/cmb2/includes/types/CMB2_Type_File_Base.php:78
+#: release/0.5.0/vendor/cmb2/includes/CMB2_JS.php:140
+#: release/0.5.0/vendor/cmb2/includes/types/CMB2_Type_File_Base.php:78
+#: release/0.5.1/vendor/cmb2/includes/CMB2_JS.php:140
+#: release/0.5.1/vendor/cmb2/includes/types/CMB2_Type_File_Base.php:78
+#: release/0.5.2/vendor/cmb2/includes/CMB2_JS.php:140
+#: release/0.5.2/vendor/cmb2/includes/types/CMB2_Type_File_Base.php:78
+#: release/svn/vendor/cmb2/includes/CMB2_JS.php:140
+#: release/svn/vendor/cmb2/includes/types/CMB2_Type_File_Base.php:78
+#: vendor/cmb2/includes/CMB2_JS.php:140
+#: vendor/cmb2/includes/types/CMB2_Type_File_Base.php:78
+msgid "Download"
+msgstr ""
+
+#: release/0.1.0/vendor/cmb2/includes/CMB2_JS.php:141
+#: release/0.2.0/vendor/cmb2/includes/CMB2_JS.php:141
+#: release/0.3.0/vendor/cmb2/includes/CMB2_JS.php:141
+#: release/0.4.0/vendor/cmb2/includes/CMB2_JS.php:141
+#: release/0.5.0/vendor/cmb2/includes/CMB2_JS.php:141
+#: release/0.5.1/vendor/cmb2/includes/CMB2_JS.php:141
+#: release/0.5.2/vendor/cmb2/includes/CMB2_JS.php:141
+#: release/svn/vendor/cmb2/includes/CMB2_JS.php:141
+#: vendor/cmb2/includes/CMB2_JS.php:141
+msgid "Select / Deselect All"
+msgstr ""
+
+#: release/0.1.0/vendor/cmb2/includes/CMB2_Types.php:194
+#: release/0.2.0/vendor/cmb2/includes/CMB2_Types.php:194
+#: release/0.3.0/vendor/cmb2/includes/CMB2_Types.php:194
+#: release/0.4.0/vendor/cmb2/includes/CMB2_Types.php:194
+#: release/0.5.0/vendor/cmb2/includes/CMB2_Types.php:194
+#: release/0.5.1/vendor/cmb2/includes/CMB2_Types.php:194
+#: release/0.5.2/vendor/cmb2/includes/CMB2_Types.php:194
+#: release/svn/vendor/cmb2/includes/CMB2_Types.php:194
+#: vendor/cmb2/includes/CMB2_Types.php:194
+msgid "Add Row"
+msgstr ""
+
+#: release/0.1.0/vendor/cmb2/includes/CMB2_hookup.php:143
+#: release/0.2.0/vendor/cmb2/includes/CMB2_hookup.php:143
+#: release/0.3.0/vendor/cmb2/includes/CMB2_hookup.php:143
+#: release/0.4.0/vendor/cmb2/includes/CMB2_hookup.php:143
+#: release/0.5.0/vendor/cmb2/includes/CMB2_hookup.php:143
+#: release/0.5.1/vendor/cmb2/includes/CMB2_hookup.php:143
+#: release/0.5.2/vendor/cmb2/includes/CMB2_hookup.php:143
+#: release/svn/vendor/cmb2/includes/CMB2_hookup.php:143
+#: vendor/cmb2/includes/CMB2_hookup.php:143
+msgid ""
+"Term Metadata is a WordPress > 4.4 feature. Please upgrade your WordPress "
+"install."
+msgstr ""
+
+#: release/0.1.0/vendor/cmb2/includes/CMB2_hookup.php:147
+#: release/0.2.0/vendor/cmb2/includes/CMB2_hookup.php:147
+#: release/0.3.0/vendor/cmb2/includes/CMB2_hookup.php:147
+#: release/0.4.0/vendor/cmb2/includes/CMB2_hookup.php:147
+#: release/0.5.0/vendor/cmb2/includes/CMB2_hookup.php:147
+#: release/0.5.1/vendor/cmb2/includes/CMB2_hookup.php:147
+#: release/0.5.2/vendor/cmb2/includes/CMB2_hookup.php:147
+#: release/svn/vendor/cmb2/includes/CMB2_hookup.php:147
+#: vendor/cmb2/includes/CMB2_hookup.php:147
+msgid "Term metaboxes configuration requires a 'taxonomies' parameter"
+msgstr ""
+
+#: release/0.1.0/vendor/cmb2/includes/helper-functions.php:93
+#: release/0.2.0/vendor/cmb2/includes/helper-functions.php:93
+#: release/0.3.0/vendor/cmb2/includes/helper-functions.php:93
+#: release/0.4.0/vendor/cmb2/includes/helper-functions.php:93
+#: release/0.5.0/vendor/cmb2/includes/helper-functions.php:93
+#: release/0.5.1/vendor/cmb2/includes/helper-functions.php:93
+#: release/0.5.2/vendor/cmb2/includes/helper-functions.php:93
+#: release/svn/vendor/cmb2/includes/helper-functions.php:93
+#: vendor/cmb2/includes/helper-functions.php:93
+msgid "No oEmbed Results Found for %s. View more info at %s."
+msgstr ""
+
+#: release/0.1.0/vendor/cmb2/includes/helper-functions.php:279
+#: release/0.2.0/vendor/cmb2/includes/helper-functions.php:279
+#: release/0.3.0/vendor/cmb2/includes/helper-functions.php:279
+#: release/0.4.0/vendor/cmb2/includes/helper-functions.php:279
+#: release/0.5.0/vendor/cmb2/includes/helper-functions.php:279
+#: release/0.5.1/vendor/cmb2/includes/helper-functions.php:279
+#: release/0.5.2/vendor/cmb2/includes/helper-functions.php:279
+#: release/svn/vendor/cmb2/includes/helper-functions.php:279
+#: vendor/cmb2/includes/helper-functions.php:279
+msgid "Save"
+msgstr ""
+
+#: release/0.1.0/vendor/cmb2/includes/types/CMB2_Type_File.php:36
+#: release/0.2.0/vendor/cmb2/includes/types/CMB2_Type_File.php:36
+#: release/0.3.0/vendor/cmb2/includes/types/CMB2_Type_File.php:36
+#: release/0.4.0/vendor/cmb2/includes/types/CMB2_Type_File.php:36
+#: release/0.5.0/vendor/cmb2/includes/types/CMB2_Type_File.php:36
+#: release/0.5.1/vendor/cmb2/includes/types/CMB2_Type_File.php:36
+#: release/0.5.2/vendor/cmb2/includes/types/CMB2_Type_File.php:36
+#: release/svn/vendor/cmb2/includes/types/CMB2_Type_File.php:36
+#: vendor/cmb2/includes/types/CMB2_Type_File.php:36
+msgid "Add or Upload File"
+msgstr ""
+
+#: release/0.1.0/vendor/cmb2/includes/types/CMB2_Type_File_List.php:36
+#: release/0.2.0/vendor/cmb2/includes/types/CMB2_Type_File_List.php:36
+#: release/0.3.0/vendor/cmb2/includes/types/CMB2_Type_File_List.php:36
+#: release/0.4.0/vendor/cmb2/includes/types/CMB2_Type_File_List.php:36
+#: release/0.5.0/vendor/cmb2/includes/types/CMB2_Type_File_List.php:36
+#: release/0.5.1/vendor/cmb2/includes/types/CMB2_Type_File_List.php:36
+#: release/0.5.2/vendor/cmb2/includes/types/CMB2_Type_File_List.php:36
+#: release/svn/vendor/cmb2/includes/types/CMB2_Type_File_List.php:36
+#: vendor/cmb2/includes/types/CMB2_Type_File_List.php:36
+msgid "Add or Upload Files"
+msgstr ""
+
+#: release/0.1.0/vendor/cmb2/includes/types/CMB2_Type_Taxonomy_Multicheck.php:27
+#: release/0.1.0/vendor/cmb2/includes/types/CMB2_Type_Taxonomy_Radio.php:25
+#: release/0.2.0/vendor/cmb2/includes/types/CMB2_Type_Taxonomy_Multicheck.php:27
+#: release/0.2.0/vendor/cmb2/includes/types/CMB2_Type_Taxonomy_Radio.php:25
+#: release/0.3.0/vendor/cmb2/includes/types/CMB2_Type_Taxonomy_Multicheck.php:27
+#: release/0.3.0/vendor/cmb2/includes/types/CMB2_Type_Taxonomy_Radio.php:25
+#: release/0.4.0/vendor/cmb2/includes/types/CMB2_Type_Taxonomy_Multicheck.php:27
+#: release/0.4.0/vendor/cmb2/includes/types/CMB2_Type_Taxonomy_Radio.php:25
+#: release/0.5.0/vendor/cmb2/includes/types/CMB2_Type_Taxonomy_Multicheck.php:27
+#: release/0.5.0/vendor/cmb2/includes/types/CMB2_Type_Taxonomy_Radio.php:25
+#: release/0.5.1/vendor/cmb2/includes/types/CMB2_Type_Taxonomy_Multicheck.php:27
+#: release/0.5.1/vendor/cmb2/includes/types/CMB2_Type_Taxonomy_Radio.php:25
+#: release/0.5.2/vendor/cmb2/includes/types/CMB2_Type_Taxonomy_Multicheck.php:27
+#: release/0.5.2/vendor/cmb2/includes/types/CMB2_Type_Taxonomy_Radio.php:25
+#: release/svn/vendor/cmb2/includes/types/CMB2_Type_Taxonomy_Multicheck.php:27
+#: release/svn/vendor/cmb2/includes/types/CMB2_Type_Taxonomy_Radio.php:25
+#: vendor/cmb2/includes/types/CMB2_Type_Taxonomy_Multicheck.php:27
+#: vendor/cmb2/includes/types/CMB2_Type_Taxonomy_Radio.php:25
+msgid "No terms"
+msgstr ""
+
+#. Plugin Name of the plugin/theme
+msgid "b2i Investor Tools"
+msgstr ""
+
+#. Author URI of the plugin/theme
+msgid "http://www.b2itech.com"
+msgstr ""
+
+#. Description of the plugin/theme
+msgid ""
+"SEC, Stock chart and Quote data, Press releases and more... One source for "
+"all your stock data plugins."
+msgstr ""
+
+#. Author of the plugin/theme
+msgid "b2itech"
+msgstr ""
+
+#: release/0.1.0/vendor/cmb2/includes/CMB2_JS.php:109
+#: release/0.2.0/vendor/cmb2/includes/CMB2_JS.php:109
+#: release/0.3.0/vendor/cmb2/includes/CMB2_JS.php:109
+#: release/0.4.0/vendor/cmb2/includes/CMB2_JS.php:109
+#: release/0.5.0/vendor/cmb2/includes/CMB2_JS.php:109
+#: release/0.5.1/vendor/cmb2/includes/CMB2_JS.php:109
+#: release/0.5.2/vendor/cmb2/includes/CMB2_JS.php:109
+#: release/svn/vendor/cmb2/includes/CMB2_JS.php:109
+#: vendor/cmb2/includes/CMB2_JS.php:109
+msgctxt "Valid formatDate string for jquery-ui datepicker"
+msgid "mm/dd/yy"
+msgstr ""
+
+#: release/0.1.0/vendor/cmb2/includes/CMB2_JS.php:129
+#: release/0.2.0/vendor/cmb2/includes/CMB2_JS.php:129
+#: release/0.3.0/vendor/cmb2/includes/CMB2_JS.php:129
+#: release/0.4.0/vendor/cmb2/includes/CMB2_JS.php:129
+#: release/0.5.0/vendor/cmb2/includes/CMB2_JS.php:129
+#: release/0.5.1/vendor/cmb2/includes/CMB2_JS.php:129
+#: release/0.5.2/vendor/cmb2/includes/CMB2_JS.php:129
+#: release/svn/vendor/cmb2/includes/CMB2_JS.php:129
+#: vendor/cmb2/includes/CMB2_JS.php:129
+msgctxt ""
+"Valid formatting string, as per "
+"http://trentrichardson.com/examples/timepicker/"
+msgid "hh:mm TT"
+msgstr ""
