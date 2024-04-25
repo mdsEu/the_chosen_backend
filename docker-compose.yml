@@ -23,14 +23,6 @@ services:
       - ./wp-content/uploads/:/var/www/html/wp-content/uploads
     build:
       context: .
-    deploy:
-      resources:
-        limits:
-          cpus: '2'
-          memory: 4GB
-        reservations:
-          cpus: '1'
-          memory: 2GB
     restart: always
 volumes:
   dbdata:
