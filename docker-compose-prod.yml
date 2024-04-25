@@ -21,16 +21,10 @@ services:
       resources:
         limits:
           cpus: '2'
-          memory: 4GB
+          memory: 3GB
         reservations:
           cpus: '1'
-          memory: 2GB
-      x-aws-min_percent: 30
-      x-aws-autoscaling:
-        desired: 1
-        min: 1
-        max: 2 # Required
-        cpu: 50
+          memory: 1.5GB
     restart: always
 volumes:
   dbdata:
