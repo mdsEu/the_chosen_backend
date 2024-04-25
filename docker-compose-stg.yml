@@ -23,6 +23,20 @@ services:
       - ./wp-content/uploads/:/var/www/html/wp-content/uploads
     build:
       context: .
+    deploy:
+      resources:
+        limits:
+          cpus: '2'
+          memory: 4GB
+        reservations:
+          cpus: '1'
+          memory: 2GB
+      x-aws-min_percent: 30
+      x-aws-autoscaling:
+        desired: 1
+        min: 1
+        max: 2 # Required
+        cpu: 50
     restart: always
 volumes:
   dbdata:
