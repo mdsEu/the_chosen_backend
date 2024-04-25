@@ -21,14 +21,14 @@ services:
       resources:
         limits:
           cpus: '4'
-          memory: 8GB
+          memory: 12GB
         reservations:
           cpus: '2'
           memory: 4GB
       x-aws-min_percent: 30
       x-aws-autoscaling:
         desired: 1
-        min: 1
+        min: 2
         max: 3 # Required
         cpu: 50
     restart: always
