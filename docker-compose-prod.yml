@@ -27,10 +27,10 @@ services:
       resources:
         limits:
           cpus: '4'
-          memory: 3GB
+          memory: 8GB
         reservations:
           cpus: '2'
-          memory: 1.5GB
+          memory: 4GB
     restart: always
 volumes:
   dbdata:
