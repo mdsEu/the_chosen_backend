@@ -1,4 +1,3 @@
-# FROM --platform=linux/amd64 php:8.3-rc-apache-bookworm
 FROM php:8.3-rc-apache-bookworm
 
 # make sure apt is up to date
@@ -13,6 +12,7 @@ RUN chmod +x /wait
 
 COPY ./server_files/000-default.conf /etc/apache2/sites-available/000-default.conf
 COPY ./server_files/default-ssl.conf /etc/apache2/sites-available/default-ssl.conf
+COPY ./server_files/php/php.ini /usr/local/etc/php/
 RUN sed -ri -e 's!AllowOverride None!AllowOverride All!g' /etc/apache2/apache2.conf
 
 RUN a2enmod headers
@@ -31,14 +31,7 @@ RUN docker-php-ext-configure gd --enable-gd --with-freetype --with-jpeg
 RUN docker-php-ext-install pdo pdo_mysql curl mbstring exif pcntl bcmath gd iconv intl pdo_sqlite xml zip mysqli
 RUN docker-php-ext-enable mysqli
 
-# COPY . /var/www/html
-
 WORKDIR /var/www/html
-
-# VOLUME /var/www/html
-# VOLUME /var/www/html/wp-content/languages
-# VOLUME /var/www/html/wp-content/plugins
-# VOLUME /var/www/html/wp-content/uploads
 
 EXPOSE 80
 
