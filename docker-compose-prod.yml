@@ -26,10 +26,10 @@ services:
     deploy:
       resources:
         limits:
-          cpus: '4'
-          memory: 12GB
-        reservations:
           cpus: '2'
+          memory: 8GB
+        reservations:
+          cpus: '1'
           memory: 4GB
     restart: always
 volumes:
