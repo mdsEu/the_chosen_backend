@@ -1,4 +1,7 @@
 # Changelog
+## 3.1.3
+- Updating installer library and adjusting plugin version.
+
 ## 3.1.0
 - Updating installer library and adjusting plugin version.
 
