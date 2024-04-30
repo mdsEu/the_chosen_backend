@@ -27,9 +27,28 @@ class Upgrade {
 	 * @return void
 	 */
 	public static function init() {
-		if ( is_admin() && self::needsUpgrade() ) {
+		if ( self::canUpgrade() && self::needsUpgrade() ) {
 			Lock::whileLocked( self::LOCK_NAME, 2 * MINUTE_IN_SECONDS, [ __CLASS__, 'run' ] );
 		}
+	}
+
+	/**
+	 * @return bool
+	 */
+	private static function canUpgrade() {
+		if ( wp_doing_ajax() ) {
+			return false;
+		}
+
+		if ( wp_doing_cron() ) {
+			return false;
+		}
+
+		if ( defined( 'WP_CLI' ) && WP_CLI ) {
+			return false;
+		}
+
+		return is_admin();
 	}
 
 	/**

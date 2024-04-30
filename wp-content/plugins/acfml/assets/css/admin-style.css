@@ -85,3 +85,35 @@
 	border-radius: 3px;
 	color: #373737;
 }
+
+.column-acfml-translation-mode,
+.column-acfml-labels-translation-status {
+	width: 15%;
+}
+
+.acfml-translation-status-metabox {
+	margin-bottom: 24px;
+}
+.acfml-translation-status-metabox:last-of-type {
+	margin-bottom: 0;
+}
+
+.acfml-translation-info-title {
+	display: inline-block;
+	width: 20%;
+	font-weight: bold;
+}
+
+.acfml-translation-info {
+	display: inline-block;
+	color: #373737;
+}
+
+.acfml-translation-info-context {
+	display: inline-block;
+	color: #999;
+}
+
+.acfml-translation-status-metabox .acfml-translation-info {
+	margin: 0 24px 0 0;
+}

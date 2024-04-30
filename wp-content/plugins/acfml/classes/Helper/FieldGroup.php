@@ -54,4 +54,23 @@ class FieldGroup {
 	public static function isTranslatable() {
 		return is_post_type_translated( self::CPT );
 	}
+
+	/**
+	 * @param  int   $id
+	 * @param  array $fieldTypes
+	 *
+	 * @return bool
+	 */
+	public static function hasFieldOfTypes( $id, $fieldTypes ) {
+		$fieldsInGroup = acf_get_fields( $id );
+
+		if ( empty( $fieldsInGroup ) ) {
+			return false;
+		}
+
+		return (bool) wpml_collect( $fieldTypes )
+			->first( function( $type ) use ( $fieldsInGroup ) {
+				return Fields::containsType( $fieldsInGroup, $type );
+			} );
+	}
 }

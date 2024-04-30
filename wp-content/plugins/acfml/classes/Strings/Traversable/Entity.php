@@ -13,8 +13,20 @@ abstract class Entity implements Traversable {
 	/** @var string $idKey */
 	protected $idKey = 'ID';
 
-	public function __construct( array $data ) {
-		$this->data = $data;
+	public function __construct( array $data, array $context = [] ) {
+		$this->data = $this->prepareData( $data, $context );
+	}
+
+	/**
+	 * Turn the provided data into a transformable array, if needed.
+	 *
+	 * @param  array $data
+	 * @param  array $context
+	 *
+	 * @return array
+	 */
+	protected function prepareData( $data, $context ) {
+		return $data;
 	}
 
 	/**

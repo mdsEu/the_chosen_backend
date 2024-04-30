@@ -1,22 +1,22 @@
 <?php return array(
     'root' => array(
-        'pretty_version' => '2.0.5',
-        'version' => '2.0.5.0',
+        'pretty_version' => '2.1.1',
+        'version' => '2.1.1.0',
         'type' => 'wordpress-plugin',
         'install_path' => __DIR__ . '/../../',
         'aliases' => array(),
-        'reference' => '283931c853fddceca852cedbe5cf5007c55d3b14',
+        'reference' => 'fcf86c7dd65cff232195b720df4a7855796090c0',
         'name' => 'acfml/advanced-custom-fields-multilingual',
         'dev' => false,
     ),
     'versions' => array(
         'acfml/advanced-custom-fields-multilingual' => array(
-            'pretty_version' => '2.0.5',
-            'version' => '2.0.5.0',
+            'pretty_version' => '2.1.1',
+            'version' => '2.1.1.0',
             'type' => 'wordpress-plugin',
             'install_path' => __DIR__ . '/../../',
             'aliases' => array(),
-            'reference' => '283931c853fddceca852cedbe5cf5007c55d3b14',
+            'reference' => 'fcf86c7dd65cff232195b720df4a7855796090c0',
             'dev_requirement' => false,
         ),
         'wpml-shared/wpml-lib-dependencies' => array(

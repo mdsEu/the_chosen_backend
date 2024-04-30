@@ -3,8 +3,6 @@
 namespace ACFML\TranslationEditor;
 
 use ACFML\FieldGroup\Mode;
-use WPML\FP\Fns;
-use WPML\FP\Lst;
 use WPML\FP\Relation;
 use WPML\LIB\WP\Hooks;
 use WPML\FP\Obj;

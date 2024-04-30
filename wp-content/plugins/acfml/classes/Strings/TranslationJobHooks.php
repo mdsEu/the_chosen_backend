@@ -23,7 +23,6 @@ class TranslationJobHooks implements \IWPML_Action {
 		if ( self::isEnabled() ) {
 			add_filter( 'wpml_translation_package_by_language', [ $this, 'addStringsToTranslationPackage' ], 10, 3 );
 			add_action( 'wpml_translation_job_saved', [ $this, 'saveFieldGroupStringsTranslations' ], 10, 3 );
-			add_filter( 'wpml_tm_adjust_translation_fields', [ $this, 'adjustFieldGroupStringTitles' ] );
 		}
 	}
 
@@ -60,12 +59,4 @@ class TranslationJobHooks implements \IWPML_Action {
 		return $package;
 	}
 
-	/**
-	 * @param array[] $fields
-	 *
-	 * @return array[]
-	 */
-	public function adjustFieldGroupStringTitles( $fields ) {
-		return $this->factory->createTranslationJobFilter()->adjustTitles( $fields );
-	}
 }

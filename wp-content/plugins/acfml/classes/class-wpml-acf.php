@@ -11,7 +11,7 @@ class WPML_ACF {
 	 * @return void
 	 */
 	public function init_worker() {
-		if ( $this->is_acf_active() ) {
+		if ( self::is_acf_active() ) {
 			\ACFML\Upgrade\Upgrade::init();
 
 			$loaders = wpml_collect( [
@@ -36,10 +36,15 @@ class WPML_ACF {
 				\ACFML\Tools\Import::class                     => true,
 				\ACFML\Tools\Local::class                      => true,
 				\WPML_ACF_Translatable_Groups_Checker::class   => true,
+				\ACFML\Cpt\HooksFactory::class                 => true,
+				\ACFML\Field\FrontendHooks::class              => true,
 				\ACFML\FieldGroup\HooksFactory::class          => true,
+				\ACFML\OptionsPage\HooksFactory::class         => true,
+				\ACFML\Taxonomy\HooksFactory::class            => true,
 				\ACFML\Notice\FieldGroupModes::class           => true,
 				\ACFML\Post\EditorHooksFactory::class          => true,
 				\ACFML\TranslationEditor\DisableHooks::class   => true,
+				\ACFML\TranslationEditor\JobFilter::class      => true,
 				\ACFML\Repeater\Sync\HooksFactory::class       => true,
 			] )
 				->filter( Logic::isTruthy() )
@@ -55,7 +60,7 @@ class WPML_ACF {
 	 *
 	 * @return bool
 	 */
-	private function is_acf_active() {
+	public static function is_acf_active() {
 		return class_exists( 'ACF' );
 	}
 

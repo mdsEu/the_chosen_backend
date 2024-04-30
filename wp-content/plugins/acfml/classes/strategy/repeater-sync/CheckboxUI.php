@@ -50,6 +50,13 @@ class CheckboxUI {
 	}
 
 	/**
+	 * @param string $screen
+	 */
+	public static function removeMetaBox( $screen ) {
+		remove_meta_box( self::META_BOX_ID, $screen, 'normal' );
+	}
+
+	/**
 	 * Checks if checkbox to synchronise is selected.
 	 *
 	 * @return bool

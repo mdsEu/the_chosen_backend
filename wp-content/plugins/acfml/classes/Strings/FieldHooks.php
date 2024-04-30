@@ -2,11 +2,11 @@
 
 namespace ACFML\Strings;
 
-use ACFML\Helper\Fields;
-use ACFML\Strings\Transformer\Transformer;
 use WPML\FP\Fns;
+use WPML\FP\Logic;
+use WPML\FP\Relation;
 
-class BaseHooks implements \IWPML_Backend_Action, \IWPML_Frontend_Action, \IWPML_DIC_Action {
+class FieldHooks implements \IWPML_Backend_Action, \IWPML_Frontend_Action, \IWPML_DIC_Action {
 
 	/**
 	 * @var Factory $factory
@@ -71,6 +71,10 @@ class BaseHooks implements \IWPML_Backend_Action, \IWPML_Frontend_Action, \IWPML
 			return $field;
 		}
 
+		if ( self::shouldSkipField( $field ) ) {
+			return $field;
+		}
+
 		return $this->translator->translateField( $field );
 	}
 
@@ -80,7 +84,7 @@ class BaseHooks implements \IWPML_Backend_Action, \IWPML_Frontend_Action, \IWPML
 	 * @return void
 	 */
 	public function deleteFieldGroupPackage( $fieldGroup ) {
-		$this->factory->createPackage( $fieldGroup['ID'] )->delete();
+		$this->factory->createPackage( $fieldGroup['ID'], Package::FIELD_GROUP_PACKAGE_KIND_SLUG )->delete();
 	}
 
 	/**
@@ -88,5 +92,20 @@ class BaseHooks implements \IWPML_Backend_Action, \IWPML_Frontend_Action, \IWPML
 	 */
 	private static function isAcfFieldGroupScreen() {
 		return ! function_exists( 'acf_is_screen' ) || acf_is_screen( 'acf-field-group' );
+	}
+
+	/**
+	 * @param array $field
+	 *
+	 * @return bool
+	 */
+	private static function shouldSkipField( array $field ) {
+		// $isSeamlessClone :: ( array ) -> bool
+		$isSeamlessClone = Logic::allPass( [
+			Relation::propEq( 'type', 'clone' ),
+			Relation::propEq( 'display', 'seamless' ),
+		] );
+
+		return $isSeamlessClone( $field );
 	}
 }

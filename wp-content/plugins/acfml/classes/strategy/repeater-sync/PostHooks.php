@@ -16,42 +16,43 @@ class PostHooks implements \IWPML_Backend_Action {
 	 */
 	private $shuffled;
 
-	public function __construct( Strategy $shuffled ) {
-		$this->shuffled = $shuffled;
+	/**
+	 * @var CheckboxCondition
+	 */
+	private $checkboxCondition;
+
+	public function __construct(
+		Strategy $shuffled,
+		CheckboxCondition $checkboxCondition
+	) {
+		$this->shuffled          = $shuffled;
+		$this->checkboxCondition = $checkboxCondition;
 	}
 
 	/**
 	 * @return void
 	 */
 	public function add_hooks() {
-		Hooks::onAction( 'add_meta_boxes', 10, 2 )
-			->then( spreadArgs( [ $this, 'displayCheckbox' ] ) );
+		Hooks::onAction( 'acf/add_meta_boxes', 10, 3 )
+			->then( spreadArgs( [ $this, 'addMetaBox' ] ) );
+		Hooks::onAction( 'acf/add_meta_boxes', 10, 3 )
+			->then( spreadArgs( [ $this, 'resetFieldValues' ] ) );
 	}
 
 	/**
-	 * @param string   $postType
-	 * @param \WP_Post $post
-	 *
-	 * @return void
+	 *  @param string   $postType The post type.
+	 *  @param \WP_Post $post The post being edited.
+	 *  @param array    $fieldGroups The field groups added.
 	 */
-	public function displayCheckbox( $postType, $post ) {
-		$postId = $post->ID;
-		$fields = get_field_objects( $postId );
-
-		if (
-			$fields
-			&& ( Fields::containsType( $fields, 'repeater' ) || Fields::containsType( $fields, 'flexible_content' ) )
-			&& in_array( Mode::getForFieldableEntity( 'post' ), [ Mode::ADVANCED, Mode::MIXED ], true )
-			&& $this->shuffled->isOriginal( $postId )
-			&& $this->shuffled->hasTranslations( $postId )
-		) {
-			CheckboxUI::addMetaBox(
-				$this->shuffled->getTrid( $postId ),
-				get_post_type( $postId )
-			);
+	public function addMetaBox( $postType, $post, $fieldGroups ) {
+		if ( ! $this->checkboxCondition->isMet( $post->ID, $fieldGroups ) ) {
+			return;
 		}
 
-		$this->maybeResetFieldValuesWhenFieldGroupIsTranslated();
+		CheckboxUI::addMetaBox(
+			$this->shuffled->getTrid( $post->ID ),
+			$post->post_type
+		);
 	}
 
 	/**
@@ -68,7 +69,7 @@ class PostHooks implements \IWPML_Backend_Action {
 	 *
 	 * @return void
 	 */
-	private function maybeResetFieldValuesWhenFieldGroupIsTranslated() {
+	public function resetFieldValues() {
 		if ( FieldGroup::isTranslatable()) {
 			acf_get_store( 'values' )->reset();
 		}
