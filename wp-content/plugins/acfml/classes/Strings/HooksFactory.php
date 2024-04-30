@@ -14,7 +14,10 @@ class HooksFactory implements \IWPML_Backend_Action_Loader, \IWPML_Frontend_Acti
 		$hooks = [ new STPluginHooks( $translator ) ];
 
 		if ( self::isStActivated() ) {
-			$hooks[] = new BaseHooks( $factory, $translator );
+			$hooks[] = new FieldHooks( $factory, $translator );
+			$hooks[] = new CptHooks( $factory, $translator );
+			$hooks[] = new TaxonomyHooks( $factory, $translator );
+			$hooks[] = new OptionsPageHooks( $factory, $translator );
 			$hooks[] = new TranslationJobHooks( $factory );
 		}
 

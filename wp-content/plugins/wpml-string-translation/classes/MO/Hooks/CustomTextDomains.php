@@ -14,6 +14,9 @@ use WPML_Locale;
 
 class CustomTextDomains implements \IWPML_Action {
 	const CACHE_ID  = 'wpml-st-custom-mo-files';
+	const CACHE_ALL_LOCALES = 'locales';
+	const CACHE_KEY_DOMAINS = 'domains';
+	const CACHE_KEY_FILES = 'files';
 
 	/** @var Manager $manager */
 	private $manager;
@@ -52,15 +55,28 @@ class CustomTextDomains implements \IWPML_Action {
 		$this->syncMissingFile  = $syncMissingFile ?: function () {};
 
 		// Flush cache when a custom MO file is written, removed or updated.
-		add_action( 'wpml_st_translation_file_written', [ $this, 'clear_cache' ], 10, 3 );
-		add_action( 'wpml_st_translation_file_removed', [ $this, 'clear_cache' ], 10, 3 );
+		add_action( 'wpml_st_translation_file_written', [ $this, 'clear_cache' ], 10, 0 );
+		add_action( 'wpml_st_translation_file_removed', [ $this, 'clear_cache' ], 10, 0 );
 		// The filename could be changed on update, that's why we need to clear the cache.
-		add_action( 'wpml_st_translation_file_updated', [ $this, 'clear_cache' ], 10, 3 );
+		add_action( 'wpml_st_translation_file_updated', [ $this, 'clear_cache' ], 10, 0 );
 	}
 
-	public function clear_cache( $filepath, $domain, $locale ) {
-		$this->cache->delete( StoragePerLanguageInterface::GLOBAL_GROUP );
-		$this->cache->delete( $locale );
+	public function clear_cache() {
+		$locales = $this->cache->get( self::CACHE_ALL_LOCALES );
+		if ( ! is_array( $locales ) ) {
+			// No cache.
+			return;
+		}
+
+		// Clear cache for all locales, because the domains list will change
+		// for all languages when a the first custom translation file is written
+		// for a new domain (even if the other locales don't get that file).
+		foreach ( $locales as $locale ) {
+			$this->cache->delete( $locale );
+		}
+
+		// Also flush the list of cached locales.
+		$this->cache->delete( self::CACHE_ALL_LOCALES );
 	}
 
 	public function add_hooks() {
@@ -86,15 +102,17 @@ class CustomTextDomains implements \IWPML_Action {
 			return [ $domain, $this->manager->getFilepath( $domain, $locale ) ];
 		};
 
+		$cache = $this->cache->get( $locale );
+
 		// Get domains.
-		$domains = $this->cache->get( StoragePerLanguageInterface::GLOBAL_GROUP );
-		if ( StoragePerLanguageInterface::NOTHING !== $domains ) {
+		if ( isset( $cache[ self::CACHE_KEY_DOMAINS ] ) ) {
 			// Cache hit.
-			$domains = \wpml_collect( $domains );
+			$domains = \wpml_collect( $cache[ self::CACHE_KEY_DOMAINS ] );
 		} else {
 			// No cache for site domains.
+			$cache_update_required = true;
+
 			$domains = \wpml_collect( $this->domains->getCustomMODomains() );
-			$this->cache->save( StoragePerLanguageInterface::GLOBAL_GROUP, $domains->toArray() );
 		}
 
 		$files = $domains->map( $getDomainPathTuple )
@@ -102,19 +120,38 @@ class CustomTextDomains implements \IWPML_Action {
 			->each( spreadArgs( [ $this->loadedDictionary, 'addFile' ] ) );
 
 		// Load local files.
-		$localeFiles = $this->cache->get( $locale );
-		if ( StoragePerLanguageInterface::NOTHING !== $localeFiles ) {
-			$localeFiles = \wpml_collect( $localeFiles );
+		if ( isset( $cache[ self::CACHE_KEY_FILES ] ) ) {
+			// Cache hit.
+			$localeFiles = \wpml_collect( $cache[ self::CACHE_KEY_FILES ] );
 		} else {
 			// No cache for this locale readable custom .mo files.
+			$cache_update_required = true;
+
 			$isReadableFile = function ( $domainAndFilePath ) {
 				return is_readable( $domainAndFilePath[1] );
 			};
 			$localeFiles = $files->filter( $isReadableFile );
+		}
+
+		if ( isset( $cache_update_required ) ) {
 			$this->cache->save(
 				$locale,
-				$localeFiles->toArray()
+				[
+					self::CACHE_KEY_DOMAINS => $domains->toArray(),
+					self::CACHE_KEY_FILES   => $localeFiles->toArray(),
+				]
 			);
+
+			$cache_locales = $this->cache->get( self::CACHE_ALL_LOCALES );
+			$cache_locales = is_array( $cache_locales ) ? $cache_locales : [];
+			if ( ! in_array( $locale, $cache_locales, true ) ) {
+				$cache_locales[] = $locale;
+
+				$this->cache->save(
+					self::CACHE_ALL_LOCALES,
+					array_unique( $cache_locales )
+				);
+			}
 		}
 
 		$localeFiles->each( $addJitMoToL10nGlobal );

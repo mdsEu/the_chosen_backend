@@ -1,5 +1,7 @@
 <?php
 
+use WPML\Media\Classes\WPML_Media_Element_Translation_Factory;
+
 /**
  * Class WPML_Media_Custom_Field_Images_Translation
  * Translate images in posts custom fields translations when a custom field is created or updated
@@ -59,7 +61,7 @@ class WPML_Media_Custom_Field_Images_Translation implements IWPML_Action {
 		$is_post_translatable         = $this->sitepress->is_translated_post_type( $post_type );
 
 		if ( is_string( $meta_value ) && $is_post_translatable && $is_custom_field_translatable ) {
-			$post_element    = new WPML_Post_Element( $object_id, $this->sitepress );
+			$post_element    = WPML_Media_Element_Translation_Factory::create( $object_id );
 			$source_language = $post_element->get_source_language_code();
 			if ( null !== $source_language ) {
 				$this->filter_meta_value_and_update(

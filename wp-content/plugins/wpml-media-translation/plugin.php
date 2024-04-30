@@ -1,11 +1,11 @@
 <?php
 /**
- * Plugin Name: WPML Media
+ * Plugin Name: WPML Media Translation
  * Plugin URI: https://wpml.org/
- * Description: Add multilingual support for Media files | <a href="https://wpml.org/documentation/getting-started-guide/media-translation/?utm_source=plugin&utm_medium=gui&utm_campaign=wpmlmedia">Documentation</a> | <a href="https://wpml.org/version/media-translation-2-7-3/">WPML Media Translation 2.7.3 release notes</a>
+ * Description: Show different images for content in different languages | <a href="https://wpml.org/documentation/getting-started-guide/media-translation/?utm_source=plugin&utm_medium=gui&utm_campaign=wpmlmedia">Documentation</a> | <a href="https://wpml.org/version/media-translation-2-7-4/">WPML Media Translation 2.7.4 release notes</a>
  * Author: OnTheGoSystems
  * Author URI: http://www.onthegosystems.com/
- * Version: 2.7.3
+ * Version: 2.7.4
  * Plugin Slug: wpml-media-translation
  *
  * @package wpml/media
@@ -15,7 +15,7 @@ if ( defined( 'WPML_MEDIA_VERSION' ) ) {
 	return;
 }
 
-define( 'WPML_MEDIA_VERSION', '2.7.3' );
+define( 'WPML_MEDIA_VERSION', '2.7.4' );
 define( 'WPML_MEDIA_PATH', dirname( __FILE__ ) );
 
 require_once WPML_MEDIA_PATH . '/vendor/autoload.php';

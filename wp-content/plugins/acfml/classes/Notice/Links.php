@@ -8,8 +8,9 @@ use WPML\FP\Str;
 class Links {
 
 	// ACFML
-	const DOC_ACFML_MAIN   = 'https://wpml.org/documentation/related-projects/translate-sites-built-with-acf/';
-	const DOC_ACFML_EXPERT = 'https://wpml.org/documentation/related-projects/translate-sites-built-with-acf/expert-translation-option/';
+	const DOC_ACFML_MAIN             = 'https://wpml.org/documentation/related-projects/translate-sites-built-with-acf/';
+	const DOC_ACFML_EXPERT           = 'https://wpml.org/documentation/related-projects/translate-sites-built-with-acf/expert-translation-option/';
+	const DOC_ACFML_TRANSLATE_LABELS = 'https://wpml.org/documentation/related-projects/translate-sites-built-with-acf/translating-acf-field-labels-with-wpml/';
 
 	// General
 	const DOC_DIFFERENT_TRANSLATION_EDITORS = 'https://wpml.org/documentation/translating-your-contents/using-different-translation-editors-for-different-pages/';
@@ -73,6 +74,14 @@ class Links {
 	 */
 	public static function getAcfmlExpertDoc( $params = [] ) {
 		return self::generate( self::DOC_ACFML_EXPERT, $params );
+	}
+	/**
+	 * @param string $anchor
+	 *
+	 * @return string
+	 */
+	public static function getAcfmlTranslateLabels( $anchor = '' ) {
+		return self::generate( self::DOC_ACFML_TRANSLATE_LABELS, [ 'anchor' => $anchor ] );
 	}
 
 	/**

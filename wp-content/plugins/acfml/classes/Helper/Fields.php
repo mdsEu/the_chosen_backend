@@ -7,6 +7,8 @@ use WPML\FP\Obj;
 
 class Fields {
 
+	const WRAPPER_FIELDS = [ 'repeater', 'flexible_content' ];
+
 	/**
 	 * @param array    $fields
 	 * @param callable $transformField
@@ -49,5 +51,22 @@ class Fields {
 		$isType = Relation::propEq( 'type', $type );
 		return (bool) wpml_collect( $fields )
 			->first( $isType );
+	}
+
+	/**
+	 * Checks if a field is a wrapper of other fields.
+	 *  - Repeater field has sub_fields.
+	 *  - Flexible content field has layouts, which also have sub_fields.
+	 *
+	 * @param array $field
+	 *
+	 * @return bool|callable
+	 */
+	public static function isWrapper( $field ) {
+		return in_array(
+			Obj::prop( 'type', $field ),
+			self::WRAPPER_FIELDS,
+			true
+		);
 	}
 }

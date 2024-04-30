@@ -20,6 +20,17 @@ class MixedFieldGroupModesHooks implements \IWPML_Backend_Action {
 	 * @return bool
 	 */
 	public static function shouldDisplayNotice() {
+		if ( ! \WPML_ACF::is_acf_active() ) {
+			return false;
+		}
+
+		global $pagenow;
+
+		$isPostEditScreen = in_array( $pagenow, [ 'post.php', 'post-new.php' ], true );
+		if ( ! $isPostEditScreen ) {
+			return false;
+		}
+
 		$postId   = isset( $_GET['post'] ) ? (int) $_GET['post'] : null;
 		$postType = isset( $_GET['post_type'] ) ? Sanitize::string( $_GET['post_type'] ) : 'post';
 		$fieldGroups = self::getFieldGroups( $postId, $postType );
