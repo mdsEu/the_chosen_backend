@@ -15,7 +15,13 @@ class WPML_Media_Factory implements IWPML_Frontend_Action_Loader, IWPML_Backend_
 		);
 		$wpml_media_menus_factory = new WPML_Media_Menus_Factory();
 
-		return new WPML_Media( $sitepress, $wpdb, $wpml_media_menus_factory );
+		$image_translator = new WPML_Media_Image_Translate(
+			$sitepress,
+			new WPML_Media_Attachment_By_URL_Factory(),
+			new \WPML\Media\Factories\WPML_Media_Attachment_By_URL_Query_Factory()
+		);
+
+		return new WPML_Media( $sitepress, $wpdb, $wpml_media_menus_factory, $image_translator );
 	}
 
 }
