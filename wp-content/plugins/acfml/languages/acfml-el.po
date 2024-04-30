@@ -1,18 +1,17 @@
-# Copyright (C) 2023 OnTheGoSystems
+# Copyright (C) 2024 OnTheGoSystems
 # This file is distributed under the same license as the Advanced Custom Fields Multilingual plugin.
 msgid ""
 msgstr ""
-"Project-Id-Version: Advanced Custom Fields Multilingual 2.0.0\n"
+"Project-Id-Version: Advanced Custom Fields Multilingual 2.1.0-rc.1\n"
 "Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/acfml\n"
-"POT-Creation-Date: 2023-03-09T09:53:28-03:00\n"
-"PO-Revision-Date: 2023-03-09 12:47-0300\n"
-"Last-Translator: \n"
-"Language-Team: \n"
-"Language: el\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Poedit 3.0.1\n"
+"POT-Creation-Date: 2024-04-17T14:16:53-03:00\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"X-Generator: WP-CLI 2.8.1\n"
 "X-Domain: acfml\n"
 
 #. Plugin Name of the plugin
@@ -24,15 +23,8 @@ msgid "https://wpml.org/"
 msgstr "https://wpml.org/"
 
 #. Description of the plugin
-msgid ""
-"Adds compatibility between WPML and Advanced Custom Fields | <a "
-"href=\"https://wpml.org/documentation/related-projects/translate-sites-built-"
-"with-acf/?"
-"utm_source=plugin&utm_medium=gui&utm_campaign=acfml\">Documentation</a>"
-msgstr ""
-"Προσθέτει συμβατότητα μεταξύ WPML και Advanced Custom Fields | <a "
-"href=“https://wpml.org/documentation/related-projects/translate-sites-built-"
-"with-acf/?utm_source=plugin&utm_medium=gui&utm_campaign=acfml”>Τεκμηρίωση</a>"
+msgid "Adds compatibility between WPML and Advanced Custom Fields | <a href=\"https://wpml.org/documentation/related-projects/translate-sites-built-with-acf/?utm_source=plugin&utm_medium=gui&utm_campaign=acfml\">Documentation</a>"
+msgstr "Adds compatibility between WPML and Advanced Custom Fields | <a href=\"https://wpml.org/documentation/related-projects/translate-sites-built-with-acf/?utm_source=plugin&utm_medium=gui&utm_campaign=acfml\">Documentation</a>"
 
 #. Author of the plugin
 msgid "OnTheGoSystems"
@@ -42,38 +34,27 @@ msgstr "OnTheGoSystems"
 msgid "http://www.onthegosystems.com/"
 msgstr " http://www.onthegosystems.com/"
 
-#: classes/class-wpml-acf-field-annotations.php:66
-msgctxt ""
-"It is displayed before hint with value of ACF field in original language."
-msgid "Original"
-msgstr "Αρχικό"
+#. translators: Displayed when editing an ACF field in a translation, showing its value in the original language; %1$s and %2$s turn the string into bold, and %3$s is the actual original value.
+#: classes/class-wpml-acf-field-annotations.php:98
+msgctxt "Displayed when editing an ACF field in a translation, showing its value in the original language; %1$s and %2$s turn the string into bold, and %3$s is the actual original value."
+msgid "%1$sOriginal%2$s: %3$s"
+msgstr "%1$sΠρωτότυπο%2$s: %3$s"
 
-#: classes/class-wpml-acf-field-annotations.php:91
-msgid ""
-"<strong>Warning</strong>: This field allows to select post type or taxonomy "
-"which you set in WPML translation options to 'Translatable - use translation "
-"if available or fallback to default language '. Whatever you set in this "
-"field for a secondary language post (this post) will be ignored and values "
-"from original post will be used (if you set to copy or duplicate value for "
-"this field)."
-msgstr ""
-"<strong>Προειδοποίηση</strong>: Αυτό το πεδίο σας επιτρέπει να επιλέγετε "
-"τύπο δημοσίευσης ή ταξινόμηση που ορίζετε στις επιλογές μετάφρασης του WPML "
-"στο \"Μεταφράσιμο - χρήση μετάφρασης αν διατίθεται ή παραμονή στην "
-"προεπιλεγμένη γλώσσα\". Ότι ορίζετε αυτό το πεδίο για μια δημοσίευση σε "
-"δευτερεύουσα γλώσσα (αυτή η δημοσίευση) θα αγνοείται και θα χρησιμοποιούνται "
-"οι τιμές από την αρχική δημοσίευση (αν το ορίσετε σε αντιγραφή ή διπλότυπη "
-"τιμή για αυτό το πεδίο)."
+#. translators: Displayed when editing a relational ACF field in a translation when the related object is set to Display as Translated; %1$s and %2$s turn the string into bold.
+#: classes/class-wpml-acf-field-annotations.php:137
+msgctxt "Displayed when editing a relational ACF field in a translation when the related object is set to Display as Translated; %1$s and %2$s turn the string into bold."
+msgid "%1$sWarning%2$s: This field allows to select post type or taxonomy which you set in WPML translation options to \"Translatable - use translation if available or fallback to default language\". Whatever you set in this field for a secondary language post (this post) will be ignored and values from original post will be used (if you set to copy or duplicate value for this field)."
+msgstr "%1$sΠροειδοποίηση%2$s: Αυτό το πεδίο επιτρέπει την επιλογή τύπου δημοσίευσης ή ταξινομίας που έχετε ορίσει στις επιλογές μετάφρασης WPML σε \"Μεταφράσιμο - χρήση μετάφρασης εάν είναι διαθέσιμη ή επαναφορά στην προεπιλεγμένη γλώσσα\". Ό,τι έχετε ορίσει σε αυτό το πεδίο για μια δευτερεύουσα γλωσσική ανάρτηση (αυτή η ανάρτηση) θα αγνοηθεί και θα χρησιμοποιηθούν οι τιμές από την αρχική ανάρτηση (αν έχετε ορίσει να αντιγράψετε ή να αντιγράψετε την τιμή για αυτό το πεδίο)."
 
-#: classes/class-wpml-acf-field-annotations.php:150
+#: classes/class-wpml-acf-field-annotations.php:194
 msgid "This type of ACF field will always be set to \"Copy once\"."
 msgstr "Αυτός ο τύπος πεδίου ACF θα ορίζεται πάντα σε \"Αντιγραφή μία φορά\"."
 
-#: classes/class-wpml-acf-field-annotations.php:154
+#: classes/class-wpml-acf-field-annotations.php:198
 msgid "ACF field name:"
 msgstr "Όνομα πεδίου ACF:"
 
-#: classes/class-wpml-acf-field-annotations.php:156
+#: classes/class-wpml-acf-field-annotations.php:200
 msgid "ACF field type:"
 msgstr "Τύπος πεδίου ACF:"
 
@@ -83,7 +64,7 @@ msgstr "Προτιμήσεις μετάφρασης"
 
 #: classes/class-wpml-acf-field-settings.php:67
 msgid "What to do with field's value when post/page is going to be translated"
-msgstr ""
+msgstr "Τι να κάνετε με την τιμή του πεδίου όταν η δημοσίευση/σελίδα πρόκειται να μεταφραστεί"
 
 #: classes/class-wpml-acf-field-settings.php:124
 msgid "Don't translate"
@@ -106,28 +87,12 @@ msgid "Edit the field to set the translation preference."
 msgstr "Επεξεργαστείτε το πεδίο για να ορίσετε την προτίμηση μετάφρασης."
 
 #: classes/class-wpml-acf-migrate-block-preferences.php:64
-msgid ""
-"ACFML is updating translation preferences for strings in Gutenberg Blocks. "
-"Keep using your site as usual. This notice will disappear when the process "
-"is done."
-msgstr ""
-"Το ACFML ενημερώνει τις προτιμήσεις μετάφρασης για συμβολοσειρές σε κινητά "
-"στοιχεία Gutenberg. Συνεχίστε να χρησιμοποιείτε την ιστοσελίδα σας κανονικά. "
-"Αυτή η ειδοποίηση θα εξαφανιστεί όταν η διαδικασία ολοκληρωθεί."
-
-#: classes/class-wpml-acf-options-page.php:108
-msgid ""
-"This field is locked for editing because WPML will copy its value from the "
-"original language."
-msgstr ""
-"Αυτό το πεδίο είναι κλειδωμένο για επεξεργασία επειδή το WPML θα αντιγράψει "
-"την τιμή του από την αρχική γλώσσα."
+msgid "ACFML is updating translation preferences for strings in Gutenberg Blocks. Keep using your site as usual. This notice will disappear when the process is done."
+msgstr "Το ACFML ενημερώνει τις προτιμήσεις μετάφρασης για συμβολοσειρές σε κινητά στοιχεία Gutenberg. Συνεχίστε να χρησιμοποιείτε την ιστοσελίδα σας κανονικά. Αυτή η ειδοποίηση θα εξαφανιστεί όταν η διαδικασία ολοκληρωθεί."
 
 #: classes/class-wpml-acf-requirements.php:14
 msgid "ACFML is enabled but not effective. It requires WPML in order to work."
-msgstr ""
-"Το ACFML είναι ενεργοποιημένο αλλά δεν είναι σε ισχύ. Απαιτεί το WPML για να "
-"λειτουργήσει."
+msgstr "Το ACFML είναι ενεργοποιημένο αλλά δεν είναι σε ισχύ. Απαιτεί το WPML για να λειτουργήσει."
 
 #: classes/class-wpml-acf-translatable-groups-checker.php:41
 msgid "Change the field group translation setting"
@@ -135,49 +100,22 @@ msgstr "Αλλάξτε τη ρύθμιση μετάφρασης ομάδων π�
 
 #. translators: %1$s and %4$s are placeholders for <a> link tags and %2$s and %3$s are for <b> tags.
 #: classes/class-wpml-acf-translatable-groups-checker.php:46
-msgid ""
-"You can translate field labels and labels for Choices using String "
-"Translation. To do this, %1$sset the field group post type to %2$sNot "
-"Translatable%3$s%4$s."
-msgstr ""
-"Μπορείτε να μεταφράσετε ετικέτες πεδίων και ετικέτες για Επιλογές "
-"χρησιμοποιώντας τη Μετάφραση Συμβολοσειρών. Για να το κάνετε αυτό, "
-"%1$sορίστε τον τύπο δημοσίευσης ομάδας πεδίων σε %2$sΜη μεταφράσιμο%3$s%4$s."
+msgid "You can translate field labels and labels for Choices using String Translation. To do this, %1$sset the field group post type to %2$sNot Translatable%3$s%4$s."
+msgstr "Μπορείτε να μεταφράσετε ετικέτες πεδίων και ετικέτες για Επιλογές χρησιμοποιώντας τη Μετάφραση Συμβολοσειρών. Για να το κάνετε αυτό, %1$sορίστε τον τύπο δημοσίευσης ομάδας πεδίων σε %2$sΜη μεταφράσιμο%3$s%4$s."
 
 #: classes/FieldGroup/AttachedPosts.php:54
-msgid ""
-"Some posts using this field group have translations. Once you change the "
-"translation option, WPML needs to update the translation status of the "
-"posts. This can take up to 1 minute."
-msgstr ""
-"Κάποιες δημοσιεύσεις που χρησιμοποιούν αυτήν την ομάδα πεδίων έχουν "
-"μεταφράσεις. Μόλις αλλάξετε την επιλογή μετάφρασης, το WPML πρέπει να "
-"ενημερώσει την κατάσταση μετάφρασης των δημοσιεύσεων. Αυτό μπορεί να "
-"διαρκέσει έως 1 λεπτό."
+msgid "Some posts using this field group have translations. Once you change the translation option, WPML needs to update the translation status of the posts. This can take up to 1 minute."
+msgstr "Κάποιες δημοσιεύσεις που χρησιμοποιούν αυτήν την ομάδα πεδίων έχουν μεταφράσεις. Μόλις αλλάξετε την επιλογή μετάφρασης, το WPML πρέπει να ενημερώσει την κατάσταση μετάφρασης των δημοσιεύσεων. Αυτό μπορεί να διαρκέσει έως 1 λεπτό."
 
 #. translators: %d is the number of hours.
 #: classes/FieldGroup/AttachedPosts.php:57
-msgid ""
-"Some posts using this field group have translations. Once you change the "
-"translation option, WPML needs to update the translation status of the "
-"posts. This can take up to %d hours."
-msgstr ""
-"Κάποιες δημοσιεύσεις που χρησιμοποιούν αυτήν την ομάδα πεδίων έχουν "
-"μεταφράσεις. Μόλις αλλάξετε την επιλογή μετάφρασης, το WPML πρέπει να "
-"ενημερώσει την κατάσταση μετάφρασης των δημοσιεύσεων. Αυτό μπορεί να "
-"διαρκέσει έως %d ώρες."
+msgid "Some posts using this field group have translations. Once you change the translation option, WPML needs to update the translation status of the posts. This can take up to %d hours."
+msgstr "Κάποιες δημοσιεύσεις που χρησιμοποιούν αυτήν την ομάδα πεδίων έχουν μεταφράσεις. Μόλις αλλάξετε την επιλογή μετάφρασης, το WPML πρέπει να ενημερώσει την κατάσταση μετάφρασης των δημοσιεύσεων. Αυτό μπορεί να διαρκέσει έως %d ώρες."
 
 #. translators: %d is the number of minutes.
 #: classes/FieldGroup/AttachedPosts.php:61
-msgid ""
-"Some posts using this field group have translations. Once you change the "
-"translation option, WPML needs to update the translation status of the "
-"posts. This can take up to %d minutes."
-msgstr ""
-"Κάποιες δημοσιεύσεις που χρησιμοποιούν αυτήν την ομάδα πεδίων έχουν "
-"μεταφράσεις. Μόλις αλλάξετε την επιλογή μετάφρασης, το WPML πρέπει να "
-"ενημερώσει την κατάσταση μετάφρασης των δημοσιεύσεων. Αυτό μπορεί να "
-"διαρκέσει έως %d λεπτά."
+msgid "Some posts using this field group have translations. Once you change the translation option, WPML needs to update the translation status of the posts. This can take up to %d minutes."
+msgstr "Κάποιες δημοσιεύσεις που χρησιμοποιούν αυτήν την ομάδα πεδίων έχουν μεταφράσεις. Μόλις αλλάξετε την επιλογή μετάφρασης, το WPML πρέπει να ενημερώσει την κατάσταση μετάφρασης των δημοσιεύσεων. Αυτό μπορεί να διαρκέσει έως %d λεπτά."
 
 #: classes/FieldGroup/DetectNonTranslatableLocations.php:99
 msgid "Set translation preferences for the attached taxonomy"
@@ -188,378 +126,285 @@ msgid "Set translation preferences for the attached post type"
 msgstr "Ορίστε τις προτιμήσεις μετάφρασης για τον συνημμένο τύπο δημοσίευσης"
 
 #: classes/FieldGroup/DetectNonTranslatableLocations.php:110
-msgid ""
-"If you want to translate your fields, go to the WPML Settings page and make "
-"the taxonomy attached to this field group translatable. "
-msgstr ""
-"Αν θέλετε να μεταφράσετε τα πεδία σας, μεταβείτε στη σελίδα Ρυθμίσεις WPML "
-"και ορίστε την ταξινόμηση που είναι συνημμένη σε αυτήν την ομάδα πεδίων ως "
-"μεταφράσιμη."
+msgid "If you want to translate your fields, go to the WPML Settings page and make the taxonomy attached to this field group translatable. "
+msgstr "Αν θέλετε να μεταφράσετε τα πεδία σας, μεταβείτε στη σελίδα Ρυθμίσεις WPML και ορίστε την ταξινόμηση που είναι συνημμένη σε αυτήν την ομάδα πεδίων ως μεταφράσιμη."
 
 #. translators: %1$s and %2$s will wrap the string in a <a> link html tag
 #: classes/FieldGroup/DetectNonTranslatableLocations.php:113
-msgid ""
-"If you want to translate your fields, go to the WPML Settings page and "
-"%1$smake the post type attached to this field group translatable%2$s."
-msgstr ""
-"Αν θέλετε να μεταφράσετε τα πεδία σας, μεταβείτε στη σελίδα Ρυθμίσεις WPML "
-"και %1$sορίστε τον τύπο δημοσίευσης που είναι συνημμένος σε αυτήν την ομάδα "
-"πεδίων ως μεταφράσιμο%2$s."
+msgid "If you want to translate your fields, go to the WPML Settings page and %1$smake the post type attached to this field group translatable%2$s."
+msgstr "Αν θέλετε να μεταφράσετε τα πεδία σας, μεταβείτε στη σελίδα Ρυθμίσεις WPML και %1$sορίστε τον τύπο δημοσίευσης που είναι συνημμένος σε αυτήν την ομάδα πεδίων ως μεταφράσιμο%2$s."
 
 #. translators: %s is the field group title.
-#: classes/FieldGroup/SettingsLockHooks.php:59
-msgid ""
-"To change the translation options for custom fields, edit the field group "
-"\"%s\"."
-msgstr ""
-"Για να αλλάξετε τις επιλογές μετάφρασης για προσαρμοσμένα πεδία, "
-"επεξεργαστείτε την ομάδα πεδίων \"%s\"."
+#: classes/FieldGroup/SettingsLockHooks.php:65
+msgid "To change the translation options for custom fields, edit the field group \"%s\"."
+msgstr "Για να αλλάξετε τις επιλογές μετάφρασης για προσαρμοσμένα πεδία, επεξεργαστείτε την ομάδα πεδίων \"%s\"."
 
 #: classes/FieldGroup/TranslationModeColumnHooks.php:34
 msgid "Translation Option"
 msgstr "Επιλογή μετάφρασης"
 
 #: classes/FieldGroup/TranslationModeColumnHooks.php:48
-#: classes/FieldGroup/UIHooks.php:199
+#: classes/FieldGroup/UIHooks.php:206
 msgid "Expert"
 msgstr "Για Προχωρήμένους"
 
 #: classes/FieldGroup/TranslationModeColumnHooks.php:49
-#: classes/FieldGroup/UIHooks.php:189
+#: classes/FieldGroup/UIHooks.php:196
 msgid "Same fields across languages"
 msgstr "Ίδια πεδία σε όλες τις γλώσσες"
 
 #: classes/FieldGroup/TranslationModeColumnHooks.php:50
-#: classes/FieldGroup/UIHooks.php:194
+#: classes/FieldGroup/UIHooks.php:201
 msgid "Different fields across languages"
 msgstr "Διαφορετικά πεδία σε διαφορετικές γλώσσες"
 
-#: classes/FieldGroup/UIHooks.php:27
+#: classes/FieldGroup/UIHooks.php:28
+#: classes/TranslationDataMetaboxHooks.php:37
 msgid "Multilingual Setup"
 msgstr "Πολύγλωσση Εγκατάσταση"
 
-#: classes/FieldGroup/UIHooks.php:29
+#: classes/FieldGroup/UIHooks.php:30
 msgid "Loading..."
 msgstr "Φόρτωση..."
 
-#: classes/FieldGroup/UIHooks.php:95
+#: classes/FieldGroup/UIHooks.php:96
 msgid "Activate String Translation"
 msgstr "Ενεργοποίηση Μετάφρασης Συμβολοσειράς"
 
 #. translators: %1$s and %2$s will wrap the string in a <a> link html tag
-#: classes/FieldGroup/UIHooks.php:98
-msgid ""
-"To translate field group names and labels, please %1$sinstall and activate "
-"WPML’s String Translation add-on%2$s."
-msgstr ""
-"Για να μεταφράσετε ονόματα και ετικέτες ομάδων πεδίων, %1$sεγκαταστήστε και "
-"ενεργοποιήστε το πρόσθετο Μετάφραση Συμβολοσειράς του WPML%2$s."
+#: classes/FieldGroup/UIHooks.php:99
+msgid "To translate field group names and labels, please %1$sinstall and activate WPML’s String Translation add-on%2$s."
+msgstr "Για να μεταφράσετε ονόματα και ετικέτες ομάδων πεδίων, %1$sεγκαταστήστε και ενεργοποιήστε το πρόσθετο Μετάφραση Συμβολοσειράς του WPML%2$s."
 
-#: classes/FieldGroup/UIHooks.php:102
+#: classes/FieldGroup/UIHooks.php:103
 msgid "Activate now"
 msgstr "Ενεργοποίηση τώρα"
 
-#: classes/FieldGroup/UIHooks.php:103 classes/FieldGroup/UIHooks.php:139
-#: classes/FieldGroup/UIHooks.php:140 classes/FieldGroup/UIHooks.php:156
-#: classes/FieldGroup/UIHooks.php:221
+#: classes/FieldGroup/UIHooks.php:104
+#: classes/FieldGroup/UIHooks.php:145
+#: classes/FieldGroup/UIHooks.php:146
+#: classes/FieldGroup/UIHooks.php:147
+#: classes/FieldGroup/UIHooks.php:163
+#: classes/FieldGroup/UIHooks.php:228
 msgid "Go back"
 msgstr "Επιστροφή"
 
-#: classes/FieldGroup/UIHooks.php:109
+#: classes/FieldGroup/UIHooks.php:110
 msgid "Choose a translation option for your field groups"
 msgstr "Επιλέξτε μια επιλογή μετάφρασης για τις ομάδες πεδίων σας"
 
-#: classes/FieldGroup/UIHooks.php:110
-msgid ""
-"To translate field labels in String Translation, please complete the "
-"Multilingual Setup for your existing field groups and save your changes."
-msgstr ""
-"Για να μεταφράσετε ετικέτες πεδίων στη Μετάφραση Συμβολοσειράς, ολοκληρώστε "
-"την Πολύγλωσση Εγκατάσταση για τις υπάρχουσες ομάδες πεδίων σας και "
-"αποθηκεύστε τις αλλαγές σας."
+#: classes/FieldGroup/UIHooks.php:111
+msgid "To translate field labels in String Translation, please complete the Multilingual Setup for your existing field groups and save your changes."
+msgstr "Για να μεταφράσετε ετικέτες πεδίων στη Μετάφραση Συμβολοσειράς, ολοκληρώστε την Πολύγλωσση Εγκατάσταση για τις υπάρχουσες ομάδες πεδίων σας και αποθηκεύστε τις αλλαγές σας."
 
-#: classes/FieldGroup/UIHooks.php:111 classes/FieldGroup/UIHooks.php:215
+#: classes/FieldGroup/UIHooks.php:112
+#: classes/FieldGroup/UIHooks.php:222
 msgid "OK"
 msgstr "OK"
 
-#: classes/FieldGroup/UIHooks.php:112
+#: classes/FieldGroup/UIHooks.php:113
 msgid "Cancel"
 msgstr "Ακύρωση"
 
-#: classes/FieldGroup/UIHooks.php:118 classes/FieldGroup/UIHooks.php:153
+#: classes/FieldGroup/UIHooks.php:119
+#: classes/FieldGroup/UIHooks.php:160
 msgid "Translating field labels"
 msgstr "Μετάφραση ετικετών πεδίων"
 
-#: classes/FieldGroup/UIHooks.php:120
-msgid ""
-"The first time you translate a post that uses this field group, you can "
-"translate the field labels in the Advanced Translation Editor or using "
-"automatic translation."
-msgstr ""
-"Την πρώτη φορά που θα μεταφράσετε μια δημοσίευση η οποία χρησιμοποιεί αυτήν "
-"την ομάδα πεδίων, μπορείτε να μεταφράσετε τις ετικέτες πεδίων στον Προηγμένο "
-"Επεξεργαστή Μετάφρασης ή με τη χρήση αυτόματης μετάφρασης."
-
 #: classes/FieldGroup/UIHooks.php:121
-msgid ""
-"Or, you can translate the field labels on the String Translation page "
-"anytime."
-msgstr ""
-"Εναλλακτικά, μπορείτε να μεταφράσετε τις ετικέτες πεδίων στη σελίδα "
-"Μετάφραση Συμβολοσειράς οποιαδήποτε στιγμή."
+msgid "The first time you translate a post that uses this field group, you can translate the field labels in the Advanced Translation Editor or using automatic translation."
+msgstr "Την πρώτη φορά που θα μεταφράσετε μια δημοσίευση η οποία χρησιμοποιεί αυτήν την ομάδα πεδίων, μπορείτε να μεταφράσετε τις ετικέτες πεδίων στον Προηγμένο Επεξεργαστή Μετάφρασης ή με τη χρήση αυτόματης μετάφρασης."
 
 #: classes/FieldGroup/UIHooks.php:122
-msgid ""
-"You can translate field labels and labels for Choices in String Translation."
-msgstr ""
-"Μπορείτε να μεταφράσετε ετικέτες πεδίων και ετικέτες για Επιλογές στη "
-"Μετάφραση Συμβολοσειράς."
+msgid "Or, you can translate the field labels on the String Translation page anytime."
+msgstr "Εναλλακτικά, μπορείτε να μεταφράσετε τις ετικέτες πεδίων στη σελίδα Μετάφραση Συμβολοσειράς οποιαδήποτε στιγμή."
 
 #. translators: %1$s and %2$s will wrap the string in a <a> link html tag
-#: classes/FieldGroup/UIHooks.php:126
-msgid ""
-"You can translate field labels in the Advanced Translation Editor or in "
-"String Translation, depending on the %1$stranslation preferences you select "
-"for your custom fields%2$s."
-msgstr ""
-"Μπορείτε να μεταφράσετε ετικέτες πεδίων στον Προηγμένο Επεξεργαστή "
-"Μετάφρασης ή στη Μετάφραση Συμβολοσειράς, ανάλογα με τις προτιμήσεις "
-"%1$sμετάφρασης που επιλέγετε για τα προσαρμοσμένα πεδία σας%2$s."
+#: classes/FieldGroup/UIHooks.php:125
+msgid "Don’t want to translate field labels? %1$sLearn how to disable field label translation%2$s"
+msgstr "Δεν θέλετε να μεταφράσετε τις ετικέτες πεδίων; %1$sΜάθετε πώς να απενεργοποιείτε τη μετάφραση των ετικετών πεδίων%2$s"
 
+#: classes/FieldGroup/UIHooks.php:129
+msgid "You can translate field labels and labels for Choices in String Translation."
+msgstr "Μπορείτε να μεταφράσετε ετικέτες πεδίων και ετικέτες για Επιλογές στη Μετάφραση Συμβολοσειράς."
+
+#. translators: %1$s and %2$s will wrap the string in a <a> link html tag
 #: classes/FieldGroup/UIHooks.php:133
+msgid "You can translate field labels in the Advanced Translation Editor or in String Translation, depending on the %1$stranslation preferences you select for your custom fields%2$s."
+msgstr "Μπορείτε να μεταφράσετε ετικέτες πεδίων στον Προηγμένο Επεξεργαστή Μετάφρασης ή στη Μετάφραση Συμβολοσειράς, ανάλογα με τις προτιμήσεις %1$sμετάφρασης που επιλέγετε για τα προσαρμοσμένα πεδία σας%2$s."
+
+#: classes/FieldGroup/UIHooks.php:140
 msgid "Translate in String Translation"
 msgstr "Μετάφραση σε Μετάφραση Συμβολοσειράς"
 
-#: classes/FieldGroup/UIHooks.php:134 classes/FieldGroup/UIHooks.php:135
-#: classes/FieldGroup/UIHooks.php:155
+#: classes/FieldGroup/UIHooks.php:141
+#: classes/FieldGroup/UIHooks.php:142
+#: classes/FieldGroup/UIHooks.php:162
 msgid "Go to String Translation"
 msgstr "Μετάβαση στη Μετάφραση Συμβολοσειράς"
 
-#: classes/FieldGroup/UIHooks.php:138
+#: classes/FieldGroup/UIHooks.php:145
 msgid "Translate with the post"
 msgstr "Μετάφραση με τη δημοσίευση"
 
-#: classes/FieldGroup/UIHooks.php:149
-msgid ""
-"You already translated the labels in this field group. You can update these "
-"translations on the String Translation page."
-msgstr ""
-"Έχετε μεταφράσει ήδη τις ετικέτες σε αυτή την ομάδα πεδίων. Μπορείτε να "
-"ενημερώσετε αυτές τις μεταφράσεις στη σελίδα Μετάφραση Συμβολοσειράς."
+#: classes/FieldGroup/UIHooks.php:156
+msgid "You already translated the labels in this field group. You can update these translations on the String Translation page."
+msgstr "Έχετε μεταφράσει ήδη τις ετικέτες σε αυτή την ομάδα πεδίων. Μπορείτε να ενημερώσετε αυτές τις μεταφράσεις στη σελίδα Μετάφραση Συμβολοσειράς."
 
-#: classes/FieldGroup/UIHooks.php:150
-msgid ""
-"You already translated all field labels. You can update these translations "
-"on the String Translation page."
-msgstr ""
-"Έχετε μεταφράσει ήδη όλες τις ετικέτες πεδίων. Μπορείτε να ενημερώσετε αυτές "
-"τις μεταφράσεις στη σελίδα Μετάφραση Συμβολοσειράς."
+#: classes/FieldGroup/UIHooks.php:157
+msgid "You already translated all field labels. You can update these translations on the String Translation page."
+msgstr "Έχετε μεταφράσει ήδη όλες τις ετικέτες πεδίων. Μπορείτε να ενημερώσετε αυτές τις μεταφράσεις στη σελίδα Μετάφραση Συμβολοσειράς."
 
-#: classes/FieldGroup/UIHooks.php:186
+#: classes/FieldGroup/UIHooks.php:193
 msgid "Select a translation option for this field group"
 msgstr "Επιλέξτε μια επιλογή μετάφρασης για αυτήν την ομάδα πεδίων"
 
-#: classes/FieldGroup/UIHooks.php:190
-msgid ""
-"Translate your site’s content while keeping the same visual design across "
-"all languages. All languages will share the same field order, number of "
-"fields, and field types. All you need to do is translate the content."
-msgstr ""
-"Μεταφράστε το περιεχόμενο της ιστοσελίδας σας διατηρώντας τον ίδιο οπτικό "
-"σχεδιασμό σε όλες τις γλώσσες. Όλες οι γλώσσες θα μοιράζονται την ίδια σειρά "
-"πεδίων, αριθμό πεδίων και τύπους πεδίων. Το μόνο που πρέπει να κάνετε είναι "
-"να μεταφράσετε το περιεχόμενο."
+#: classes/FieldGroup/UIHooks.php:197
+msgid "Translate your site’s content while keeping the same visual design across all languages. All languages will share the same field order, number of fields, and field types. All you need to do is translate the content."
+msgstr "Μεταφράστε το περιεχόμενο της ιστοσελίδας σας διατηρώντας τον ίδιο οπτικό σχεδιασμό σε όλες τις γλώσσες. Όλες οι γλώσσες θα μοιράζονται την ίδια σειρά πεδίων, αριθμό πεδίων και τύπους πεδίων. Το μόνο που πρέπει να κάνετε είναι να μεταφράσετε το περιεχόμενο."
 
-#: classes/FieldGroup/UIHooks.php:191
-msgid ""
-"You’ll be able to use automatic translation, WPML’s Advanced Translation "
-"Editor, and translation services."
-msgstr ""
-"Θα μπορείτε να χρησιμοποιείτε αυτόματη μετάφραση, τον Προηγμένο Επεξεργαστή "
-"Μετάφρασης του WPML και τις υπηρεσίες μετάφρασης."
+#: classes/FieldGroup/UIHooks.php:198
+msgid "You’ll be able to use automatic translation, WPML’s Advanced Translation Editor, and translation services."
+msgstr "Θα μπορείτε να χρησιμοποιείτε αυτόματη μετάφραση, τον Προηγμένο Επεξεργαστή Μετάφρασης του WPML και τις υπηρεσίες μετάφρασης."
 
-#: classes/FieldGroup/UIHooks.php:195
-msgid ""
-"Use a different visual design in different languages. You can have a "
-"different field order, layout, and number of fields per language. With this "
-"option, you cannot use WPML’s Advanced Translation Editor or translation "
-"services."
-msgstr ""
-"Χρησιμοποιήστε έναν διαφορετικό οπτικό σχεδιασμό σε διαφορετικές γλώσσες. "
-"Μπορείτε να έχετε διαφορετική σειρά πεδίων, διάταξη και αριθμό πεδίων ανά "
-"γλώσσα. Με αυτήν την επιλογή, δεν μπορείτε να χρησιμοποιήσετε τον Προηγμένο "
-"Επεξεργαστή Μετάφρασης του WPML ή τις υπηρεσίες μετάφρασης."
+#: classes/FieldGroup/UIHooks.php:202
+msgid "Use a different visual design in different languages. You can have a different field order, layout, and number of fields per language. With this option, you cannot use WPML’s Advanced Translation Editor or translation services."
+msgstr "Χρησιμοποιήστε έναν διαφορετικό οπτικό σχεδιασμό σε διαφορετικές γλώσσες. Μπορείτε να έχετε διαφορετική σειρά πεδίων, διάταξη και αριθμό πεδίων ανά γλώσσα. Με αυτήν την επιλογή, δεν μπορείτε να χρησιμοποιήσετε τον Προηγμένο Επεξεργαστή Μετάφρασης του WPML ή τις υπηρεσίες μετάφρασης."
 
-#: classes/FieldGroup/UIHooks.php:196
-msgid ""
-"You’ll need to create each translation with the native WordPress editor."
-msgstr ""
-"Θα πρέπει να δημιουργήσετε κάθε μετάφραση με τον εγγενή επεξεργαστή "
-"WordPress."
+#: classes/FieldGroup/UIHooks.php:203
+msgid "You’ll need to create each translation with the native WordPress editor."
+msgstr "Θα πρέπει να δημιουργήσετε κάθε μετάφραση με τον εγγενή επεξεργαστή WordPress."
 
-#: classes/FieldGroup/UIHooks.php:200
-msgid ""
-"If you are migrating a site, your existing field groups will use the Expert "
-"setup. This allows you to manually choose the translation option for each "
-"field in the group."
-msgstr ""
-"Εάν κάνετε μετεγκατάσταση ενός ιστότοπου, οι υπάρχουσες ομάδες πεδίων σας θα "
-"χρησιμοποιήσουν τη ρύθμιση \"Για Προχωρημένους\". Αυτό σας επιτρέπει να "
-"επιλέξετε με μη αυτόματο τρόπο την επιλογή μετάφρασης για κάθε πεδίο της "
-"ομάδας."
+#: classes/FieldGroup/UIHooks.php:207
+msgid "If you are migrating a site, your existing field groups will use the Expert setup. This allows you to manually choose the translation option for each field in the group."
+msgstr "Εάν κάνετε μετεγκατάσταση ενός ιστότοπου, οι υπάρχουσες ομάδες πεδίων σας θα χρησιμοποιήσουν τη ρύθμιση \"Για Προχωρημένους\". Αυτό σας επιτρέπει να επιλέξετε με μη αυτόματο τρόπο την επιλογή μετάφρασης για κάθε πεδίο της ομάδας."
 
 #. translators: %1$s and %2$s will wrap the string in a <b> html tag
-#: classes/FieldGroup/UIHooks.php:202
+#: classes/FieldGroup/UIHooks.php:209
 msgid "This option is %1$snot recommended%2$s for new field groups."
 msgstr "Αυτή η επιλογή %1$sδεν προτείνεται%2$s για νέες ομάδες πεδίων."
 
-#: classes/FieldGroup/UIHooks.php:203
+#: classes/FieldGroup/UIHooks.php:210
 msgid "Expert setup documentation"
 msgstr "Τεκμηρίωση εγκατάστασης \"Για Προχωρημένους\""
 
-#: classes/FieldGroup/UIHooks.php:206
+#: classes/FieldGroup/UIHooks.php:213
 msgid "Choose"
 msgstr "Επιλογή"
 
-#: classes/FieldGroup/UIHooks.php:207
+#: classes/FieldGroup/UIHooks.php:214
 msgid "Change option"
 msgstr "Αλλαγή επιλογής"
 
-#: classes/FieldGroup/UIHooks.php:209
+#: classes/FieldGroup/UIHooks.php:216
 msgid "A Much Simpler Way to Translate Your ACF Sites"
 msgstr "Ένας πολύ πιο απλός τρόπος να μεταφράζετε τις ιστοσελίδες ACF σας"
 
-#: classes/FieldGroup/UIHooks.php:210
-msgid ""
-"This new release of ACFML allows you to configure multilingual sites in one-"
-"click, instead of many complex settings. Choose how to setup the translation "
-"for the fields."
-msgstr ""
-"Αυτή η νέα κυκλοφορία του ACFML σάς επιτρέπει να διαμορφώσετε πολύγλωσσες "
-"ιστοσελίδες με ένα πάτημα, αντί για πολλές πολύπλοκες ρυθμίσεις. Επιλέξτε "
-"τον τρόπο που θα διαμορφώσετε τη μετάφραση για τα πεδία."
+#: classes/FieldGroup/UIHooks.php:217
+msgid "This new release of ACFML allows you to configure multilingual sites in one-click, instead of many complex settings. Choose how to setup the translation for the fields."
+msgstr "Αυτή η νέα κυκλοφορία του ACFML σάς επιτρέπει να διαμορφώσετε πολύγλωσσες ιστοσελίδες με ένα πάτημα, αντί για πολλές πολύπλοκες ρυθμίσεις. Επιλέξτε τον τρόπο που θα διαμορφώσετε τη μετάφραση για τα πεδία."
 
-#: classes/FieldGroup/UIHooks.php:213
+#: classes/FieldGroup/UIHooks.php:220
 msgid "Select a Translation Option"
 msgstr "Επιλέξτε μια επιλογή μετάφρασης"
 
-#: classes/FieldGroup/UIHooks.php:214
-msgid ""
-"Select a translation option in the Multilingual Setup section to save your "
-"changes."
-msgstr ""
-"Επιλέξτε μια επιλογή μετάφρασης στην ενότητα Πολύγλωσση Εγκατάσταση για να "
-"αποθηκεύσετε τις αλλαγές σας."
+#: classes/FieldGroup/UIHooks.php:221
+msgid "Select a translation option in the Multilingual Setup section to save your changes."
+msgstr "Επιλέξτε μια επιλογή μετάφρασης στην ενότητα Πολύγλωσση Εγκατάσταση για να αποθηκεύσετε τις αλλαγές σας."
 
-#: classes/FieldGroup/UIHooks.php:220
+#: classes/FieldGroup/UIHooks.php:227
 msgid "Go to WPML Settings"
 msgstr "Μετάβαση στις Ρυθμίσεις WPML"
 
-#: classes/FieldGroup/UIHooks.php:224
+#: classes/FieldGroup/UIHooks.php:231
 msgid "Are you sure you want to change the translation option?"
 msgstr "Είστε βέβαιοι ότι θέλετε να αλλάξετε την επιλογή μετάφρασης;"
 
-#: classes/FieldGroup/UIHooks.php:226
+#: classes/FieldGroup/UIHooks.php:233
 msgid "Yes, continue"
 msgstr "Ναι, συνέχεια"
 
-#: classes/FieldGroup/UIHooks.php:227
+#: classes/FieldGroup/UIHooks.php:234
 msgid "No, go back"
 msgstr "Όχι, επιστροφή"
 
-#: classes/FieldGroup/UIHooks.php:229
+#: classes/FieldGroup/UIHooks.php:236
 msgid "Need help choosing?"
 msgstr "Χρειάζεστε βοήθεια για την επιλογή;"
 
-#: classes/FieldGroup/UIHooks.php:230
+#: classes/FieldGroup/UIHooks.php:237
 msgid "Documentation"
 msgstr "Τεκμηρίωση"
 
-#: classes/FieldGroup/UIHooks.php:231
+#: classes/FieldGroup/UIHooks.php:238
 msgid "How to translate field labels »"
 msgstr "Πώς θα μεταφράσετε ετικέτες πεδίων »"
+
+#: classes/Helper/Cpt.php:74
+msgid "Post Type Translation"
+msgstr "Μετάφραση τύπου ανάρτησης"
+
+#: classes/Helper/Cpt.php:81
+#: classes/Helper/OptionsPage.php:81
+#: classes/Helper/Taxonomy.php:81
+msgid "Labels Translation"
+msgstr "Ετικέτες μετάφραση"
+
+#: classes/Helper/Taxonomy.php:74
+msgid "Taxonomy Translation"
+msgstr "Μετάφραση ταξινομίας"
 
 #: classes/Notice/Activation.php:9
 msgid "Finish the ACF Multilingual Setup"
 msgstr "Ολοκλήρωση της Πολύγλωσσης Εγκατάστασης ACF"
 
 #: classes/Notice/Activation.php:10
-msgid ""
-"Before you can start translating, you need to edit each ACF Field Group to "
-"set a translation option for the fields inside it."
-msgstr ""
-"Πριν να μπορέσετε να ξεκινήσετε τη μετάφραση, θα πρέπει να επεξεργαστείτε "
-"κάθε ομάδα πεδίων ACF για να ορίσετε μια επιλογή μετάφρασης για τα πεδία στο "
-"εσωτερικό της."
+msgid "Before you can start translating, you need to edit each ACF Field Group to set a translation option for the fields inside it."
+msgstr "Πριν να μπορέσετε να ξεκινήσετε τη μετάφραση, θα πρέπει να επεξεργαστείτε κάθε ομάδα πεδίων ACF για να ορίσετε μια επιλογή μετάφρασης για τα πεδία στο εσωτερικό της."
 
 #. translators: The placeholders are replaced by an HTML link pointing to the documentation.
-#: classes/Notice/Activation.php:13 classes/Notice/FieldGroupModes.php:42
+#: classes/Notice/Activation.php:13
+#: classes/Notice/FieldGroupModes.php:48
 msgid "Read more about %1$show to translate your ACF custom fields%2$s"
-msgstr ""
-"Διαβάστε περισσότερα για τον %1$sτρόπο που θα μεταφράσετε τα προσαρμοσμένα "
-"πεδία ACF σας%2$s"
+msgstr "Διαβάστε περισσότερα για τον %1$sτρόπο που θα μεταφράσετε τα προσαρμοσμένα πεδία ACF σας%2$s"
 
 #. translators: The placeholders are replaced by an HTML link pointing to field groups list.
 #: classes/Notice/Activation.php:20
 msgid "%1$sSet translation options%2$s"
 msgstr "%1$sΟρίστε επιλογές μετάφρασης%2$s"
 
-#: classes/Notice/FieldGroupModes.php:38
+#: classes/Notice/FieldGroupModes.php:44
 msgid "Let's Start Translating!"
 msgstr "Ας ξεκινήσουμε να μεταφράζουμε!"
 
-#: classes/Notice/FieldGroupModes.php:39
-msgid ""
-"Edit each Field Group to select a translation option for the fields inside "
-"it. If you don't set a translation option, you will not be able to translate "
-"your fields."
-msgstr ""
-"Επεξεργαστείτε κάθε ομάδα πεδίων για να επιλέξετε μια επιλογή μετάφρασης για "
-"τα πεδία στο εσωτερικό της. Αν δεν ορίσετε μια επιλογή μετάφρασης, δεν θα "
-"μπορείτε να μεταφράσετε τα πεδία σας."
+#: classes/Notice/FieldGroupModes.php:45
+msgid "Edit each Field Group to select a translation option for the fields inside it. If you don't set a translation option, you will not be able to translate your fields."
+msgstr "Επεξεργαστείτε κάθε ομάδα πεδίων για να επιλέξετε μια επιλογή μετάφρασης για τα πεδία στο εσωτερικό της. Αν δεν ορίσετε μια επιλογή μετάφρασης, δεν θα μπορείτε να μεταφράσετε τα πεδία σας."
 
 #. translators: %1$s: opening <a> tag, %2$s: closing </a> tag.
-#: classes/Post/MixedFieldGroupModesHooks.php:51
-msgid ""
-"You need to %1$stranslate this post manually%2$s because the field groups "
-"attached to it use different translation options."
-msgstr ""
-"Θα πρέπει να %1$sμεταφράσετε αυτή τη δημοσίευση χειροκίνητα%2$s επειδή οι "
-"ομάδες πεδίων που είναι συνημμένες σε αυτήν χρησιμοποιούν διαφορετικές "
-"επιλογές μετάφρασης."
+#: classes/Post/MixedFieldGroupModesHooks.php:62
+msgid "You need to %1$stranslate this post manually%2$s because the field groups attached to it use different translation options."
+msgstr "Θα πρέπει να %1$sμεταφράσετε αυτή τη δημοσίευση χειροκίνητα%2$s επειδή οι ομάδες πεδίων που είναι συνημμένες σε αυτήν χρησιμοποιούν διαφορετικές επιλογές μετάφρασης."
 
-#: classes/Post/MixedFieldGroupModesHooks.php:74
-msgid ""
-"You need to translate this post manually because the field groups attached "
-"to it use different translation options."
-msgstr ""
-"Θα πρέπει να μεταφράσετε αυτή τη δημοσίευση χειροκίνητα επειδή οι ομάδες "
-"πεδίων που είναι συνημμένες σε αυτήν χρησιμοποιούν διαφορετικές επιλογές "
-"μετάφρασης."
+#: classes/Post/MixedFieldGroupModesHooks.php:85
+msgid "You need to translate this post manually because the field groups attached to it use different translation options."
+msgstr "Θα πρέπει να μεταφράσετε αυτή τη δημοσίευση χειροκίνητα επειδή οι ομάδες πεδίων που είναι συνημμένες σε αυτήν χρησιμοποιούν διαφορετικές επιλογές μετάφρασης."
 
-#: classes/Post/MixedFieldGroupModesHooks.php:81
+#: classes/Post/MixedFieldGroupModesHooks.php:92
 msgid "Go to documentation"
 msgstr "Μετάβαση στην τεκμηρίωση"
 
-#: classes/Post/NativeEditorTranslationHooks.php:156
-msgid ""
-"This field value is copied from the default language and will be kept in "
-"sync across languages."
-msgstr ""
-"Αυτή η τιμή πεδίου αντιγράφεται από την προεπιλεγμένη γλώσσα και θα "
-"διατηρηθεί συγχρονισμένη σε όλες τις γλώσσες."
+#: classes/Post/NativeEditorTranslationHooks.php:163
+msgid "This field value is copied from the default language and will be kept in sync across languages."
+msgstr "Αυτή η τιμή πεδίου αντιγράφεται από την προεπιλεγμένη γλώσσα και θα διατηρηθεί συγχρονισμένη σε όλες τις γλώσσες."
 
 #: classes/strategy/repeater-sync/CheckboxUI.php:20
 msgid "Synchronise translations"
 msgstr "Συγχρονισμός μεταφράσεων"
 
 #: classes/strategy/repeater-sync/CheckboxUI.php:26
-msgid ""
-"Keep repeater and flexible sub-fields in the same order as the default "
-"language."
-msgstr ""
-"Διατηρήστε τον αναμεταδότη και τα ευέλικτα υποπεδία στην ίδια σειρά όπως η "
-"προεπιλεγμένη γλώσσα."
+msgid "Keep repeater and flexible sub-fields in the same order as the default language."
+msgstr "Διατηρήστε τον αναμεταδότη και τα ευέλικτα υποπεδία στην ίδια σειρά όπως η προεπιλεγμένη γλώσσα."
 
 #: classes/strategy/repeater-sync/CheckboxUI.php:42
 msgid "ACFML Synchronise translations"
@@ -571,32 +416,16 @@ msgstr "Προτιμήσεις συγχρονισμού μετάφρασης γ�
 
 #. translators: %1$s, %2$s, %3$s and %4$s are placeholders for two <a> link tags.
 #: classes/Tools/LocalUI.php:37
-msgid ""
-"ACF allows you to %1$sregister fields via PHP%2$s or %3$ssave field settings "
-"as JSON files%4$s and WPML integrates with these features."
-msgstr ""
-"Το ACF σάς επιτρέπει να %1$sκαταχωρήσετε πεδία μέσω του PHP%2$s ή να "
-"%3$sαποθηκεύσετε ρυθμίσεις πεδίων ως αρχεία JSON%4$s και το WPML "
-"ενσωματώνεται με αυτά τα χαρακτηριστικά."
+msgid "ACF allows you to %1$sregister fields via PHP%2$s or %3$ssave field settings as JSON files%4$s and WPML integrates with these features."
+msgstr "Το ACF σάς επιτρέπει να %1$sκαταχωρήσετε πεδία μέσω του PHP%2$s ή να %3$sαποθηκεύσετε ρυθμίσεις πεδίων ως αρχεία JSON%4$s και το WPML ενσωματώνεται με αυτά τα χαρακτηριστικά."
 
 #: classes/Tools/LocalUI.php:44
-msgid ""
-"If you select this option, ACF Multilingual will scan your field groups "
-"stored in PHP files and the \"acf-json\" directory. It will then sync any "
-"changes to translation preferences."
-msgstr ""
-"Αν επιλέξετε αυτήν την επιλογή, το ACF Multilingual θα σαρώσει τις ομάδες "
-"πεδίων σας που είναι αποθηκευμένες σε αρχεία PHP και τον κατάλογο \"acf-"
-"json\". Στη συνέχεια θα συγχρονίσει τυχόν αλλαγές με τις προτιμήσεις "
-"μετάφρασης."
+msgid "If you select this option, ACF Multilingual will scan your field groups stored in PHP files and the \"acf-json\" directory. It will then sync any changes to translation preferences."
+msgstr "Αν επιλέξετε αυτήν την επιλογή, το ACF Multilingual θα σαρώσει τις ομάδες πεδίων σας που είναι αποθηκευμένες σε αρχεία PHP και τον κατάλογο \"acf-json\". Στη συνέχεια θα συγχρονίσει τυχόν αλλαγές με τις προτιμήσεις μετάφρασης."
 
 #: classes/Tools/LocalUI.php:46
-msgid ""
-"This can harm the site's performance if you have a significant number of "
-"fields stored this way."
-msgstr ""
-"Αυτό μπορεί να βλάψει τις επιδόσεις της ιστοσελίδας αν έχετε σημαντικό "
-"αριθμό πεδίων αποθηκευμένα με αυτόν τον τρόπο."
+msgid "This can harm the site's performance if you have a significant number of fields stored this way."
+msgstr "Αυτό μπορεί να βλάψει τις επιδόσεις της ιστοσελίδας αν έχετε σημαντικό αριθμό πεδίων αποθηκευμένα με αυτόν τον τρόπο."
 
 #: classes/Tools/LocalUI.php:55
 msgid "Scan local fields for changes to translation preferences."
@@ -610,14 +439,33 @@ msgstr "Αποθήκευση"
 msgid "Translation preferences scanning options saved."
 msgstr "Οι επιλογές σάρωσης προτιμήσεων μετάφρασης αποθηκεύτηκαν."
 
-#. translators: %1$s: ACF field group name.
-#: classes/TranslationEditor/DisableHooks.php:43
-msgid ""
-"This content must be translated manually due to the translation option you "
-"selected for the \"%1$s\" field group."
-msgstr ""
-"Αυτό το περιεχόμενο πρέπει να μεταφράζεται χειροκίνητα λόγω της επιλογής "
-"μετάφρασης που επιλέξατε για την ομάδα πεδίων \"%1$s\"."
+#. translators: %1$s and %2$s are placeholders for bold tags.
+#: classes/TranslationDataMetaboxHooks.php:67
+msgid "%1$sChange translation settings%2$s"
+msgstr "%1$sΑλλαγή ρυθμίσεων μετάφρασης%2$s"
 
-#~ msgid "Legacy"
-#~ msgstr "Legacy"
+#. translators: %1$s and %2$s are placeholders for bold tags.
+#: classes/TranslationDataMetaboxHooks.php:83
+msgid "%1$sTranslate labels%2$s"
+msgstr "%1$sΜετάφραση ετικετών%2$s"
+
+#: classes/TranslationDataTrait.php:43
+msgid "Not translatable"
+msgstr "Δεν μεταφράζεται"
+
+#: classes/TranslationDataTrait.php:46
+msgid "Translatable"
+msgstr "Μεταφράσιμο"
+
+#: classes/TranslationDataTrait.php:59
+msgid "only show translated items"
+msgstr "εμφανίζει μόνο μεταφρασμένα στοιχεία"
+
+#: classes/TranslationDataTrait.php:61
+msgid "use translation if available or fallback to default language"
+msgstr "χρήση μετάφρασης εάν είναι διαθέσιμη ή επαναφορά στην προεπιλεγμένη γλώσσα"
+
+#. translators: %1$s: ACF field group name.
+#: classes/TranslationEditor/DisableHooks.php:41
+msgid "This content must be translated manually due to the translation option you selected for the \"%1$s\" field group."
+msgstr "Αυτό το περιεχόμενο πρέπει να μεταφράζεται χειροκίνητα λόγω της επιλογής μετάφρασης που επιλέξατε για την ομάδα πεδίων \"%1$s\"."

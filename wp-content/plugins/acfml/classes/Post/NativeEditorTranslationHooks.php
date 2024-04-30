@@ -50,15 +50,22 @@ class NativeEditorTranslationHooks implements \IWPML_Backend_Action {
 			( $isNewTranslation || $isPostTranslation() )
 			&& $isNotFieldGroup( $postType, $postId )
 		) {
-			Hooks::onFilter( 'acf/field_wrapper_attributes', 10, 2 )
-				->then( spreadArgs( [ self::class, 'addClassToFieldWrapper' ] ) );
-
-			Hooks::onFilter( 'acf/get_field_label', 10, 2 )
-				->then( spreadArgs( [ self::class, 'addClassToFieldLabel' ] ) );
+			self::loadFieldLockFilters();
 
 			Hooks::onAction( 'admin_enqueue_scripts' )
-			     ->then( [ self::class, 'enqueueAssets' ] );
+				->then( [ self::class, 'enqueueAssets' ] );
 		}
+	}
+
+	/**
+	 * @return void
+	 */
+	public static function loadFieldLockFilters() {
+		Hooks::onFilter( 'acf/field_wrapper_attributes', 10, 2 )
+			->then( spreadArgs( [ self::class, 'addClassToFieldWrapper' ] ) );
+
+		Hooks::onFilter( 'acf/get_field_label', 10, 2 )
+			->then( spreadArgs( [ self::class, 'addClassToFieldLabel' ] ) );
 	}
 
 	/**

@@ -159,7 +159,7 @@ class WPML_ACF_Location_Rules implements \IWPML_Backend_Action, \IWPML_Frontend_
 	 */
 	private function replace_post_ids( $location ) {
 		foreach( $location as $key => $chunk ) {
-			if ( isset( $chunk['param'], $chunk['value'] ) && in_array( $chunk['param'], get_post_types() ) ) {
+			if ( isset( $chunk['param'], $chunk['value'] ) && is_numeric( $chunk['value'] ) && in_array( $chunk['param'], get_post_types() ) ) {
 				$location[ $key ]['value'] = $this->replace_id( $location[ $key ]['value'], $chunk['param'] );
 			} elseif ( is_array( $chunk ) ) {
 				$location[ $key ] = $this->replace_post_ids( $chunk );
@@ -169,6 +169,8 @@ class WPML_ACF_Location_Rules implements \IWPML_Backend_Action, \IWPML_Frontend_
 	}
 	
 	/**
+	 * Checking if post_id in rule matches not only id in original language, but also translated versions
+	 *
 	 * @param int    $post_id
 	 * @param string $post_type
 	 *

@@ -12,6 +12,7 @@ return array(
     'WPML\\Media\\Classes\\WPML_Media_Classic_Element_Parser' => $baseDir . '/classes/media-translation/class-wpml-media-classic-element-parser.php',
     'WPML\\Media\\Classes\\WPML_Media_Classic_Video_Parser' => $baseDir . '/classes/media-translation/class-wpml-media-classic-video-parser.php',
     'WPML\\Media\\Classes\\WPML_Media_Element_Parser' => $baseDir . '/classes/media-translation/class-wpml-media-element-parser.php',
+    'WPML\\Media\\Classes\\WPML_Media_Element_Translation_Factory' => $baseDir . '/classes/media-translation/class-wpml-media-element-translation-factory.php',
     'WPML\\Media\\Classes\\WPML_Media_File_Parser' => $baseDir . '/classes/media-translation/class-wpml-media-file-parser.php',
     'WPML\\Media\\Classes\\WPML_Media_Href_Parser' => $baseDir . '/classes/media-translation/class-wpml-media-href-parser.php',
     'WPML\\Media\\Classes\\WPML_Media_Image_Parser' => $baseDir . '/classes/media-translation/class-wpml-media-image-parser.php',

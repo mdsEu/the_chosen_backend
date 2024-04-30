@@ -22,6 +22,12 @@ class FieldGroupModes implements \IWPML_Backend_Action {
 	 * @return void
 	 */
 	public function onFieldGroupsListNotice() {
+		if (
+			! function_exists( 'wpml_get_admin_notices' )
+			|| ! \WPML_ACF::is_acf_active()
+		) {
+			return;
+		}
 		if ( $this->hasFieldGroupMissingMode() ) {
 			$this->createNotice( wpml_get_admin_notices() );
 		} else {

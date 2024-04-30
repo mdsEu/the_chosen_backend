@@ -49,7 +49,13 @@ class SettingsLockHooks implements \IWPML_Action {
 		$groupId = $this->getGroupId( $cfSetting );
 
 		if ( $groupId ) {
-			$groupTitle = Obj::propOr( $groupId, 'title', acf_get_field_group( $groupId ) );
+			$fieldGroup = acf_get_field_group( $groupId );
+
+			if ( false === $fieldGroup ) {
+				return $override;
+			}
+
+			$groupTitle = Obj::propOr( $groupId, 'title', $fieldGroup );
 
 			?>
 			<a href="<?php echo esc_url( acf_get_field_group_edit_link( $groupId ) ); ?>" style="text-decoration: none;">

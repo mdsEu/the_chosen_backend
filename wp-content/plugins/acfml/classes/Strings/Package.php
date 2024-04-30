@@ -8,7 +8,13 @@ use WPML\FP\Obj;
 
 class Package {
 
+	// Deprecated! Use one of the constants below.
 	const KIND_SLUG = 'acf-field-group';
+
+	const FIELD_GROUP_PACKAGE_KIND_SLUG = 'acf-field-group';
+	const CPT_PACKAGE_KIND_SLUG         = 'acf-post-type-labels';
+	const TAXONOMY_PACKAGE_KIND_SLUG    = 'acf-taxonomy-labels';
+	const OPTION_PAGE_PACKAGE_KIND_SLUG = 'acf-options-page-labels';
 
 	const STATUS_ST_INACTIVE          = 'st_inactive';
 	const STATUS_NOT_REGISTERED       = 'not_registered';
@@ -17,24 +23,70 @@ class Package {
 	const STATUS_FULLY_TRANSLATED     = 'fully_translated';
 
 	/**
-	 * @var string $fieldGroupId
+	 * @var string|int $packageId
 	 */
-	private $fieldGroupId;
+	private $packageId;
 
-	public function __construct( $fieldGroupId ) {
-		$this->fieldGroupId = $fieldGroupId;
+	/**
+	 * @var string $kind
+	 */
+	private $kind;
+
+	public function __construct( $packageId, $kind = self::FIELD_GROUP_PACKAGE_KIND_SLUG ) {
+		$this->packageId = $packageId;
+		$this->kind      = $kind;
 	}
 
 	/**
+	 * The 'kind_slug' entry must be a sanitized version of the 'kind' entry,
+	 * because the deletion process gets a 'kind' and builds a 'kind-slug' from it
+	 * to identify the package to be deleted.
+	 *
+	 * @see WPML_Package_Helper::delete_package_action
+	 * @see WPML_Package::sanitize_kind
+	 *
+	 * The 'kind-slug' entry must not match any registered post type;
+	 * otherwise, if it is translatable, the Type column in TM will show the post type label
+	 * and not the 'kind' entry defined here.
+	 *
+	 * For backward compatibility reasons, Field Groups match their 'kind' and 'kind-slug'
+	 * to their related post types.
+	 *
+	 * @see WPML_TM_Dashboard_Document_Row::display
+	 *
 	 * @return array
 	 */
 	private function getPackageData() {
-		return [
-			'kind'      => 'ACF Field Group',
-			'kind_slug' => self::KIND_SLUG,
-			'name'      => $this->fieldGroupId,
-			'title'     => 'Field Group Labels ' . $this->fieldGroupId,
-		];
+		switch ( $this->kind ) {
+			case self::CPT_PACKAGE_KIND_SLUG:
+				return [
+					'kind'      => 'ACF Post Type Labels',
+					'kind_slug' => self::CPT_PACKAGE_KIND_SLUG,
+					'name'      => $this->packageId,
+					'title'     => 'Post Type Labels for ' . $this->packageId,
+				];
+			case self::TAXONOMY_PACKAGE_KIND_SLUG:
+				return [
+					'kind'      => 'ACF Taxonomy Labels',
+					'kind_slug' => self::TAXONOMY_PACKAGE_KIND_SLUG,
+					'name'      => $this->packageId,
+					'title'     => 'Taxonomy Labels for ' . $this->packageId,
+				];
+			case self::OPTION_PAGE_PACKAGE_KIND_SLUG:
+				return [
+					'kind'      => 'ACF Options Page Labels',
+					'kind_slug' => self::OPTION_PAGE_PACKAGE_KIND_SLUG,
+					'name'      => $this->packageId,
+					'title'     => 'Options Page Labels for ' . $this->packageId,
+				];
+			default:
+				return [
+					'kind'      => 'ACF Field Group',
+					'kind_slug' => self::FIELD_GROUP_PACKAGE_KIND_SLUG,
+					'name'      => $this->packageId,
+					'title'     => 'Field Group Labels ' . $this->packageId,
+				];
+		}
 	}
 
 	/**
@@ -181,11 +233,33 @@ class Package {
 	}
 
 	/**
-	 * @param string|int $fieldGroupId
+	 * @param  string|int $packageId
+	 * @param  string     $kind
 	 *
 	 * @return Package
 	 */
-	public static function create( $fieldGroupId ) {
-		return new self( $fieldGroupId );
+	public static function create( $packageId, $kind = self::FIELD_GROUP_PACKAGE_KIND_SLUG ) {
+		return new self( $packageId, $kind );
 	}
+
+	/**
+	 * @param  string $status
+	 *
+	 * @return string
+	 */
+	public static function status2text( $status ) {
+		switch ( $status ) {
+			case self::STATUS_FULLY_TRANSLATED:
+				$text = __( 'Complete', 'sitepress' );
+				break;
+			case self::STATUS_PARTIALLY_TRANSLATED:
+				$text = __( 'In progress', 'sitepress' );
+				break;
+			default:
+				$text = __( 'Not translated', 'sitepress' );
+		}
+
+		return $text;
+	}
+
 }

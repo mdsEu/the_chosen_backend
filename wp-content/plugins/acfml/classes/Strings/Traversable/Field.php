@@ -24,7 +24,9 @@ class Field extends Entity {
 	protected function transform( Transformer $transformer, $value, $config ) {
 		if ( is_array( $value ) ) {
 			foreach ( $value as $key => $label ) {
-				$value[ $key ] = $transformer->transform( $label, $config );
+				if ( is_string( $label ) ) {
+					$value[ $key ] = $transformer->transform( $label, $config );
+				}
 			}
 		} else {
 			$value = $transformer->transform( $value, $config );
