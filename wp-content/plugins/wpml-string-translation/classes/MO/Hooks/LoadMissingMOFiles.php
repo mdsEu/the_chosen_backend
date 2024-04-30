@@ -77,8 +77,11 @@ class LoadMissingMOFiles implements \IWPML_Action {
 
 		// Light check to see if a file was already generated.
 		$generatedFile = $this->getGeneratedFileName( $mofile, $domain );
-		if ( self::isReadable( $generatedFile ) ) {
-			// Use generated file.
+		if (
+			self::isReadable( $generatedFile )
+			&& $this->moFilesDictionary->is_path_handled( $mofile, $domain )
+		) {
+			// The file exists AND the path is handled by ST.
 			return $generatedFile;
 		}
 
