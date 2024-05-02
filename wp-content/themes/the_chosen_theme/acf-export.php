@@ -45,7 +45,7 @@ add_action( 'acf/include_fields', function() {
 				'collapsed' => '',
 				'button_label' => 'Add Row',
 				'rows_per_page' => 20,
-				'wpml_cf_preferences' => 3,
+				'wpml_cf_preferences' => 1,
 				'sub_fields' => array(
 					array(
 						'key' => 'field_6480ac4d440f4',
@@ -115,6 +115,11 @@ add_action( 'acf/include_fields', function() {
 					'operator' => '!=',
 					'value' => '8',
 				),
+				array(
+					'param' => 'post',
+					'operator' => '!=',
+					'value' => '2033',
+				),
 			),
 		),
 		'menu_order' => 0,
@@ -130,7 +135,7 @@ add_action( 'acf/include_fields', function() {
 		'acfe_autosync' => array(
 			0 => 'php',
 		),
-		'acfml_field_group_mode' => 'localization',
+		'acfml_field_group_mode' => 'translation',
 		'acfe_form' => 0,
 		'acfe_meta' => '',
 		'acfe_note' => '',
