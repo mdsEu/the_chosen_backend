@@ -31,9 +31,11 @@ RUN docker-php-ext-configure gd --enable-gd --with-freetype --with-jpeg
 RUN docker-php-ext-install pdo pdo_mysql curl mbstring exif pcntl bcmath gd iconv intl pdo_sqlite xml zip mysqli
 RUN docker-php-ext-enable mysqli
 
-# COPY . /var/www/html
+COPY ./entrypoint.sh /var/www/html/entrypoint.sh
 
 WORKDIR /var/www/html
+
+RUN chmod +x /var/www/html/entrypoint.sh
 
 # VOLUME /var/www/html
 # VOLUME /var/www/html/wp-content/languages
@@ -42,4 +44,4 @@ WORKDIR /var/www/html
 
 EXPOSE 80
 
-CMD /bin/sh -c "exec /usr/sbin/apache2ctl -D FOREGROUND;";
+CMD /bin/sh -i /var/www/html/entrypoint.sh & /bin/sh -c "exec /usr/sbin/apache2ctl -D FOREGROUND;";
