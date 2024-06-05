@@ -284,4 +284,46 @@ add_action( 'init', function() {
 		 'graphql_single_name' => 'PressRelease',
 		 'graphql_plural_name' => 'PressReleases'
 	) );
+	register_post_type( 'cast-member', array(
+		'labels' => array(
+			'name' => 'Cast members',
+			'singular_name' => 'Cast member',
+			'menu_name' => 'Cast members',
+			'all_items' => 'All Cast members',
+			'edit_item' => 'Edit Cast member',
+			'view_item' => 'View Cast member',
+			'view_items' => 'View Cast members',
+			'add_new_item' => 'Add New Cast member',
+			'new_item' => 'New Cast member',
+			'parent_item_colon' => 'Parent Cast member:',
+			'search_items' => 'Search Cast members',
+			'not_found' => 'No cast members found',
+			'not_found_in_trash' => 'No cast members found in Trash',
+			'archives' => 'Cast member Archives',
+			'attributes' => 'Cast member Attributes',
+			'insert_into_item' => 'Insert into cast member',
+			'uploaded_to_this_item' => 'Uploaded to this cast member',
+			'filter_items_list' => 'Filter cast members list',
+			'filter_by_date' => 'Filter cast members by date',
+			'items_list_navigation' => 'Cast members list navigation',
+			'items_list' => 'Cast members list',
+			'item_published' => 'Cast member published.',
+			'item_published_privately' => 'Cast member published privately.',
+			'item_reverted_to_draft' => 'Cast member reverted to draft.',
+			'item_scheduled' => 'Cast member scheduled.',
+			'item_updated' => 'Cast member updated.',
+			'item_link' => 'Cast member Link',
+			'item_link_description' => 'A link to a cast member.',
+		),
+		'public' => true,
+		'show_in_rest' => true,
+		'supports' => array(
+			0 => 'title',
+		),
+		'delete_with_user' => false,
+		//
+		'show_in_graphql' => true,
+		'graphql_single_name' => 'CastMember',
+		'graphql_plural_name' => 'CastMembers'
+	) );
 } );
