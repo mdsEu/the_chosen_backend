@@ -317,11 +317,15 @@ add_action( 'init', function() {
 		),
 		'public' => true,
 		'show_in_rest' => true,
+		'menu_icon' => 'dashicons-megaphone',
 		'supports' => array(
 			0 => 'title',
 		),
+		'taxonomies' => array(
+			0 => 'category',
+			1 => 'post_tag',
+		),
 		'delete_with_user' => false,
-		//
 		'show_in_graphql' => true,
 		'graphql_single_name' => 'CastMember',
 		'graphql_plural_name' => 'CastMembers'
