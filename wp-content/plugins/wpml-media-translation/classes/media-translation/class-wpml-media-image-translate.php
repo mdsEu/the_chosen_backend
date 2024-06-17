@@ -1,12 +1,15 @@
 <?php
 
-use WPML\Element\API\PostTranslations;
+use WPML\LIB\WP\Cache;
+use WPML\Media\Classes\WPML_Media_Element_Translation_Factory;
 
 /**
  * Class WPML_Media_Image_Translate
  * Allows getting translated images in a give language from an attachment
  */
 class WPML_Media_Image_Translate {
+
+	const URLS_TO_IDS_CACHE_KEY = 'urls-to-ids-cache-key';
 
 	/**
 	 * @var SitePress
@@ -38,6 +41,7 @@ class WPML_Media_Image_Translate {
 		$this->sitepress                     = $sitepress;
 		$this->attachment_by_url_factory     = $attachment_by_url_factory;
 		$this->media_attachment_by_url_query = $media_attachment_by_url_query_factory->create();
+		wp_cache_add_non_persistent_groups( self::URLS_TO_IDS_CACHE_KEY );
 	}
 
 	/**
@@ -90,15 +94,19 @@ class WPML_Media_Image_Translate {
 	}
 
 	/**
-	 * @param int    $attachment_id
-	 * @param string $language
-	 * @param string $size
+	 * @param int         $attachment_id
+	 * @param string|null $language
+	 * @param string|null $size
 	 *
 	 * @return string
 	 */
-	public function get_translated_image( $attachment_id, $language, $size = null ) {
+	public function get_translated_image( $attachment_id, $language = null, $size = null ) {
+		if ( ! $language ) {
+			$language = $this->sitepress->get_current_language();
+		}
+
 		$image_url              = '';
-		$attachment             = new WPML_Post_Element( $attachment_id, $this->sitepress );
+		$attachment             = WPML_Media_Element_Translation_Factory::create( $attachment_id );
 		$attachment_translation = $attachment->get_translation( $language );
 
 		if ( $attachment_translation ) {
@@ -115,9 +123,9 @@ class WPML_Media_Image_Translate {
 	}
 
 	/**
-	 * @param string $img_src
-	 * @param string $source_language
-	 * @param string $target_language
+	 * @param string      $img_src
+	 * @param string|null $source_language
+	 * @param string|null $target_language
 	 *
 	 * @return string|bool
 	 */
@@ -140,15 +148,36 @@ class WPML_Media_Image_Translate {
 	}
 
 	/**
-	 * @param string $img_src
-	 * @param string $source_language
+	 * @param string      $img_src
+	 * @param string|null $source_language
 	 *
 	 * @return int
 	 */
-	public function get_attachment_id_by_url( $img_src, $source_language ) {
+	public function get_attachment_id_by_url( $img_src, $source_language = null ) {
+		if ( ! $source_language ) {
+			$source_language = $this->getLanguageByUrl( $img_src ) ?: $this->sitepress->get_current_language();
+		}
+
 		$attachment_by_url = $this->attachment_by_url_factory->create( $img_src, $source_language, $this->media_attachment_by_url_query );
 
 		return (int) $attachment_by_url->get_id();
+	}
+
+	/**
+	 * @param string $url
+	 *
+	 * @return null|string
+	 */
+	private function getLanguageByUrl( $url ) {
+		$imageUrl = WPML_Media_Attachment_By_URL::getUrl( $url );
+
+		$imageId = Cache::get( self::URLS_TO_IDS_CACHE_KEY, $imageUrl )->getOrElse( null );
+		if ( ! $imageId ) {
+			$imageId = attachment_url_to_postid( $imageUrl );
+			Cache::set( self::URLS_TO_IDS_CACHE_KEY, $imageUrl, HOUR_IN_SECONDS, $imageId );
+		}
+
+		return $this->sitepress->get_language_for_element( $imageId, 'post_attachment' );
 	}
 
 	/**

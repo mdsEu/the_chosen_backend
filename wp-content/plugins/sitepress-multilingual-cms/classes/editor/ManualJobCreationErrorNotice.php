@@ -8,7 +8,6 @@ use WPML\FP\Logic;
 use WPML\FP\Obj;
 use WPML\FP\Relation;
 use WPML\LIB\WP\Hooks;
-use WPML\LIB\WP\Option;
 use WPML\TM\API\Jobs;
 use WPML\UIPage;
 use function WPML\Container\make;

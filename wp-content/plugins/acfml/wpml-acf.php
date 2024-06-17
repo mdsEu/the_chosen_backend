@@ -5,7 +5,7 @@
  * Author: OnTheGoSystems
  * Plugin URI: https://wpml.org/
  * Author URI: http://www.onthegosystems.com/
- * Version: 2.0.5
+ * Version: 2.1.1
  *
  * @package WPML\ACF
  */
@@ -14,6 +14,7 @@ if ( get_option( '_wpml_inactive' ) ) {
 	return;
 }
 
+// phpcs:ignore WordPress.NamingConventions.ValidFunctionName.FunctionNameInvalid
 function acfmlInit() {
 	$vendorDir = __DIR__ . '/vendor';
 
@@ -27,7 +28,7 @@ function acfmlInit() {
 
 	require_once $vendorDir . '/autoload.php';
 
-	define( 'ACFML_VERSION', '2.0.5' );
+	define( 'ACFML_VERSION', '2.1.1' );
 	define( 'ACFML_PLUGIN_PATH', __DIR__ );
 	define( 'ACFML_PLUGIN_URL', untrailingslashit( plugin_dir_url( __FILE__ ) ) );
 
@@ -35,20 +36,20 @@ function acfmlInit() {
 
 	$acfml = \WPML\Container\make( WPML_ACF::class );
 
-	if ( did_action( 'acf/init' ) ) {
-		$acfml->init_worker();
-	} else {
-		add_action( 'acf/init', [ $acfml, 'init_worker' ] );
-	}
+	// We know that wpml_loaded happens on plugins_loaded:1.
+	// We know that acf/init happens at init:5 regardless of whether ACF is a standalone plugin or bundled by a theme.
+	// We just need to hook here with a priority below 6 to catch CPTs and CTs registration.
+	add_action( 'acf/init', [ $acfml, 'init_worker' ], 1 );
 
 	add_action( 'admin_enqueue_scripts', function() {
-		wp_enqueue_script( 'acfml_js', plugin_dir_url( __FILE__ ) . 'assets/js/admin-script.js', array( 'jquery' ) );
+		wp_enqueue_script( 'acfml_js', plugin_dir_url( __FILE__ ) . 'assets/js/admin-script.js', [ 'jquery' ] );
 		wp_enqueue_style( 'acfml_css', plugin_dir_url( __FILE__ ) . 'assets/css/admin-style.css', [], ACFML_VERSION );
 	} );
 
 	load_plugin_textdomain( 'acfml', false, dirname( plugin_basename( __FILE__ ) ) . '/languages' );
 }
 
+// phpcs:ignore WordPress.NamingConventions.ValidFunctionName.FunctionNameInvalid
 function loadACFMLrequirements() {
 	require_once __DIR__ . '/classes/class-wpml-acf-requirements.php';
 

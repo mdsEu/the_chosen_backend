@@ -119,7 +119,13 @@ class UIHooks implements \IWPML_Action {
 					'title'        => esc_html__( 'Translating field labels', 'acfml' ),
 					'content'      => [
 						Mode::TRANSLATION  => '<p>' . esc_html__( 'The first time you translate a post that uses this field group, you can translate the field labels in the Advanced Translation Editor or using automatic translation.', 'acfml' ) . '</p>'
-											  . '<p>' . esc_html__( 'Or, you can translate the field labels on the String Translation page anytime.', 'acfml' ) . '</p>',
+											  . '<p>' . esc_html__( 'Or, you can translate the field labels on the String Translation page anytime.', 'acfml' ) . '</p>'
+											  . '<p>' . sprintf(
+												  /* translators: %1$s and %2$s will wrap the string in a <a> link html tag */
+							                      esc_html__( 'Don’t want to translate field labels? %1$sLearn how to disable field label translation%2$s', 'acfml' ),
+							                      '<a href="' . Links::getAcfmlTranslateLabels( 'excluding-field-labels-from-the-advanced-translation-editor' ) . '" class="wpml-external-link" target="_blank">',
+							                      '</a>'
+						                      ) . '</p>',
 						Mode::LOCALIZATION => '<p>' . esc_html__( 'You can translate field labels and labels for Choices in String Translation.', 'acfml' ) . '</p>',
 						Mode::ADVANCED     => '<p>'
 											  . sprintf(
@@ -168,7 +174,7 @@ class UIHooks implements \IWPML_Action {
 	private static function getLinkToST( $fieldGroupId ) {
 		return sprintf(
 			admin_url( 'admin.php?page=wpml-string-translation/menu/string-translation.php&context=%s' ),
-			Package::KIND_SLUG . '-' . $fieldGroupId
+			Package::FIELD_GROUP_PACKAGE_KIND_SLUG . '-' . $fieldGroupId
 		);
 	}
 

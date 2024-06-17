@@ -627,7 +627,7 @@ $resource( [
 						<?php wp_nonce_field( 'icl_hide_languages_nonce', '_icl_nonce' ); ?>
 						<?php foreach ( $active_languages as $l ) : ?>
 							<?php
-							if ( $l['code'] == $default_language_details['code'] ) {
+							if ( isset( $default_language_details['code'] ) && $l['code'] === $default_language_details['code'] ) {
 								continue;}
 							?>
 							<p>

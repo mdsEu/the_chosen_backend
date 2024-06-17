@@ -4,7 +4,7 @@
 
 namespace Composer\Autoload;
 
-class ComposerStaticInitc62f6233f83db1ad0bd1eb0de5944111
+class ComposerStaticInit80c12143e38f72b0252b5fc1bac6346b
 {
     public static $files = array (
         'b45b351e6b6f7487d819961fef2fda77' => __DIR__ . '/..' . '/jakeasmith/http_build_url/src/http_build_url.php',
@@ -59,15 +59,19 @@ class ComposerStaticInitc62f6233f83db1ad0bd1eb0de5944111
         'WPML\\PB\\ConvertIds\\Helper' => __DIR__ . '/../..' . '/classes/Shared/ConvertIds/Helper.php',
         'WPML\\PB\\Cornerstone\\Config\\Factory' => __DIR__ . '/../..' . '/classes/Integrations/Cornerstone/Config/Factory.php',
         'WPML\\PB\\Cornerstone\\Hooks\\Editor' => __DIR__ . '/../..' . '/classes/Integrations/Cornerstone/Hooks/Editor.php',
+        'WPML\\PB\\Cornerstone\\Hooks\\Media' => __DIR__ . '/../..' . '/classes/Integrations/Cornerstone/Hooks/Media.php',
+        'WPML\\PB\\Cornerstone\\Hooks\\ShortcodeAttributes' => __DIR__ . '/../..' . '/classes/Integrations/Cornerstone/Hooks/ShortcodeAttributes.php',
         'WPML\\PB\\Cornerstone\\Modules\\ModuleWithItemsFromConfig' => __DIR__ . '/../..' . '/classes/Integrations/Cornerstone/modules/ModuleWithItemsFromConfig.php',
         'WPML\\PB\\Cornerstone\\Styles\\Hooks' => __DIR__ . '/../..' . '/classes/Integrations/Cornerstone/Styles/Hooks.php',
         'WPML\\PB\\Cornerstone\\Utils' => __DIR__ . '/../..' . '/classes/Integrations/Cornerstone/class-wpml-cornerstone-utils.php',
+        'WPML\\PB\\Elementor\\Config\\DynamicElements\\Button' => __DIR__ . '/../..' . '/classes/Integrations/Elementor/Config/DynamicElements/Button.php',
         'WPML\\PB\\Elementor\\Config\\DynamicElements\\EssentialAddons\\ContentTimeline' => __DIR__ . '/../..' . '/classes/Integrations/Elementor/Config/DynamicElements/EssentialAddons/ContentTimeline.php',
         'WPML\\PB\\Elementor\\Config\\DynamicElements\\FormPopup' => __DIR__ . '/../..' . '/classes/Integrations/Elementor/Config/DynamicElements/FormPopup.php',
         'WPML\\PB\\Elementor\\Config\\DynamicElements\\Hotspot' => __DIR__ . '/../..' . '/classes/Integrations/Elementor/Config/DynamicElements/Hotspot.php',
         'WPML\\PB\\Elementor\\Config\\DynamicElements\\IconList' => __DIR__ . '/../..' . '/classes/Integrations/Elementor/Config/DynamicElements/IconList.php',
         'WPML\\PB\\Elementor\\Config\\DynamicElements\\LoopCarousel' => __DIR__ . '/../..' . '/classes/Integrations/Elementor/Config/DynamicElements/LoopCarousel.php',
         'WPML\\PB\\Elementor\\Config\\DynamicElements\\LoopGrid' => __DIR__ . '/../..' . '/classes/Integrations/Elementor/Config/DynamicElements/LoopGrid.php',
+        'WPML\\PB\\Elementor\\Config\\DynamicElements\\MegaMenu' => __DIR__ . '/../..' . '/classes/Integrations/Elementor/Config/DynamicElements/MegaMenu.php',
         'WPML\\PB\\Elementor\\Config\\DynamicElements\\Popup' => __DIR__ . '/../..' . '/classes/Integrations/Elementor/Config/DynamicElements/Popup.php',
         'WPML\\PB\\Elementor\\Config\\DynamicElements\\Provider' => __DIR__ . '/../..' . '/classes/Integrations/Elementor/Config/DynamicElements/Provider.php',
         'WPML\\PB\\Elementor\\Config\\DynamicElements\\WooProduct' => __DIR__ . '/../..' . '/classes/Integrations/Elementor/Config/DynamicElements/WooProduct.php',
@@ -306,7 +310,7 @@ class ComposerStaticInitc62f6233f83db1ad0bd1eb0de5944111
     public static function getInitializer(ClassLoader $loader)
     {
         return \Closure::bind(function () use ($loader) {
-            $loader->classMap = ComposerStaticInitc62f6233f83db1ad0bd1eb0de5944111::$classMap;
+            $loader->classMap = ComposerStaticInit80c12143e38f72b0252b5fc1bac6346b::$classMap;
 
         }, null, ClassLoader::class);
     }

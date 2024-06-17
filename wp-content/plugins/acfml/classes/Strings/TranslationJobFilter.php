@@ -2,7 +2,6 @@
 
 namespace ACFML\Strings;
 
-use WPML\FP\Obj;
 use WPML\FP\Str;
 
 class TranslationJobFilter {
@@ -75,7 +74,7 @@ class TranslationJobFilter {
 		$strings = [];
 
 		foreach ( $groupIds as $groupId ) {
-			$strings[ $groupId ] = $this->factory->createPackage( $groupId )->getUntranslatedStrings( $languageCode );
+			$strings[ $groupId ] = $this->factory->createPackage( $groupId, Package::FIELD_GROUP_PACKAGE_KIND_SLUG )->getUntranslatedStrings( $languageCode );
 		}
 
 		return $strings;
@@ -108,22 +107,33 @@ class TranslationJobFilter {
 		}
 
 		foreach ( $allTranslations as $groupId => $translations ) {
-			$this->factory->createPackage( $groupId )->setStringTranslations( $translations );
+			$this->factory->createPackage( $groupId, Package::FIELD_GROUP_PACKAGE_KIND_SLUG )->setStringTranslations( $translations );
 		}
 	}
 
 	/**
-	 * @param string $fieldName
+	 * @param string   $fieldName
+	 * @param int|null $groupId
 	 *
 	 * @return array
 	 */
-	private function parseFieldName( $fieldName ) {
-		$matches = Str::match( '/^' . self::PREFIX . '-' . self::GROUP . '-(\d+)-(([^-]+)-(?:[^-]+)-([^-]+)-.*)$/', $fieldName );
+	public static function parseFieldName( $fieldName, $groupId = null ) {
+		$mainPattern = '([^-]+)-(?:[^-]+)-([^-]+)-.*';
 
-		$groupId    = isset( $matches[1] ) ? $matches[1] : null;
-		$stringName = isset( $matches[2] ) ? $matches[2] : null;
-		$namespace  = isset( $matches[3] ) ? $matches[3] : null;
-		$key        = isset( $matches[4] ) ? $matches[4] : null;
+		if ( $groupId ) { // If the group ID is passed, we can use the short pattern.
+			$matches = Str::match( '/^' . $mainPattern . '$/', $fieldName );
+
+			$stringName = $fieldName;
+			$namespace  = $matches[1] ?? null;
+			$key        = $matches[2] ?? null;
+		} else {
+			$matches = Str::match( '/^' . self::PREFIX . '-' . self::GROUP . '-(\d+)-(' . $mainPattern . ')$/', $fieldName );
+
+			$groupId    = $matches[1] ?? null;
+			$stringName = $matches[2] ?? null;
+			$namespace  = $matches[3] ?? null;
+			$key        = $matches[4] ?? null;
+		}
 
 		return [
 			$groupId,
@@ -133,21 +143,4 @@ class TranslationJobFilter {
 		];
 	}
 
-	/**
-	 * @param array[] $fields
-	 *
-	 * @return array[]
-	 */
-	public function adjustTitles( $fields ) {
-		foreach ( $fields as &$field ) {
-			$fieldTitle                  = (string) Obj::prop( 'title', $field );
-			list( , , $namespace, $key ) = $this->parseFieldName( $fieldTitle );
-
-			if ( $namespace && $key ) {
-				$field['title'] = Obj::prop( 'title', Config::get( $namespace, $key ) ) ?: $fieldTitle;
-			}
-		}
-
-		return $fields;
-	}
 }

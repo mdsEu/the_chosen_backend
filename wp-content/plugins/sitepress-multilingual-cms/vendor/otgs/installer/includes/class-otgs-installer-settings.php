@@ -26,7 +26,7 @@ class Settings {
 		}
 		$settings = base64_encode( (string) $settings );
 
-		update_option( 'wp_installer_settings', $settings, 'no' );
+		update_option( 'wp_installer_settings', $settings );
 	}
 
 	public static function is_gz_on() {

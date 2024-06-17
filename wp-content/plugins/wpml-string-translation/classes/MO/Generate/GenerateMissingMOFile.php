@@ -68,6 +68,7 @@ class MissingMOFile {
 
 				$chmod = defined( 'FS_CHMOD_FILE' ) ? FS_CHMOD_FILE : 0644;
 				$this->filesystem->put_contents( $generateMoPath, $fileContents, $chmod );
+				do_action( 'wpml_st_translation_file_updated', $generateMoPath, $domain, $locale );
 			}
 			$processed->push( $generateMoPath );
 			$this->optionManager->set( self::OPTION_GROUP, self::OPTION_NAME, $processed->toArray() );

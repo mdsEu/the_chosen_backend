@@ -2,6 +2,7 @@
 
 use WPML\FP\Fns;
 use WPML\LIB\WP\Post;
+use WPML\Media\Classes\WPML_Media_Element_Translation_Factory;
 
 class WPML_Media_Post_With_Media_Files {
 
@@ -233,7 +234,7 @@ class WPML_Media_Post_With_Media_Files {
 
 		foreach ( $post_media as $attachment_id ) {
 
-			$post_element = new WPML_Post_Element( $attachment_id, $this->sitepress );
+			$post_element = WPML_Media_Element_Translation_Factory::create( $attachment_id );
 			foreach ( $languages as $language ) {
 				$translation = $post_element->get_translation( $language );
 				if ( null === $translation || ! $this->media_file_is_translated( $attachment_id, $translation->get_id() ) ) {

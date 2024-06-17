@@ -2,8 +2,14 @@
 
 use ACFML\FieldGroup\Mode;
 use ACFML\FieldState;
+use ACFML\Helper\Fields;
+use ACFML\Helper\HashCalculator;
 use ACFML\Repeater\Shuffle\Strategy;
 use ACFML\Repeater\Sync\CheckboxUI;
+use WPML\FP\Fns;
+use WPML\FP\Logic;
+use WPML\FP\Relation;
+use WPML\FP\Obj;
 
 /**
  * Handle the case when the user changes translated repeater state (reorder fields, add new field in the middle...).
@@ -37,6 +43,11 @@ class WPML_ACF_Repeater_Shuffle implements \IWPML_Backend_Action {
 	private $field_state;
 
 	/**
+	 * @var string
+	 */
+	private $previousHash = '';
+
+	/**
 	 * WPML_ACF_Repeater_Shuffle constructor.
 	 *
 	 * @param Strategy   $shuffled
@@ -66,6 +77,7 @@ class WPML_ACF_Repeater_Shuffle implements \IWPML_Backend_Action {
 	public function store_state_before( $post_id = 0 ) {
 		if ( $this->shouldSupportSync( $post_id ) ) {
 			$this->field_state->storeStateBefore( $post_id );
+			$this->previousHash = $this->calculateHash( $post_id );
 		}
 	}
 
@@ -114,7 +126,9 @@ class WPML_ACF_Repeater_Shuffle implements \IWPML_Backend_Action {
 	 */
 	private function should_translation_update_run( $post_id = 0 ) {
 		return $this->shouldSupportSync( $post_id ) &&
-			$this->shuffled->isValidId( $post_id ) && $this->field_state->getStateBefore();
+			$this->shuffled->isValidId( $post_id ) &&
+			$this->field_state->getStateBefore() &&
+			$this->previousHash === $this->calculateHash( $post_id );
 	}
 
 	/**
@@ -252,5 +266,20 @@ class WPML_ACF_Repeater_Shuffle implements \IWPML_Backend_Action {
 			}
 		}
 		return false;
+	}
+
+	private function calculateHash( $post_id ) {
+		$isOrContainsOrderable = function( $field ) {
+			return Fields::isWrapper( $field ) || Relation::propEq( 'type', 'group', $field );
+		};
+
+		// $normalize :: ( array|false ) -> array
+		$normalize = Logic::ifElse( Logic::isArray(), Fns::identity(), Fns::always( [] ) );
+
+		$values = wpml_collect( $normalize( get_field_objects( $post_id ) ) )
+			->filter( $isOrContainsOrderable )
+			->map( Obj::prop( 'value' ) )->toArray();
+
+		return HashCalculator::calculate( $values );
 	}
 }

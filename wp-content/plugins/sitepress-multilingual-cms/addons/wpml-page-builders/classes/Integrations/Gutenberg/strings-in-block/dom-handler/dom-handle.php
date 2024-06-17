@@ -78,8 +78,10 @@ abstract class DOMHandle {
 			$replace_full_html_node_content = $element->childNodes->length > 0 && $originalValue;
 
 			$search_value = preg_quote( $replace_full_html_node_content ? $originalValue : $element->nodeValue, '/' );
+			$search_value = str_replace( [ preg_quote( '<br>', '/' ), preg_quote( '<br/>', '/' ) ], '<br\/?>', $search_value );
 			$search       = '/(>)(' . $search_value . ')(<)/';
 		}
+
 
 		foreach ( $block->innerContent as &$inner_content ) {
 			if ( $inner_content ) {
