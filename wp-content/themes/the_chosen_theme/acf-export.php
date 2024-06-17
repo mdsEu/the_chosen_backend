@@ -240,50 +240,6 @@ add_action( 'init', function() {
 		'graphql_plural_name' => 'VanityURLs'
 	) );
 
-	register_post_type( 'press-release', array(
-		'labels' => array(
-			'name' => 'Press Releases',
-			'singular_name' => 'Press Release',
-			'menu_name' => 'Press Releases',
-			'all_items' => 'All Press Releases',
-			'edit_item' => 'Edit Press Release',
-			'view_item' => 'View Press Release',
-			'view_items' => 'View Press Releases',
-			'add_new_item' => 'Add New Press Release',
-			'new_item' => 'New Press Release',
-			'parent_item_colon' => 'Parent Press Release:',
-			'search_items' => 'Search Press Releases',
-			'not_found' => 'No press releases found',
-			'not_found_in_trash' => 'No press releases found in Trash',
-			'archives' => 'Press Release Archives',
-			'attributes' => 'Press Release Attributes',
-			'insert_into_item' => 'Insert into press release',
-			'uploaded_to_this_item' => 'Uploaded to this press release',
-			'filter_items_list' => 'Filter press releases list',
-			'filter_by_date' => 'Filter press releases by date',
-			'items_list_navigation' => 'Press Releases list navigation',
-			'items_list' => 'Press Releases list',
-			'item_published' => 'Press Release published.',
-			'item_published_privately' => 'Press Release published privately.',
-			'item_reverted_to_draft' => 'Press Release reverted to draft.',
-			'item_scheduled' => 'Press Release scheduled.',
-			'item_updated' => 'Press Release updated.',
-			'item_link' => 'Press Release Link',
-			'item_link_description' => 'A link to a press release.',
-		),
-		'public' => true,
-		'show_in_rest' => true,
-		'supports' => array(
-			0 => 'title',
-			1 => 'editor',
-			2 => 'thumbnail',
-		),
-		'delete_with_user' => false,
-		 //
-		 'show_in_graphql' => true,
-		 'graphql_single_name' => 'PressRelease',
-		 'graphql_plural_name' => 'PressReleases'
-	) );
 	register_post_type( 'cast-member', array(
 		'labels' => array(
 			'name' => 'Cast members',
