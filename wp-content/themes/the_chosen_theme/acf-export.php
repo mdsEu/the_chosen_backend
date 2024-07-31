@@ -376,6 +376,7 @@ add_action( 'init', function() {
 			0 => 'schedule-day',
 			1 => 'schedule-hour',
 			2 => 'schedule-location',
+			3 => 'schedule-modalities',
 		),
 		'delete_with_user' => false,
 		'show_in_graphql' => true,
@@ -483,5 +484,39 @@ add_action( 'init', function() {
 		'show_in_graphql' => true,
 		'graphql_single_name' => 'ScheduleLocation',
 		'graphql_plural_name' => 'ScheduleLocations'
+	) );
+
+	register_taxonomy( 'schedule-modalities', array(
+		0 => 'chosencon-event',
+	), array(
+		'labels' => array(
+			'name' => 'Modality',
+			'singular_name' => 'Modalities',
+			'menu_name' => 'Modality',
+			'all_items' => 'All Modality',
+			'edit_item' => 'Edit Modalities',
+			'view_item' => 'View Modalities',
+			'update_item' => 'Update Modalities',
+			'add_new_item' => 'Add New Modalities',
+			'new_item_name' => 'New Modalities Name',
+			'search_items' => 'Search Modality',
+			'popular_items' => 'Popular Modality',
+			'separate_items_with_commas' => 'Separate modality with commas',
+			'add_or_remove_items' => 'Add or remove modality',
+			'choose_from_most_used' => 'Choose from the most used modality',
+			'not_found' => 'No modality found',
+			'no_terms' => 'No modality',
+			'items_list_navigation' => 'Modality list navigation',
+			'items_list' => 'Modality list',
+			'back_to_items' => '← Go to modality',
+			'item_link' => 'Modalities Link',
+			'item_link_description' => 'A link to a modalities',
+		),
+		'public' => true,
+		'show_in_menu' => true,
+		'show_in_rest' => true,
+		'show_in_graphql' => true,
+		'graphql_single_name' => 'ScheduleModality',
+		'graphql_plural_name' => 'ScheduleModalities'
 	) );
 } );
