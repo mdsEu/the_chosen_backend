@@ -2,7 +2,6 @@
 
 namespace WPGraphQL\Type\ObjectType;
 
-use GraphQL\Type\Definition\ResolveInfo;
 use WPGraphQL\AppContext;
 use WPGraphQL\Model\Comment as CommentModel;
 
@@ -24,14 +23,13 @@ class Comment {
 			[
 				'description' => __( 'A Comment object', 'wp-graphql' ),
 				'model'       => CommentModel::class,
-				'interfaces'  => [ 'Node', 'DatabaseIdentifier' ],
+				'interfaces'  => [ 'Node', 'DatabaseIdentifier', 'UniformResourceIdentifiable' ],
 				'connections' => [
 					'author' => [
 						'toType'      => 'Commenter',
 						'description' => __( 'The author of the comment', 'wp-graphql' ),
 						'oneToOne'    => true,
-						'resolve'     => function ( $comment, $args, AppContext $context, ResolveInfo $info ) {
-
+						'resolve'     => static function ( $comment, $_args, AppContext $context ) {
 							$node = null;
 
 							// try and load the user node
@@ -49,7 +47,6 @@ class Comment {
 								'node'   => $node,
 								'source' => $comment,
 							];
-
 						},
 					],
 				],
@@ -62,7 +59,7 @@ class Comment {
 						'type'              => 'Boolean',
 						'description'       => __( 'The approval status of the comment. This field is equivalent to WP_Comment->comment_approved and the value matching the "comment_approved" column in SQL.', 'wp-graphql' ),
 						'deprecationReason' => __( 'Deprecated in favor of the `status` field', 'wp-graphql' ),
-						'resolve'           => function ( $comment, $args, AppContext $context, ResolveInfo $info ) {
+						'resolve'           => static function ( $comment ) {
 							return 'approve' === $comment->status;
 						},
 					],
@@ -84,7 +81,7 @@ class Comment {
 								'description' => __( 'Format of the field output', 'wp-graphql' ),
 							],
 						],
-						'resolve'     => function ( \WPGraphQL\Model\Comment $comment, $args ) {
+						'resolve'     => static function ( \WPGraphQL\Model\Comment $comment, $args ) {
 							if ( isset( $args['format'] ) && 'raw' === $args['format'] ) {
 								return isset( $comment->contentRaw ) ? $comment->contentRaw : null;
 							} else {
@@ -111,6 +108,10 @@ class Comment {
 						'type'        => 'Int',
 						'description' => __( 'Karma value for the comment. This field is equivalent to WP_Comment->comment_karma and the value matching the "comment_karma" column in SQL.', 'wp-graphql' ),
 					],
+					'link'             => [
+						'type'        => 'String',
+						'description' => __( 'The permalink of the comment', 'wp-graphql' ),
+					],
 					'parentId'         => [
 						'type'        => 'ID',
 						'description' => __( 'The globally unique identifier of the parent comment node.', 'wp-graphql' ),
@@ -130,6 +131,5 @@ class Comment {
 				],
 			]
 		);
-
 	}
 }
