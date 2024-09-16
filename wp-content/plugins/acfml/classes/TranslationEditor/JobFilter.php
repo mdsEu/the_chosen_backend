@@ -2,7 +2,6 @@
 
 namespace ACFML\TranslationEditor;
 
-use ACFML\FieldGroup\FieldNamePatterns;
 use ACFML\Strings\Config;
 use ACFML\Strings\Factory as StringsFactory;
 use ACFML\Strings\Package;
@@ -13,9 +12,10 @@ use WPML\FP\Obj;
 
 use function WPML\FP\pipe;
 
-class JobFilter implements \IWPML_Backend_Action, \IWPML_Frontend_Action, \IWPML_DIC_Action {
+class JobFilter implements \IWPML_Backend_Action, \IWPML_Frontend_Action {
 
-	const ACF_TOP_LEVEL_GROUP = 'Advanced Custom Fields (ACF)';
+	const ACF_TOP_LEVEL_GROUP_ID    = 'acf';
+	const ACF_TOP_LEVEL_GROUP_TITLE = 'Advanced Custom Fields (ACF)';
 
 	const SPECIAL_LABELS = [
 		'cpt'          => 'Post Type',
@@ -25,13 +25,6 @@ class JobFilter implements \IWPML_Backend_Action, \IWPML_Frontend_Action, \IWPML
 
 	/** @var array */
 	private $jobToGroupId = [];
-
-	/** @var FieldNamePatterns */
-	private $fieldNamePatterns;
-
-	public function __construct( FieldNamePatterns $fieldNamePatterns ) {
-		$this->fieldNamePatterns = $fieldNamePatterns;
-	}
 
 	public function add_hooks() {
 		add_filter( 'wpml_tm_adjust_translation_fields', [ $this, 'addTitleAndGroupInfo' ], 10, 2 );
@@ -63,7 +56,7 @@ class JobFilter implements \IWPML_Backend_Action, \IWPML_Frontend_Action, \IWPML
 		$groupIdFromJob                      = $this->getGroupIdFromJob( $job );
 		list( $groupId, , $namespace, $key ) = TranslationJobFilter::parseFieldName( $fieldTitle, $groupIdFromJob );
 		$isSimpleLabel                       = $groupId && $namespace && $key;
-		$getRepeaterParts                    = Str::match( '/field-(\w+)_\d+_(\w+)-\d+/' );
+		$getRepeaterParts                    = Str::match( '/field-(\w+)_(\d+)_(\w+)-\d+/' );
 
 		$matchSpecialLabels = function( $string ) {
 			return wpml_collect( self::SPECIAL_LABELS )
@@ -78,11 +71,11 @@ class JobFilter implements \IWPML_Backend_Action, \IWPML_Frontend_Action, \IWPML
 			$prefix = $matchSpecialLabels( $fieldTitle );
 			$field  = $this->handleSpecialLabels( $field, $prefix );
 		} elseif ( $getRepeaterParts( $field['field_type'] ) ) {
-			list( , $groupId, $title ) = $getRepeaterParts( $field['field_type'] );
+			list( , $group, $groupId, $title ) = $getRepeaterParts( $field['field_type'] );
 
-			$fieldGroup = get_field_object( $groupId, $job->original_doc_id );
+			$fieldGroup = get_field_object( $group, $job->original_doc_id );
 			if ( false !== $fieldGroup ) {
-				$field = $this->handleRepeaters( $field, $groupId, $title, $fieldGroup['label'] );
+				$field = $this->handleRepeaters( $field, $group . '_' . $groupId, $title, $fieldGroup['label'] );
 			}
 		} else {
 			$field = $this->handleContent( $field, $job );
@@ -102,7 +95,7 @@ class JobFilter implements \IWPML_Backend_Action, \IWPML_Frontend_Action, \IWPML
 	private function handleFieldLabels( $field, $label, $title, $groupId ) {
 		$field['title'] = $label ?: $title;
 		$field['group'] = [
-			'acf' => self::ACF_TOP_LEVEL_GROUP,
+			self::ACF_TOP_LEVEL_GROUP_ID => self::ACF_TOP_LEVEL_GROUP_TITLE,
 		];
 
 		$fieldGroup = acf_get_field_group( $groupId );
@@ -120,8 +113,8 @@ class JobFilter implements \IWPML_Backend_Action, \IWPML_Frontend_Action, \IWPML
 	 */
 	public function handleSpecialLabels( $field, $prefix ) {
 		$field['group'] = [
-			'acf'               => self::ACF_TOP_LEVEL_GROUP,
-			$prefix . '-labels' => self::SPECIAL_LABELS[ $prefix ] . ' Labels',
+			self::ACF_TOP_LEVEL_GROUP_ID => self::ACF_TOP_LEVEL_GROUP_TITLE,
+			$prefix . '-labels'          => self::SPECIAL_LABELS[ $prefix ] . ' Labels',
 		];
 		$field['title'] = substr( $field['title'], strlen( $prefix ) );
 		$field['title'] = preg_replace( '/-[0-9a-f]+$/', '', $field['title'] );
@@ -142,8 +135,8 @@ class JobFilter implements \IWPML_Backend_Action, \IWPML_Frontend_Action, \IWPML
 	private function handleRepeaters( $field, $groupId, $title, $group ) {
 		$field['title'] = ucwords( str_replace( [ '-', '_' ], [ ' ', ' ' ], $title ) );
 		$field['group'] = [
-			'acf'    => self::ACF_TOP_LEVEL_GROUP,
-			$groupId => $group,
+			self::ACF_TOP_LEVEL_GROUP_ID => self::ACF_TOP_LEVEL_GROUP_TITLE,
+			$groupId                     => $group,
 		];
 
 		return $field;
@@ -162,7 +155,7 @@ class JobFilter implements \IWPML_Backend_Action, \IWPML_Frontend_Action, \IWPML
 		if ( false !== $fieldObject ) {
 			$field['title'] = $fieldObject['label'];
 			$field['group'] = [
-				'acf' => self::ACF_TOP_LEVEL_GROUP,
+				self::ACF_TOP_LEVEL_GROUP_ID => self::ACF_TOP_LEVEL_GROUP_TITLE,
 			];
 
 			$parentId   = $fieldObject['parent'];
@@ -194,46 +187,87 @@ class JobFilter implements \IWPML_Backend_Action, \IWPML_Frontend_Action, \IWPML
 	}
 
 	/**
-	 * @param array     $fields
+	 * @param array     $jobFields
 	 * @param \stdClass $job
 	 *
 	 * @return array
 	 */
-	public function reorderFields( $fields, $job ) {
+	public function reorderFields( $jobFields, $job ) {
 		$postType = Obj::prop( 'original_post_type', $job );
 		if ( Str::startsWith( 'package', $postType ) ) {
-			return $fields;
+			return $jobFields;
 		}
 
 		$postId   = Obj::prop( 'original_doc_id', $job );
-		$metaKeys = get_post_custom_keys( $postId );
-
+		$metaKeys = get_field_objects( $postId, false );
 		if ( ! $metaKeys ) {
-			return $fields;
+			return $jobFields;
 		}
 
-		$getKey = pipe(
-			Obj::path( [ 'attributes', 'id' ] ),
-			Str::pregReplace( [ '/^field-/', '/-0$/' ], '' )
-		);
+		$orderedFields = $this->getOrderedFields( $postId, $metaKeys );
+		$orderMap      = array_flip( $orderedFields );
 
-		$getIndex = function( $field ) use ( $metaKeys, $getKey ) {
-			$key = $getKey( $field );
-			if ( ! $this->fieldNamePatterns->findMatchingGroup( $key ) ) {
-				return false;
-			}
+		return wpml_collect( $jobFields )
+			->sort( function( $a, $b ) use ( $orderMap ) {
+				$keyA = $this->getKey( $a );
+				$keyB = $this->getKey( $b );
 
-			return array_search( $key, $metaKeys, true );
-		};
+				// Leave non ACF fields intact.
+				if ( ! isset( $orderMap[ $keyA ] ) || ! isset( $orderMap[ $keyB ] ) ) {
+					return 0;
+				}
 
-		$fields = wpml_collect( $fields )
-			->sort( function( $a, $b ) use ( $getIndex ) {
-				return $getIndex( $a ) > $getIndex( $b );
+				return $orderMap[ $keyA ] - $orderMap[ $keyB ];
 			} )
 			->values()
-			->toArray();
+			->all();
+	}
 
-		return $fields;
+	/**
+	 * @param array $field
+	 *
+	 * @return string
+	 */
+	private function getKey( $field ) {
+		$element = Obj::path( [ 'attributes', 'id' ], $field );
+
+		return Str::pregReplace( [ '/^field-/', '/-0$/' ], '', $element );
+	}
+
+	/**
+	 * @param string $postId
+	 * @param array  $metaKeys
+	 *
+	 * @return string[]
+	 */
+	private function getOrderedFields( $postId, $metaKeys ) {
+		$orderedFields = [];
+
+		$iterate = function( $key, $value, $prefix = '' ) use ( &$orderedFields, &$iterate, $postId ) {
+			if ( is_array( $value ) ) {
+				foreach ( $value as $subKey => $subValue ) {
+					$newPrefix = $prefix;
+					if ( is_numeric( $subKey ) ) {
+						$newPrefix .= '_' . $subKey;
+					} elseif ( 'acf_fc_layout' !== $subKey ) {
+						$field_object = get_field_object( $subKey, $postId, false, false );
+						if ( $field_object ) {
+								$newPrefix .= '_' . $field_object['name'];
+						}
+					}
+
+					$iterate( $subKey, $subValue, $newPrefix );
+				}
+			} elseif ( 'acf_fc_layout' !== $key ) {
+				$orderedFields[] = $prefix;
+			}
+		};
+
+		foreach ( $metaKeys as $metaKey => $metaValue ) {
+			$iterate( $metaKey, $metaValue['value'], $metaValue['name'] );
+		}
+
+		return $orderedFields;
 	}
 
 }
