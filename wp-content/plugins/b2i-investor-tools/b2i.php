@@ -3,7 +3,7 @@
  * Plugin Name: b2i Investor Tools
  * Plugin URI:  http://www.b2itech.com
  * Description: SEC, press releases, stock chart, quote data, email notifications and more. Tools that automatically keep your Investors and website up-to-date.
- * Version:     1.0.7.7
+ * Version:     1.0.7.8
  * Author:      b2itech
  * Author URI:  http://www.b2itech.com
  * License:     GPLv2
@@ -11,7 +11,7 @@
  * Domain Path: /languages
  * @link https://www.b2itech.com
  * @package b2i
- * @version 1.0.7.7
+ * @version 1.0.7.8
  */
 
 /**
@@ -81,7 +81,7 @@ final class B2i {
 	 * @var  string
 	 * @since  0.2.0
 	 */
-	const VERSION = '1.0.7.7';
+	const VERSION = '1.0.7.8';
 	protected $bversion;
 
 
@@ -134,7 +134,7 @@ final class B2i {
 	protected $B2iErr = '';
 	protected $biz_id = '';
 	protected $postkey = '';
-	protected $postips = '66.111.109.135 66.111.109.141 66.111.109.108 66.111.109.109';
+	protected $postips = '192.31.142.164 192.31.142.165 192.31.142.182';
 	protected $surl;
 	protected $handle;
 	protected $contents;
@@ -165,7 +165,7 @@ https://code.tutsplus.com/articles/new-wp-config-tweaks-you-probably-dont-know--
 	function my_filter( $string ) {
 		global $allowedposttags;
 		$allowedposttags['style'] = array();
-		$allowedposttags['link'] = array( 'type' => array (''), 'rel' => array (''), 'href' => array ('') );
+		$allowedposttags['link'] = array( 'type' => array (''), 'rel' => array (''), 'media' => array (''), 'href' => array ('') );
 		return $string;
 	}
 
@@ -440,6 +440,7 @@ https://code.tutsplus.com/articles/new-wp-config-tweaks-you-probably-dont-know--
 								$post_title = $a->channel->item[$i]->title;
 								
 								// allow/prevent Dup posts
+								/*
 								if($adup == ''){
 									global $wpdb;
 									$query = $wpdb->prepare('SELECT ID FROM ' . $wpdb->posts . ' WHERE post_name = %s', sanitize_title_with_dashes($post_title));
@@ -451,6 +452,7 @@ https://code.tutsplus.com/articles/new-wp-config-tweaks-you-probably-dont-know--
 										die;              
 									}
 								}
+								*/
 								
 								
 								$my_post['post_title']  = strip_tags($post_title);
@@ -535,7 +537,7 @@ https://code.tutsplus.com/articles/new-wp-config-tweaks-you-probably-dont-know--
 	function b2i_custom_plugin_row_meta( $links, $file ) {
 		if ( strpos( $file, 'b2i.php' ) !== false ) {
 			$new_links = array(
-					'demo' => '<a href="https://demo.b2itech.com/" target="_blank">Live View</a>',
+					'demo' => '<a href="https://Explorer.b2itech.com/" target="_blank">B2i Explorer</a>',
 			);
 			$links = array_merge( $links, $new_links );
 		}
