@@ -392,7 +392,7 @@ class WPML_String_Translation {
 		global $__wpml_st_po_file_content;
 
 		if ( empty( $file ) && ! empty( $_GET['file'] ) ) {
-			$file = WPML_PLUGINS_DIR . '/' . filter_var( $_GET['file'], FILTER_SANITIZE_STRING );
+			$file = WPML_PLUGINS_DIR . '/' . \WPML\API\Sanitize::string( $_GET['file'] );
 		}
 
 		/** @phpstan-ignore-next-line */
@@ -434,7 +434,7 @@ class WPML_String_Translation {
 			$po .= $__wpml_st_po_file_content;
 
 			$filename = isset( $_GET['domain'] ) ?
-				filter_var( $_GET['domain'], FILTER_SANITIZE_STRING ) :
+				(string) \WPML\API\Sanitize::string( $_GET['domain'] ) :
 				basename( $file );
 
 			header( 'Content-Type: application/force-download' );

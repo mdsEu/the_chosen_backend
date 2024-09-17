@@ -65,10 +65,10 @@ function icl_st_init() {
 		}
 		$_GET['show_results'] = 'all';
 		if ( $_POST['icl_st_e_context'] ) {
-			$_GET['context'] = filter_var( $_POST['icl_st_e_context'], FILTER_SANITIZE_STRING );
+			$_GET['context'] = (string) \WPML\API\Sanitize::string( $_POST['icl_st_e_context'] );
 		}
 
-		$_GET['translation_language'] = filter_var( $_POST['icl_st_e_language'], FILTER_SANITIZE_STRING );
+		$_GET['translation_language'] = (string) \WPML\API\Sanitize::string( $_POST['icl_st_e_language'] );
 		$strings                      = icl_get_string_translations();
 		if ( ! empty( $strings ) ) {
 			$po = icl_st_generate_po_file( $strings );
@@ -77,10 +77,10 @@ function icl_st_init() {
 		}
 		if ( ! isset( $_POST['icl_st_pe_translations'] ) ) {
 			$popot  = 'pot';
-			$poname = $_POST['icl_st_e_context'] ? filter_var( urlencode( $_POST['icl_st_e_context'] ), FILTER_SANITIZE_STRING ) : 'all_context';
+			$poname = $_POST['icl_st_e_context'] ? (string) \WPML\API\Sanitize::string( urlencode( $_POST['icl_st_e_context'] )) : 'all_context';
 		} else {
 			$popot  = 'po';
-			$poname = filter_var( $_GET['context'], FILTER_SANITIZE_STRING ) . '-' . filter_var( $_GET['translation_language'], FILTER_SANITIZE_STRING );
+			$poname = \WPML\API\Sanitize::string( $_GET['context'] ?? '' ) . '-' . \WPML\API\Sanitize::string( $_GET['translation_language'] ?? '' );
 		}
 		header( 'Content-Type: application/force-download' );
 		header( 'Content-Type: application/octet-stream' );
@@ -140,11 +140,14 @@ function wpml_st_init_register_widget_titles() {
 		}
 		$name = preg_replace( '#-[0-9]+#', '', $aw );
 
-		$value = get_option( 'widget_' . $name );
+		$value = get_option( 'widget_' . $name, [] );
 		if ( isset( $value[ $suffix ]['title'] ) && $value[ $suffix ]['title'] ) {
 			$w_title = $value[ $suffix ]['title'];
 		} else {
 			$w_title                   = wpml_get_default_widget_title( $aw );
+			if ( ! isset( $value[ $suffix ] ) || ! is_array( $value[ $suffix ] ) ) {
+				$value[ $suffix ] = [];
+			}
 			$value[ $suffix ]['title'] = $w_title;
 			update_option( 'widget_' . $name, $value );
 		}

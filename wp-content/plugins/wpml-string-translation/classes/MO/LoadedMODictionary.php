@@ -43,7 +43,7 @@ class LoadedMODictionary {
 			$loaded_files = $property->getValue( $translationsController );
 
 			foreach ( $loaded_files as $loaded_file => $loaded_file_data ) {
-				$moFileName = str_replace('l10n.php', '.mo', $loaded_file);
+				$moFileName = str_replace('.l10n.php', '.mo', $loaded_file);
 				$locale = array_keys($loaded_file_data)[0];
 				$locale_data = $loaded_file_data[$locale];
 				foreach ( $locale_data as $domain => $translationFile ) {
