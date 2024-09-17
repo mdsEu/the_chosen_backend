@@ -92,7 +92,7 @@ class MO extends \MO {
 		$this->loaded_mo_dictionary
 			->getFiles( $this->domain, $this->locale )
 			->each( function( $mofile ) {
-				load_textdomain( $this->domain, $mofile );
+				load_textdomain( $this->domain, $mofile, $this->locale );
 			} );
 	}
 
