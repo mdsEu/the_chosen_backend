@@ -5,7 +5,7 @@ Plugin URI: https://toolset.com/?utm_source=typesplugin&utm_campaign=types&utm_m
 Description: Toolset Types defines custom content in WordPress. Easily create custom post types, fields and taxonomy and connect everything together.
 Author: OnTheGoSystems
 Author URI: http://www.onthegosystems.com
-Version: 3.4.20
+Version: 3.5.2
 License: GPLv2 or later
 
 Types is free software: you can redistribute it and/or modify
@@ -31,7 +31,7 @@ if ( ! function_exists( 'add_action' ) ) {
 
 // version
 if( ! defined( 'TYPES_VERSION' ) ) {
-	define( 'TYPES_VERSION', '3.4.20' );
+	define( 'TYPES_VERSION', '3.5.2' );
 }
 
 // backward compatibility

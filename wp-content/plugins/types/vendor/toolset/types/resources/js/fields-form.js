@@ -207,7 +207,7 @@ jQuery(function($){
         $(this).parent().append('<div class="js-wpcf-fields-type-message updated settings-error notice"><p>'+$(this).data('message-after-change')+'</p></div>');
         $('tbody tr', $(this).closest('table')).each(function(){
             if ( !$(this).hasClass('js-wpcf-fields-typeproof') ) {
-                $(this).hide();
+                $(this).remove();
             }
         });
     });
