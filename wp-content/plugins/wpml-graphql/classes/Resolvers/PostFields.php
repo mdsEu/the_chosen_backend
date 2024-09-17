@@ -2,78 +2,16 @@
 
 namespace WPML\GraphQL\Resolvers;
 
-use WPML\LIB\WP\Hooks;
-use function WPML\FP\spreadArgs;
 use WPGraphQL\AppContext;
 use WPGraphQL\Model\Model;
+use WPGraphQL\Model\Post;
 use GraphQL\Type\Definition\ResolveInfo;
 use WPML\GraphQL\Resolvers\Interfaces\TranslationFields;
 use WPML\GraphQL\Resolvers\Interfaces\ModelFields;
 
-class PostFields extends BaseFields implements TranslationFields, ModelFields {
+class PostFields extends ContentNodeFields implements TranslationFields, ModelFields {
 
-	/**
-	 * Resolve language field
-	 *
-	 * @param Model       $post
-	 * @param mixed[]     $args
-	 * @param AppContext  $context
-	 * @param ResolveInfo $info
-	 *
-	 * @return null|mixed[]
-	 */
-	public function resolveLanguageField(
-		Model $post,
-		$args,
-		AppContext $context,
-		ResolveInfo $info
-	) {
-		if ( ! $post instanceof \WPGraphQL\Model\Post ) {
-			return null;
-		}
-
-		$fields = array_keys( $info->getFieldSelection() );
-		$postId = $post->ID;
-
-		if ( empty( $fields ) ) {
-			return null;
-		}
-
-		if ( $post->isPreview ) {
-			// Preview post: get parent post language, if any
-			$postId = wp_get_post_parent_id( $post->ID );
-		}
-
-		$languageData = $this->helpers->getElementLanguageData( $postId, $post->post_type );
-
-		if ( ! $languageData ) {
-			return null;
-		}
-
-		return $this->helpers->filterFields( $languageData, $fields );
-	}
-
-	/**
-	 * Resolve language code field
-	 *
-	 * @param Model $post
-	 *
-	 * @return null|string
-	 */
-	public function resolveLanguageCodeField( Model $post ) {
-		if ( ! $post instanceof \WPGraphQL\Model\Post ) {
-			return null;
-		}
-
-		$postId = $post->ID;
-
-		if ( $post->isPreview ) {
-			// Preview post: get parent post language, if any
-			$postId = wp_get_post_parent_id( $post->ID );
-		}
-
-		return $this->helpers->getElementLanguageCode( $postId, $post->post_type );
-	}
+	const MODEL_OBJECT = 'PostObject';
 
 	/**
 	 * Resolve translation group id field
@@ -83,7 +21,7 @@ class PostFields extends BaseFields implements TranslationFields, ModelFields {
 	 * @return null|int
 	 */
 	public function resolveTranslationGroupIdField( Model $post ) {
-		if ( ! $post instanceof \WPGraphQL\Model\Post ) {
+		if ( ! $post instanceof Post ) {
 			return null;
 		}
 
@@ -91,7 +29,7 @@ class PostFields extends BaseFields implements TranslationFields, ModelFields {
 		$postId   = $post->ID;
 
 		if ( $post->isPreview ) {
-			$postId = wp_get_post_parent_id($post->ID);
+			$postId = wp_get_post_parent_id( $post->ID );
 		}
 
 		return apply_filters( 'wpml_element_trid', null, $postId, $wpmlType );
@@ -105,7 +43,7 @@ class PostFields extends BaseFields implements TranslationFields, ModelFields {
 	 * @return null|mixed[]
 	 */
 	public function resolveTranslationsField( Model $post ) {
-		if ( ! $post instanceof \WPGraphQL\Model\Post ) {
+		if ( ! $post instanceof Post ) {
 			return null;
 		}
 
@@ -114,7 +52,7 @@ class PostFields extends BaseFields implements TranslationFields, ModelFields {
 		$postId   = $post->ID;
 
 		if ( $post->isPreview ) {
-			$postId = wp_get_post_parent_id($post->ID);
+			$postId = wp_get_post_parent_id( $post->ID );
 		}
 
 		$trid         = apply_filters( 'wpml_element_trid', null, $postId, $wpmlType );
@@ -153,25 +91,19 @@ class PostFields extends BaseFields implements TranslationFields, ModelFields {
 	}
 
 	/**
-	 * Adjust the PostObject model fields related to URLs: 'uri' and 'link'
-	 *
-	 * @param mixed[]           $fields
-	 * @param string            $modelName
-	 * @param \WP_Post|\WP_Term $data
+	 * @param mixed[]              $fields
+	 * @param string               $modelName
+	 * @param mixed[]|object|mixed $data
 	 *
 	 * @return mixed[]
 	 */
 	public function adjustModelFields( $fields, $modelName, $data ) {
-		if ( 'PostObject' !== $modelName ) {
-			return $fields;
-		}
-
-		if ( ! $data instanceof \WP_Post ) {
+		if ( self::MODEL_OBJECT !== $modelName ) {
 			return $fields;
 		}
 
 		$currentLanguage = $this->helpers->getCurrentLanguage();
-		$languageCode = apply_filters( 'wpml_element_language_code', null, [
+		$languageCode    = apply_filters( 'wpml_element_language_code', null, [
 			'element_id'   => $data->ID,
 			'element_type' => $data->post_type,
 		]);
@@ -196,12 +128,6 @@ class PostFields extends BaseFields implements TranslationFields, ModelFields {
 		};
 
 		$fields['uri'] = function() use ( $data, $currentLanguage, $languageCode ) {
-			$currentLanguage = $this->helpers->getCurrentLanguage();
-			$languageCode = apply_filters( 'wpml_element_language_code', null, [
-				'element_id'   => $data->ID,
-				'element_type' => $data->post_type,
-			]);
-
 			$this->helpers->setCurrentLanguage( $languageCode );
 
 			$link = get_permalink( $data );

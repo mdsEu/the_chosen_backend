@@ -3,15 +3,15 @@
 namespace WPML\GraphQL\Hooks\ObjectEntity;
 
 use WPML\GraphQL\Helpers;
-use WPML\GraphQL\Resolvers\CommentFields;
+use WPML\GraphQL\Resolvers\ContentNodeFields;
 
-class CommentObject extends BaseObject {
+class ContentNodeObject extends BaseObject {
 
-	const OBJECT_TYPE = 'comment';
+	const OBJECT_TYPE = 'ContentNode';
 
 	// phpcs:ignore Generic.CodeAnalysis.UselessOverridingMethod.Found
 	public function __construct(
-		CommentFields $fieldsResolver,
+		ContentNodeFields $fieldsResolver,
 		Helpers $helpers
 	) {
 		parent::__construct( $fieldsResolver, $helpers );

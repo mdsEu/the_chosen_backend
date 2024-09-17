@@ -3,15 +3,16 @@
 namespace WPML\GraphQL\Hooks\ObjectEntity;
 
 use WPML\GraphQL\Helpers;
-use WPML\GraphQL\Resolvers\CommentFields;
+use WPML\GraphQL\Resolvers\PostFields;
 
-class CommentObject extends BaseObject {
+class ContentTypeObject extends BaseObject {
 
-	const OBJECT_TYPE = 'comment';
+	const OBJECT_TYPE      = 'ContentNode';
+	const FILTER_FROM_TYPE = 'ContentType';
 
 	// phpcs:ignore Generic.CodeAnalysis.UselessOverridingMethod.Found
 	public function __construct(
-		CommentFields $fieldsResolver,
+		PostFields $fieldsResolver,
 		Helpers $helpers
 	) {
 		parent::__construct( $fieldsResolver, $helpers );
@@ -21,8 +22,7 @@ class CommentObject extends BaseObject {
 	 * @see BaseObject::registerObjectFieldsAndFilters
 	 */
 	public function registerObjectFieldsAndFilters() {
-		$this->registerLanguageFilter( self::OBJECT_TYPE );
-		$this->manageFields( self::OBJECT_TYPE );
+		$this->registerLanguageFilter( self::OBJECT_TYPE, self::FILTER_FROM_TYPE );
 	}
 
 }
