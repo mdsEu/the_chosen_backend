@@ -5,10 +5,13 @@ namespace WPML\GraphQL;
 class Helpers {
 
 	/**@var array<string, array<string, string>> */
-	private $active_languages = null;
+	private $activeLanguages = null;
 
 	/** @var string|null */
-	private $default_language = null;
+	private $defaultLanguage = null;
+
+	/** @var bool */
+	private $isAllLanguages = false;
 
 	/**
 	 * Get active WPML languages
@@ -21,10 +24,10 @@ class Helpers {
 	 */
 	public function getAvailableLanguages() {
 		// This happens too late to resove the language field on queries on non default languages!
-		if ( null === $this->active_languages ) {
-			$this->active_languages = apply_filters( 'wpml_active_languages', [] );
+		if ( null === $this->activeLanguages ) {
+			$this->activeLanguages = apply_filters( 'wpml_active_languages', [] );
 		}
-		return $this->active_languages;
+		return $this->activeLanguages;
 	}
 
 	/**
@@ -33,18 +36,21 @@ class Helpers {
 	 * @return null|string
 	 */
 	public function getDefaultLanguage() {
-		if ( null === $this->default_language ) {
-			$this->default_language = apply_filters( 'wpml_default_language', null );
+		if ( null === $this->defaultLanguage ) {
+			$this->defaultLanguage = apply_filters( 'wpml_default_language', null );
 		}
-		return $this->default_language;
+		return $this->defaultLanguage;
 	}
 
 	/**
-	 * Get current language
+	 * Get current language, maybe setting an 'all' value from the top-level query.
 	 *
 	 * @return null|string
 	 */
 	public function getCurrentLanguage() {
+		if ( $this->isAllLanguages() ) {
+			return 'all';
+		}
 		return apply_filters( 'wpml_current_language', null );
 	}
 
@@ -84,14 +90,40 @@ class Helpers {
 	}
 
 	/**
-	 * Set a given language as the current one
+	 * @return bool
+	 */
+	public function isAllLanguages() {
+		return $this->isAllLanguages;
+	}
+
+	/**
+	 * @param string $lang
+	 */
+	private function maybeSetGlobalAllLanguages( $lang ) {
+		if ( $this->isAllLanguages ) {
+			return;
+		}
+		$this->isAllLanguages = 'all' === $lang;
+	}
+
+	/**
+	 * Set a given language as the current one.
+	 *
+	 * When setting 'all' as the current language, set a flag for it and turn to the default language;
+	 * otherwise, the actual current language is not changed and the wpml_current_language filter
+	 * returns the previous current language.
 	 *
 	 * @param string $lang
 	 *
 	 * @return void
 	 */
 	public function setCurrentLanguage( $lang ) {
-		do_action( 'wpml_switch_language', $lang );
+		$this->maybeSetGlobalAllLanguages( $lang );
+		if ( 'all' === $lang ) {
+			do_action( 'wpml_switch_language', $this->getDefaultLanguage() );
+		} else {
+			do_action( 'wpml_switch_language', $lang );
+		}
 	}
 
 	/**
@@ -290,7 +322,7 @@ class Helpers {
 	 *
 	 * @codeCoverageIgnore
 	 */
-	public function getGraphqlAllowedPostTypes( $returnType ) {
+	public function getGraphqlAllowedPostTypes( $returnType = 'objects' ) {
 		return \WPGraphQL::get_allowed_post_types( $returnType );
 	}
 
@@ -303,8 +335,15 @@ class Helpers {
 	 *
 	 * @codeCoverageIgnore
 	 */
-	public function getGraphqlAllowedTaxonomies( $returnType ) {
+	public function getGraphqlAllowedTaxonomies( $returnType = 'objects' ) {
 		return \WPGraphQL::get_allowed_taxonomies( $returnType );
+	}
+
+	/**
+	 * @return array
+	 */
+	public function getMenuLocations() {
+		return get_theme_mod( 'nav_menu_locations' );
 	}
 
 }

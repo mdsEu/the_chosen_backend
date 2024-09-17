@@ -3,15 +3,17 @@
 namespace WPML\GraphQL\Hooks\ObjectEntity;
 
 use WPML\GraphQL\Helpers;
-use WPML\GraphQL\Resolvers\CommentFields;
+use WPML\GraphQL\Resolvers\TermFields;
 
-class CommentObject extends BaseObject {
+// TODO Skip query results in hidden languages when filtering by all languages
 
-	const OBJECT_TYPE = 'comment';
+class TermNodeObject extends BaseObject {
+
+	const OBJECT_TYPE = 'TermNode';
 
 	// phpcs:ignore Generic.CodeAnalysis.UselessOverridingMethod.Found
 	public function __construct(
-		CommentFields $fieldsResolver,
+		TermFields $fieldsResolver,
 		Helpers $helpers
 	) {
 		parent::__construct( $fieldsResolver, $helpers );
