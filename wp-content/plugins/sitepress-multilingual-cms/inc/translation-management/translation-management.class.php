@@ -1225,14 +1225,14 @@ class TranslationManagement {
 	function messages_by_type( $type ) {
 		$messages = $this->messages;
 
-		$result = false;
+		$result = [];
 		foreach ( $messages as $message ) {
 			if ( $type === false || ( ! empty( $message['type'] ) && $message['type'] == $type ) ) {
 				$result[] = $message;
 			}
 		}
 
-		return $result;
+		return $result ?: false;
 	}
 
 	public function add_basket_message( $type, $message, $id = null ) {
@@ -1687,9 +1687,9 @@ class TranslationManagement {
 			foreach ( $strings as $string_id => $data ) {
 				if ( $source_language ) {
 					// set post_id
-					$final_strings[ $string_id ] = false;
+					$final_strings[ $string_id ] = [];
 					// set post_title
-					$final_strings[ $string_id ]['post_title'] = icl_get_string_by_id( $string_id );
+					$final_strings[ $string_id ]['post_title'] = icl_get_string_by_id( $string_id ) ?: '';
 					// set post_type
 					$final_strings[ $string_id ]['post_type'] = 'string';
 					// set from_lang
