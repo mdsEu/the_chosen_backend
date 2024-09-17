@@ -193,12 +193,16 @@ class WPML_PB_Update_Shortcodes_In_Content {
 	}
 
 	/**
-	 * @param string $translation
-	 * @param string $encoding
+	 * @param string|null $translation
+	 * @param string      $encoding
 	 *
 	 * @return string
 	 */
 	private function filter_attribute_translation( $translation, $encoding ) {
+		if ( is_null( $translation ) ) {
+			return '';
+		}
+
 		if ( 'allow_html_tags' !== $encoding ) {
 			$translation = htmlspecialchars( htmlspecialchars_decode( $translation ) );
 		}

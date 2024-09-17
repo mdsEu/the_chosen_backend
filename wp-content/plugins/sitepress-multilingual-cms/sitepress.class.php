@@ -92,6 +92,9 @@ class SitePress extends WPML_WPDB_User implements
 	 */
 	private $current_request_data = array();
 
+	/** @var int */
+	public $ROOT_URL_PAGE_ID;
+
 	function __construct() {
 		do_action( 'wpml_before_startup' );
 		/** @var array $sitepress_settings */
@@ -650,13 +653,13 @@ class SitePress extends WPML_WPDB_User implements
 			$username = '';
 			if ( function_exists( 'wp_parse_auth_cookie' ) ) {
 				$cookie_data = wp_parse_auth_cookie();
-				$username    = isset( $cookie_data['username'] ) ? $cookie_data['username'] : null;
+				$username    = $cookie_data['username'] ?? '';
 			}
 			$user_obj = new WP_User( 0, $username );
 		} else {
 			$user_obj = $current_user;
 		}
-		$user_id   = isset( $user_obj->ID ) ? $user_obj->ID : 0;
+		$user_id   = $user_obj->ID ?? 0;
 		$user_lang = $this->get_user_admin_language( $user_id );
 		$user_lang = $user_lang ? $user_lang : $this->get_current_language();
 
@@ -4110,7 +4113,7 @@ class SitePress extends WPML_WPDB_User implements
 				'plugin'    => false,
 				'slug'      => 'wpml-media',
 			),
-			'WooCommerce Multilingual'    => array(
+			'WooCommerce Multilingual & Multicurrency' => array(
 				'installed' => false,
 				'active'    => false,
 				'file'      => false,

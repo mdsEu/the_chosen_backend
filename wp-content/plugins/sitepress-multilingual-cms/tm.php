@@ -198,6 +198,7 @@ function wpml_tm_load( $sitepress = null ) {
 			\WPML\TM\Editor\ManualJobCreationErrorNotice::class,
 			\WPML\ICLToATEMigration\Loader::class,
 			\WPML\Support\ATE\Hooks::class,
+			\WPML\TM\ATE\AutoTranslate\Hooks\JobsCountCacheInvalidateAction::class,
 		];
 		$action_filter_loader->load( $ams_ate_actions );
 

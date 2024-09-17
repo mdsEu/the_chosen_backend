@@ -14,5 +14,5 @@ return array(
     '914c4a8cb7e06f7d6e1ddf6997c1785f' => $vendorDir . '/wpml/fp/core/functions.php',
     '348332d63f916da7598941d18c24311d' => $vendorDir . '/wpml/fp/core/strings_functions.php',
     '766b758ee51e52c53cf3312a1dba9e34' => $vendorDir . '/wpml/fp/core/system.php',
-    '995b589e693a50f54393aa31ee1c3763' => $vendorDir . '/yoast/whip/src/facades/wordpress.php',
+    '81db02b30f563b92907e271b66bd7559' => $vendorDir . '/yoast/whip/src/Facades/wordpress.php',
 );
