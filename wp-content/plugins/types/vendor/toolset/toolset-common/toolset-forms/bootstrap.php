@@ -1,8 +1,5 @@
 <?php
 
-/** @deprecated This may not be defined at all times. Use TOOLSET_COMMON_VERSION instead */
-define('WPTOOLSET_FORMS_VERSION', '0.1.2');
-
 /** @deprecated This may not be defined at all times. Use TOOLSET_COMMON_PATH . '/toolset-forms' instead */
 define('WPTOOLSET_FORMS_ABSPATH', dirname(__FILE__));
 
