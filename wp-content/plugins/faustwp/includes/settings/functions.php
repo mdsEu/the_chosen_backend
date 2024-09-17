@@ -7,6 +7,9 @@
 
 namespace WPE\FaustWP\Settings;
 
+use function WPE\FaustWP\Telemetry\generate_telemetry_client_id;
+use function WPE\FaustWP\Telemetry\get_telemetry_client_id;
+
 if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
@@ -30,6 +33,15 @@ function is_rewrites_enabled() {
 }
 
 /**
+ * Determines if posts and category URLs should link to the WP site.
+ *
+ * @return bool
+ */
+function use_wp_domain_for_post_and_category_urls() {
+	return ! is_rewrites_enabled();
+}
+
+/**
  * Determine if themes are disabled.
  *
  * @return bool True if themes are disabled, false if else.
@@ -47,6 +59,23 @@ function is_image_source_replacement_enabled() {
 	return '1' === faustwp_get_setting( 'enable_image_source' );
 }
 
+/**
+ * Determine if sourcing images from WP domain is enabled.
+ *
+ * @return bool True if image sources from WP are enabled, false if else.
+ */
+function use_wp_domain_for_media() {
+	return is_image_source_replacement_enabled();
+}
+
+/**
+ * Determine if Faust telemetry is enabled.
+ *
+ * @return bool True if telemetry is enabled, false if else.
+ */
+function is_telemetry_enabled() {
+	return '1' === faustwp_get_setting( 'enable_telemetry' );
+}
 
 /**
  * Get the secret key setting.
@@ -60,13 +89,13 @@ function get_secret_key() {
 /**
  * Get a Faust setting by name.
  *
- * @param string $name    The setting name.
- * @param mixed  $default Optional setting value. Default false.
+ * @param string $name          The setting name.
+ * @param mixed  $default_value Optional setting value. Default false.
  *
  * @return mixed The setting value.
  */
-function faustwp_get_setting( $name, $default = false ) {
-	$value    = $default;
+function faustwp_get_setting( $name, $default_value = false ) {
+	$value    = $default_value;
 	$settings = faustwp_get_settings();
 
 	if ( isset( $settings[ $name ] ) ) {
@@ -78,9 +107,9 @@ function faustwp_get_setting( $name, $default = false ) {
 	 *
 	 * @param mixed  $value   The setting value.
 	 * @param string $name    The setting name.
-	 * @param mixed  $default Optional setting value.
+	 * @param mixed  $default_value Optional setting value.
 	 */
-	return apply_filters( 'faustwp_get_setting', $value, $name, $default );
+	return apply_filters( 'faustwp_get_setting', $value, $name, $default_value );
 }
 
 /**
@@ -122,13 +151,15 @@ function faustwp_get_settings() {
  * @return void
  */
 function maybe_set_default_settings() {
-	$secret_key = get_secret_key();
-	$settings   = faustwp_get_settings();
+	$secret_key          = get_secret_key();
+	$settings            = faustwp_get_settings();
+	$telemetry_client_id = get_telemetry_client_id();
 
 	if ( empty( $settings ) ) {
 		faustwp_update_setting( 'disable_theme', '0' );
 		faustwp_update_setting( 'enable_rewrites', '1' );
 		faustwp_update_setting( 'enable_redirects', '1' );
+		faustwp_update_setting( 'enable_image_source', '1' );
 
 		// Force WP to regenerate rewrite rules without calling flush_rewrite_rules which breaks
 		// things when used inside of `switch_to_blog()`.
@@ -139,6 +170,10 @@ function maybe_set_default_settings() {
 
 	if ( ! $secret_key ) {
 		faustwp_update_setting( 'secret_key', wp_generate_uuid4() );
+	}
+
+	if ( ! $telemetry_client_id ) {
+		generate_telemetry_client_id();
 	}
 }
 
