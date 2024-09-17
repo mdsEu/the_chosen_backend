@@ -1,5 +1,6 @@
 <?php
 
+#[AllowDynamicProperties]
 class WPML_LS_Menu_Item {
 
 	/**

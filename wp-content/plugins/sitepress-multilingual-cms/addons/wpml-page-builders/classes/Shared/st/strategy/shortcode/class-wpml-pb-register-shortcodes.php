@@ -146,16 +146,20 @@ class WPML_PB_Register_Shortcodes {
 			return $title;
 		}
 
-		$current_title = $this->get_shortcode_string_title( $string_id );
+		$shortcode_attributes = [];
+		$shortcode_tag        = $shortcode['tag'];
+		$current_title        = $this->get_shortcode_string_title( $string_id );
 
-		$current_title_parts = explode( ':', $current_title );
-		$current_title_parts = array_map( 'trim', $current_title_parts );
+		if ( $current_title ) {
+			$current_title_parts = explode( ':', $current_title );
+			$current_title_parts = array_map( 'trim', $current_title_parts );
 
-		$shortcode_tag = $shortcode['tag'];
-		if ( isset( $current_title_parts[1] ) ) {
-			$shortcode_attributes = explode( ',', $current_title_parts[1] );
-			$shortcode_attributes = array_map( 'trim', $shortcode_attributes );
+			if ( isset( $current_title_parts[1] ) ) {
+				$shortcode_attributes = explode( ',', $current_title_parts[1] );
+				$shortcode_attributes = array_map( 'trim', $shortcode_attributes );
+			}
 		}
+
 		$shortcode_attributes[] = $attribute;
 		sort( $shortcode_attributes );
 		$shortcode_attributes = array_unique( $shortcode_attributes );

@@ -31,6 +31,9 @@ class WPML_TM_ATE_Models_Job_Create {
 	/** @var int */
 	public $wpml_chars_count;
 
+	/** @var bool */
+	public $apply_memory;
+
 	/**
 	 * WPML_TM_ATE_Models_Job_Create constructor.
 	 *
