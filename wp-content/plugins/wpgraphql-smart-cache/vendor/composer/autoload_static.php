@@ -4,14 +4,12 @@
 
 namespace Composer\Autoload;
 
-class ComposerStaticInit2e299eda5dd2b8c3067fa349ec23c34b
+class ComposerStaticInit6cb756d7256efd8c05bebfa385dd5ec7
 {
     public static $prefixLengthsPsr4 = array (
         'W' => 
         array (
             'WPGraphQL\\SmartCache\\' => 21,
-            'WPGraphQL\\PersistedQueries\\' => 27,
-            'WPGraphQL\\Cache\\' => 16,
         ),
         'A' => 
         array (
@@ -23,14 +21,6 @@ class ComposerStaticInit2e299eda5dd2b8c3067fa349ec23c34b
         'WPGraphQL\\SmartCache\\' => 
         array (
             0 => __DIR__ . '/../..' . '/src',
-        ),
-        'WPGraphQL\\PersistedQueries\\' => 
-        array (
-            0 => __DIR__ . '/../..' . '/src',
-        ),
-        'WPGraphQL\\Cache\\' => 
-        array (
-            0 => __DIR__ . '/../..' . '/src/Cache',
         ),
         'Appsero\\' => 
         array (
@@ -53,7 +43,9 @@ class ComposerStaticInit2e299eda5dd2b8c3067fa349ec23c34b
         'WPGraphQL\\SmartCache\\Cache\\Results' => __DIR__ . '/../..' . '/src/Cache/Results.php',
         'WPGraphQL\\SmartCache\\Document' => __DIR__ . '/../..' . '/src/Document.php',
         'WPGraphQL\\SmartCache\\Document\\Description' => __DIR__ . '/../..' . '/src/Document/Description.php',
+        'WPGraphQL\\SmartCache\\Document\\GarbageCollection' => __DIR__ . '/../..' . '/src/Document/GarbageCollection.php',
         'WPGraphQL\\SmartCache\\Document\\Grant' => __DIR__ . '/../..' . '/src/Document/Grant.php',
+        'WPGraphQL\\SmartCache\\Document\\Group' => __DIR__ . '/../..' . '/src/Document/Group.php',
         'WPGraphQL\\SmartCache\\Document\\Loader' => __DIR__ . '/../..' . '/src/Document/Loader.php',
         'WPGraphQL\\SmartCache\\Document\\MaxAge' => __DIR__ . '/../..' . '/src/Document/MaxAge.php',
         'WPGraphQL\\SmartCache\\Storage\\Ephemeral' => __DIR__ . '/../..' . '/src/Storage/Ephemeral.php',
@@ -66,9 +58,9 @@ class ComposerStaticInit2e299eda5dd2b8c3067fa349ec23c34b
     public static function getInitializer(ClassLoader $loader)
     {
         return \Closure::bind(function () use ($loader) {
-            $loader->prefixLengthsPsr4 = ComposerStaticInit2e299eda5dd2b8c3067fa349ec23c34b::$prefixLengthsPsr4;
-            $loader->prefixDirsPsr4 = ComposerStaticInit2e299eda5dd2b8c3067fa349ec23c34b::$prefixDirsPsr4;
-            $loader->classMap = ComposerStaticInit2e299eda5dd2b8c3067fa349ec23c34b::$classMap;
+            $loader->prefixLengthsPsr4 = ComposerStaticInit6cb756d7256efd8c05bebfa385dd5ec7::$prefixLengthsPsr4;
+            $loader->prefixDirsPsr4 = ComposerStaticInit6cb756d7256efd8c05bebfa385dd5ec7::$prefixDirsPsr4;
+            $loader->classMap = ComposerStaticInit6cb756d7256efd8c05bebfa385dd5ec7::$classMap;
 
         }, null, ClassLoader::class);
     }

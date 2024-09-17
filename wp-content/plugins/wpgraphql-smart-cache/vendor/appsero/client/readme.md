@@ -1,5 +1,4 @@
-# AppSero Client
-### Version 1.2.3
+# Appsero - Client
 
 - [Installation](#installation)
 - [Insights](#insights)
@@ -28,7 +27,7 @@ require __DIR__ . '/vendor/autoload.php';
 
 Clone the repository in your project.
 
-```bash
+```
 cd /path/to/your/project/folder
 git clone https://github.com/AppSero/client.git appsero
 ```
@@ -36,9 +35,7 @@ git clone https://github.com/AppSero/client.git appsero
 Now include the dependencies in your plugin/theme.
 
 ```php
-if( !class_exists('Appsero\Client') ) {
-    require __DIR__ . '/appsero/src/Client.php';
-}
+require __DIR__ . '/appsero/src/Client.php';
 ```
 
 ## Insights
@@ -264,74 +261,6 @@ add_filter( 'appsero_custom_deactivation_reasons', function () {
 } );
 ```
 
-<br>
-<br>
-
-# Extended Actions
- 
-#### 1. After allowing tracking permission
-
-```php
-// Fires after tracking permission allowed (optin)
-function sample_tracker_optin(array $data){
-    // use data, as it's now permitted to send anywhere
-    // Like FLuentCRM
-}
-add_action('PLUGIN_OR_THEME_SLUG_tracker_optin', 'sample_tracker_optin', 10);
-```
-
-#### 2. After dening tracking permission
-```php
-// Fires after tracking permission denied (optout)
-function sample_tracker_optout(){
-    // Don't ask for further permission, respect user's decision 
-}
-add_action('PLUGIN_OR_THEME_SLUG_tracker_optout', 'sample_tracker_optout', 10);
-```
-
-#### 3. After license is activated
-```php
-// Fires after license is activated successfully
-function sample_license_activated(array $response){
-    // use response
-    // response has license information
-    // Like FLuentCRM
-}
-add_action('PLUGIN_OR_THEME_SLUG_license_activated', 'sample_license_activated', 10);
-```
-
-
-#### 4. After license is deactivated
-```php
-// Fires after license deactivated successfully
-function sample_license_deactivated(array $response){
-    // use response
-    // response has license information
-}
-add_action('PLUGIN_OR_THEME_SLUG_license_deactivated', 'sample_license_deactivated', 10);
-```
-
-
-
-#### 5. After license is refreshed
-```php
-// Fires after license refreshed successfully
-function sample_license_refreshed(){
-    // license just refreshed
-}
-add_action('PLUGIN_OR_THEME_SLUG_license_refreshed', 'sample_license_refreshed', 10);
-```
-
-#### 6. After uninstall reason is submitted
-```php
-// Fires after uninstall reason submitted
-function sample_uninstall_reason_submitted(array $data){
-    // use the data
-    // Like FLuentCRM
-}
-add_action('PLUGIN_OR_THEME_SLUG_uninstall_reason_submitted', 'sample_uninstall_reason_submitted', 10);
-```
- 
 ## Credits
 
 Created and maintained by [Appsero](https://appsero.com).
