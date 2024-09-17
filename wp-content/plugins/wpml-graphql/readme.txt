@@ -1,2 +1,2 @@
 === WPML GraphQL ===
-Stable tag: 1.0.0
+Stable tag: 1.1.1
