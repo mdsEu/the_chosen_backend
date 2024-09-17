@@ -34,7 +34,7 @@ function wpcf_fields_date() {
 }
 
 /*
- * 
+ *
  * Date Field
  */
 
@@ -56,21 +56,21 @@ if ( !function_exists( 'wpv_filter_parse_date' ) ) {
 }
 
 /*
- * 
- * 
- * 
- * 
- * 
+ *
+ *
+ *
+ *
+ *
  * Filters
  */
 /*
- * 
- * 
+ *
+ *
  * This one is called to convert stored timestamp to array,
  * appending Hour and Minute data too.
- * 
+ *
  * Called from WPCF_Field:: _get_meta()
- * 
+ *
  * Returns array(
  *  'timestamp' => 14435346,
  *  'datepicker' => 'April 9, 2012',
@@ -81,21 +81,21 @@ add_filter( 'wpcf_fields_type_date_value_get',
         'wpcf_fields_date_value_get_filter', 10, 4 );
 
 /*
- * 
+ *
  * Used to convert submitted data (array) to timestamp before saving field.
  * Called from WPCF_Field::_filter_save_value()
- * 
+ *
  * Returns timestamp
  */
 add_filter( 'wpcf_fields_type_date_value_save',
         'wpcf_fields_date_value_save_filter', 10, 3 );
 
 /*
- * 
+ *
  * Built-in Types Conditinal check hook.
  * Used for Conditional value.
  * If array - convert to timestamp.
- * 
+ *
  * Returns timestamp
  */
 add_filter( 'wpcf_conditional_display_compare_condition_value',
@@ -109,7 +109,7 @@ if ( defined( 'DOING_AJAX' ) ) {
 }
 
 /*
- * 
+ *
  * This is added for Custom Conditional Statement.
  * Use more specific hook in evaluate.php
  */
@@ -122,16 +122,16 @@ add_action( 'wpv_condition', 'wpcf_fields_custom_conditional_statement_hook' );
 
 /**
  * From data for post edit page.
- * 
- * @param type $field 
+ *
+ * @param type $field
  * @param type $data
- * @param type $field_object Field instance 
+ * @param type $field_object Field instance
  */
 function wpcf_fields_date_meta_box_form( $field, $field_object = null ) {
 
     /*
      * Added extra fields 'hour' and 'minute'.
-     * 
+     *
      * If value is not array it is assumed that DB entry is timestamp()
      * and data is converted to array.
      */
@@ -146,15 +146,15 @@ function wpcf_fields_date_meta_box_form( $field, $field_object = null ) {
     }
 
     /*
-     * 
+     *
      * Do not forget to trigger datepicker script
      * Only trigger on AJAX call (inserting new)
      */
     $js_trigger = defined( 'DOING_AJAX' ) ? '<script type="text/javascript">wpcfFieldsDateInit(\'\');</script>' : '';
 
     /*
-     * 
-     * 
+     *
+     *
      * Set Form
      */
     $unique_id = wpcf_unique_id( serialize( $field ) );
@@ -184,7 +184,7 @@ function wpcf_fields_date_meta_box_form( $field, $field_object = null ) {
     }
 
     /*
-     * 
+     *
      * If set 'date_and_time' add time
      */
     if ( !empty( $field['data']['date_and_time'] )
@@ -245,9 +245,9 @@ function wpcf_fields_date_meta_box_form( $field, $field_object = null ) {
 
 /**
  * Parses date meta.
- * 
+ *
  * Use this as main function.
- * 
+ *
  * @param int $value timestamp
  * @param type $field Field data
  * $param string $return Specify to return array or specific element of same array
@@ -259,7 +259,7 @@ function wpcf_fields_date_value_get_filter( $value, $field, $return = 'array',
     global $wpcf;
 
     /*
-     * 
+     *
      * Fix for leftover
      */
     if ( $context != 'check_leftover' ) {
@@ -304,8 +304,8 @@ function wpcf_fields_date_value_get_filter( $value, $field, $return = 'array',
             //https://icanlocalize.basecamphq.com/projects/7393061-toolset/todo_items/194818870/comments
             && (
                 preg_match( '/^\d+$/', $value['datepicker'] )
-                || ( 
-                 -12219292800 <= $value['datepicker'] 
+                || (
+                 -12219292800 <= $value['datepicker']
                  && $value['datepicker'] <= 32535215940
                 )
                )
@@ -314,15 +314,23 @@ function wpcf_fields_date_value_get_filter( $value, $field, $return = 'array',
             unset($value['datepicker']);
         }
         $value = wpcf_fields_date_value_check( $value );
-    } else {
+    } else if ( is_numeric( $value ) ) {
         $value = array(
-            'timestamp' => $value,
-            'hour' => adodb_date( 'H', $value ),
-            'minute' => adodb_date( 'i', $value ),
+            'timestamp'  => $value,
+            'hour'       => adodb_date( 'H', $value ),
+            'minute'     => adodb_date( 'i', $value ),
             'datepicker' => adodb_date( $date_format, $value ),
         );
         $value = wpcf_fields_date_value_check( $value );
-    }
+    } else {
+		$value = array(
+            'timestamp'  => null,
+            'hour'       => 0,
+            'minute'     => 0,
+            'datepicker' => $value,
+        );
+        $value = wpcf_fields_date_value_check( $value );
+	}
 
     // Debug
     $wpcf->debug->dates[] = array(
@@ -465,8 +473,8 @@ function wpcf_fields_date_editor_callback( $field, $settings ) {
 
 /**
  * Inserts shortcode in editor.
- * 
- * @return type 
+ *
+ * @return type
  *
  * @since m2m Probably DEPRECATED
  */
@@ -499,6 +507,6 @@ function wpcf_fields_date_editor_submit( $data, $field, $context ) {
     } else {
         $shortcode = wpcf_fields_get_shortcode( $field, $add );
     }
-    
+
     return $shortcode;
 }

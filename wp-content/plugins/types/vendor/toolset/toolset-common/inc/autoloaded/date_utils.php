@@ -261,7 +261,7 @@ class Toolset_Date_Utils {
 	 * @since 2.3
 	 */
 	public function is_timestamp_in_range( $timestamp ) {
-		return self::TIMESTAMP_LOWER_BOUNDARY <= $timestamp && $timestamp <= self::TIMESTAMP_UPPER_BOUNDARY;
+		return is_numeric($timestamp) && self::TIMESTAMP_LOWER_BOUNDARY <= $timestamp && $timestamp <= self::TIMESTAMP_UPPER_BOUNDARY;
 	}
 
 

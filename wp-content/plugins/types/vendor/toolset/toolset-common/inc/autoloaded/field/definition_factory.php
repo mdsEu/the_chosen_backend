@@ -25,10 +25,10 @@ abstract class Toolset_Field_Definition_Factory implements Toolset_Field_Definit
 	}
 
 
-	final private function __construct() { }
+	private function __construct() { }
 
 
-	final private function __clone() { }
+	private function __clone() { }
 
 
 	/**
