@@ -4,6 +4,7 @@ namespace DeliciousBrains\WP_Offload_Media\Pro\Background_Processes;
 
 use AS3CF_Error;
 use DeliciousBrains\WP_Offload_Media\Items\Item;
+use DeliciousBrains\WP_Offload_Media\Providers\Storage\Storage_Provider;
 use Exception;
 
 class Copy_Buckets_Process extends Background_Tool_Process {
@@ -109,10 +110,7 @@ class Copy_Buckets_Process extends Background_Tool_Process {
 					$args['ACL'] = $acl;
 				}
 
-				/**
-				 * Filter documented in Items\Upload_Handler::pre_handle
-				 */
-				$args = apply_filters( 'as3cf_object_meta', $args, $source_id, $size, true, $as3cf_item->get_item_source_array() );
+				$args = Storage_Provider::filter_object_meta( $args, $as3cf_item, $size, true );
 
 				// Protect against filter use and only set ACL if actually required, some storage provider and bucket settings disable changing ACL.
 				if ( isset( $args['ACL'] ) && empty( $acl ) ) {

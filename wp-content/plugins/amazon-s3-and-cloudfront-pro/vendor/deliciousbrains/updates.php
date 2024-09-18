@@ -41,7 +41,7 @@ class Delicious_Brains_API_Updates {
 	function __construct( Delicious_Brains_API_Licences $licences ) {
 		$this->licences = $licences;
 
-		if ( ( ! is_multisite() && is_admin() ) || is_network_admin() ) {
+		if ( ( is_admin() ) || is_network_admin() || ( defined( 'WP_CLI' ) && class_exists( 'WP_CLI' ) ) ) {
 			add_filter( 'as3cf_plugins', array( $this, 'register_plugin_for_updates' ) );
 			add_filter( 'site_transient_update_plugins', array( $this, 'site_transient_update_plugins' ) );
 			add_filter( 'plugins_api', array( $this, 'short_circuit_wordpress_org_plugin_info_request' ), 10, 3 );

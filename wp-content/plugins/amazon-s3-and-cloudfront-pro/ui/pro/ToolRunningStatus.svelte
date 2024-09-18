@@ -70,6 +70,9 @@
 
 {#if tool}
 	<div class="nav-status-wrapper tool-running">
+		<!-- TODO: Fix a11y. -->
+		<!-- svelte-ignore a11y-no-static-element-interactions -->
+		<!-- svelte-ignore a11y-click-events-have-key-events -->
 		<div class="nav-status" {title} on:click={() => push("/tools")}>
 			<p class="status-text" {title}>
 				<strong>{tool.progress}%</strong>
