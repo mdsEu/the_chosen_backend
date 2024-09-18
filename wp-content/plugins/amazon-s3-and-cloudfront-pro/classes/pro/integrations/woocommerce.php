@@ -192,7 +192,7 @@ class Woocommerce extends Integration {
 			}
 		}
 
-		if ( false !== $remote_url ) {
+		if ( is_string( $remote_url ) && ! empty( $remote_url ) ) {
 			$this->re_hydrated_urls[ $remote_url ] = array(
 				'id'   => $attachment_id,
 				'size' => $size,

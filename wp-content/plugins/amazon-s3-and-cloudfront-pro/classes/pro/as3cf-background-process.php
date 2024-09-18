@@ -400,7 +400,7 @@ abstract class AS3CF_Background_Process extends AS3CF_Async_Request {
 				function ( $item ) use ( $column, $value_column ) {
 					$batch       = new stdClass();
 					$batch->key  = $item->$column;
-					$batch->data = maybe_unserialize( $item->$value_column );
+					$batch->data = AS3CF_Utils::maybe_unserialize( $item->$value_column );
 
 					return $batch;
 				},
