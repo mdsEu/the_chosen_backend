@@ -2,6 +2,7 @@
 
 namespace DeliciousBrains\WP_Offload_Media\Pro\Integrations;
 
+use AS3CF_Utils;
 use DeliciousBrains\WP_Offload_Media\Integrations\Integration;
 use DeliciousBrains\WP_Offload_Media\Integrations\Media_Library;
 use DeliciousBrains\WP_Offload_Media\Items\Download_Handler;
@@ -103,7 +104,7 @@ class Meta_Slider extends Integration {
 			return $meta_value;
 		}
 
-		return maybe_unserialize( $meta_value );
+		return AS3CF_Utils::maybe_unserialize( $meta_value );
 	}
 
 	/**
