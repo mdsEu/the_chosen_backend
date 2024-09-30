@@ -237,12 +237,6 @@ class WPML_Translation_Management {
 
 			if ( $this->sitepress->get_wp_api()->is_translation_queue_page() ) {
 				wp_enqueue_style(
-					'wpml-tm-queue',
-					WPML_TM_URL . '/res/css/translations-queue.css',
-					array(),
-					ICL_SITEPRESS_VERSION
-				);
-				wp_enqueue_style(
 					'wpml-tm-editor-css',
 					WPML_TM_URL . '/res/css/translation-editor/translation-editor.css',
 					array(),

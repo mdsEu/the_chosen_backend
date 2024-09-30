@@ -197,13 +197,18 @@ class WPML_LS_Inline_Styles {
 	 * @return string
 	 */
 	public function get_additional_style() {
-		$css = $this->sanitize_css( $this->settings->get_setting( 'additional_css' ) );
+		$additional_css = $this->settings->get_setting( 'additional_css' );
+		if ($additional_css) {
+			$css = $this->sanitize_css($additional_css);
 
-		if ( $css ) {
-			$css = '<style type="text/css" id="wpml-ls-inline-styles-additional-css">' . $css . '</style>' . PHP_EOL;
+
+			if ( $css ) {
+				$css = '<style type="text/css" id="wpml-ls-inline-styles-additional-css">' . $css . '</style>' . PHP_EOL;
+			}
+
+			return $css;
 		}
-
-		return $css;
+		return '';
 	}
 
 	public function wp_enqueue_scripts_action() {

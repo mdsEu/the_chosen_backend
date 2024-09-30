@@ -7,9 +7,12 @@ class WPML_PO_Import_Strings {
 	private $errors;
 
 	public function maybe_import_po_add_strings() {
-		if ( array_key_exists( 'icl_po_upload', $_POST ) && wp_verify_nonce( $_POST[ '_wpnonce' ], 'icl_po_form' ) ) {
+		if ( array_key_exists( 'icl_po_upload', $_POST ) && isset( $_POST['_wpnonce'] ) && wp_verify_nonce( $_POST['_wpnonce'], 'icl_po_form' ) ) {
 			add_filter( 'wpml_st_get_po_importer', array( $this, 'import_po' ) );
-		} elseif ( array_key_exists( 'action', $_POST ) && 'icl_st_save_strings' === $_POST[ 'action' ] ) {
+			return;
+		}
+
+		if ( array_key_exists( 'action', $_POST ) && 'icl_st_save_strings' === $_POST['action'] && isset( $_POST['_wpnonce'] ) && wp_verify_nonce( $_POST['_wpnonce'], 'add_po_strings' ) ) {
 			$this->add_strings();
 		}
 	}
@@ -40,14 +43,14 @@ class WPML_PO_Import_Strings {
 
 		foreach ( $strings as $k => $string ) {
 			$original = wp_kses_post( $string->original );
-			$context  = filter_var( $string->context, FILTER_SANITIZE_STRING );
+			$context  = (string) \WPML\API\Sanitize::string( $string->context );
 
 			$string->original = str_replace( '\n', "\n", $original );
 			$name             = isset( $string->name )
-				? (string) filter_var( $string->name, FILTER_SANITIZE_STRING ) : md5( $original );
+				? (string) \WPML\API\Sanitize::string( $string->name ) : md5( $original );
 
 			$string_id = icl_register_string( array(
-				'domain'  => filter_var( $_POST['icl_st_domain_name'], FILTER_SANITIZE_STRING ),
+				'domain'  => (string) \WPML\API\Sanitize::string( $_POST['icl_st_domain_name']),
 				'context' => $context
 			),
 				$name,

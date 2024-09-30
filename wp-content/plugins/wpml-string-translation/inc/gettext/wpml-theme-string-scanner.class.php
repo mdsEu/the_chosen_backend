@@ -30,7 +30,7 @@ class WPML_Theme_String_Scanner extends WPML_String_Scanner implements IWPML_ST_
 		if ( array_key_exists( 'files', $_POST ) ) {
 
 			foreach ( $_POST['files'] as $file ) {
-				$file = (string) filter_var( $file, FILTER_SANITIZE_STRING );
+				$file = (string) \WPML\API\Sanitize::string( $file );
 				if ( $this->file_hashing->hash_changed( $file ) ) {
 
 					$this->add_stat( sprintf( __( 'Scanning file: %s', 'wpml-string-translation' ), $file ) );

@@ -1,5 +1,128 @@
 # Faust
 
+## 1.4.1
+
+### Patch Changes
+
+- e80d80af: Tested up to WordPress v6.6.1
+
+## 1.4.0
+
+### Minor Changes
+
+- 9ff1df86: Introduces a new setting on the Faust settings page that allows users to opt-in or out of Faust removing Nav Menu Locations that are not registered on the Faust Settings page.
+
+## 1.3.2
+
+### Patch Changes
+
+- 84076cd1: Bug: Fixes issue with blocks not showing in the block editor when running blockset command on WP >=v6.5
+
+## 1.3.1
+
+### Patch Changes
+
+- c28624c: Improve domain_match function to handle port checks and Add Comprehensive Test Cases
+
+## 1.3.0
+
+### Minor Changes
+
+- a478997: The default settings for `enable_image_source` has been changed to "on" for new installs.
+
+### Patch Changes
+
+- bced682: Ensure's any related translations will properly load by calling `load_text_domain`
+
+## 1.2.3
+
+### Patch Changes
+
+- 4724719: Faust now errors if the NEXT_PUBLIC_WORDPRESS_URL matches the Headless URL in Faust Plugin settings.
+
+## 1.2.2
+
+### Patch Changes
+
+- 47f6bd0: Faust now warns you if the secret key in your environment is invalid or incorrect.
+
+## 1.2.1
+
+### Patch Changes
+
+- 05cc940: Fix: swap traditional custom post type URLs in WordPress admin for the headless frontend custom post type URLs.
+
+## 1.2.0
+
+### Minor Changes
+
+- 5f78b15: Requests to robots.txt on the WordPress site are now accessible and are no longer redirected to the front-end site.
+- c163fa5: Added support for anonymous opt-in telemetry. Previously this functionality was in the Faust CLI package, but has been moved to the WordPress plugin instead. All telemetry collection is optional and anonymous, and it is disabled by default. If you were previously opted in from Faust CLI, once you update the Faust CLI packages your site will no longer send telemetry data unless you opt in again from the WordPress plugin.
+
+### Patch Changes
+
+- 205fb09: Improved plugin's process for handling blockset file uploads by leveraging WordPress' native [unzip_file](https://developer.wordpress.org/reference/functions/unzip_file/) function.
+- 41a6d9c: Fixed issue where term URIs were rewritten from relative to absolute during GraphQL requests when they should not have been. This was causing nodeByUri queries for terms to fail.
+- e725bda: Adds phpstan to CI/CD workflow. Runs as part of the lint step.
+
+## 1.1.2
+
+### Patch Changes
+
+- 78a061a: Fixed a bug that caused links to files in wp-content to be rewritten to the Faust Front-end site URL when they should not have been.
+- 2559958: Bug Fix: Fixed missing call to autosave when using Post/Page previews.
+- 75f5c80: Fixed a bug where links were rewritten to the Faust Front-end Site URL when using the post editor, resulting in those rewritten links being saved to the post content and guid fields when they shouldn't be. These links are now saved with the URL pointing to the WP site, as they should be. They are still rewritten at runtime to link to the Front-end Site URL when appropriate.
+
+## 1.1.1
+
+### Patch Changes
+
+- b2c0fd3: Updated the settings page to improve descriptions and documentation links.
+
+## 1.1.0
+
+### Minor Changes
+
+- c29f83d: Add blockset command in @faust/cli and faustwp plugin.
+
+  Add your blocks inside `wp-blocks` folder. Then run `faust blockset` to compile and upload the blocks into WordPress. Blocks will be available in the editor.
+
+- d3d30aa: Added support for authenticated WPGraphQL introspection queries using FAUST_SECRET_KEY. It is no longer required to enable "Public Introspection" in WPGraphQL.
+
+## 1.0.4
+
+### Patch Changes
+
+- fcc6d37: Fixed a bug in the block editor screen where the preview link was missing the `p` and `previewPathName` query arguments after saving a draft.
+
+## 1.0.3
+
+### Patch Changes
+
+- 188bd75: Auto-update enqueued asset versions whenenever the plugin is updated.
+
+## 1.0.2
+
+### Patch Changes
+
+- 0c9f9b5: Image URLs (and any URLs with file extensions) are now excluded from the replacement that Faust does in the GraphQL query results.
+
+## 1.0.1
+
+### Patch Changes
+
+- 9ed3c40: Bug: Fixed an issue where the preview button could crash the browser
+
+## 1.0.0
+
+### Major Changes
+
+- 7952ebe: Transitioned to [Semantic Versioning](https://semver.org). There are no breaking changes in this release.
+
+### Patch Changes
+
+- ef92d02: Added `wp-graphql-content-blocks` version to the telemetry endpoint.
+
 ## 0.8.7
 
 ### Patch Changes

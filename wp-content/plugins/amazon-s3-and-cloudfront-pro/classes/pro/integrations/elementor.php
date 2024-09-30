@@ -6,6 +6,7 @@ use DeliciousBrains\WP_Offload_Media\Integrations\Integration;
 use Elementor\Core\Files\CSS\Post;
 use Elementor\Element_Base;
 use Elementor\Plugin;
+use AS3CF_Utils;
 
 class Elementor extends Integration {
 	/**
@@ -136,6 +137,11 @@ class Elementor extends Integration {
 		}
 
 		if ( '_elementor_data' !== $meta_key ) {
+			return $check;
+		}
+
+		// We expect the meta value to be a JSON formatted string from Elementor. Exit early if it's not.
+		if ( ! is_string( $meta_value ) || ! AS3CF_Utils::is_json( $meta_value ) ) {
 			return $check;
 		}
 

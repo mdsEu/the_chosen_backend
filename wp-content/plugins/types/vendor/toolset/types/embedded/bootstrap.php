@@ -138,13 +138,11 @@ function wpcf_embedded_init() {
 	new Toolset_Localization( 'wpcf', WPCF_EMBEDDED_ABSPATH . '/locale', 'types-%s' );
 
 	// Toolset Forms
-	if ( ! defined( 'WPTOOLSET_FORMS_VERSION' ) ) {
-		$toolset_common_bootstrap = Toolset_Common_Bootstrap::get_instance();
-		$toolset_common_sections = array(
-			'toolset_forms'
-		);
-		$toolset_common_bootstrap->load_sections( $toolset_common_sections );
-	}
+	$toolset_common_bootstrap = Toolset_Common_Bootstrap::get_instance();
+	$toolset_common_sections = array(
+		'toolset_forms'
+	);
+	$toolset_common_bootstrap->load_sections( $toolset_common_sections );
 
     // Loader
     require_once WPCF_EMBEDDED_ABSPATH . '/classes/loader.php';

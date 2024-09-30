@@ -19,10 +19,6 @@ class WPML_User_Options_Menu {
 	 */
 	private $user_admin_def_lang;
 	/**
-	 * @var mixed[]
-	 */
-	private $lang_details;
-	/**
 	 * @var string
 	 */
 	private $admin_default_language;
@@ -47,8 +43,11 @@ class WPML_User_Options_Menu {
 		$this->user_language          = $this->sitepress->get_wp_api()->get_user_meta( $this->current_user->ID, 'icl_admin_language', true );
 		$this->user_admin_def_lang    = $this->sitepress->get_setting( 'admin_default_language' );
 		$this->user_admin_def_lang    = $this->user_admin_def_lang === '_default_' ? $this->sitepress->get_default_language() : $this->user_admin_def_lang;
-		$this->lang_details           = $this->sitepress->get_language_details( $this->user_admin_def_lang );
-		$this->admin_default_language = $this->lang_details['display_name'];
+		$lang                         = $this->sitepress->get_language_details( $this->user_admin_def_lang );
+		$this->admin_default_language = is_array( $lang ) && isset( $lang['display_name'] )
+			? $lang['display_name']
+			: $this->user_admin_def_lang;
+
 		$this->admin_language         = $this->sitepress->get_admin_language();
 
 		$user_language_for_all_languages = $this->user_admin_def_lang;

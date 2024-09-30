@@ -183,7 +183,7 @@ class AbsoluteLinks {
 							$request_match = $req_uri . '/' . $request;
 						}
 
-						if ( preg_match( "!^$match!", $request_match, $matches ) || preg_match( "!^$match!", urldecode( $request_match ), $matches ) ) {
+						if ( preg_match( "#^$match#", $request_match, $matches ) || preg_match( "#^$match#", urldecode( $request_match ), $matches ) ) {
 							// Got a match.
 
 							// Trim the query of everything up to the '?'.

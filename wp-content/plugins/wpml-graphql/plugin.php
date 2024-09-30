@@ -4,7 +4,7 @@
  * Description: Enables WPML support for WPGraphQL
  * Author: OnTheGoSystems
  * Author URI: http://www.onthegosystems.com
- * Version: 1.0.0
+ * Version: 1.1.1
  * Plugin Slug: wpml-graphql
  *
  * @package wpml/graphql
@@ -14,7 +14,7 @@ if ( defined( 'WPML_GRAPHQL_VERSION' ) ) {
 	return;
 }
 
-define( 'WPML_GRAPHQL_VERSION', '1.0.0' );
+define( 'WPML_GRAPHQL_VERSION', '1.1.1' );
 define( 'WPML_GRAPHQL_PATH', __DIR__ );
 define( 'WPML_GRAPHQL_URL', untrailingslashit( plugin_dir_url( __FILE__ ) ) );
 

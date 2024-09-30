@@ -1,11 +1,16 @@
 <?php
 
 if ( !defined('TOOLSET_VERSION') ) {
-	define('TOOLSET_VERSION', '4.4.0' );
+	define('TOOLSET_VERSION', '4.4.3' );
 }
 
 if ( ! defined('TOOLSET_COMMON_VERSION' ) ) {
     define( 'TOOLSET_COMMON_VERSION', TOOLSET_VERSION );
+}
+
+/** @deprecated This may not be defined at all times. Use TOOLSET_COMMON_VERSION instead */
+if ( ! defined( 'WPTOOLSET_FORMS_VERSION' ) ) {
+	define( 'WPTOOLSET_FORMS_VERSION', TOOLSET_VERSION );
 }
 
 if ( ! defined('TOOLSET_COMMON_PATH' ) ) {

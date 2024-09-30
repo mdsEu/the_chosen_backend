@@ -212,7 +212,7 @@ All ShortCodes and Customization Options / Parameters can be found below.<br>
 	<div>
 		<p id="TrialHeader" class="SectionHeader"><a href="javascript:ShowSection3('TrialText');"><h3>Want to give it a test drive before licensing?</h3></a></p>
 		<div id="TrialText" class="SectionContainer">
-		To begin using our Investor tools plugin, enter the following credentials:<br>
+		To begin using our plugin, enter the following credentials:<br>
 		Business ID: 2626<br>
 		API Key: Sf6Ic9Gy8<br>
 		Symbol: OCC<br>
@@ -221,20 +221,20 @@ All ShortCodes and Customization Options / Parameters can be found below.<br>
 		<br>
 		<a href="https://www.b2itech.com/Contact_Us" target="_blank">Contact us</a> to begin using data on your website today.<br>
 		
-		We will conduct a walk through of our "Live View" website, offer client links for implementation ideas, and provide pricing for your taylored solution.
+		We will conduct a walk through of our "Explore B2i" website, offer a list of live sites for implementation ideas, and provide pricing for your custom solution.
 		</div>
 		
 		<p id="ExampleHeader" class="SectionHeader"><a href="javascript:ShowSection3('ExampleText');"><h3>Examples of Shortcodes and Attribute usage</h3></a></p>
 		<div id="ExampleText" class="SectionContainer">
 		<p>Examples are only functional once we activate your data or you request a test/trial Business ID and key.</p>
-		<p>We have created a Live View site with deeper understanding of using our plugin modules, parameters with shortcodes and raw API calls.<br>
-		<a href="https://demo.b2itech.com/" target="_blank">Live View</a></p>
+		<p>We have created a knowledgebase website with deeper understanding of using our plugin modules, parameters with shortcodes, raw API calls, examples and FAQs.<br>
+		<a href="https://explorer.b2itech.com/" target="_blank">Live View</a></p>
 		
 		Following are some Basic examples of shortcode and attribute usage:<br>
 		<p>SEC Layout=1(Table), Count 4, Filings Type=10-K, ShowForm=0(Off), ShowHeader=0(Off), Navigation=0(Off):<br><code>[b2i_sec lo="1" c="4" t="10-K" sf="0" sh="0" n="0"]</code></p>
 		<p>SEC Layout=3(Single SEC filing), Count 1, Filings Type=10-K, ShowForm=0(Off), Navigation=0(Off):<br><code>[b2i_sec lo="3" c="1" t="10-Konly" sf="0" n="0"]</code></p>
 		<p>Press Release count 5, tools active (year and search), body excerpt of 400 characters<br>
-		<code>[b2i_press_releases group="65" c="5" tl="1" su="400"]</code></p>
+		<code>[b2i_press_releases c="5" tl="1" su="400"]</code></p>
 		<p>Stock Quote custom div name and format 6<br><code>[b2i_stock s="EAT"  sd="NYSE : Brinker | EAT" sdiv="QuoteDivTop" f="6"]</code></p>
 		<p>Stock Chart 3 month default period, chart area color: 1763A9, fill alpha:0 so no fill, cursor color: 1763A9 <br><code>[b2i_chart  sd="NYSE : Brinker | EAT" p="3m" c="1763A9" fa="0" cc="1763A9"]</code></p>
 		</div>
@@ -306,7 +306,7 @@ All ShortCodes and Customization Options / Parameters can be found below.<br>
 	</div>
 	<div id="SEC" class="PluginInfoContainer">
 		<div>
-			<strong>Short Code</strong> - [b2i_sec] - <a href="https://demo.b2itech.com/sec2/" target="Demo">Live View</a>
+			<strong>Short Code</strong> - [b2i_sec] - <a href="https://explorer.b2itech.com/explorer-ir-solutions/explorer-sec-filings-overview/" target="Demo">Explore B2i</a>
 		</div>
 		<table class="b2i-instructions">
 			<thead>
@@ -479,7 +479,7 @@ All ShortCodes and Customization Options / Parameters can be found below.<br>
 	</div>
 	<div id="Financials" class="PluginInfoContainer">
 		<div>
-			<strong>Short Code</strong> - [b2i_financials s="EAT" m="1"] - <a href="https://demo.b2itech.com/financials/" target="Demo">Live View</a>
+			<strong>Short Code</strong> - [b2i_financials s="EAT" m="1"] - <a href="https://explorer.b2itech.com/explorer-ir-solutions/explorer-financials/" target="Demo">Explore B2i</a>
 			<br>Your symbol will only retrieve data once we set up your account.
 		</div>
 		<table class="b2i-instructions">
@@ -506,13 +506,11 @@ All ShortCodes and Customization Options / Parameters can be found below.<br>
 	</div>
 	<div id="PR" class="PluginInfoContainer">
 		<div>
-			<strong>Short Code</strong> - [b2i_press_releases tl="1"] - <a href="https://demo.b2itech.com/press/" target="Demo">Live View</a>
+			<strong>Short Code</strong> - [b2i_press_releases tl="1"] - <a href="https://explorer.b2itech.com/explorer-ir-solutions/explorer-press-releases/" target="Demo">Explore B2i</a>
 			<br>A newer version of this ShortCode has been developed to conduct a server side pull of data for better SEO, example: [b2i_press_releases2 tl="1"]
 		</div>
 		<div id="PluginLib" class="PluginInfoContainer">
 			<strong>Alternate automation</strong> B2i's application can post press releases directly into WordPress as a post. 
-			<br><br>
-			<a href="https://www.b2itech.com/Press_Releases_plugin" target="Example">B2i Example page</a> | <a href="https://demo.b2itech.com/press/" target="Demo">Live View</a>
 		</div>
 		<table class="b2i-instructions">
 			<thead>
@@ -526,7 +524,7 @@ All ShortCodes and Customization Options / Parameters can be found below.<br>
 				<tr><td class="b2iFeature">group</td><td class="b2iAttribute">group</td><td>Multiple groups are possible for other items like FAQs, Media, Newsletter or any other list of articles - can be manually added and emailed</td></tr>
 				<tr><td class="b2iFeature">Div to write and load content</td><td class="b2iAttribute">sdiv</td><td>Div to write and load content - if using multiple instances on same page, must use unique sdiv for each</td></tr>
 				<tr><td class="b2iFeature">Pagination</td><td class="b2iAttribute">n</td><td>Paging - Set n="0" to hide, n="1" for Next/Prev, n="2" for Page numbers 1 2 3 </td></tr>
-				<tr><td class="b2iFeature">Output Layout</td><td class="b2iAttribute">o</td><td>default o="0" for table - Many to choose from <a href="https://demo.b2itech.com/press/" target="_blank">Display Layout Options</a></td></tr>
+				<tr><td class="b2iFeature">Output Layout</td><td class="b2iAttribute">o</td><td>default o="0" for table - Many to choose from <a href="https://explorer.b2itech.com/explorer-ir-solutions/explorer-press-release-layouts/" target="_blank">Press release layout options</a></td></tr>
 				<tr><td class="b2iFeature">Item Count</td><td class="b2iAttribute">c</td><td>Count of items to show, default is 10</td></tr>
 				<tr><td class="b2iFeature">Item Offset</td><td class="b2iAttribute">off</td><td>off="1" - Offset items to display (how many items to skip).</td></tr>
 				<tr><td class="b2iFeature">Link open</td><td class="b2iAttribute">a</td><td>How links open, default a="0" opens in floating div
@@ -594,7 +592,7 @@ All ShortCodes and Customization Options / Parameters can be found below.<br>
 	</div>
 	<div id="PRV" class="PluginInfoContainer">
 		<div>
-			<strong>Short Code</strong> &nbsp;&nbsp;&nbsp; [b2i_press_view] - <a href="https://demo.b2itech.com/press-using-press-viewer/" target="Demo">Live View</a>
+			<strong>Short Code</strong> &nbsp;&nbsp;&nbsp; [b2i_press_view] - <a href="https://explorer.b2itech.com/explorer-ir-solutions/explorer-press-viewer/" target="Demo">Explore B2i</a>
 			<br>A newer version of this ShortCode has been developed to conduct a server side pull of data for better SEO, example: [b2i_press_view2]
 		</div>
 		<div id="PluginLib" class="PluginInfoContainer">
@@ -625,7 +623,7 @@ All ShortCodes and Customization Options / Parameters can be found below.<br>
 	</div>
 	<div id="Email" class="PluginInfoContainer">
 		<div>
-			<strong>Short Code</strong> - [b2i_email_optin2] - <a href="https://demo.b2itech.com/emailalerts/" target="Demo">Live View</a>
+			<strong>Short Code</strong> - [b2i_email_optin2] - <a href="https://explorer.b2itech.com/explorer-ir-solutions/explorer-email-alerts/" target="Demo">Explore B2i</a>
 		</div>
 		<table class="b2i-instructions">
 			<thead>
@@ -670,7 +668,7 @@ All ShortCodes and Customization Options / Parameters can be found below.<br>
 	</div>
 	<div id="EmailUn" class="PluginInfoContainer">
 		<div>
-			<strong>Short Code</strong> - [b2i_email_unsubscribe] <!-- - <a href="https://demo.b2itech.com/emailalerts/" target="Demo">Live View</a> -->
+			<strong>Short Code</strong> - [b2i_email_unsubscribe] - <a href="https://explorer.b2itech.com/explorer-ir-solutions/explorer-unsubscribe/" target="Demo">Explore B2i</a>
 		</div>
 		<table class="b2i-instructions">
 			<thead>
@@ -705,7 +703,7 @@ All ShortCodes and Customization Options / Parameters can be found below.<br>
 	</div>
 	<div id="stockdetail" class="PluginInfoContainer">
 		<div>
-			<strong>Short Code</strong> - [b2i_stock s="EAT" d="1" f="1"] - <a href="https://demo.b2itech.com/stock-quote-options/" target="Demo">Live View</a>
+			<strong>Short Code</strong> - [b2i_stock s="EAT" d="1" f="1"] - <a href="https://explorer.b2itech.com/explorer-ir-solutions/explorer-stock-detail/" target="Demo">Explore B2i</a>
 			<br>Your symbol will only retrieve data once we set up your account.
 			
 		</div>
@@ -754,7 +752,7 @@ di="&amp;darr;";</pre></td></tr>
 	</div>
 	<div id="Historical" class="PluginInfoContainer">
 		<div>
-			<strong>Short Code</strong> - [b2i_HistoricalQuote s="EAT" d="1"] - <a href="https://demo.b2itech.com/historical-quote/" target="Demo">Live View</a>
+			<strong>Short Code</strong> - [b2i_HistoricalQuote s="EAT" d="1"] - <a href="https://explorer.b2itech.com/explorer-ir-solutions/explorer-historical/" target="Demo">Explore B2i</a>
 			<br>Your symbol will only retrieve data once we set up your account.
 			
 		</div>
@@ -792,281 +790,258 @@ di="&amp;darr;";</pre></td></tr>
 	</div>
 	<div id="StockChart" class="PluginInfoContainer">
 		<div>
-			<strong>Short Code</strong> &nbsp;&nbsp;&nbsp; [b2i_chart s="EAT" e="NYSE: "] - <a href="https://demo.b2itech.com/stock-charts/" target="Demo">Live View</a> 
+			<strong>Short Code</strong> &nbsp;&nbsp;&nbsp; [b2i_chart s="EAT" e="NYSE: "] - <a href="https://explorer.b2itech.com/explorer-ir-solutions/explorer-stock-chart/" target="Demo">Explore B2i</a> 
 			<strong>Short Code</strong> &nbsp;&nbsp;&nbsp; [b2i_intrachart s="EAT" e="NYSE: "]
 			<br>Your symbol will only retrieve data once we set up your account.		
 		</div>
-		<table class="b2i-instructions">
-			<thead>
-				<tr>
-					<th><strong>Attributes</strong></th>
-					<th><strong>Detail</strong></th>
-				</tr>
-			</thead>
-			<tbody>
-				<tr class="DataRow">
-					<td class="SubSection">Chart Container</td>
-					<td></td>
-				</tr>
-				<tr>
-					<td class="b2iAttribute">sdiv</td>
-					<td>Chart - Div name - sdiv="chartdiv"</td>
-				</tr>
-				<tr>
-					<td class="b2iAttribute">height</td>
-					<td>height="400px" - Default is 500 measured in px</td>
-				</tr>
-				<tr>
-					<td class="b2iAttribute">width</td>
-					<td>width="600px" - for 600px - Default is 96%</td>
-				</tr>
+			<table class="b2i-instructions">
+				<thead>
+					<tr>
+						<th><strong>Attributes</strong></th>
+						<th><strong>Detail</strong></th>
+					</tr>
+				</thead>
 				
+				<tbody>
+					<tr class="DataRow">
+						<td class="SubSection">Chart Container</td>
+						<td></td>
+					</tr>
+					<tr>
+						<td class="b2iAttribute">sdiv</td>
+						<td>Chart - Div name - sdiv="chartdiv"</td>
+					</tr>
+					<tr>
+						<td class="b2iAttribute">height</td>
+						<td>height="400px" - Default is 500 measured in px</td>
+					</tr>
+					<tr>
+						<td class="b2iAttribute">width</td>
+						<td>width="600px" - for 600px - Default is 96%</td>
+					</tr>
+					<tr class="DataRow">
+						<td class="SubSection">Chart Type and Fill</td>
+						<td></td>
+					</tr>
+					<tr>
+						<td class="b2iAttribute">c</td>
+						<td>Line and Fill HTML color: default 1763A9 - no # needed - c="1763A9"</td>
+					</tr>
+					<tr>
+						<td class="b2iAttribute">fa</td>
+						<td>Chart Area fill alpha - set fa="0" for no fill - Max value is 1 for solid - fa="0.2"</td>
+					</tr>
+					<tr>
+						<td class="b2iAttribute">lt</td>
+						<td>Line Thickness: default is lt="2"</td>
+					</tr>
+					<tr>
+						<td class="b2iAttribute">ct</td>
+						<td>Chart - Type: ct="line" default - options: line, smoothedLine, step, column</td>
+					</tr>
+					<tr class="DataRow">
+						<td class="SubSection">Chart Background</td>
+						<td></td>
+					</tr>
+					<tr>
+						<td class="b2iAttribute">bgc</td>
+						<td>Chart Background HTML color: default f1f1f1 - no # needed - bgc="ffffff"</td>
+					</tr>
+					<tr>
+						<td class="b2iAttribute">bga</td>
+						<td>Chart Background alpha: default 1.0 - set bga="0" for no fill</td>
+					</tr>
+					<tr class="DataRow">
+						<td class="SubSection">Chart Grid</td>
+						<td></td>
+					</tr>
+					<tr>
+						<td class="b2iAttribute">ga</td>
+						<td>Chart Grid alpha: default .2 - set ga="0" for no grid</td>
+					</tr>
+					<tr>
+						<td class="b2iAttribute">gc</td>
+						<td>Chart Grid HTML color: default bbbbbb - no # needed - gc="ffffff"</td>
+					</tr>
+					<tr>
+						<td class="b2iAttribute">udg</td>
+						<td>Chart - Use Dash Grid: udg="0" - Default is 0 - set udg="1" </td>
+					</tr>
+					<tr class="DataRow">
+						<td class="SubSection">Chart Border</td>
+						<td></td>
+					</tr
+					<tr>
+						<td class="b2iAttribute">cbc</td>
+						<td>Chart Border HTML color: default 999999 - no # needed - bgc="999999"</td>
+					</tr>
+					<tr>
+						<td class="b2iAttribute">cba</td>
+						<td>Chart Border alpha: default .5 - set cba="0" for no border</td>
+					</tr>
+					<tr class="DataRow">
+						<td class="SubSection">Label Text</td>
+						<td></td>
+					</tr>
+					<tr>
+						<td class="b2iAttribute">s</td>
+						<td>Required - Stock symbol from your account</td>
+					</tr>
+					<tr>
+						<td class="b2iAttribute">sd</td>
+						<td>Stock symbol display override</td>
+					</tr>
+					<tr>
+						<td class="b2iAttribute">e</td>
+						<td>Label - Text to display in front of symbol - e="Nasdaq: " or e="CompanyName : "</td>
+					</tr>
+					<tr class="DataRow">
+						<td class="SubSection">Label Formatting</td>
+						<td></td>
+					</tr>
+					<tr>
+						<td class="b2iAttribute">vic</td>
+						<td>Chart - Values inside chart - Default is 1 - set vic="0" for values on outside of chart, also need to adjust Left Margin lm="50"</td>
+					</tr>
+					<tr>
+						<td class="b2iAttribute">lm</td>
+						<td>Chart - Left Margin: default is 5, need to increase if displaying values on outside of chart</td>
+					<tr>
+					<tr>
+						<td class="b2iAttribute">sil</td>
+						<td>Label Inside - Show inside label: default is "1", use sit="0" to turn off</td>
+					</tr>
+					<tr>
+						<td class="b2iAttribute">lc3</td>
+						<td>Label Inside - HTML color: default 1763A9 - no # needed - lc3="1763A9"</td>
+					</tr>
+					<tr>
+						<td class="b2iAttribute">ls3</td>
+						<td>Label Inside - Font Size: default 15 - ls3="15"</td>
+					</tr>
+					<tr>
+						<td class="b2iAttribute">la3</td>
+						<td>Label Inside - Label Alpha: default 0.3 - la3="0.2"</td>
+					</tr>
+					<tr>
+						<td class="b2iAttribute">lc</td>
+						<td>Label at Top - HTML color: default 666666 - no # needed - lc="666666"</td>
+					</tr>
+					<tr>
+						<td class="b2iAttribute">stl</td>
+						<td>Label at Top - Default is 1 - true - set stl="0" to turn off</td>
+					</tr>
+					<tr>
+						<td class="b2iAttribute">ls</td>
+						<td>Label at Top - Font Size: default 15 - ls="15"</td>
+					</tr>
+					<tr>
+						<td class="b2iAttribute">lc2</td>
+						<td>Label on Side and Bottom - HTML color: default 666666 - no # needed - lc2="666666" - </td>
+					</tr>
+					<tr>
+						<td class="b2iAttribute">ls2</td>
+						<td>Label on Side and Bottom - Font size: default 11 - ls2="11"</td>
+					</tr>
+					<tr class="DataRow">
+						<td class="SubSection">Cursor</td>
+						<td></td>
+					</tr>
+					<tr>
+						<td class="b2iAttribute">sc</td>
+						<td>Cursor - Show cursor: default is "1", use sc="0" to turn off</td>
+					</tr>
+					<tr>
+						<td class="b2iAttribute">cc</td>
+						<td>Cursor HTML color: default 1763A9 - no # needed - cc="1763A9"</td>
+					</tr>
+					<tr>
+						<td class="b2iAttribute">ca</td>
+						<td>Cursor Alpha - Max value is 1 - Default ca="0.1" </td>
+					</tr>
+					<tr class="DataRow">
+						<td class="SubSection">Period Selector</td>
+						<td></td>
+					</tr>
+					<tr>
+						<td class="b2iAttribute">sp</td>
+						<td>Period selector - Show period selector: default is "1", use sp="0" to turn off</td>
+					</tr>
+					<tr>
+						<td class="b2iAttribute">ps</td>
+						<td>Period Selector location: default is ps="bottom" - options: top, bottom, left, right</td>
+					</tr>
+					<tr>
+						<td class="b2iAttribute">p</td>
+						<td>Period selector - Selected time period - values are 10d, 1m, 3m, 6m, 1y, max - p="3m" default</td>
+					</tr>
+					<tr class="DataRow">
+						<td class="SubSection">Volume</td>
+						<td></td>
+					</tr>
+					<tr>
+						<td class="b2iAttribute">sv</td>
+						<td>Chart - Show Volume Chart: default is "1", use sv="0" to turn off</td>
+					</tr>
+					<tr>
+						<td class="b2iAttribute">vct</td>
+						<td>Chart - Volume Chart type: vct="column" default - options: line, smoothedLine, step, column</td>
+					</tr>
+					<tr>
+						<td class="b2iAttribute">vfa</td>
+						<td>Chart - Volume fill alpha - set vfa="0" for no fill - Max value is 1 for solid - default vfa="0.9"</td>
+					</tr>
+					<tr class="DataRow">
+						<td class="SubSection">Balloon</td>
+						<td></td>
+					</tr>
+					<tr>
+						<td class="b2iAttribute">bc</td>
+						<td>Balloon border HTML color: default 1763A9 - no # needed - bc="1763A9"</td>
+					</tr>
+					<tr>
+						<td class="b2iAttribute">bs</td>
+						<td>Balloon Font size: default 13 - bs="14"</td>
+					</tr>
+					<tr class="DataRow">
+						<td class="SubSection">Scroll Bar</td>
+						<td></td>
+					</tr>
+					<tr>
+						<td class="b2iAttribute">ssb</td>
+						<td>Chart - Show scroll bar: default is "1", use ssb="0" to turn off</td>
+					</tr>
+					<tr class="DataRow">
+						<td class="SubSection">Data Format / Separators</td>
+						<td></td>
+					</tr>
+					<tr>
+						<td class="b2iAttribute">centsep</td>
+						<td>Decimal separator: centsep="."</td>
+					</tr>
+					<tr>
+						<td class="b2iAttribute">thoussep</td>
+						<td>Thousands separator: thoussep=","</td>
+					</tr>
+				</tbody>
 				
-				
-				<tr class="DataRow">
-					<td class="SubSection">Chart Type and Fill</td>
-					<td></td>
-				</tr>
-				<tr>
-					<td class="b2iAttribute">c</td>
-					<td>Line and Fill HTML color: default 1763A9 - no # needed - c="1763A9"</td>
-				</tr>
-				<tr>
-					<td class="b2iAttribute">fa</td>
-					<td>Chart Area fill alpha - set fa="0" for no fill - Max value is 1 for solid - fa="0.2"</td>
-				</tr>
-				<tr>
-					<td class="b2iAttribute">lt</td>
-					<td>Line Thickness: default is lt="2"</td>
-				</tr>
-				<tr>
-					<td class="b2iAttribute">ct</td>
-					<td>Chart - Type: ct="line" default - options: line, smoothedLine, step, column</td>
-				</tr>
-				<tr class="DataRow">
-					<td class="SubSection">Chart Background</td>
-					<td></td>
-				</tr>
-				<tr>
-					<td class="b2iAttribute">bgc</td>
-					<td>Chart Background HTML color: default f1f1f1 - no # needed - bgc="ffffff"</td>
-				</tr>
-				<tr>
-					<td class="b2iAttribute">bga</td>
-					<td>Chart Background alpha: default 1.0 - set bga="0" for no fill</td>
-				</tr>
-				
-				
-				<tr class="DataRow">
-					<td class="SubSection">Chart Grid</td>
-					<td></td>
-				</tr>
-				<tr>
-					<td class="b2iAttribute">ga</td>
-					<td>Chart Grid alpha: default .2 - set ga="0" for no grid</td>
-				</tr>
-				<tr>
-					<td class="b2iAttribute">gc</td>
-					<td>Chart Grid HTML color: default bbbbbb - no # needed - gc="ffffff"</td>
-				</tr>
-				<tr>
-					<td class="b2iAttribute">udg</td>
-					<td>Chart - Use Dash Grid: udg="0" - Default is 0 - set udg="1" </td>
-				</tr>
-				
-				
-				
-				<tr class="DataRow">
-					<td class="SubSection">Chart Border</td>
-					<td></td>
-				</tr
-				<tr>
-					<td class="b2iAttribute">cbc</td>
-					<td>Chart Border HTML color: default 999999 - no # needed - bgc="999999"</td>
-				</tr>
-				<tr>
-					<td class="b2iAttribute">cba</td>
-					<td>Chart Border alpha: default .5 - set cba="0" for no border</td>
-				</tr>
-				
-				
-				
-				<tr class="DataRow">
-					<td class="SubSection">Label Text</td>
-					<td></td>
-				</tr>
-				<tr>
-					<td class="b2iAttribute">s</td>
-					<td>Required - Stock symbol from your account</td>
-				</tr>
-				<tr>
-					<td class="b2iAttribute">sd</td>
-					<td>Stock symbol display override</td>
-				</tr>
-				<tr>
-					<td class="b2iAttribute">e</td>
-					<td>Label - Text to display in front of symbol - e="Nasdaq: " or e="CompanyName : "</td>
-				</tr>
-				
-				
-				
-				<tr class="DataRow">
-					<td class="SubSection">Label Formatting</td>
-					<td></td>
-				</tr>
-				<tr>
-					<td class="b2iAttribute">vic</td>
-					<td>Chart - Values inside chart - Default is 1 - set vic="0" for values on outside of chart, also need to adjust Left Margin lm="50"</td>
-				</tr>
-				<tr>
-					<td class="b2iAttribute">lm</td>
-					<td>Chart - Left Margin: default is 5, need to increase if displaying values on outside of chart</td>
-				<tr>
-				<tr>
-					<td class="b2iAttribute">sil</td>
-					<td>Label Inside - Show inside label: default is "1", use sit="0" to turn off</td>
-				</tr>
-				<tr>
-					<td class="b2iAttribute">lc3</td>
-					<td>Label Inside - HTML color: default 1763A9 - no # needed - lc3="1763A9"</td>
-				</tr>
-				<tr>
-					<td class="b2iAttribute">ls3</td>
-					<td>Label Inside - Font Size: default 15 - ls3="15"</td>
-				</tr>
-				<tr>
-					<td class="b2iAttribute">la3</td>
-					<td>Label Inside - Label Alpha: default 0.3 - la3="0.2"</td>
-				</tr>
-				<tr>
-					<td class="b2iAttribute">lc</td>
-					<td>Label at Top - HTML color: default 666666 - no # needed - lc="666666"</td>
-				</tr>
-				<tr>
-					<td class="b2iAttribute">stl</td>
-					<td>Label at Top - Default is 1 - true - set stl="0" to turn off</td>
-				</tr>
-				<tr>
-					<td class="b2iAttribute">ls</td>
-					<td>Label at Top - Font Size: default 15 - ls="15"</td>
-				</tr>
-				<tr>
-					<td class="b2iAttribute">lc2</td>
-					<td>Label on Side and Bottom - HTML color: default 666666 - no # needed - lc2="666666" - </td>
-				</tr>
-				<tr>
-					<td class="b2iAttribute">ls2</td>
-					<td>Label on Side and Bottom - Font size: default 11 - ls2="11"</td>
-				</tr>
-				
-				
-				
-				
-				<tr class="DataRow">
-					<td class="SubSection">Cursor</td>
-					<td></td>
-				</tr>
-				<tr>
-					<td class="b2iAttribute">sc</td>
-					<td>Cursor - Show cursor: default is "1", use sc="0" to turn off</td>
-				</tr>
-				<tr>
-					<td class="b2iAttribute">cc</td>
-					<td>Cursor HTML color: default 1763A9 - no # needed - cc="1763A9"</td>
-				</tr>
-				<tr>
-					<td class="b2iAttribute">ca</td>
-					<td>Cursor Alpha - Max value is 1 - Default ca="0.1" </td>
-				</tr>
-				
-				
-				
-				
-				<tr class="DataRow">
-					<td class="SubSection">Period Selector</td>
-					<td></td>
-				</tr>
-				<tr>
-					<td class="b2iAttribute">sp</td>
-					<td>Period selector - Show period selector: default is "1", use sp="0" to turn off</td>
-				</tr>
-				<tr>
-					<td class="b2iAttribute">ps</td>
-					<td>Period Selector location: default is ps="bottom" - options: top, bottom, left, right</td>
-				</tr>
-				<tr>
-					<td class="b2iAttribute">p</td>
-					<td>Period selector - Selected time period - values are 10d, 1m, 3m, 6m, 1y, max - p="3m" default</td>
-				</tr>
-				
-				
-				
-				
-				<tr class="DataRow">
-					<td class="SubSection">Volume</td>
-					<td></td>
-				</tr>
-				<tr>
-					<td class="b2iAttribute">sv</td>
-					<td>Chart - Show Volume Chart: default is "1", use sv="0" to turn off</td>
-				</tr>
-				<tr>
-					<td class="b2iAttribute">vct</td>
-					<td>Chart - Volume Chart type: vct="column" default - options: line, smoothedLine, step, column</td>
-				</tr>
-				<tr>
-					<td class="b2iAttribute">vfa</td>
-					<td>Chart - Volume fill alpha - set vfa="0" for no fill - Max value is 1 for solid - default vfa="0.9"</td>
-				</tr>
-				
-				
-				
-				
-				<tr class="DataRow">
-					<td class="SubSection">Balloon</td>
-					<td></td>
-				</tr>
-				<tr>
-					<td class="b2iAttribute">bc</td>
-					<td>Balloon border HTML color: default 1763A9 - no # needed - bc="1763A9"</td>
-				</tr>
-				<tr>
-					<td class="b2iAttribute">bs</td>
-					<td>Balloon Font size: default 13 - bs="14"</td>
-				</tr>
-				
-				
-				
-				
-				<tr class="DataRow">
-					<td class="SubSection">Scroll Bar</td>
-					<td></td>
-				</tr>
-				<tr>
-					<td class="b2iAttribute">ssb</td>
-					<td>Chart - Show scroll bar: default is "1", use ssb="0" to turn off</td>
-				</tr>
-				
-				
-				
-				
-				<tr class="DataRow">
-					<td class="SubSection">Data Format / Separators</td>
-					<td></td>
-				</tr>
-				<tr>
-					<td class="b2iAttribute">centsep</td>
-					<td>Decimal separator: centsep="."</td>
-				</tr>
-				<tr>
-					<td class="b2iAttribute">thoussep</td>
-					<td>Thousands separator: thoussep=","</td>
-				</tr>
-			</tbody>
-		</table>
+			</table>
+
+		</div>
 	</div>
-</div>
-		
+	
+	
+	<!-- Stock Chart4 Highchart -->
+	<div id="StockChart4Title" class="PluginTitle">
+		<span class="PluginName">Stock Chart - new beta<a name="StockChart4" class="HashTag"></a></span>
+		<span class="toclink"></span>
+	</div>
+	<div id="StockChart4" class="PluginInfoContainer">
+		<div>
+			<strong>Short Code</strong> &nbsp;&nbsp;&nbsp; [b2i_chart4 sd="EAT"]
+		</div>
+	</div>
+	
 		
 	<!-- Stock JSON -->
 	<div id="QuoteDetailTitle" class="PluginTitle">
@@ -1103,7 +1078,7 @@ di="&amp;darr;";</pre></td></tr>
 	</div>
 	<div id="Dividends" class="PluginInfoContainer">
 		<div>
-			<strong>Short Code</strong> &nbsp;&nbsp;&nbsp; [b2i_dividends] - <a href="https://demo.b2itech.com/dividends/" target="Demo">Live View</a>
+			<strong>Short Code</strong> &nbsp;&nbsp;&nbsp; [b2i_dividends] - <a href="https://explorer.b2itech.com/explorer-ir-solutions/explorer-dividends/" target="Demo">Explore B2i</a>
 		</div>
 		<table class="b2i-instructions">
 			<thead>
@@ -1128,7 +1103,7 @@ di="&amp;darr;";</pre></td></tr>
 		<span class="toclink"></span>
 	</div>
 	<div id="Committee" class="PluginInfoContainer">
-		<strong>Short Code</strong> - [b2i_committee] - <a href="https://demo.b2itech.com/committee/" target="Demo">Live View</a>
+		<strong>Short Code</strong> - [b2i_committee] - <a href="https://explorer.b2itech.com/explorer-ir-solutions/explorer-committee/" target="Demo">Explore B2i</a>
 		<br>Requires data to be entered in the B2i CMS Portal
 		<table class="b2i-instructions">
 			<thead>
@@ -1151,8 +1126,8 @@ di="&amp;darr;";</pre></td></tr>
 	</div>
 	<div id="Directors" class="PluginInfoContainer">
 		<div>
-			<strong>Short Code</strong> &nbsp;&nbsp;&nbsp; [b2i_directors] - <a href="https://demo.b2itech.com/committee/" target="Demo">Live View</a>
-			<br>Requires data to be entered in your <a href="https://www.myb2i.com/profiles/businessframed/index.asp" target="b2itech">B2i account</a>
+			<strong>Short Code</strong> &nbsp;&nbsp;&nbsp; [b2i_directors] - <a href="https://explorer.b2itech.com/explorer-ir-solutions/explorer-team/" target="Demo">Explore B2i</a>
+			<br>This module works with multiple groups for Management, Directors, Advisors, etc to handle all of yout teams and requires data to be entered in the B2i portal - IR Office>
 		</div>
 		<table class="b2i-instructions">
 			<thead>
@@ -1170,34 +1145,7 @@ di="&amp;darr;";</pre></td></tr>
 			</tbody>
 		</table>
 	</div>
-	
-	
-	<!-- Management -->
-	<div id="ManagementTitle" class="PluginTitle">
-		<span class="PluginName">Management<a name="Management" class="HashTag"></a></span>
-		<span class="toclink"></span>
-	</div>
-	<div id="Management" class="PluginInfoContainer">
-		<div>
-			<strong>Short Code</strong> &nbsp;&nbsp;&nbsp; [b2i_management] - <a href="https://demo.b2itech.com/committee/" target="Demo">Live View</a>
-			<br>Requires data to be entered in the B2i CMS Portal
-		</div>
-		<table class="b2i-instructions">
-			<thead>
-				<tr>
-					<th><strong>Attributes</strong></th>
-					<th><strong>Detail</strong></th>
-				</tr>
-			</thead>
-			<tbody>
-				<tr><td class="b2iAttribute">css</td><td>Use css="0" to turn off default CSS *</td></tr>
-				<tr><td class="b2iAttribute">so="1"</td><td>to have stay open - don't collapse</td></tr>
-				<tr><td class="b2iAttribute">lo</td><td>Default lo="0" - Unlimited database driven layouts</td></tr>
-			</tbody>
-		</table>
-	</div>
-	
-	
+		
 	<!-- Events   -->
 	<div id="EventsTitle" class="PluginTitle">
 		<span class="PluginName">Events Calendar<a name="Events" class="HashTag"></a></span>
@@ -1205,7 +1153,7 @@ di="&amp;darr;";</pre></td></tr>
 	</div>
 	<div id="Events" class="PluginInfoContainer">
 		<div>
-			<strong>Short Code</strong> - [b2i_calendar m="0" c="5"] - <a href="https://demo.b2itech.com/calendar/" target="Demo">Live View</a> 
+			<strong>Short Code</strong> - [b2i_calendar m="0" c="5"] - <a href="https://explorer.b2itech.com/explorer-ir-solutions/explorer-event-calendar/" target="Demo">Explore B2i</a> 
 			<br>Multiple instances can be used for segregating data by future/past or year.
 			<br>Requires data to be entered in the B2i CMS Portal
 		</div>
@@ -1240,7 +1188,7 @@ di="&amp;darr;";</pre></td></tr>
 	</div>
 	<div id="EventViewer" class="PluginInfoContainer">
 		<div>
-			<strong>Short Code</strong> - [b2i_cal_view] - <a href="https://demo.b2itech.com/calendar/" target="Demo">Live View</a> 
+			<strong>Short Code</strong> - [b2i_cal_view] - <a href="https://explorer.b2itech.com/explorer-ir-solutions/explorer-event-viewer/" target="Demo">Explore B2i</a> 
 			<br>Requires data to be entered in the B2i CMS Portal
 		</div>
 		<table class="b2i-instructions">
@@ -1272,7 +1220,7 @@ di="&amp;darr;";</pre></td></tr>
 	</div>
 	<div id="Analyst" class="PluginInfoContainer">
 		<div>
-			<strong>Short Code</strong> - [b2i_analyst] - <a href="https://demo.b2itech.com/analyst/" target="Demo">Live View</a> 
+			<strong>Short Code</strong> - [b2i_analyst] - <a href="https://explorer.b2itech.com/explorer-ir-solutions/explorer-analyst-coverage/" target="Demo">Explore B2i</a> 
 			<br>Requires data to be entered in the B2i CMS Portal
 		</div>
 		<table class="b2i-instructions">
@@ -1298,7 +1246,7 @@ di="&amp;darr;";</pre></td></tr>
 	</div>
 	<div id="Documents" class="PluginInfoContainer">
 		<div>
-			<strong>Short Code</strong> - [b2i_showcase id="ID"] - <a href="https://demo.b2itech.com/documents/" target="Demo">Live View</a>
+			<strong>Short Code</strong> - [b2i_showcase id="ID"] - <a href="https://explorer.b2itech.com/explorer-ir-solutions/explorer-document-list/" target="Demo">Explore B2i</a>
 			<br>Used for items like an Online IR Webkit, Conference Calls, Presentations.
 			<br>Requires data to be entered in the B2i CMS Portal
 		</div>
@@ -1342,7 +1290,7 @@ di="&amp;darr;";</pre></td></tr>
 		<div>
 			<strong>More Detail</strong> This is a unique offering to allow segments of code and text, that can be scheduled to display and expire on given dates/times. Clients have used this to display a notice of the quarterly conference call to alert website visitors of the call and allow the webcast link and slide presentation to easily be found.
 		</div>
-		<strong>Short Code</strong> - [b2i_code id=""] - <a href="https://www.b2itech.com/codeplugin" target="Example">Live View</a>
+		<strong>Short Code</strong> - [b2i_code id=""] - <a href="https://explorer.b2itech.com/explorer-ir-solutions/explorer-content-block/" target="Example">Explore B2i</a>
 		<br>Requires data to be entered in the B2i CMS Portal
 		<table class="b2i-instructions">
 						<thead>
@@ -1366,7 +1314,7 @@ di="&amp;darr;";</pre></td></tr>
 	</div>
 	<div id="Page" class="PluginInfoContainer">
 		<div>
-			<strong>Short Code</strong> - [b2i_page id="ID"] - <a href="https://demo.b2itech.com/multi-section/" target="Demo">Live View</a>
+			<strong>Short Code</strong> - [b2i_page id="ID"] - <a href="https://explorer.b2itech.com/explorer-ir-solutions/explorer-page/" target="Demo">Explore B2i</a>
 			<br>Used for items like an Earning, M&D or investor kits.
 			<br>Requires data to be entered in the B2i CMS Portal 
 		</div>
@@ -1395,7 +1343,7 @@ di="&amp;darr;";</pre></td></tr>
 		<span class="toclink"></span>
 	</div>
 	<div id="Institutional" class="PluginInfoContainer">
-		<strong>Short Code</strong> - [b2i_institutional s="EAT"] - <a href="https://demo.b2itech.com/institutional-holders/" target="Demo">Live View</a>
+		<strong>Short Code</strong> - [b2i_institutional s="EAT"] - <a href="https://demo.b2itech.com/institutional-holders/" target="Demo">Explore B2i</a>
 		<br>Your symbol will only retrieve data once we set up your account.
 	</div>
 	 -->
@@ -1435,7 +1383,7 @@ di="&amp;darr;";</pre></td></tr>
 	</div>
 	<div id="Contact" class="PluginInfoContainer">
 		<div>
-			<strong>Short Code</strong> - [b2i_contactus2] - <a href="https://demo.b2itech.com/contact-us-2-0/" target="Demo">Live View</a>
+			<strong>Short Code</strong> - [b2i_contactus2] - <a href="https://explorer.b2itech.com/explorer-ir-solutions/explorer-contact/" target="Demo">Explore B2i</a>
 		</div>
 		<table class="b2i-instructions">
 			<thead>

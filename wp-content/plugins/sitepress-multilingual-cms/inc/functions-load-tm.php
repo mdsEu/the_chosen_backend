@@ -765,7 +765,7 @@ if ( ! \WPML\Plugins::isTMActive() && ( ! wpml_is_setup_complete() || false !== 
 		static $instance;
 
 		if ( ! $instance ) {
-			return new WPML_TM_ATE_Job_Repository( wpml_tm_get_jobs_repository() );
+			return new WPML_TM_ATE_Job_Repository( wpml_tm_get_jobs_repository(), new \WPML\TM\ATE\Jobs() );
 		}
 
 		return $instance;
