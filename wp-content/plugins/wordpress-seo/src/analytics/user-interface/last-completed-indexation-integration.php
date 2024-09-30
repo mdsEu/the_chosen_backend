@@ -2,9 +2,9 @@
 
 namespace Yoast\WP\SEO\Analytics\User_Interface;
 
-use Yoast\WP\SEO\Integrations\Integration_Interface;
 use Yoast\WP\SEO\Conditionals\No_Conditionals;
 use Yoast\WP\SEO\Helpers\Options_Helper;
+use Yoast\WP\SEO\Integrations\Integration_Interface;
 
 /**
  * Handles setting a timestamp when the indexation of a specific indexation action is completed.
@@ -16,7 +16,7 @@ class Last_Completed_Indexation_Integration implements Integration_Interface {
 	/**
 	 * The options helper.
 	 *
-	 * @var Options_Helper $options_helper The options helper.
+	 * @var Options_Helper The options helper.
 	 */
 	private $options_helper;
 
@@ -50,7 +50,7 @@ class Last_Completed_Indexation_Integration implements Integration_Interface {
 	 * Saves a timestamp option when there are no unindexed indexables.
 	 *
 	 * @param string $indexable_name The name of the indexable that is being checked.
-	 * @param int    $count The amount of missing indexables.
+	 * @param int    $count          The amount of missing indexables.
 	 *
 	 * @return void
 	 */
@@ -58,7 +58,10 @@ class Last_Completed_Indexation_Integration implements Integration_Interface {
 		if ( $count === 0 ) {
 			$no_index                    = $this->options_helper->get( 'last_known_no_unindexed', [] );
 			$no_index[ $indexable_name ] = \time();
+
+			\remove_action( 'update_option_wpseo', [ 'WPSEO_Utils', 'clear_cache' ] );
 			$this->options_helper->set( 'last_known_no_unindexed', $no_index );
+			\add_action( 'update_option_wpseo', [ 'WPSEO_Utils', 'clear_cache' ] );
 		}
 	}
 }
