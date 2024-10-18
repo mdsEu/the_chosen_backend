@@ -1,0 +1,63 @@
+<?php return array(
+    'root' => array(
+        'pretty_version' => '2.1.0.1',
+        'version' => '2.1.0.1',
+        'type' => 'wordpress-plugin',
+        'install_path' => __DIR__ . '/../../',
+        'aliases' => array(),
+        'reference' => 'ed5e08031e9981f8f5fe8cdc7b199bec53d59bef',
+        'name' => 'wpml/wpseo',
+        'dev' => false,
+    ),
+    'versions' => array(
+        'otgs/icons' => array(
+            'pretty_version' => 'dev-master',
+            'version' => 'dev-master',
+            'type' => 'library',
+            'install_path' => __DIR__ . '/../otgs/icons',
+            'aliases' => array(
+                0 => '9999999-dev',
+            ),
+            'reference' => 'd8cbc97d15999ba4a3d8caa08c4333af271325f4',
+            'dev_requirement' => false,
+        ),
+        'otgs/ui' => array(
+            'pretty_version' => 'dev-master',
+            'version' => 'dev-master',
+            'type' => 'library',
+            'install_path' => __DIR__ . '/../otgs/ui',
+            'aliases' => array(
+                0 => '9999999-dev',
+            ),
+            'reference' => 'd8b11b073ba3247f25108b0dd88742ca3b0d4628',
+            'dev_requirement' => false,
+        ),
+        'roave/security-advisories' => array(
+            'pretty_version' => 'dev-master',
+            'version' => 'dev-master',
+            'type' => 'metapackage',
+            'install_path' => NULL,
+            'aliases' => array(),
+            'reference' => '6e213f05f59444f9e6f5a7c438bf130ae74aed32',
+            'dev_requirement' => false,
+        ),
+        'wpml-shared/wpml-lib-dependencies' => array(
+            'pretty_version' => '0.1.6',
+            'version' => '0.1.6.0',
+            'type' => 'library',
+            'install_path' => __DIR__ . '/../wpml-shared/wpml-lib-dependencies',
+            'aliases' => array(),
+            'reference' => '723824a61bfec7dd535afcd7260fad50d8bfe6e8',
+            'dev_requirement' => false,
+        ),
+        'wpml/wpseo' => array(
+            'pretty_version' => '2.1.0.1',
+            'version' => '2.1.0.1',
+            'type' => 'wordpress-plugin',
+            'install_path' => __DIR__ . '/../../',
+            'aliases' => array(),
+            'reference' => 'ed5e08031e9981f8f5fe8cdc7b199bec53d59bef',
+            'dev_requirement' => false,
+        ),
+    ),
+);
