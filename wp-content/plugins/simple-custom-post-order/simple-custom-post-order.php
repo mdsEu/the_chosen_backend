@@ -3,7 +3,7 @@
  * Plugin Name: Simple Custom Post Order
  * Plugin URI: https://wordpress.org/plugins-wp/simple-custom-post-order/
  * Description: Order Items (Posts, Pages, and Custom Post Types) using a Drag and Drop Sortable JavaScript.
- * Version: 2.5.7
+ * Version: 2.5.8
  * Author: Colorlib
  * Author URI: https://colorlib.com/
  * Tested up to: 6.3.1
@@ -36,7 +36,7 @@
 
 define( 'SCPORDER_URL', plugins_url( '', __FILE__ ) );
 define( 'SCPORDER_DIR', plugin_dir_path( __FILE__ ) );
-define( 'SCPORDER_VERSION', '2.5.7' );
+define( 'SCPORDER_VERSION', '2.5.8' );
 
 $scporder = new SCPO_Engine();
 
@@ -233,6 +233,10 @@ class SCPO_Engine {
 			wp_enqueue_script( 'jquery' );
 			wp_enqueue_script( 'jquery-ui-sortable' );
 			wp_enqueue_script( 'scporderjs', SCPORDER_URL . '/assets/scporder.min.js', array( 'jquery' ), SCPORDER_VERSION, true );
+			wp_localize_script( 'scporderjs', 'scporder_vars', array(
+				'ajax_url' => admin_url( 'admin-ajax.php' ),
+				'nonce'    => wp_create_nonce( 'scporder_nonce_action' ),
+			) );
 			add_action( 'admin_print_styles', array( $this, 'print_scpo_style' ) );
 
 		}
@@ -323,6 +327,12 @@ class SCPO_Engine {
 	public function update_menu_order() {
 		global $wpdb;
 
+		check_ajax_referer( 'scporder_nonce_action', 'nonce' );
+	
+		if ( ! current_user_can( 'manage_options' ) ) {
+			return;
+		}
+
 		parse_str( $_POST['order'], $data );
 
 		if ( ! is_array( $data ) ) {
@@ -361,12 +371,20 @@ class SCPO_Engine {
 			}
 		}
 
+		wp_cache_flush();
+
 		do_action( 'scp_update_menu_order' );
 	}
 
 	//TODO corrigé
 	public function update_menu_order_tags() {
 		global $wpdb;
+
+		check_ajax_referer( 'scporder_nonce_action', 'nonce' );
+	
+		if ( ! current_user_can( 'manage_options' ) ) {
+			return;
+		}
 
 		parse_str( $_POST['order'], $data );
 
@@ -403,6 +421,8 @@ class SCPO_Engine {
 				); // Passage en requette préparée
 			}
 		}
+
+		wp_cache_flush();
 
 		do_action( 'scp_update_menu_order_tags' );
 
