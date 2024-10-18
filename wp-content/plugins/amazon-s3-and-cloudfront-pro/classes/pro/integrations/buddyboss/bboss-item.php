@@ -138,7 +138,18 @@ class BBoss_Item extends Item {
 			);
 		}
 
-		return new static( null, null, null, null, false, $source_id, $file_path, null, $extra_info, self::CAN_USE_OBJECT_VERSIONING );
+		return new static(
+			null,
+			null,
+			null,
+			null,
+			false,
+			$source_id,
+			$file_path,
+			null,
+			$extra_info,
+			self::CAN_USE_OBJECT_VERSIONING
+		);
 	}
 
 	/**
@@ -186,7 +197,13 @@ class BBoss_Item extends Item {
 			// Call apply_filters directly
 			$image_path  = trailingslashit( $basedir ) . trailingslashit( static::$folder ) . $source_id;
 			$object_type = static::$is_group ? 'group' : 'user';
-			$image_path  = apply_filters( 'bp_core_avatar_folder_dir', $image_path, $source_id, $object_type, static::$folder );
+			$image_path  = apply_filters(
+				'bp_core_avatar_folder_dir',
+				$image_path,
+				$source_id,
+				$object_type,
+				static::$folder
+			);
 		}
 
 		$result = array();
@@ -430,6 +447,10 @@ class BBoss_Item extends Item {
 		$sql             = $wpdb->prepare( $sql, static::$source_type );
 		$offloaded_count = (int) $wpdb->get_var( $sql );
 		$missing_count   = static::get_missing_source_ids( 0, 0, true );
+
+		if ( is_array( $missing_count ) ) {
+			$missing_count = count( $missing_count );
+		}
 
 		return array(
 			'total'         => $offloaded_count + $missing_count,
