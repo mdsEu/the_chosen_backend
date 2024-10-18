@@ -4,7 +4,7 @@ Tags: acf, fields, custom fields, meta, repeater
 Requires at least: 6.0
 Tested up to: 6.6
 Requires PHP: 7.4
-Stable tag: 6.3.6
+Stable tag: 6.3.8
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 
@@ -93,6 +93,23 @@ From your WordPress dashboard
 
 
 == Changelog ==
+
+= 6.3.9 =
+*Release Date 15th October 2024*
+
+* Security - Editing an ACF Field in the Field Group editor can no longer execute a stored XSS vulnerability. Thanks to Duc Luong Tran (janlele91) from Viettel Cyber Security for the responsible disclosure
+* Security - Post Type and Taxonomy metabox callbacks no longer have access to any superglobal values, hardening the original fix from 6.3.8 further
+* Fix - ACF fields now correctly validate when used in the block editor and attached to the sidebar
+
+= 6.3.8 =
+*Release Date 7th October 2024*
+
+* Security - ACF defined Post Type and Taxonomy metabox callbacks no longer have access to $_POST data. (Thanks to the Automattic Security Team for the disclosure)
+
+= 6.3.7 =
+*Release Date 2nd October 2024*
+
+* Security - ACF Free now uses its own update mechanism from WP Engine servers
 
 = 6.3.6 =
 *Release Date 28th August 2024*
