@@ -5,8 +5,9 @@
  * Description: Multilingual support for popular SEO plugins
  * Author: OnTheGoSystems
  * Author URI: http://www.onthegosystems.com/
- * Version: 2.1.0
+ * Version: 2.1.0.1
  * Plugin Slug: wp-seo-multilingual
+ * Tested up to: 6.7
  *
  * @package wpml/wpseo
  */
@@ -19,7 +20,7 @@ if ( defined( 'WPSEOML_VERSION' ) ) {
 	return;
 }
 
-define( 'WPSEOML_VERSION', '2.1.0' );
+define( 'WPSEOML_VERSION', '2.1.0.1' );
 define( 'WPSEOML_PLUGIN_PATH', dirname( __FILE__ ) );
 
 /**
