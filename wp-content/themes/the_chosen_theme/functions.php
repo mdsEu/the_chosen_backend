@@ -203,3 +203,8 @@ function wpse22764_gettext( $translation, $original )
 * GraphQL filters with Custom Fields
 */
 include_once('graphql-custom-fields.php');
+
+/**
+* Post custom hooks
+*/
+include_once('posts-custom-hook.php');
