@@ -28,8 +28,11 @@ function getExplorePage($post_id) {
 
 function modifyPostsSquare($add, $explore_page_id, $post_id) {
     if (!$explore_page_id) return;
+    var_dump('$add: '. $add);
 
     $current_ids = get_field('posts_square', $explore_page_id, false) ?: [];
+    var_dump('current_ids: ');
+    var_dump($current_ids);
     if ($add) {
         if (!in_array($post_id, $current_ids)) {
             array_unshift($current_ids, $post_id);
@@ -50,11 +53,13 @@ function set_priority_posts_after_save($post_id) {
 
     $prioritized = get_post_meta($post_id, 'prioritized', true);
 
+    var_dump('prioritized: '. $prioritized);
     if ($prioritized) {
         $prioritizedUntil = formatDate(get_post_meta($post_id, 'prioritized_until', true));
-        
+        var_dump('prioritizedUntil: '. $prioritizedUntil);
         // Check the post language and get the corresponding "Explore" page in the same language
         $explore_page_id = getExplorePage($post_id);
+        var_dump('explore_page_id: '. $explore_page_id);
 
         if (isDateAfter($prioritizedUntil)) {
             // If we have the Explore page in the same language, update the "posts_square" field
