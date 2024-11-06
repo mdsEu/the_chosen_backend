@@ -77,6 +77,8 @@ function set_priority_posts_after_save($post_id) {
     if ($post_id == 3208) {
         die();
     }
+
+    return;
 }
 
 add_action('save_post', 'set_priority_posts_after_save');
