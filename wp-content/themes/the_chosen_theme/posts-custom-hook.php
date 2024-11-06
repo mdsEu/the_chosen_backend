@@ -73,6 +73,8 @@ function set_priority_posts_after_save($post_id) {
     } else {
         update_post_meta($post_id, 'prioritized_until', '');
     }
+
+    die();
 }
 
 add_action('save_post', 'set_priority_posts_after_save');
