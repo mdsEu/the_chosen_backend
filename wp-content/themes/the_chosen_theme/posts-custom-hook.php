@@ -47,14 +47,12 @@ function modifyPostsSquare($add, $explore_page_id, $post_id) {
 
 function set_priority_posts_after_save($post_id) {
     validatePermissions($post_id);
-
     $prioritized = get_post_meta($post_id, 'prioritized', true);
+    $explore_page_id = getExplorePage($post_id);
 
     if ($prioritized) {
         $prioritizedUntil = formatDate(get_post_meta($post_id, 'prioritized_until', true));
-        
         // Check the post language and get the corresponding "Explore" page in the same language
-        $explore_page_id = getExplorePage($post_id);
 
         if (isDateAfter($prioritizedUntil)) {
             // If we have the Explore page in the same language, update the "posts_square" field
@@ -66,8 +64,10 @@ function set_priority_posts_after_save($post_id) {
             modifyPostsSquare(false, $explore_page_id, $post_id);
         }
     } else {
-        update_post_meta($post_id, 'prioritized_until', '');
+        modifyPostsSquare(false, $explore_page_id, $post_id);
     }
+
+    return;
 }
 
 add_action('save_post', 'set_priority_posts_after_save');
