@@ -16,6 +16,7 @@ COPY ./server_files/php/php.ini /usr/local/etc/php/
 RUN sed -ri -e 's!AllowOverride None!AllowOverride All!g' /etc/apache2/apache2.conf
 #add the following line to the end of the file LimitRequestFieldSize 1000000 to /etc/apache2/apache2.conf
 RUN echo "LimitRequestFieldSize 1000000" >> /etc/apache2/apache2.conf
+RUN echo "LimitRequestLine 1000000" >> /etc/apache2/apache2.conf
 
 RUN a2enmod headers
 
