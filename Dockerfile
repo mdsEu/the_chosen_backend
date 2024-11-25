@@ -14,8 +14,10 @@ COPY ./server_files/000-default.conf /etc/apache2/sites-available/000-default.co
 COPY ./server_files/default-ssl.conf /etc/apache2/sites-available/default-ssl.conf
 COPY ./server_files/php/php.ini /usr/local/etc/php/
 RUN sed -ri -e 's!AllowOverride None!AllowOverride All!g' /etc/apache2/apache2.conf
-#add the following line to the end of the file LimitRequestFieldSize 1000000 to /etc/apache2/apache2.conf
-RUN echo "LimitRequestFieldSize 1000000" >> /etc/apache2/apache2.conf
+#add the following line to beginning of the file LimitRequestFieldSize 1000000 to /etc/apache2/apache2.conf
+RUN sed -i '1s/^/LimitRequestFieldSize 1000000\n/' /etc/apache2/apache2.conf
+RUN sed -i '1s/^/LimitRequestLine 1000000\n/' /etc/apache2/apache2.conf
+
 
 RUN a2enmod headers
 
