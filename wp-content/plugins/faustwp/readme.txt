@@ -2,8 +2,8 @@
 Contributors: antpb, apmatthe, blakewpe, chriswiegman, claygriffiths, jasonkonen, joefusco, markkelnar, matthewguywright, mindctrl, modernnerd, rfmeier, TeresaGobble, thdespou, wpengine
 Tags: faustjs, faust, headless, decoupled, composable-architecture
 Requires at least: 5.7
-Tested up to: 6.2
-Stable tag: 0.8.7
+Tested up to: 6.6.1
+Stable tag: 1.4.1
 Requires PHP: 7.2
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
@@ -54,22 +54,22 @@ plugins/faustwp/.wordpress-org/screenshot-3.png
 
 == Changelog ==
 
-= 0.8.7 =
+= 1.4.1 =
 
 ### Patch Changes
 
-- 2eeb366: The default plugin setting for "Disable WordPress Theme Admin Pages" is now unchecked, requiring a user to opt-in after initial activation.
+- e80d80af: Tested up to WordPress v6.6.1
 
-= 0.8.6 =
+= 1.4.0 =
+
+### Minor Changes
+
+- 9ff1df86: Introduces a new setting on the Faust settings page that allows users to opt-in or out of Faust removing Nav Menu Locations that are not registered on the Faust Settings page.
+
+= 1.3.2 =
 
 ### Patch Changes
 
-- 02f7f78: Registered a new GraphQL field, `globalStylesheet`, that returns [wp_get_global_stylesheet](https://developer.wordpress.org/reference/functions/wp_get_global_stylesheet/) and provides the same arguments as the core WordPress function.
+- 84076cd1: Bug: Fixes issue with blocks not showing in the block editor when running blockset command on WP >=v6.5
 
-= 0.8.5 =
-
-### Patch Changes
-
-- eaa5e48: Added the `shouldShowFaustToolbar` field on the `viewer` WPGraphQL type to determine if the Faust toolbar should be shown based on user preferences.
-
-[View the full changelog](https://faustjs.org/docs/changelog/faustwp)
+[View the full changelog](https://github.com/wpengine/faustjs/blob/canary/plugins/faustwp/CHANGELOG.md)

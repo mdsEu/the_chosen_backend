@@ -4,7 +4,7 @@
 
 namespace Composer\Autoload;
 
-class ComposerStaticInitd32b990c0cd3cc6015d4bae6724d5ec7
+class ComposerStaticInit65c4f41f6d25bd3a323807106b299e9c
 {
     public static $files = array (
         'b45b351e6b6f7487d819961fef2fda77' => __DIR__ . '/..' . '/jakeasmith/http_build_url/src/http_build_url.php',
@@ -15,10 +15,14 @@ class ComposerStaticInitd32b990c0cd3cc6015d4bae6724d5ec7
         '914c4a8cb7e06f7d6e1ddf6997c1785f' => __DIR__ . '/..' . '/wpml/fp/core/functions.php',
         '348332d63f916da7598941d18c24311d' => __DIR__ . '/..' . '/wpml/fp/core/strings_functions.php',
         '766b758ee51e52c53cf3312a1dba9e34' => __DIR__ . '/..' . '/wpml/fp/core/system.php',
-        '995b589e693a50f54393aa31ee1c3763' => __DIR__ . '/..' . '/yoast/whip/src/facades/wordpress.php',
+        '81db02b30f563b92907e271b66bd7559' => __DIR__ . '/..' . '/yoast/whip/src/Facades/wordpress.php',
     );
 
     public static $prefixLengthsPsr4 = array (
+        'Y' => 
+        array (
+            'Yoast\\WHIPv2\\' => 13,
+        ),
         'W' => 
         array (
             'WPML\\Collect\\' => 13,
@@ -42,6 +46,10 @@ class ComposerStaticInitd32b990c0cd3cc6015d4bae6724d5ec7
     );
 
     public static $prefixDirsPsr4 = array (
+        'Yoast\\WHIPv2\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/yoast/whip/src',
+        ),
         'WPML\\Collect\\' => 
         array (
             0 => __DIR__ . '/..' . '/wpml/collect/src/Illuminate',
@@ -747,15 +755,20 @@ class ComposerStaticInitd32b990c0cd3cc6015d4bae6724d5ec7
         'WPML\\TM\\ATE\\AutoTranslate\\Endpoint\\AutoTranslate' => __DIR__ . '/../..' . '/classes/ATE/auto-translate/endpoints/AutoTranslate.php',
         'WPML\\TM\\ATE\\AutoTranslate\\Endpoint\\CancelJobs' => __DIR__ . '/../..' . '/classes/ATE/auto-translate/endpoints/CancelJobs.php',
         'WPML\\TM\\ATE\\AutoTranslate\\Endpoint\\CheckLanguageSupport' => __DIR__ . '/../..' . '/classes/ATE/auto-translate/endpoints/CheckLanguageSupport.php',
-        'WPML\\TM\\ATE\\AutoTranslate\\Endpoint\\CountJobsInProgress' => __DIR__ . '/../..' . '/classes/ATE/auto-translate/endpoints/CountJobsInProgress.php',
         'WPML\\TM\\ATE\\AutoTranslate\\Endpoint\\EnableATE' => __DIR__ . '/../..' . '/classes/ATE/auto-translate/endpoints/EnableATE.php',
         'WPML\\TM\\ATE\\AutoTranslate\\Endpoint\\GetATEJobsToSync' => __DIR__ . '/../..' . '/classes/ATE/auto-translate/endpoints/GetATEJobsToSync.php',
         'WPML\\TM\\ATE\\AutoTranslate\\Endpoint\\GetCredits' => __DIR__ . '/../..' . '/classes/ATE/auto-translate/endpoints/GetCredits.php',
+        'WPML\\TM\\ATE\\AutoTranslate\\Endpoint\\GetJobsCount' => __DIR__ . '/../..' . '/classes/ATE/auto-translate/endpoints/GetJobsCount.php',
+        'WPML\\TM\\ATE\\AutoTranslate\\Endpoint\\GetJobsInfo' => __DIR__ . '/../..' . '/classes/ATE/auto-translate/endpoints/GetJobsInfo.php',
         'WPML\\TM\\ATE\\AutoTranslate\\Endpoint\\GetNumberOfPosts' => __DIR__ . '/../..' . '/classes/ATE/auto-translate/endpoints/GetNumberOfPosts.php',
         'WPML\\TM\\ATE\\AutoTranslate\\Endpoint\\Languages' => __DIR__ . '/../..' . '/classes/ATE/auto-translate/endpoints/Languages.php',
         'WPML\\TM\\ATE\\AutoTranslate\\Endpoint\\ResumeAll' => __DIR__ . '/../..' . '/classes/ATE/auto-translate/endpoints/ResumeAll.php',
         'WPML\\TM\\ATE\\AutoTranslate\\Endpoint\\SetForPostType' => __DIR__ . '/../..' . '/classes/ATE/auto-translate/endpoints/SetForPostType.php',
         'WPML\\TM\\ATE\\AutoTranslate\\Endpoint\\SyncLock' => __DIR__ . '/../..' . '/classes/ATE/auto-translate/endpoints/SyncLock.php',
+        'WPML\\TM\\ATE\\AutoTranslate\\Hooks\\JobsCountCacheInvalidateAction' => __DIR__ . '/../..' . '/classes/ATE/auto-translate/hooks/JobsCountCacheInvalidateAction.php',
+        'WPML\\TM\\ATE\\AutoTranslate\\Repository\\CachedJobsCount' => __DIR__ . '/../..' . '/classes/ATE/auto-translate/repository/CachedJobsCount.php',
+        'WPML\\TM\\ATE\\AutoTranslate\\Repository\\JobsCount' => __DIR__ . '/../..' . '/classes/ATE/auto-translate/repository/JobsCount.php',
+        'WPML\\TM\\ATE\\AutoTranslate\\Repository\\JobsCountInterface' => __DIR__ . '/../..' . '/classes/ATE/auto-translate/repository/JobsCountInterface.php',
         'WPML\\TM\\ATE\\ClonedSites\\ApiCommunication' => __DIR__ . '/../..' . '/classes/ATE/API/ClonedSites/ApiCommunication.php',
         'WPML\\TM\\ATE\\ClonedSites\\Endpoints\\Copy' => __DIR__ . '/../..' . '/classes/ATE/API/ClonedSites/Endpoints/Copy.php',
         'WPML\\TM\\ATE\\ClonedSites\\Endpoints\\CopyWithCredits' => __DIR__ . '/../..' . '/classes/ATE/API/ClonedSites/Endpoints/CopyWithCredits.php',
@@ -803,7 +816,7 @@ class ComposerStaticInitd32b990c0cd3cc6015d4bae6724d5ec7
         'WPML\\TM\\ATE\\Retry\\Process' => __DIR__ . '/../..' . '/classes/ATE/Retry/Process.php',
         'WPML\\TM\\ATE\\Retry\\Result' => __DIR__ . '/../..' . '/classes/ATE/Retry/Result.php',
         'WPML\\TM\\ATE\\Retry\\Trigger' => __DIR__ . '/../..' . '/classes/ATE/Retry/Trigger.php',
-        'WPML\\TM\\ATE\\ReturnedJobsQueue' => __DIR__ . '/../..' . '/classes/ATE/ReturnedJobsQueue.php',
+        'WPML\\TM\\ATE\\ReturnedJobs' => __DIR__ . '/../..' . '/classes/ATE/ReturnedJobs.php',
         'WPML\\TM\\ATE\\Review\\AcceptTranslation' => __DIR__ . '/../..' . '/classes/ATE/Review/AcceptTranslation.php',
         'WPML\\TM\\ATE\\Review\\ApplyJob' => __DIR__ . '/../..' . '/classes/ATE/Review/ApplyJob.php',
         'WPML\\TM\\ATE\\Review\\ApproveTranslations' => __DIR__ . '/../..' . '/classes/ATE/Review/ApproveTranslations.php',
@@ -1026,6 +1039,7 @@ class ComposerStaticInitd32b990c0cd3cc6015d4bae6724d5ec7
         'WPML_Ajax_Factory' => __DIR__ . '/../..' . '/classes/ajax/class-wpml-ajax-factory.php',
         'WPML_Ajax_Response' => __DIR__ . '/../..' . '/classes/ajax/class-wpml-ajax-response.php',
         'WPML_Ajax_Route' => __DIR__ . '/../..' . '/classes/ajax/class-wpml-ajax-route.php',
+        'WPML_Ajax_Scan_Link_Targets' => __DIR__ . '/../..' . '/classes/translate_link_targets/class-wpml-ajax-scan-link-targets.php',
         'WPML_Ajax_Update_Link_Targets_In_Content' => __DIR__ . '/../..' . '/classes/translate_link_targets/class-wpml-ajax-update-link-targets-in-content.php',
         'WPML_Ajax_Update_Link_Targets_In_Posts' => __DIR__ . '/../..' . '/classes/translate_link_targets/class-wpml-ajax-update-link-targets-in-posts.php',
         'WPML_Ajax_Update_Link_Targets_In_Strings' => __DIR__ . '/../..' . '/classes/translate_link_targets/class-wpml-ajax-update-link-targets-in-strings.php',
@@ -1992,31 +2006,6 @@ class ComposerStaticInitd32b990c0cd3cc6015d4bae6724d5ec7
         'WPML_XML_Transform' => __DIR__ . '/../..' . '/classes/xml-config/transform/interface-wpml-xml-transform.php',
         'WP_Async_Request' => __DIR__ . '/..' . '/a5hleyrich/wp-background-processing/classes/wp-async-request.php',
         'WP_Background_Process' => __DIR__ . '/..' . '/a5hleyrich/wp-background-processing/classes/wp-background-process.php',
-        'Whip_BasicMessage' => __DIR__ . '/..' . '/yoast/whip/src/messages/Whip_BasicMessage.php',
-        'Whip_Configuration' => __DIR__ . '/..' . '/yoast/whip/src/Whip_Configuration.php',
-        'Whip_DismissStorage' => __DIR__ . '/..' . '/yoast/whip/src/interfaces/Whip_DismissStorage.php',
-        'Whip_EmptyProperty' => __DIR__ . '/..' . '/yoast/whip/src/exceptions/Whip_EmptyProperty.php',
-        'Whip_Host' => __DIR__ . '/..' . '/yoast/whip/src/Whip_Host.php',
-        'Whip_HostMessage' => __DIR__ . '/..' . '/yoast/whip/src/messages/Whip_HostMessage.php',
-        'Whip_InvalidOperatorType' => __DIR__ . '/..' . '/yoast/whip/src/exceptions/Whip_InvalidOperatorType.php',
-        'Whip_InvalidType' => __DIR__ . '/..' . '/yoast/whip/src/exceptions/Whip_InvalidType.php',
-        'Whip_InvalidVersionComparisonString' => __DIR__ . '/..' . '/yoast/whip/src/exceptions/Whip_InvalidVersionComparisonString.php',
-        'Whip_InvalidVersionRequirementMessage' => __DIR__ . '/..' . '/yoast/whip/src/messages/Whip_InvalidVersionRequirementMessage.php',
-        'Whip_Listener' => __DIR__ . '/..' . '/yoast/whip/src/interfaces/Whip_Listener.php',
-        'Whip_Message' => __DIR__ . '/..' . '/yoast/whip/src/interfaces/Whip_Message.php',
-        'Whip_MessageDismisser' => __DIR__ . '/..' . '/yoast/whip/src/Whip_MessageDismisser.php',
-        'Whip_MessageFormatter' => __DIR__ . '/..' . '/yoast/whip/src/Whip_MessageFormatter.php',
-        'Whip_MessagePresenter' => __DIR__ . '/..' . '/yoast/whip/src/interfaces/Whip_MessagePresenter.php',
-        'Whip_MessagesManager' => __DIR__ . '/..' . '/yoast/whip/src/Whip_MessagesManager.php',
-        'Whip_NullMessage' => __DIR__ . '/..' . '/yoast/whip/src/messages/Whip_NullMessage.php',
-        'Whip_Requirement' => __DIR__ . '/..' . '/yoast/whip/src/interfaces/Whip_Requirement.php',
-        'Whip_RequirementsChecker' => __DIR__ . '/..' . '/yoast/whip/src/Whip_RequirementsChecker.php',
-        'Whip_UpgradePhpMessage' => __DIR__ . '/..' . '/yoast/whip/src/messages/Whip_UpgradePhpMessage.php',
-        'Whip_VersionDetector' => __DIR__ . '/..' . '/yoast/whip/src/interfaces/Whip_VersionDetector.php',
-        'Whip_VersionRequirement' => __DIR__ . '/..' . '/yoast/whip/src/Whip_VersionRequirement.php',
-        'Whip_WPDismissOption' => __DIR__ . '/..' . '/yoast/whip/src/Whip_WPDismissOption.php',
-        'Whip_WPMessageDismissListener' => __DIR__ . '/..' . '/yoast/whip/src/Whip_WPMessageDismissListener.php',
-        'Whip_WPMessagePresenter' => __DIR__ . '/..' . '/yoast/whip/src/presenters/Whip_WPMessagePresenter.php',
         'icl_cache' => __DIR__ . '/../..' . '/inc/cache.php',
         'wpml_zip' => __DIR__ . '/../..' . '/inc/wpml_zip.php',
     );
@@ -2024,9 +2013,9 @@ class ComposerStaticInitd32b990c0cd3cc6015d4bae6724d5ec7
     public static function getInitializer(ClassLoader $loader)
     {
         return \Closure::bind(function () use ($loader) {
-            $loader->prefixLengthsPsr4 = ComposerStaticInitd32b990c0cd3cc6015d4bae6724d5ec7::$prefixLengthsPsr4;
-            $loader->prefixDirsPsr4 = ComposerStaticInitd32b990c0cd3cc6015d4bae6724d5ec7::$prefixDirsPsr4;
-            $loader->classMap = ComposerStaticInitd32b990c0cd3cc6015d4bae6724d5ec7::$classMap;
+            $loader->prefixLengthsPsr4 = ComposerStaticInit65c4f41f6d25bd3a323807106b299e9c::$prefixLengthsPsr4;
+            $loader->prefixDirsPsr4 = ComposerStaticInit65c4f41f6d25bd3a323807106b299e9c::$prefixDirsPsr4;
+            $loader->classMap = ComposerStaticInit65c4f41f6d25bd3a323807106b299e9c::$classMap;
 
         }, null, ClassLoader::class);
     }

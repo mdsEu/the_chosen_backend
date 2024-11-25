@@ -5,6 +5,7 @@
  * @package WPSEO\Admin
  */
 
+use Yoast\WP\SEO\Conditionals\New_Dashboard_Ui_Conditional;
 use Yoast\WP\SEO\Integrations\Settings_Integration;
 
 /**
@@ -19,7 +20,7 @@ class WPSEO_Admin {
 	 *
 	 * @var string
 	 */
-	const PAGE_IDENTIFIER = 'wpseo_dashboard';
+	public const PAGE_IDENTIFIER = 'wpseo_dashboard';
 
 	/**
 	 * Array of classes that add admin functionality.
@@ -59,8 +60,6 @@ class WPSEO_Admin {
 		add_action( 'admin_enqueue_scripts', [ $this, 'config_page_scripts' ] );
 		add_action( 'admin_enqueue_scripts', [ $this, 'enqueue_global_style' ] );
 
-		add_filter( 'user_contactmethods', [ $this, 'update_contactmethods' ], 10, 1 );
-
 		add_action( 'after_switch_theme', [ $this, 'switch_theme' ] );
 		add_action( 'switch_theme', [ $this, 'switch_theme' ] );
 
@@ -86,7 +85,8 @@ class WPSEO_Admin {
 		}
 
 		$this->admin_features = [
-			'dashboard_widget' => new Yoast_Dashboard_Widget(),
+			'dashboard_widget'         => new Yoast_Dashboard_Widget(),
+			'wincher_dashboard_widget' => new Wincher_Dashboard_Widget(),
 		];
 
 		if ( WPSEO_Metabox::is_post_overview( $pagenow ) || WPSEO_Metabox::is_post_edit( $pagenow ) ) {
@@ -116,6 +116,8 @@ class WPSEO_Admin {
 
 	/**
 	 * Schedules a rewrite flush to happen at shutdown.
+	 *
+	 * @return void
 	 */
 	public function schedule_rewrite_flush() {
 		// Bail if this is a multisite installation and the site has been switched.
@@ -137,6 +139,8 @@ class WPSEO_Admin {
 
 	/**
 	 * Register assets needed on admin pages.
+	 *
+	 * @return void
 	 */
 	public function enqueue_assets() {
 		// phpcs:ignore WordPress.Security.NonceVerification.Recommended -- Reason: We are not processing form data.
@@ -156,13 +160,15 @@ class WPSEO_Admin {
 		/**
 		 * Filter: 'wpseo_manage_options_capability' - Allow changing the capability users need to view the settings pages.
 		 *
-		 * @api string unsigned The capability.
+		 * @param string $capability The capability.
 		 */
 		return apply_filters( 'wpseo_manage_options_capability', 'wpseo_manage_options' );
 	}
 
 	/**
 	 * Maps the manage_options cap on saving an options page to wpseo_manage_options.
+	 *
+	 * @return void
 	 */
 	public function map_manage_options_cap() {
 		// phpcs:ignore WordPress.Security -- The variable is only used in strpos and thus safe to not unslash or sanitize.
@@ -176,6 +182,8 @@ class WPSEO_Admin {
 	/**
 	 * Adds the ability to choose how many posts are displayed per page
 	 * on the bulk edit pages.
+	 *
+	 * @return void
 	 */
 	public function bulk_edit_options() {
 		$option = 'per_page';
@@ -213,7 +221,7 @@ class WPSEO_Admin {
 	 * @return array
 	 */
 	public function add_action_link( $links, $file ) {
-		$first_time_configuration_notice_helper = \YoastSEO()->helpers->first_time_configuration_notice;
+		$first_time_configuration_notice_helper = YoastSEO()->helpers->first_time_configuration_notice;
 
 		if ( $file === WPSEO_BASENAME && WPSEO_Capability_Utils::current_user_can( 'wpseo_manage_options' ) ) {
 			if ( is_network_admin() ) {
@@ -234,10 +242,10 @@ class WPSEO_Admin {
 			$configuration_title = ( ! $first_time_configuration_notice_helper->should_show_alternate_message() ) ? 'first-time configuration' : 'SEO configuration';
 			/* translators: CTA to finish the first time configuration. %s: Either first-time SEO configuration or SEO configuration. */
 			$message  = sprintf( __( 'Finish your %s', 'wordpress-seo' ), $configuration_title );
-			$ftc_link = '<a href="' . esc_url( admin_url( 'admin.php?page=wpseo_dashboard#top#first-time-configuration' ) ) . '" target="_blank">' . $message . '</a>';
+			$ftc_page = ( ( new New_Dashboard_Ui_Conditional() )->is_met() ) ? 'admin.php?page=wpseo_dashboard#/first-time-configuration' : 'admin.php?page=wpseo_dashboard#top#first-time-configuration';
+			$ftc_link = '<a href="' . esc_url( admin_url( $ftc_page ) ) . '" target="_blank">' . $message . '</a>';
 			array_unshift( $links, $ftc_link );
 		}
-
 
 		$addon_manager = new WPSEO_Addon_Manager();
 		if ( YoastSEO()->helpers->product->is_premium() ) {
@@ -272,6 +280,8 @@ class WPSEO_Admin {
 
 	/**
 	 * Enqueues the (tiny) global JS needed for the plugin.
+	 *
+	 * @return void
 	 */
 	public function config_page_scripts() {
 		$asset_manager = new WPSEO_Admin_Asset_Manager();
@@ -281,6 +291,8 @@ class WPSEO_Admin {
 
 	/**
 	 * Enqueues the (tiny) global stylesheet needed for the plugin.
+	 *
+	 * @return void
 	 */
 	public function enqueue_global_style() {
 		$asset_manager = new WPSEO_Admin_Asset_Manager();
@@ -292,11 +304,16 @@ class WPSEO_Admin {
 	 *
 	 * These are used with the Facebook author, rel="author" and Twitter cards implementation.
 	 *
-	 * @param array $contactmethods Currently set contactmethods.
+	 * @deprecated 22.6
+	 * @codeCoverageIgnore
 	 *
-	 * @return array Contactmethods with added contactmethods.
+	 * @param array<string, string> $contactmethods Currently set contactmethods.
+	 *
+	 * @return array<string, string> Contactmethods with added contactmethods.
 	 */
 	public function update_contactmethods( $contactmethods ) {
+		_deprecated_function( __METHOD__, 'Yoast SEO 22.6' );
+
 		$contactmethods['facebook']   = __( 'Facebook profile URL', 'wordpress-seo' );
 		$contactmethods['instagram']  = __( 'Instagram profile URL', 'wordpress-seo' );
 		$contactmethods['linkedin']   = __( 'LinkedIn profile URL', 'wordpress-seo' );
@@ -304,7 +321,7 @@ class WPSEO_Admin {
 		$contactmethods['pinterest']  = __( 'Pinterest profile URL', 'wordpress-seo' );
 		$contactmethods['soundcloud'] = __( 'SoundCloud profile URL', 'wordpress-seo' );
 		$contactmethods['tumblr']     = __( 'Tumblr profile URL', 'wordpress-seo' );
-		$contactmethods['twitter']    = __( 'Twitter username (without @)', 'wordpress-seo' );
+		$contactmethods['twitter']    = __( 'X username (without @)', 'wordpress-seo' );
 		$contactmethods['youtube']    = __( 'YouTube profile URL', 'wordpress-seo' );
 		$contactmethods['wikipedia']  = __( 'Wikipedia page about you', 'wordpress-seo' ) . '<br/><small>' . __( '(if one exists)', 'wordpress-seo' ) . '</small>';
 
@@ -313,6 +330,8 @@ class WPSEO_Admin {
 
 	/**
 	 * Log the updated timestamp for user profiles when theme is changed.
+	 *
+	 * @return void
 	 */
 	public function switch_theme() {
 
@@ -351,6 +370,8 @@ class WPSEO_Admin {
 
 	/**
 	 * Sets the upsell notice.
+	 *
+	 * @return void
 	 */
 	protected function set_upsell_notice() {
 		$upsell = new WPSEO_Product_Upsell_Notice();

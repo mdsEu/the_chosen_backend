@@ -27,7 +27,6 @@ use function WPML\FP\pipe;
  *
  * @method static callable|null|\stdClass getPostJob( ...$postId, ...$postType, ...$language ) : Curried:: int->string->string->null|\stdClass
  * @method static callable|null|\stdClass getTridJob( ...$trid, ...$language ) : Curried:: int->string->null|\stdClass
- * @method static callable|false|\stdClass get( ...$jobId ) : Curried:: int->false|\stdClass
  * @method static callable|void setNotTranslatedStatus( ...$jobId )  : Curried:: int->int
  * @method static callable|void setTranslationService( ...$jobId, $translationService ) : Curried:: int->int|string->int
  * @method static callable|void clearReviewStatus( ...$jobId ) : Curried:: int->int->int

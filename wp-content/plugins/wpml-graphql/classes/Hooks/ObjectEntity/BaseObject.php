@@ -2,14 +2,14 @@
 
 namespace WPML\GraphQL\Hooks\ObjectEntity;
 
-use WPML\LIB\WP\Hooks;
-use function WPML\FP\spreadArgs;
 use WPML\GraphQL\Helpers;
 use WPML\GraphQL\Hooks\ObjectType\LanguageType;
-use WPML\GraphQL\Resolvers\BaseFields as FieldsResolver;
+use WPML\GraphQL\Resolvers\BaseFields;
 use WPML\GraphQL\Resolvers\Interfaces\LanguageFields;
 use WPML\GraphQL\Resolvers\Interfaces\TranslationFields;
 use WPML\GraphQL\Resolvers\Interfaces\ModelFields;
+use WPML\LIB\WP\Hooks;
+use function WPML\FP\spreadArgs;
 
 abstract class BaseObject implements \IWPML_Frontend_Action, \IWPML_DIC_Action {
 
@@ -22,14 +22,14 @@ abstract class BaseObject implements \IWPML_Frontend_Action, \IWPML_DIC_Action {
 	const ADJUST_MODEL_FIELDS_PRIORITY   = 99;
 	const ADJUST_MODEL_FIELDS_ARGS_COUNT = 3;
 
-	/** @var FieldsResolver */
+	/** @var BaseFields */
 	public $fieldsResolver;
 
 	/** @var Helpers */
 	public $helpers;
 
 	public function __construct(
-		FieldsResolver $fieldsResolver,
+		BaseFields $fieldsResolver,
 		Helpers $helpers
 	) {
 		$this->fieldsResolver = $fieldsResolver;
@@ -39,7 +39,7 @@ abstract class BaseObject implements \IWPML_Frontend_Action, \IWPML_DIC_Action {
 	public function add_hooks() {
 		Hooks::onAction( 'graphql_register_types' )
 			->then( [ $this, 'registerObjectFieldsAndFilters' ] );
-		
+
 		if ( $this->fieldsResolver instanceof ModelFields ) {
 			Hooks::onFilter(
 				'graphql_model_prepare_fields',
@@ -51,42 +51,24 @@ abstract class BaseObject implements \IWPML_Frontend_Action, \IWPML_DIC_Action {
 
 	/**
 	 * Register 'language' and 'translations' fields for objects,
-	 * and apply filters by language
-	 *
-	 * @return void
-	 */
-	public function registerObjectFieldsAndFilters() {
-		$this->manageFieldsAndDefineFilters();
-		$this->applyLanguageFilter();
-	}
-
-	/**
-	 * Manage 'language' and 'translations' fields for objects,
 	 * and define filters by language
 	 *
 	 * @return void
 	 */
-	abstract protected function manageFieldsAndDefineFilters();
-
-
-	/**
-	 * Apply filters by language
-	 *
-	 * @return void
-	 */
-	abstract protected function applyLanguageFilter();
+	abstract public function registerObjectFieldsAndFilters();
 
 	/**
 	 * Register a filter by language given a GraphQL type single name
 	 *
 	 * @param string $graphQlSingleName Usually, a capitalized version of a post type, taxonomy or 'Comment'.
+	 * @param string $fromType          Type that initiates the connection where the filter is defined; default to the root object query.
 	 *
 	 * @return void
 	 */
-	protected function registerLanguageFilter( $graphQlSingleName ) {
+	protected function registerLanguageFilter( $graphQlSingleName, $fromType = 'RootQuery' ) {
 		$graphQlType = ucfirst( $graphQlSingleName );
 		register_graphql_fields(
-			"RootQueryTo${graphQlType}ConnectionWhereArgs",
+			"{$fromType}To{$graphQlType}ConnectionWhereArgs",
 			[
 				LanguageType::FILTER_NAME => [
 					'type'        => LanguageType::MAIN_FIELD_TYPE,
@@ -164,35 +146,6 @@ abstract class BaseObject implements \IWPML_Frontend_Action, \IWPML_DIC_Action {
 				]
 			);
 		}
-	}
-
-	/**
-	 * Set the current language based on the query 'where' filters
-	 *
-	 * @param mixed[] $queryArgs
-	 * @param mixed[] $whereArgs
-	 *
-	 * @return mixed[]
-	 */
-	public function setLanguageFromQueryArgs( $queryArgs, $whereArgs ) {
-		$selectedLanguage = $this->helpers->getArr( LanguageType::FILTER_NAME, $whereArgs );
-
-		if ( is_null( $selectedLanguage ) ) {
-			return $queryArgs;
-		}
-
-		if ( 'all' === $selectedLanguage ) {
-			$queryArgs['suppress_wpml_where_and_join_filter'] = true;
-			return $queryArgs;
-		}
-
-		if ( ! $this->helpers->isActiveLanguage( $selectedLanguage ) ) {
-			throw new \Exception('Filtering by a non-active language');
-		}
-
-		$this->helpers->setCurrentLanguage( $selectedLanguage );
-
-		return $queryArgs;
 	}
 
 }

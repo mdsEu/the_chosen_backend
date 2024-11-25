@@ -397,6 +397,7 @@ class Types_Page_Extension_Meta_Box_Related_Content extends Types_Page_Extension
 				'connectExisting' => sprintf( __( 'Connect existing %s', 'wpcf' ), $post_type_object->labels->singular_name ),
 				'connect' => __( 'Connect', 'wpcf' ),
 				'connectExistingPlaceholder' => __( 'Type the name', 'wpcf' ),
+				'connectExistingSelectPlaceholder' => __( 'Select one', 'wpcf' ),
 				'doYouReallyWantDisconnect' => __( 'Do you really want to disconnect this post? As a result, intermediary posts with relationships fields will be <strong>permanently deleted</strong>. Note that this involves all translations of affected posts.', 'wpcf' ),
 				'doYouReallyWantTrash' => __( 'Do you really want to <strong>move the related post to Trash?</strong> All translations of that post will be moved to trash as well.', 'wpcf' ),
 				'selectFieldsTitle' => __( 'Select columns to be displayed', 'wpcf' ),
@@ -868,11 +869,68 @@ class Types_Page_Extension_Meta_Box_Related_Content extends Types_Page_Extension
 		$other_post_type = $other_post_type[0];
 		$post_type_object = get_post_type_object( $other_post_type );
 
-		// Post.
-		$fields_html['fields'][] = array(
-			'type' => 'post',
-			'post_type_label' => $post_type_object->labels->singular_name,
+		$relationship_slug = $relationship->get_slug();
+
+		// Options should be arrays with 'value' and 'label' entries.
+		$options = [];
+		/**
+		 * types_relationship_connect_existing_options
+		 *
+		 * Manually define the options when populating the selector for connecting
+		 * with existing items in a relationship metabox.
+		 *
+		 * @param  array     $options
+		 * @param  string    $other_post_type
+		 * @param  string    $relationship_slug
+		 * @param  int|false $current_post_id
+		 *
+		 * @return array
+		 *
+		 * @since 3.4.21
+		 */
+		$options = apply_filters(
+			'types_relationship_connect_existing_options',
+			$options,
+			$other_post_type,
+			$relationship_slug,
+			$this->get_current_post_id()
 		);
+		/**
+		 * types_relationship_connect_existing_options[{relationship}][{target_post_type}]
+		 *
+		 * Manually define the options when populating the selector for connecting
+		 * with existing items in a relationship metabox.
+		 *
+		 * This filter is specific for each relationship and post type target.
+		 *
+		 * @param  array     $options
+		 * @param  int|false $current_post_id
+		 *
+		 * @return array
+		 *
+		 * @since 3.4.21
+		 */
+		$options = apply_filters(
+			'types_relationship_connect_existing_options[' . $relationship_slug . ']['  . $other_post_type . ']',
+			$options,
+			$this->get_current_post_id()
+		);
+
+		if ( empty( $options ) ) {
+			// Post.
+			$fields_html['fields'][] = array(
+				'type'            => 'post',
+				'post_type_label' => $post_type_object->labels->singular_name,
+			);
+		} else {
+			// Post select.
+			$fields_html['fields'][] = array(
+				'type'            => 'post-select',
+				'post_type_label' => $post_type_object->labels->singular_name,
+				'empty_label'     => __( 'Select one', 'wpcf' ),
+				'options'         => $options,
+			);
+		}
 
 		// Relationship fields.
 		if ( $relationship->has_association_field_definitions() ) {

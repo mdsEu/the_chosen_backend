@@ -7,6 +7,7 @@ use DeliciousBrains\WP_Offload_Media\Integrations\Integration;
 use DeliciousBrains\WP_Offload_Media\Items\Media_Library_Item;
 use DeliciousBrains\WP_Offload_Media\Pro\Items\Update_Acl_Handler;
 use Exception;
+use WP_Error;
 
 class Easy_Digital_Downloads extends Integration {
 
@@ -78,11 +79,17 @@ class Easy_Digital_Downloads extends Integration {
 	 * @param array  $download_files
 	 * @param string $file_key
 	 *
-	 * @return mixed
+	 * @return bool|string|WP_Error
 	 * @throws Exception
+	 *
+	 * @handles edd_requested_file
 	 */
 	public function get_download_url( $file, $download_files, $file_key ) {
 		global $edd_options;
+
+		if ( empty( $file ) || empty( $download_files ) || empty( $file_key ) || ! is_array( $download_files ) || empty( $download_files[ $file_key ] ) ) {
+			return $file;
+		}
 
 		$file_data = $download_files[ $file_key ];
 		$file_name = $file_data['file'];
@@ -103,11 +110,10 @@ class Easy_Digital_Downloads extends Integration {
 		$url = parse_url( $file_name );
 
 		if ( ( '/' !== $file_name[0] && false === isset( $url['scheme'] ) ) || false !== ( strpos( $file_name, 'AWSAccessKeyId' ) ) ) {
-			$bucket     = ( isset( $edd_options['edd_amazon_s3_bucket'] ) ) ? trim( $edd_options['edd_amazon_s3_bucket'] ) : $this->as3cf->get_setting( 'bucket' );
-			$expires    = time() + $expires;
-			$secure_url = $this->as3cf->get_provider_client()->get_object_url( $bucket, $file_name, $expires, $headers );
+			$bucket  = ( isset( $edd_options['edd_amazon_s3_bucket'] ) ) ? trim( $edd_options['edd_amazon_s3_bucket'] ) : $this->as3cf->get_setting( 'bucket' );
+			$expires = time() + $expires;
 
-			return $secure_url;
+			return $this->as3cf->get_provider_client()->get_object_url( $bucket, $file_name, $expires, $headers );
 		}
 
 		// None S3 upload

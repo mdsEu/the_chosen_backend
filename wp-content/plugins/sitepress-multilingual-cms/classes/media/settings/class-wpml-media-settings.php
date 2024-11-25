@@ -47,18 +47,20 @@ class WPML_Media_Settings {
 	}
 
 	public function render() {
-		$orphan_attachments_sql = "
-		SELECT COUNT(*)
-		FROM {$this->wpdb->posts}
-		WHERE post_type = 'attachment'
-			AND ID NOT IN (
-				SELECT element_id
-				FROM {$this->wpdb->prefix}icl_translations
-				WHERE element_type='post_attachment'
-			)
-		";
 
-		$orphan_attachments = $this->wpdb->get_var( $orphan_attachments_sql );
+		// phpcs:disable WordPress.DB.PreparedSQL.InterpolatedNotPrepared
+		$has_orphan_attachments = $this->wpdb->get_var(
+			"SELECT ID
+			FROM {$this->wpdb->posts} as posts
+			LEFT JOIN {$this->wpdb->prefix}icl_translations as translations
+			ON posts.ID = translations.element_id
+			WHERE posts.post_type = 'attachment'
+			AND translations.element_id IS NULL
+			LIMIT 0, 1"
+		);
+		// phpcs:enable WordPress.DB.PreparedSQL.InterpolatedNotPrepared
+
+		$has_orphan_attachments = $has_orphan_attachments ? 1 : 0;
 
 		?>
 		<div class="wpml-section" id="<?php echo esc_attr( self::ID ); ?>">
@@ -68,7 +70,7 @@ class WPML_Media_Settings {
 			</div>
 
 			<div class="wpml-section-content">
-				<?php if ( $orphan_attachments ) : ?>
+				<?php if ( $has_orphan_attachments ) : ?>
 
 					<p><?php esc_html_e( "The Media Translation plugin needs to add languages to your site's media. Without this language information, existing media files will not be displayed in the WordPress admin.", 'sitepress' ); ?></p>
 
@@ -79,22 +81,24 @@ class WPML_Media_Settings {
 				<?php endif ?>
 
 				<form id="wpml_media_options_form">
-					<input type="hidden" name="no_lang_attachments" value="<?php echo $orphan_attachments; ?>"/>
+					<input type="hidden" name="no_lang_attachments" value="<?php echo (int) $has_orphan_attachments; ?>"/>
 					<input type="hidden" id="wpml_media_options_action"/>
 					<table class="wpml-media-existing-content">
 
 						<tr>
 							<td colspan="2">
 								<ul class="wpml_media_options_language">
-									<li><label><input type="checkbox" id="set_language_info" name="set_language_info" value="1"
-									<?php
-									if ( ! empty( $orphan_attachments ) ) :
-										?>
-										checked="checked"<?php endif; ?>
-													  <?php
-														if ( empty( $orphan_attachments ) ) :
-															?>
-															disabled="disabled"<?php endif ?> />&nbsp;<?php esc_html_e( 'Set language information for existing media', 'sitepress' ); ?></label></li>
+									<li>
+										<label>
+											<input type="checkbox" id="set_language_info" name="set_language_info" value="1"
+											<?php
+												echo $has_orphan_attachments
+													? ' checked="checked"'
+													: ' disabled="disabled"';
+											?>
+											/>
+											<?php esc_html_e( 'Set language information for existing media', 'sitepress' ); ?>
+										</label></li>
 									<li><label><input type="checkbox" id="translate_media" name="translate_media" value="1" checked="checked"/>&nbsp;<?php esc_html_e( 'Translate existing media in all languages', 'sitepress' ); ?></label></li>
 									<li><label><input type="checkbox" id="duplicate_media" name="duplicate_media" value="1" checked="checked"/>&nbsp;<?php esc_html_e( 'Duplicate existing media for translated content', 'sitepress' ); ?></label></li>
 									<li><label><input type="checkbox" id="duplicate_featured" name="duplicate_featured" value="1" checked="checked"/>&nbsp;<?php esc_html_e( 'Duplicate the featured images for translated content', 'sitepress' ); ?></label></li>

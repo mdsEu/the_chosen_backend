@@ -48,9 +48,9 @@
 	<Notification notification={notification} expandable bind:expanded>
 		<svelte:fragment slot="details">
 			{#if expanded}
-				<div class="details" transition:slide|local>
+				<div class="details" transition:slide>
 					{#each notification.errors.details as item, index}
-						<div class="item" transition:fade|local>
+						<div class="item" transition:fade>
 							<div class="summary">
 								<div class="title">
 									{(index + 1) + ". " + item.source_type_name}

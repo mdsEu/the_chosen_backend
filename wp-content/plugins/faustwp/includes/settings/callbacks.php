@@ -7,6 +7,11 @@
 
 namespace WPE\FaustWP\Settings;
 
+use function WPE\FaustWP\Telemetry\get_telemetry_client_id;
+use function WPE\FaustWP\Utilities\{
+	plugin_version,
+};
+
 if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
@@ -155,6 +160,14 @@ function register_settings_fields() {
 	);
 
 	add_settings_field(
+		'remove_additional_menu_locations',
+		__( 'Remove Additional Nav Menu Locations', 'faustwp' ),
+		__NAMESPACE__ . '\\display_remove_additional_menu_locations_field',
+		'faustwp-settings',
+		'settings_section'
+	);
+
+	add_settings_field(
 		'enable_disable',
 		__( 'Features', 'faustwp' ),
 		__NAMESPACE__ . '\\display_enable_disable_fields',
@@ -182,6 +195,12 @@ function sanitize_faustwp_settings( $settings, $option ) {
 	$errors    = null;
 	$protocols = array( 'http', 'https' );
 	foreach ( $settings as $name => $value ) {
+		// phpcs:ignore WordPress.Security.NonceVerification.Missing -- Nonce verified elsewhere.
+		if ( ! isset( $settings['enable_telemetry'] ) && ! empty( $_POST['option_page'] ) && 'faustwp_settings' === $_POST['option_page'] ) {
+			$reminder_time                  = new \DateTime( '+90 days', new \DateTimeZone( 'UTC' ) );
+			$settings['telemetry_reminder'] = $reminder_time->getTimestamp();
+		}
+
 		switch ( $name ) {
 			case 'frontend_uri':
 				if ( '' === $value || preg_match( '#http(s?)://(.+)#i', $value ) ) {
@@ -203,6 +222,7 @@ function sanitize_faustwp_settings( $settings, $option ) {
 				$settings[ $name ] = sanitize_text_field( $value );
 				break;
 
+			case 'remove_additional_menu_locations':
 			case 'enable_redirects':
 			case 'enable_rewrites':
 			case 'disable_theme':
@@ -214,9 +234,31 @@ function sanitize_faustwp_settings( $settings, $option ) {
 				}
 				break;
 
+			case 'enable_telemetry':
+				if ( $value ) {
+					$settings[ $name ] = sanitize_text_field( $value );
+				} else {
+					unset( $settings[ $name ] );
+				}
+				break;
+			case 'telemetry_reminder':
+				if ( $value ) {
+					$settings[ $name ] = (int) $value;
+				} else {
+					unset( $settings[ $name ] );
+				}
+				break;
+
+			case 'telemetry_client_id':
+				if ( $value ) {
+					$settings[ $name ] = sanitize_text_field( $value );
+				}
+				break;
+
 			default:
 				// Remove any settings we don't expect.
 				unset( $settings[ $name ] );
+				break;
 		}
 	}
 
@@ -297,6 +339,23 @@ function display_menu_locations_field() {
 /**
  * Callback for WordPress add_settings_field() method parameter.
  *
+ * Display the "Remove Additional Menu Locations" checkbox field.
+ *
+ * @return void
+ */
+function display_remove_additional_menu_locations_field() {
+	$removed = faustwp_get_setting( 'remove_additional_menu_locations', false );
+	?>
+	<label for="remove_additional_menu_locations">
+		<input type="checkbox" id="remove_additional_menu_locations" name="faustwp_settings[remove_additional_menu_locations]" value="1" <?php checked( $removed ); ?> /><?php esc_html_e( 'Remove all Nav Menu locations that are not registered on this screen.', 'faustwp' ); ?>
+		<p class="description"><?php esc_html_e( 'By checking this, the only Nav Menu locations will be the ones registered on this page. Leaving this un-checked will combine the menu locations on this page with menu locations registered by other plugins or themes. This has an impact on the nav menu manager in the WordPress admin and API access to menus.', 'faustwp' ); ?></p>
+	</label>
+	<?php
+}
+
+/**
+ * Callback for WordPress add_settings_field() method parameter.
+ *
  * Display the "API Key" text field.
  *
  * Added hidden field to preserve value during settings save.
@@ -336,8 +395,8 @@ function display_secret_key_field() {
 		<?php
 		printf(
 			/* translators: %s: Documentation URL. */
-			wp_kses_post( __( 'This key is used to enable <a href="%s" target="_blank" rel="noopener noreferrer">headless post previews</a>.', 'faustwp' ) ),
-			'https://faustjs.org/docs/next/guides/post-page-previews'
+			wp_kses_post( __( 'This key is used to enable <a href="%s" target="_blank" rel="noopener noreferrer">headless post previews</a> and make authenticated GraphQL requests for schema generation.', 'faustwp' ) ),
+			'https://faustjs.org/guide/how-to-setup-post-and-page-previews'
 		);
 		?>
 	</p>
@@ -374,7 +433,7 @@ function display_enable_disable_fields() {
 	$enable_rewrites     = is_rewrites_enabled();
 	$enable_redirects    = is_redirects_enabled();
 	$enable_image_source = is_image_source_replacement_enabled();
-
+	$enable_telemetry    = is_telemetry_enabled();
 	?>
 	<fieldset>
 		<legend style="margin-bottom:5px;padding:0;">
@@ -410,6 +469,13 @@ function display_enable_disable_fields() {
 			<input type="checkbox" id="enable_image_source" name="faustwp_settings[enable_image_source]" value="1" <?php checked( $enable_image_source ); ?> />
 			<?php esc_html_e( 'Use the WordPress domain for media URLs in post content', 'faustwp' ); ?>
 		</label>
+		<br />
+
+		<label for="enable_telemetry">
+			<input type="checkbox" id="enable_telemetry" name="faustwp_settings[enable_telemetry]" value="1" <?php checked( $enable_telemetry ); ?> />
+			<?php esc_html_e( 'Enable anonymous telemetry', 'faustwp' ); ?>
+		</label>
+		<input type="hidden" id="telemetry_client_id" name="faustwp_settings[telemetry_client_id]" value="<?php echo esc_attr( get_telemetry_client_id() ); ?>" />
 	</fieldset>
 	<?php
 }
@@ -433,13 +499,11 @@ function verify_graphql_dependency() {
  * Callback for admin_enqueue_scripts.
  */
 function add_settings_assets() {
-	$plugin = get_plugin_data( FAUSTWP_FILE );
-
 	wp_enqueue_style(
 		'faustwp-settings',
 		FAUSTWP_URL . 'includes/settings/assets/style.css',
 		array(),
-		$plugin['Version']
+		plugin_version()
 	);
 
 	if ( ! function_exists( 'graphql' ) ) {
@@ -447,7 +511,7 @@ function add_settings_assets() {
 			'faustwp-wpgraphql-install',
 			FAUSTWP_URL . 'includes/settings/assets/js/wpgraphql-install.js',
 			array( 'wp-a11y', 'wp-api-fetch' ),
-			$plugin['Version'],
+			plugin_version(),
 			true
 		);
 

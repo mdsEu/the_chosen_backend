@@ -6,6 +6,7 @@ $vendorDir = dirname(dirname(__FILE__));
 $baseDir = dirname($vendorDir);
 
 return array(
+    'Composer\\InstalledVersions' => $vendorDir . '/composer/InstalledVersions.php',
     'OTGS_Assets_Handles' => $vendorDir . '/otgs/ui/src/php/OTGS_Assets_Handles.php',
     'OTGS_Assets_Store' => $vendorDir . '/otgs/ui/src/php/OTGS_Assets_Store.php',
     'OTGS_UI_Assets' => $vendorDir . '/otgs/ui/src/php/OTGS_UI_Assets.php',

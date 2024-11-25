@@ -14,7 +14,7 @@ if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
  */
 class B2i_Shortcode {
 	
-	protected $version = '1.0.7.6';
+	protected $version = '1.0.7.8';
 	
 	/**
 	 * Parent plugin class
@@ -826,6 +826,7 @@ class B2i_Shortcode {
 			array(
 				'sdiv' => 'highchartdiv',
 				'h' => 'https',
+				'bizid' => '',
 				's' => '',
 				'sd' => '',
 				'e' => '',
@@ -883,6 +884,21 @@ class B2i_Shortcode {
 			),
 			$atts
 		);
+
+
+$bizid = $this->business_id;
+$api = $this->key;
+if(esc_attr( $atts['bizid'])!='' && esc_attr( $atts['api'])!=''){
+	$bizid = esc_attr( $atts['bizid']);
+	$api = esc_attr( $atts['api']);
+}
+
+
+$ticker = $this->ticker;
+if(esc_attr( $atts['s'])!=''){
+	$ticker = esc_attr( $atts['s']);
+}
+
 if($atts['sd']=='')$atts['sd'] = $ticker ;
 switch ($atts['ds']) {
   case '0':
@@ -906,11 +922,17 @@ switch ($atts['ds']) {
 }
 
 $html .= '<div id="' . esc_attr( $atts['sdiv'] ) . '" class="B2iChartContainer" style="height: ' . esc_attr( $atts['height'] ) . '; width:' . esc_attr( $atts['width'] ) . ';"></div>' . "\n";
-
 $html .= '<script src="https://stockcharting.s3.amazonaws.com/highstock.js" type="text/javascript"></script>' . "\n";
 $html .= '<script src="https://stockcharting.s3.amazonaws.com/data.js" type="text/javascript"></script>' . "\n";
+//$html .= '<script src="https://code.highcharts.com/modules/annotations-advanced.js"></script>' . "\n";
+//$html .= '<script src="https://code.highcharts.com/modules/full-screen.js"></script>' . "\n";
+//$html .= '<script src="https://code.highcharts.com/modules/price-indicator.js"></script>' . "\n";
+//$html .= '<script src="https://code.highcharts.com/modules/stock-tools.js"></script>' . "\n";
+//$html .= '<script src="https://code.highcharts.com/stock/modules/heikinashi.js"></script>' . "\n";
+//$html .= '<script src="https://code.highcharts.com/stock/modules/hollowcandlestick.js"></script>' . "\n";
+$html .= '<script src="https://code.highcharts.com/modules/accessibility.js"></script>' . "\n";
 $html .= '<script type="text/javascript">' . "\n";
-$html .= 'Highcharts.getJSON("https://demo-live-data.highcharts.com/aapl-ohlcv.json", function (data) {' . "\n";
+$html .= 'Highcharts.getJSON("https://www.b2i.us/profiles/inc/jsonstockdata.asp?b=' . $bizid . '&s=' . $ticker . '", function (data) {' . "\n";
 $html .= '    // split the data set into ohlc and volume
     var ohlc = [],
         volume = [],
@@ -974,18 +996,29 @@ $html .= "yAxis: [{
                 return position;
             }
         },
+        stockTools: {
+            gui: {
+                enabled: false
+            }
+        },
         series: [{
-            type: 'ohlc',
-            id: 'aapl-ohlc',
+            type: 'candlestick',
+            id: 'Price',
             name: '" . $atts['sd']  . " " . $dollarsign  . "',
             data: ohlc
         }, {
             type: 'column',
-            id: 'aapl-volume',
+            id: 'Volume',
             name: '" . $atts['sd']  . " Volume',
             data: volume,
             yAxis: 1
         }],
+        rangeSelector: {
+            selected: 1
+        },
+		navigation: {
+			select: true // This sets the default state as selected
+		},
         responsive: {
             rules: [{
                 condition: {
@@ -996,33 +1029,40 @@ $html .= "yAxis: [{
                         buttons: [{
                             type: 'day',
                             count: 10,
-                            text: '10d'
+                            text: '10d',
+							title: '10 days'
                         }, {
                             type: 'month',
                             count: 1,
-                            text: '1m'
+                            text: '1m',
+							title: '1 month'
                         }, {
                             type: 'month',
                             count: 3,
-                            text: '3m'
+                            text: '3m',
+							title: '3 months'
                         }, {
                             type: 'month',
                             count: 6,
-                            text: '6m'
+                            text: '6m',
+							title: '6 months'
                         }, {
                             type: 'year',
                             count: 1,
-                            text: '1y'
+                            text: '1y',
+							title: '1 year'
                         }, {
                             type: 'year',
                             count: 5,
-                            text: '5y'
+                            text: '5y',
+							title: '5 years'
                         }, {
                             type: 'all',
-                            text: 'All'
+                            text: 'All',
+							title: 'View all'
                         }],
-                        selected: 2,
-                        inputEnabled: false
+                        selected: 1,
+                        inputEnabled: true
                     }
                 }
             }]
@@ -4164,6 +4204,9 @@ if ($atts['lang']==2) {
 $html .= 'AmCharts.monthNames = ["Eenero","Febrero","Marzo","Abril","Mayo","Junio","Julio","Agosto","Septiembre","Octubre","Noviembre","Diciembre"];' . "\n";
 $html .= 'AmCharts.shortMontNames = ["Een","Feb","Mar","Abr","May","Jun","Jul","Ago","Sep","Oct","Nov","Dic"];' . "\n";
 }
+
+
+
 
 $html .= 'var chart = AmCharts.makeChart("' . esc_attr( $atts['sdiv'] ) . '", {type: "stock", ' . "\n";
 

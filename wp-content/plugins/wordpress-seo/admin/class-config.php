@@ -5,9 +5,13 @@
  * @package WPSEO\Admin
  */
 
-use Yoast\WP\SEO\Config\Schema_Types;
-use Yoast\WP\SEO\Integrations\Settings_Integration;
+use Yoast\WP\SEO\Actions\Alert_Dismissal_Action;
+use Yoast\WP\SEO\Conditionals\New_Dashboard_Ui_Conditional;
+use Yoast\WP\SEO\Dashboard\User_Interface\New_Dashboard_Page_Integration;
 use Yoast\WP\SEO\Integrations\Academy_Integration;
+use Yoast\WP\SEO\Integrations\Settings_Integration;
+use Yoast\WP\SEO\Integrations\Support_Integration;
+use Yoast\WP\SEO\Promotions\Application\Promotion_Manager;
 
 /**
  * Class WPSEO_Admin_Pages.
@@ -35,26 +39,37 @@ class WPSEO_Admin_Pages {
 	 */
 	public function __construct() {
 		add_action( 'init', [ $this, 'init' ], 20 );
+
 		$this->asset_manager = new WPSEO_Admin_Asset_Manager();
 	}
 
 	/**
 	 * Make sure the needed scripts are loaded for admin pages.
+	 *
+	 * @return void
 	 */
 	public function init() {
 		// phpcs:ignore WordPress.Security.NonceVerification.Recommended -- Reason: We are not processing form information.
 		$page = isset( $_GET['page'] ) && is_string( $_GET['page'] ) ? sanitize_text_field( wp_unslash( $_GET['page'] ) ) : '';
-		if ( $page === Settings_Integration::PAGE || $page === Academy_Integration::PAGE ) {
-			// Bail, this is managed in the Settings_Integration.
+
+		// Don't load the scripts for the following pages.
+		$page_exceptions = in_array( $page, [ Settings_Integration::PAGE, Academy_Integration::PAGE, Support_Integration::PAGE ], true );
+		// Don't load the scripts for the new dashboard page, but only if the feature flag is enabled.
+		$new_dashboard_conditional = new New_Dashboard_Ui_Conditional();
+		$new_dashboard_page        = ( $page === New_Dashboard_Page_Integration::PAGE && $new_dashboard_conditional->is_met() );
+
+		if ( $page_exceptions || $new_dashboard_page ) {
+			// Bail, this is managed in the applicable integration.
 			return;
 		}
-
 		add_action( 'admin_enqueue_scripts', [ $this, 'config_page_scripts' ] );
 		add_action( 'admin_enqueue_scripts', [ $this, 'config_page_styles' ] );
 	}
 
 	/**
 	 * Loads the required styles for the config page.
+	 *
+	 * @return void
 	 */
 	public function config_page_styles() {
 		wp_enqueue_style( 'dashboard' );
@@ -73,22 +88,25 @@ class WPSEO_Admin_Pages {
 
 	/**
 	 * Loads the required scripts for the config page.
+	 *
+	 * @return void
 	 */
 	public function config_page_scripts() {
 		$this->asset_manager->enqueue_script( 'settings' );
 		wp_enqueue_script( 'dashboard' );
 		wp_enqueue_script( 'thickbox' );
 
-		$alert_dismissal_action = YoastSEO()->classes->get( \Yoast\WP\SEO\Actions\Alert_Dismissal_Action::class );
+		$alert_dismissal_action = YoastSEO()->classes->get( Alert_Dismissal_Action::class );
 		$dismissed_alerts       = $alert_dismissal_action->all_dismissed();
 
 		$script_data = [
-			'userLanguageCode'               => WPSEO_Language_Utils::get_language( \get_user_locale() ),
 			'dismissedAlerts'                => $dismissed_alerts,
 			'isRtl'                          => is_rtl(),
 			'isPremium'                      => YoastSEO()->helpers->product->is_premium(),
-			'webinarIntroSettingsUrl'        => WPSEO_Shortlinker::get( 'https://yoa.st/webinar-intro-settings' ),
+			'currentPromotions'              => YoastSEO()->classes->get( Promotion_Manager::class )->get_current_promotions(),
 			'webinarIntroFirstTimeConfigUrl' => $this->get_webinar_shortlink(),
+			'linkParams'                     => WPSEO_Shortlinker::get_query_params(),
+			'pluginUrl'                      => plugins_url( '', WPSEO_FILE ),
 		];
 
 		// phpcs:ignore WordPress.Security.NonceVerification.Recommended -- Reason: We are not processing form information.
@@ -96,10 +114,6 @@ class WPSEO_Admin_Pages {
 
 		if ( in_array( $page, [ WPSEO_Admin::PAGE_IDENTIFIER, 'wpseo_workouts' ], true ) ) {
 			wp_enqueue_media();
-
-			$script_data['media'] = [
-				'choose_image' => __( 'Use Image', 'wordpress-seo' ),
-			];
 
 			$script_data['userEditUrl'] = add_query_arg( 'user_id', '{user_id}', admin_url( 'user-edit.php' ) );
 		}
@@ -113,31 +127,9 @@ class WPSEO_Admin_Pages {
 	}
 
 	/**
-	 * Retrieves some variables that are needed for replacing variables in JS.
-	 *
-	 * @deprecated 20.3
-	 * @codeCoverageIgnore
-	 *
-	 * @return array The replacement and recommended replacement variables.
-	 */
-	public function get_replace_vars_script_data() {
-		_deprecated_function( __METHOD__, 'Yoast SEO 20.3' );
-		$replace_vars                 = new WPSEO_Replace_Vars();
-		$recommended_replace_vars     = new WPSEO_Admin_Recommended_Replace_Vars();
-		$editor_specific_replace_vars = new WPSEO_Admin_Editor_Specific_Replace_Vars();
-		$replace_vars_list            = $replace_vars->get_replacement_variables_list();
-
-		return [
-			'replace_vars'                 => $replace_vars_list,
-			'recommended_replace_vars'     => $recommended_replace_vars->get_recommended_replacevars(),
-			'editor_specific_replace_vars' => $editor_specific_replace_vars->get(),
-			'shared_replace_vars'          => $editor_specific_replace_vars->get_generic( $replace_vars_list ),
-			'hidden_replace_vars'          => $replace_vars->get_hidden_replace_vars(),
-		];
-	}
-
-	/**
 	 * Enqueues and handles all the tool dependencies.
+	 *
+	 * @return void
 	 */
 	private function enqueue_tools_scripts() {
 		// phpcs:ignore WordPress.Security.NonceVerification.Recommended -- Reason: We are not processing form information.

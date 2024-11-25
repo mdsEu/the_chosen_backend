@@ -908,13 +908,6 @@ class WP_Installer {
 	 */
 	public function get_xml_config_file() {
 		$file_name         = 'repositories.xml';
-		$sandbox_file_name = 'repositories.sandbox.xml';
-
-		if ( file_exists( $this->get_config_file_path( $sandbox_file_name ) ) ) {
-			add_filter( 'https_ssl_verify', '__return_false' );
-
-			return $this->get_config_file_path( $sandbox_file_name );
-		}
 
 		if ( file_exists( $this->get_config_file_path( $file_name ) ) ) {
 			return $this->get_config_file_path( $file_name );

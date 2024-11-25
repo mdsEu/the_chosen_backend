@@ -1,9 +1,9 @@
 <?php return array(
     'root' => array(
         'name' => 'wp-graphql/wp-graphql-smart-cache',
-        'pretty_version' => 'v1.1.1',
-        'version' => '1.1.1.0',
-        'reference' => '196d5a66c82e47183f4110e37b18df19b0498fe2',
+        'pretty_version' => 'v1.3.3',
+        'version' => '1.3.3.0',
+        'reference' => '5ffd6f59538800342ec2257754b7d9e5d8638c9e',
         'type' => 'wordpress-plugin',
         'install_path' => __DIR__ . '/../../',
         'aliases' => array(),
@@ -11,18 +11,18 @@
     ),
     'versions' => array(
         'appsero/client' => array(
-            'pretty_version' => 'v1.2.3',
-            'version' => '1.2.3.0',
-            'reference' => 'ddfaa9ce62618e0aee4f95ddeb37a27ebd9a3508',
+            'pretty_version' => 'v1.2.1',
+            'version' => '1.2.1.0',
+            'reference' => 'd110c537f4ca92ac7f3398eee67cc6bdf506a4fb',
             'type' => 'library',
             'install_path' => __DIR__ . '/../appsero/client',
             'aliases' => array(),
             'dev_requirement' => false,
         ),
         'wp-graphql/wp-graphql-smart-cache' => array(
-            'pretty_version' => 'v1.1.1',
-            'version' => '1.1.1.0',
-            'reference' => '196d5a66c82e47183f4110e37b18df19b0498fe2',
+            'pretty_version' => 'v1.3.3',
+            'version' => '1.3.3.0',
+            'reference' => '5ffd6f59538800342ec2257754b7d9e5d8638c9e',
             'type' => 'wordpress-plugin',
             'install_path' => __DIR__ . '/../../',
             'aliases' => array(),

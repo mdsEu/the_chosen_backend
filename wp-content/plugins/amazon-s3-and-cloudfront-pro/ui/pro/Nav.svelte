@@ -1,6 +1,6 @@
 <script>
 	import {link} from "svelte-spa-router";
-	import {counts, strings, urls} from "../js/stores";
+	import {bucket_writable, counts, strings, urls} from "../js/stores";
 	import {licence, offloadRemainingWithCount, running, tools} from "./stores";
 	import Nav from "../components/Nav.svelte";
 	import OffloadStatus from "../components/OffloadStatus.svelte";
@@ -45,6 +45,10 @@
 			}
 
 			return $strings.licence_limit_reached;
+		}
+
+		if ( ! $bucket_writable ) {
+			return $strings.disabled_tool_bucket_access;
 		}
 
 		return "";

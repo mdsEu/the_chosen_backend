@@ -518,6 +518,91 @@ Types.page.extension.relatedContent.viewmodels.ListingViewModel = function(relat
                     }
                 }, 10);
 			});
+			select2ConnectingPost = jQuery('select[data-rel=select2]').length > 0
+			? jQuery('select[data-rel=select2]').toolset_select2({
+				allowClear: true,
+				maximumSelectionSize: 1,
+				placeholder: Types.page.extension.relatedContent.strings.misc.connectExistingSelectPlaceholder,
+			})
+			: jQuery('input[data-rel=select2]').toolset_select2({
+				allowClear: true,
+				maximumSelectionSize: 1,
+				placeholder: Types.page.extension.relatedContent.strings.misc.connectExistingPlaceholder,
+				escapeMarkup: function(markup) {
+					// Using escapeMarkup in Select2 this way is known to be a security vulnerability but we're preventing
+					// that by escaping very selectively in the safelyBuildTemplate function above, so whatever markup reaches
+					// this place is already safe.
+					return markup;
+				},
+				templateResult: safelyBuildTemplate,
+				templateSelection: safelyBuildTemplate,
+				minimumInputLength: 3,
+				ajax: {
+					url: ajaxurl + '?action=' + relatedContentModels.ajaxInfo.actionName,
+					dataType: 'json',
+					method: 'post',
+					delay: 500,
+					data: function (params) {
+						const ajaxData = {
+							q: params.term,
+							page: params.page,
+							related_content_action: 'search_related_content',
+							post_type: relatedContentModels.ajaxInfo.relatedPostType,
+							relationship_slug: relatedContentModels.relationship_slug,
+							current_post_id: relatedContentModels.postId,
+							nonce: relatedContentModels.ajaxInfo.nonce,
+							wpnonce: relatedContentModels.ajaxInfo.nonce,
+						};
+
+						// AJAX call is missing the WPML language information, we need to pass it along.
+						const currentLang = WPV_Toolset.Utils.getParameterByName( 'lang' );
+						if( null !== currentLang ) {
+							ajaxData['current_language'] = currentLang;
+						}
+
+						return ajaxData;
+					},
+					processResults: function (data, params) {
+						if (!data.success) {
+							return {
+								results: []
+							}
+						}
+						return {
+							results: data.data.items,
+							pagination: data.data.pagination
+						};
+					},
+					cache: false
+				}
+			});
+			
+			select2ConnectingPost.on('change.select2', function() {
+				// Enables/disables the dialog button, can't be done with ko.
+				var value = jQuery(this).val(),
+				$saveButton = jQuery(this).parents('.ui-dialog-content').next().find('button').first();
+
+                // Compatibility issues here:
+                // (1) jQuery.fb.button conflicts with Twitter Bootstrap (https://github.com/twbs/bootstrap/issues/6094)
+                //     This cannot be used: saveButton.button( value ? 'enable' : 'disable' );
+                // (2) jQuery datepicker may cause conflicts if we just add/remove the 'disabled' attribute:
+                //     saveButton.removeAttr( 'disabled' ); saveButton.attr( 'disabled' );
+                //     This was happening especially with ICL-MPP @ oursystem-6809. We also need to add and remove
+                //     ui-* classes related to the button state.
+                if (value) {
+                    $saveButton.prop('disabled', false).removeClass('ui-button-disabled').removeClass('ui-state-disabled');
+                } else {
+                    $saveButton.prop('disabled', true).addClass('ui-button-disabled').addClass('ui-state-disabled');
+                }
+                // the tiny delay is required, otherwise it's fired to early
+                setTimeout(function () {
+                    // after a post is select the save button is focused, this way the workflow of the user is:
+                    // Click on "Connect existing..." > Typing > "Enter" for selecting post > "Enter" to save & close the dialog
+                    if (value) {
+                        $saveButton.focus();
+                    }
+                }, 10);
+			});
 		}, self ).display();
 
 		// the tiny delay is required, otherwise it's fired to early

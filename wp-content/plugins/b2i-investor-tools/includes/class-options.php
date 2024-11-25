@@ -253,9 +253,9 @@ class B2i_Options {
 		) );
 		
 		$cmb->add_field( array(
-			'name'    => __( 'Use "Call Home" verify', 'b2i' ),
+			'name'    => __( 'Use item key verification', 'b2i' ),
 			'id'      => 'use_call_home',
-			'desc'    => 'Enables ItemKey validate against B2i URL.',
+			'desc'    => 'Enables automated validation at an Item level with a B2i URL.',
 			'type'    => 'checkbox',
 			'default'          => false, //If it's checked by default
 			'active_value'     => true,
@@ -264,7 +264,7 @@ class B2i_Options {
 		
 		$iplist = cmb2_get_option( 'b2i_options', 'iplist' );
 		if($iplist==''){
-			cmb2_update_option( 'b2i_options', 'iplist', '66.111.109.135 66.111.109.141 66.111.109.108 66.111.109.109');
+			cmb2_update_option( 'b2i_options', 'iplist', '192.31.142.164 192.31.142.165 192.31.142.182');
 		}
 		
 	}

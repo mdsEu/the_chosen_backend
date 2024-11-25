@@ -33,39 +33,32 @@ class WPML_TF_Collection implements Iterator, Countable {
 		return array_key_exists( $id, $this->collection ) ? $this->collection[ $id ] : null;
 	}
 
-	/**
-	 * @return int
-	 */
-	public function count() {
+	public function count(): int {
 		return count( $this->collection );
 	}
 
-	public function rewind() {
+	public function rewind(): void {
 		reset( $this->collection );
 	}
 
-	/**
-	 * @return mixed
-	 */
+	#[\ReturnTypeWillChange]
 	public function current() {
 		return current( $this->collection );
 	}
 
-	/**
-	 * @return mixed
-	 */
+	#[\ReturnTypeWillChange]
 	public function key() {
 		return key( $this->collection );
 	}
 
-	public function next() {
+	public function next(): void {
 		next( $this->collection );
 	}
 
 	/**
 	 * @return bool
 	 */
-	public function valid() {
+	public function valid(): bool {
 		return key( $this->collection ) !== null;
 	}
 }

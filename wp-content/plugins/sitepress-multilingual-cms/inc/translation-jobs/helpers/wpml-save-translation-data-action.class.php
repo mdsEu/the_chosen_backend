@@ -308,8 +308,6 @@ class WPML_Save_Translation_Data_Action extends WPML_Translation_Job_Helper_With
 					'needs_update' => $needs_second_update,
 				] );
 
-				$this->translate_link_targets_in_posts->new_content();
-				$this->translate_link_targets_in_strings->new_content();
 
 				if ( ! defined( 'REST_REQUEST' ) && ! defined( 'XMLRPC_REQUEST' ) && ! defined( 'DOING_AJAX' ) && ! isset( $_POST['xliff_upload'] ) ) {
 					$action_type           = is_null( $element_id ) ? 'added' : 'updated';

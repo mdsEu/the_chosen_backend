@@ -2,15 +2,16 @@
 
 namespace WPML\GraphQL\Resolvers;
 
-use WPML\LIB\WP\Hooks;
-use function WPML\FP\spreadArgs;
 use WPGraphQL\AppContext;
 use WPGraphQL\Model\Model;
+use WPGraphQL\Model\Term;
 use GraphQL\Type\Definition\ResolveInfo;
 use WPML\GraphQL\Resolvers\Interfaces\TranslationFields;
 use WPML\GraphQL\Resolvers\Interfaces\ModelFields;
 
 class TermFields extends BaseFields implements TranslationFields, ModelFields {
+
+	const MODEL_OBJECT = 'TermObject';
 
 	/**
 	 * Resolve language field
@@ -28,7 +29,7 @@ class TermFields extends BaseFields implements TranslationFields, ModelFields {
 		AppContext $context,
 		ResolveInfo $info
 	) {
-		if ( ! $term instanceof \WPGraphQL\Model\Term ) {
+		if ( ! $term instanceof Term ) {
 			return null;
 		}
 		$fields = array_keys( $info->getFieldSelection() );
@@ -54,7 +55,7 @@ class TermFields extends BaseFields implements TranslationFields, ModelFields {
 	 * @return null|string
 	 */
 	public function resolveLanguageCodeField( Model $term ) {
-		if ( ! $term instanceof \WPGraphQL\Model\Term ) {
+		if ( ! $term instanceof Term ) {
 			return null;
 		}
 
@@ -69,7 +70,7 @@ class TermFields extends BaseFields implements TranslationFields, ModelFields {
 	 * @return null|int
 	 */
 	public function resolveTranslationGroupIdField( Model $term ) {
-		if ( ! $term instanceof \WPGraphQL\Model\Term ) {
+		if ( ! $term instanceof Term ) {
 			return null;
 		}
 
@@ -86,7 +87,7 @@ class TermFields extends BaseFields implements TranslationFields, ModelFields {
 	 * @return null|mixed[]
 	 */
 	public function resolveTranslationsField( Model $term ) {
-		if ( ! $term instanceof \WPGraphQL\Model\Term ) {
+		if ( ! $term instanceof Term ) {
 			return null;
 		}
 
@@ -117,20 +118,14 @@ class TermFields extends BaseFields implements TranslationFields, ModelFields {
 	}
 
 	/**
-	 * Adjust the TermObject model fields related to URLs: 'uri' and 'link'
-	 *
-	 * @param mixed[]           $fields
-	 * @param string            $modelName
-	 * @param \WP_Post|\WP_Term $data
+	 * @param mixed[]              $fields
+	 * @param string               $modelName
+	 * @param mixed[]|object|mixed $data
 	 *
 	 * @return mixed[]
 	 */
 	public function adjustModelFields( $fields, $modelName, $data ) {
-		if ( 'TermObject' !== $modelName ) {
-			return $fields;
-		}
-
-		if ( ! $data instanceof \WP_Term ) {
+		if ( self::MODEL_OBJECT !== $modelName ) {
 			return $fields;
 		}
 
