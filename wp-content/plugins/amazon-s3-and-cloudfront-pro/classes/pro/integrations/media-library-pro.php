@@ -103,6 +103,9 @@ class Media_Library_Pro extends Media_Library {
 				'as3cf_access' => _x( 'Access', 'Media Library column heading', 'amazon-s3-and-cloudfront' ),
 			);
 		}
+
+		// Update media counts cache with current provider and bucket usage.
+		add_filter( 'as3cf_media_counts_for_blog', array( $this, 'add_providers_and_buckets_to_media_counts' ), 10, 3 );
 	}
 
 	/**
@@ -1371,9 +1374,33 @@ class Media_Library_Pro extends Media_Library {
 	 * @return array
 	 */
 	private function get_providers_and_buckets(): array {
+		$blog_id = get_current_blog_id();
+		$counts  = $this->as3cf->media_counts();
+
+		if ( ! empty( $counts['providers'][ $blog_id ] ) ) {
+			return $counts['providers'][ $blog_id ];
+		}
+
+		return array();
+	}
+
+	/**
+	 * Update media counts cache with current provider and bucket usage.
+	 *
+	 * @param array  $media_counts
+	 * @param int    $blog_id
+	 * @param string $table_prefix
+	 *
+	 * @return array
+	 */
+	public function add_providers_and_buckets_to_media_counts( $media_counts, $blog_id, $table_prefix ): array {
 		global $wpdb;
 
-		$table = $wpdb->get_blog_prefix() . Item::ITEMS_TABLE;
+		if ( ! is_array( $media_counts ) || ! is_int( $blog_id ) || empty( $table_prefix ) || ! is_string( $table_prefix ) ) {
+			return $media_counts;
+		}
+
+		$table = $table_prefix . Item::ITEMS_TABLE;
 		$rows  = $wpdb->get_results( "SELECT DISTINCT provider, bucket FROM $table ORDER BY provider, bucket" );
 
 		$providers = array_unique( array_map( function ( $row ) {
@@ -1397,7 +1424,9 @@ class Media_Library_Pro extends Media_Library {
 			}
 		}
 
-		return $all_buckets;
+		$media_counts['providers'][ $blog_id ] = $all_buckets;
+
+		return $media_counts;
 	}
 
 	/**

@@ -1,5 +1,5 @@
 <?php
-
+#[\AllowDynamicProperties]
 class WPML_Package {
 
 	const CACHE_GROUP = 'WPML_Package';

@@ -12,6 +12,7 @@ use WPML\FP\Maybe;
 use WPML\FP\Obj;
 use WPML\LIB\WP\User;
 use WPML\TranslationRoles\UI\Initializer as TranslationRolesInitializer;
+use function WPML\Container\make;
 use function WPML\FP\partial;
 use WPML\LIB\WP\Hooks;
 use WPML\LIB\WP\Nonce;
@@ -49,6 +50,9 @@ class TranslationMethodSettings {
 
 		$editor = (string)Settings::pathOr(ICL_TM_TMETHOD_MANUAL, ['translation-management', 'doc_translation_method']);
 
+		/** @var Jobs $jobs */
+		$jobs = make( Jobs::class );
+
 		return [
 			'name' => 'wpml_translation_method',
 			'data' => [
@@ -68,20 +72,20 @@ class TranslationMethodSettings {
 					'translateAutomaticallyDoc'  => DocPage::getTranslateAutomatically(),
 					'translatorsTabLink'         => UIPage::getTMTranslators(),
 				],
-				'disableTranslateEverything' => (bool)Obj::prop('disable_translate_everything', $_GET),
-				'hasSubscription' => Account::isAbleToTranslateAutomatically(),
-				'createAccountLink' => UIPage::getTMATE() . '&widget_action=wpml_signup',
-				'translateAutomaticallyDoc' => DocPage::getTranslateAutomatically(),
-				'postTypes' => Fns::map($getPostTypeName, PostTypes::getAutomaticTranslatable()),
-				'hasTranslationService' => ActiveServiceRepository::get() !== null,
-				'translatorsTabLink' => UIPage::getTMTranslators(),
-				'hasJobsInProgress' => count(Jobs::getJobsToSync()),
-				'isTMAllowed' => \WPML\Setup\Option::isTMAllowed(),
-				'isClassicEditor' => Lst::includes($editor, [
-					(string)ICL_TM_TMETHOD_EDITOR,
-					(string)ICL_TM_TMETHOD_MANUAL
-				]),
-				'translationRoles' => TranslationRolesInitializer::getTranslationData( null, false ),
+				'disableTranslateEverything' => (bool) Obj::prop( 'disable_translate_everything', $_GET ),
+				'hasSubscription'            => Account::isAbleToTranslateAutomatically(),
+				'createAccountLink'          => UIPage::getTMATE() . '&widget_action=wpml_signup',
+				'translateAutomaticallyDoc'  => DocPage::getTranslateAutomatically(),
+				'postTypes'                  => Fns::map( $getPostTypeName, PostTypes::getAutomaticTranslatable() ),
+				'hasTranslationService'      => ActiveServiceRepository::get() !== null,
+				'translatorsTabLink'         => UIPage::getTMTranslators(),
+				'hasJobsInProgress'          => $jobs->hasAnyToSync(),
+				'isTMAllowed'                => \WPML\Setup\Option::isTMAllowed(),
+				'isClassicEditor'            => Lst::includes( $editor, [
+					(string) ICL_TM_TMETHOD_EDITOR,
+					(string) ICL_TM_TMETHOD_MANUAL
+				] ),
+				'translationRoles'           => TranslationRolesInitializer::getTranslationData( null, false ),
 			],
 		];
 	}

@@ -246,13 +246,6 @@ class Toolset_Assets_Manager {
 	// parsley lib for field validation
 	const SCRIPT_PARSLEY = 'toolset-parsley';
 
-	// React
-	const SCRIPT_REACT = 'react';
-	const SCRIPT_REACT_DOM = 'react-dom';
-
-	// Lodash
-	const SCRIPT_LODASH = 'lodash';
-
 	// Legacy validation and conditional display scripts - careful, these are also registered all over Toolset
 	const SCRIPT_WPTOOLSET_FORM_VALIDATION = 'wptoolset-form-validation';
 	const SCRIPT_WPTOOLSET_FORM_CONDITIONAL = 'wptoolset-form-conditional';
@@ -1064,34 +1057,6 @@ class Toolset_Assets_Manager {
 			TOOLSET_COMMON_VERSION,
 			true
 		);
-
-		if ( ! wp_script_is( self::SCRIPT_REACT, 'registered' ) ) {
-			$this->register_script(
-				self::SCRIPT_REACT,
-				$this->assets_url . '/res/lib/react/' . $this->choose_script_version( 'react.production.min.js', 'react.development.js' ),
-				array(),
-				'16.6.3'
-			);
-		}
-
-		if ( ! wp_script_is( self::SCRIPT_REACT_DOM, 'registered' ) ) {
-			$this->register_script(
-				self::SCRIPT_REACT_DOM,
-				$this->assets_url . '/res/lib/react/' . $this->choose_script_version( 'react-dom.production.min.js', 'react-dom.development.js' ),
-				array( self::SCRIPT_REACT ),
-				'16.6.3'
-			);
-		}
-
-		if ( ! wp_script_is( self::SCRIPT_LODASH, 'registered' ) ) {
-			$this->register_script(
-				self::SCRIPT_LODASH,
-				$this->assets_url . '/res/lib/lodash/lodash.min.js',
-				array(),
-				'4.17.11'
-			);
-			wp_add_inline_script( self::SCRIPT_LODASH, 'window.lodash = _.noConflict();' );
-		}
 
 		$this->localize_script(
 			self::SCRIPT_UTILS,

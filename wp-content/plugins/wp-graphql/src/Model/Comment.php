@@ -2,7 +2,6 @@
 
 namespace WPGraphQL\Model;
 
-use Exception;
 use GraphQLRelay\Relay;
 use WP_Comment;
 
@@ -25,9 +24,11 @@ use WP_Comment;
  * @property string $dateGmt
  * @property string $id
  * @property string $karma
+ * @property string $link
  * @property string $parentId
  * @property string $status
  * @property string $type
+ * @property string $uri
  *
  * @package WPGraphQL\Model
  */
@@ -44,11 +45,8 @@ class Comment extends Model {
 	 * Comment constructor.
 	 *
 	 * @param \WP_Comment $comment The incoming WP_Comment to be modeled
-	 *
-	 * @throws \Exception
 	 */
 	public function __construct( WP_Comment $comment ) {
-
 		$allowed_restricted_fields = [
 			'id',
 			'ID',
@@ -58,6 +56,7 @@ class Comment extends Model {
 			'date',
 			'dateGmt',
 			'karma',
+			'link',
 			'type',
 			'commentedOnId',
 			'comment_post_ID',
@@ -67,23 +66,19 @@ class Comment extends Model {
 			'parentId',
 			'parentDatabaseId',
 			'isRestricted',
+			'uri',
 			'userId',
 		];
 
 		$this->data = $comment;
 		$owner      = ! empty( $comment->user_id ) ? absint( $comment->user_id ) : null;
 		parent::__construct( 'moderate_comments', $allowed_restricted_fields, $owner );
-
 	}
 
 	/**
-	 * Method for determining if the data should be considered private or not
-	 *
-	 * @return bool
-	 * @throws \Exception
+	 * {@inheritDoc}
 	 */
 	protected function is_private() {
-
 		if ( empty( $this->data->comment_post_ID ) ) {
 			return true;
 		}
@@ -109,18 +104,13 @@ class Comment extends Model {
 		}
 
 		return false;
-
 	}
 
 	/**
-	 * Initializes the object
-	 *
-	 * @return void
+	 * {@inheritDoc}
 	 */
 	protected function init() {
-
 		if ( empty( $this->fields ) ) {
-
 			$this->fields = [
 				'id'                 => function () {
 					return ! empty( $this->data->comment_ID ) ? Relay::toGlobalId( 'comment', $this->data->comment_ID ) : null;
@@ -175,6 +165,11 @@ class Comment extends Model {
 				'karma'              => function () {
 					return ! empty( $this->data->comment_karma ) ? $this->data->comment_karma : null;
 				},
+				'link'               => function () {
+					$link = get_comment_link( $this->data );
+
+					return ! empty( $link ) ? urldecode( $link ) : null;
+				},
 				'approved'           => function () {
 					_doing_it_wrong( __METHOD__, 'The approved field is deprecated in favor of `status`', '1.13.0' );
 					return ! empty( $this->data->comment_approved ) && 'hold' !== $this->data->comment_approved;
@@ -192,12 +187,15 @@ class Comment extends Model {
 				'type'               => function () {
 					return ! empty( $this->data->comment_type ) ? $this->data->comment_type : null;
 				},
+				'uri'                => function () {
+					$uri = $this->link;
+
+					return ! empty( $uri ) ? str_ireplace( home_url(), '', $uri ) : null;
+				},
 				'userId'             => function () {
 					return ! empty( $this->data->user_id ) ? absint( $this->data->user_id ) : null;
 				},
 			];
-
 		}
-
 	}
 }

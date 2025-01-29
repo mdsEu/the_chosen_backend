@@ -5,31 +5,28 @@
         'type' => 'wordpress-plugin',
         'install_path' => __DIR__ . '/../../',
         'aliases' => array(),
-        'reference' => '476aa2d251f4839f289d4317b4023d2874ac0988',
+        'reference' => '3e9a64fbc7893d7b1deaa6f9c313e229fb5c494b',
         'name' => 'yoast/wordpress-seo',
         'dev' => false,
     ),
     'versions' => array(
         'composer/installers' => array(
-            'pretty_version' => 'v1.12.0',
-            'version' => '1.12.0.0',
+            'pretty_version' => 'v2.2.0',
+            'version' => '2.2.0.0',
             'type' => 'composer-plugin',
             'install_path' => __DIR__ . '/./installers',
             'aliases' => array(),
-            'reference' => 'd20a64ed3c94748397ff5973488761b22f6d3f19',
+            'reference' => 'c29dc4b93137acb82734f672c37e029dfbd95b35',
             'dev_requirement' => false,
         ),
-        'roundcube/plugin-installer' => array(
+        'yoast/whip' => array(
+            'pretty_version' => '2.0.0',
+            'version' => '2.0.0.0',
+            'type' => 'library',
+            'install_path' => __DIR__ . '/../yoast/whip',
+            'aliases' => array(),
+            'reference' => '5cfd9c3b433774548ec231fe896d5e85d17ed0d1',
             'dev_requirement' => false,
-            'replaced' => array(
-                0 => '*',
-            ),
-        ),
-        'shama/baton' => array(
-            'dev_requirement' => false,
-            'replaced' => array(
-                0 => '*',
-            ),
         ),
         'yoast/wordpress-seo' => array(
             'pretty_version' => 'dev-main',
@@ -37,7 +34,7 @@
             'type' => 'wordpress-plugin',
             'install_path' => __DIR__ . '/../../',
             'aliases' => array(),
-            'reference' => '476aa2d251f4839f289d4317b4023d2874ac0988',
+            'reference' => '3e9a64fbc7893d7b1deaa6f9c313e229fb5c494b',
             'dev_requirement' => false,
         ),
     ),

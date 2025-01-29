@@ -443,7 +443,8 @@ class WPML_Package_Helper {
 		$package_job = new WPML_Package_TM( $package );
 		$package_job->set_language_details( $_POST['package_lang'] );
 
-		$args = filter_var_array( json_decode( base64_decode( $_POST['args'] ) ), FILTER_SANITIZE_STRING );
+		$args = json_decode( base64_decode( $_POST['args'] ) );
+		$args = array_map( 'sanitize_text_field', (array) $args );
 
 		$package_metabox = new WPML_Package_Translation_Metabox( $package, $wpdb, $sitepress, $args );
 		$response        = array(

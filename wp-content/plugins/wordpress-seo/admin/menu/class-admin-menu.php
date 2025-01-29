@@ -5,6 +5,7 @@
  * @package WPSEO\Admin\Menu
  */
 
+use Yoast\WP\SEO\Conditionals\New_Dashboard_Ui_Conditional;
 /**
  * Registers the admin menu on the left of the admin area.
  */
@@ -22,6 +23,8 @@ class WPSEO_Admin_Menu extends WPSEO_Base_Menu {
 
 	/**
 	 * Registers the menu item submenus.
+	 *
+	 * @return void
 	 */
 	public function register_settings_page() {
 		$manage_capability   = $this->get_manage_capability();
@@ -86,7 +89,6 @@ class WPSEO_Admin_Menu extends WPSEO_Base_Menu {
 
 		// Submenu pages.
 		$submenu_pages = [
-			$this->get_submenu_page( __( 'General', 'wordpress-seo' ), $this->get_page_identifier() ),
 			$this->get_submenu_page(
 				__( 'Search Console', 'wordpress-seo' ),
 				'wpseo_search_console',
@@ -96,10 +98,14 @@ class WPSEO_Admin_Menu extends WPSEO_Base_Menu {
 			$this->get_submenu_page( $this->get_license_page_title(), 'wpseo_licenses' ),
 		];
 
+		if ( ! ( new New_Dashboard_Ui_Conditional() )->is_met() ) {
+			array_unshift( $submenu_pages, $this->get_submenu_page( __( 'General', 'wordpress-seo' ), $this->get_page_identifier() ) );
+		}
+
 		/**
 		 * Filter: 'wpseo_submenu_pages' - Collects all submenus that need to be shown.
 		 *
-		 * @api array $submenu_pages List with all submenu pages.
+		 * @param array $submenu_pages List with all submenu pages.
 		 */
 		return (array) apply_filters( 'wpseo_submenu_pages', $submenu_pages );
 	}
@@ -114,12 +120,10 @@ class WPSEO_Admin_Menu extends WPSEO_Base_Menu {
 		$notification_count  = $notification_center->get_notification_count();
 
 		// Add main page.
-		/* translators: %s: number of notifications */
+		/* translators: Hidden accessibility text; %s: number of notifications. */
 		$notifications = sprintf( _n( '%s notification', '%s notifications', $notification_count, 'wordpress-seo' ), number_format_i18n( $notification_count ) );
 
-		$counter = sprintf( '<span class="update-plugins count-%1$d"><span class="plugin-count" aria-hidden="true">%1$d</span><span class="screen-reader-text">%2$s</span></span>', $notification_count, $notifications );
-
-		return $counter;
+		return sprintf( '<span class="update-plugins count-%1$d"><span class="plugin-count" aria-hidden="true">%1$d</span><span class="screen-reader-text">%2$s</span></span>', $notification_count, $notifications );
 	}
 
 	/**
